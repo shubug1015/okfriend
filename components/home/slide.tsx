@@ -79,11 +79,13 @@ export default function Slide() {
               </div>
             </div>
 
-            <div className='text-center text-[5rem] font-sans font-bold leading-[1.2] whitespace-pre-wrap'>
+            <div className='drop-shadow-md text-center text-[5rem] font-sans font-bold leading-[1.2] whitespace-pre-wrap'>
               {i.title}
             </div>
 
-            <div className='text-2xl font-bold mt-6'>{i.text}</div>
+            <div className='drop-shadow-md text-2xl font-bold mt-6'>
+              {i.text}
+            </div>
           </div>
         ))}
       </Slider>
