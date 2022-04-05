@@ -25,7 +25,7 @@ export default function Contact() {
           <div className='text-[1.375rem] mt-4'>
             궁금한 사항에 대해 신속히 답변드리겠습니다.
           </div>
-          <div className='bg-white flex justify-center mt-11 items-center w-28 h-10 rounded-full text-[#01111e] font-bold'>
+          <div className='bg-white flex justify-center mt-11 items-center w-32 h-10 rounded-full text-[#01111e] font-bold'>
             1:1 문의하기
           </div>
         </div>

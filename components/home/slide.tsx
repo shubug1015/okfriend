@@ -2,7 +2,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Image from 'next/image';
-import Slide1 from '@public/home/slide-1.png';
+import SlideBg1 from '@public/home/slide-bg-1.png';
 import { useRef, useState } from 'react';
 import useInterval from '@libs/client/useInterval';
 
@@ -10,13 +10,13 @@ export default function Slide() {
   const slide = [
     {
       id: 0,
-      bgImg: Slide1,
+      bgImg: SlideBg1,
       title: '2022 OKFriends\nCyberCamp',
       text: '재외동포 대학생 온라인 모국연수',
     },
     {
       id: 1,
-      bgImg: Slide1,
+      bgImg: SlideBg1,
       title: '2022 OKFriends\nCyberCamp',
       text: '재외동포 대학생 온라인 모국연수',
     },
