@@ -64,7 +64,7 @@ export default function Lecture() {
             }}
             className={cls(
               type === '온라인 연수' ? 'text-white' : 'text-[#9e9e9e]',
-              'text-3xl font-black cursor-pointer transition-all'
+              'text-3xl font-bold cursor-pointer transition-all'
             )}
           >
             온라인 연수
@@ -77,7 +77,7 @@ export default function Lecture() {
             }}
             className={cls(
               type === '사전 온라인 연수' ? 'text-white' : 'text-[#9e9e9e]',
-              'text-3xl font-black cursor-pointer transition-all'
+              'text-3xl font-bold cursor-pointer transition-all'
             )}
           >
             사전 온라인 연수
@@ -90,7 +90,7 @@ export default function Lecture() {
               onClick={() => setCategory('라이브 차시')}
               className={cls(
                 category === '라이브 차시'
-                  ? 'text-[#2fb6bc] border-b-2 pb-2 border-[#2fb6bc]'
+                  ? 'text-[#2fb6bc] border-b-4 pb-2 border-[#2fb6bc]'
                   : 'text-[#9e9e9e]',
                 'transition-colors cursor-pointer'
               )}
@@ -101,7 +101,7 @@ export default function Lecture() {
               onClick={() => setCategory('필수 차시')}
               className={cls(
                 category === '필수 차시'
-                  ? 'text-[#2fb6bc] border-b-2 pb-2 border-[#2fb6bc]'
+                  ? 'text-[#2fb6bc] border-b-4 pb-2 border-[#2fb6bc]'
                   : 'text-[#9e9e9e]',
                 'transition-colors cursor-pointer'
               )}
@@ -112,7 +112,7 @@ export default function Lecture() {
               onClick={() => setCategory('선택 차시')}
               className={cls(
                 category === '선택 차시'
-                  ? 'text-[#2fb6bc] border-b-2 pb-2 border-[#2fb6bc]'
+                  ? 'text-[#2fb6bc] border-b-4 pb-2 border-[#2fb6bc]'
                   : 'text-[#9e9e9e]',
                 'transition-colors cursor-pointer'
               )}
