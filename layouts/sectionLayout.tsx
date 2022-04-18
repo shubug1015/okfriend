@@ -29,6 +29,9 @@ export default function Layout({
           router.pathname === '/' ? 'max-w-[1400px]' : 'max-w-[1180px]',
           'mx-auto w-full'
         )}
+        style={{
+          maxWidth: router.pathname === '/' ? '1400px' : '1180px',
+        }}
       >
         {children}
       </div>

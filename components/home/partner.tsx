@@ -4,7 +4,7 @@ import Layout from '@layouts/sectionLayout';
 
 export default function Partner() {
   return (
-    <Layout padding='py-[4.25rem]'>
+    <Layout bgColor='bg-white' padding='py-[4.25rem]'>
       <div className='relative w-full h-[19.2rem]'>
         <Image
           src={PartnersImg}
