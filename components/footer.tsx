@@ -1,7 +1,4 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { cls } from '@libs/utils';
-import { Facebook, Instagram, Youtube, FooterLogo } from '@libs/svg';
+import { Facebook, Instagram, Youtube, FooterLogo } from '@components/svg';
 import Layout from '@layouts/sectionLayout';
 
 export default function Footer() {

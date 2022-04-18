@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import BgImg from '@public/home/lecture-bg.png';
 import { useState } from 'react';
-import { cls } from '@libs/utils';
+import { cls } from '@libs/client/utils';
 
 export default function Lecture() {
   const [type, setType] = useState('온라인 연수');

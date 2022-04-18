@@ -1,8 +1,12 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import { cls } from '@libs/utils';
-import { TopLogo1, TopLogo2 } from '@libs/logos';
-import { Facebook, Instagram, Youtube, Logo } from '@libs/svg';
+import {
+  TopLogo1,
+  TopLogo2,
+  Facebook,
+  HeaderLogo,
+  Instagram,
+  Youtube,
+} from '@components/svg';
 
 export default function Header() {
   return (
@@ -43,7 +47,7 @@ export default function Header() {
         <div className='mx-auto max-w-[1400px] flex justify-between items-center h-20'>
           <Link href='/'>
             <a>
-              <Logo />
+              <HeaderLogo />
             </a>
           </Link>
 
@@ -65,7 +69,7 @@ export default function Header() {
             </Link>
           </div>
 
-          <Link href='/'>
+          <Link href='/login'>
             <a className='bg-[#2fb6bc] px-10 py-3 rounded-full text-white font-bold'>
               로그인
             </a>
