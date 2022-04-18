@@ -10,7 +10,7 @@ interface IProps {
 
 export default function Banner({ title, navList }: IProps) {
   return (
-    <div className='relative h-80 flex items-center'>
+    <div className='relative h-80 flex items-end pb-24'>
       <div className='absolute top-0 left-0 w-full h-full -z-[1]'>
         <Image
           src={BgImg}
