@@ -21,10 +21,12 @@ const Course: NextPage = () => {
               사전 온라인연수
             </div>
 
-            <Link href='/course/pre-online/compulsory/1'>
-              <div className='flex justify-center items-center text-xl font-bold text-white border border-white rounded-lg w-44 h-[3.75rem] cursor-pointer bg-[rgba(0,0,0,0.5)]'>
-                바로가기
-              </div>
+            <Link href='/course/pre-online/required/1'>
+              <a>
+                <div className='flex justify-center items-center text-xl font-bold text-white border border-white rounded-lg w-44 h-[3.75rem] cursor-pointer bg-[rgba(0,0,0,0.5)]'>
+                  바로가기
+                </div>
+              </a>
             </Link>
           </div>
 
@@ -32,9 +34,13 @@ const Course: NextPage = () => {
             <div className='text-white text-[1.625rem] font-bold'>
               온라인연수
             </div>
-            <div className='flex justify-center items-center text-xl font-bold text-white border border-white rounded-lg w-44 h-[3.75rem] cursor-pointer bg-[rgba(0,0,0,0.5)]'>
-              바로가기
-            </div>
+            <Link href='/course/online/live/1'>
+              <a>
+                <div className='flex justify-center items-center text-xl font-bold text-white border border-white rounded-lg w-44 h-[3.75rem] cursor-pointer bg-[rgba(0,0,0,0.5)]'>
+                  바로가기
+                </div>
+              </a>
+            </Link>
           </div>
         </div>
       </Layout>

@@ -7,8 +7,11 @@ import {
   Instagram,
   Youtube,
 } from '@components/svg';
+import { useScroll } from '@libs/client/useScroll';
+import { cls } from '@libs/client/utils';
 
 export default function Header() {
+  const { y } = useScroll();
   return (
     <header className='fixed top-0 left-0 z-[9999] h-32 w-screen'>
       <div className='bg-[#f8f8f8]'>
@@ -43,7 +46,12 @@ export default function Header() {
         </div>
       </div>
 
-      <div className='border-b bg-[#01111e] border-[rgba(232,232,232,0.3)]'>
+      <div
+        className={cls(
+          y === 0 ? '' : 'bg-[#01111e]',
+          'border-b border-[rgba(232,232,232,0.3)] transition-all duration-300'
+        )}
+      >
         <div className='mx-auto max-w-[1400px] flex justify-between items-center h-20'>
           <Link href='/'>
             <a>
