@@ -1,4 +1,5 @@
 import { cls } from '@libs/client/utils';
+import { useRouter } from 'next/router';
 
 interface LayoutProps {
   bgColor?: string;
@@ -13,6 +14,7 @@ export default function Layout({
   padding,
   children,
 }: LayoutProps) {
+  const router = useRouter();
   return (
     <div
       className={cls(
@@ -22,7 +24,14 @@ export default function Layout({
         'w-screen'
       )}
     >
-      <div className='mx-auto w-full max-w-[1400px]'>{children}</div>
+      <div
+        className={cls(
+          router.pathname === '/' ? 'max-w-[1400px]' : 'max-w-[1180px]',
+          'mx-auto w-full'
+        )}
+      >
+        {children}
+      </div>
     </div>
   );
 }

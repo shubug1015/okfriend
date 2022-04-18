@@ -55,7 +55,7 @@ export default function Header() {
             <Link href='/'>
               <a>온라인연수 소개</a>
             </Link>
-            <Link href='/'>
+            <Link href='/course'>
               <a>연수실</a>
             </Link>
             <Link href='/'>
