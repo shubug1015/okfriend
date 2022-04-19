@@ -9,18 +9,12 @@ import Navigator from '@components/course/navigator';
 import LiveNotice from '@components/course/liveNotice';
 import Banner from '@components/banner';
 
-interface IParams {
-  courseType: string;
-  courseCategory: string;
-  page: string;
-}
-
 interface IProps {
-  params: IParams;
+  params: string[];
 }
 
 const Course: NextPage<IProps> = ({ params }) => {
-  const { courseType, courseCategory } = params;
+  const [courseType, courseCategory, page] = params;
   const navList = [
     '연수실',
     courseType === 'pre-online' ? '사전온라인연수' : '온라인연수',
@@ -60,10 +54,9 @@ const Course: NextPage<IProps> = ({ params }) => {
 };
 
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
-  const [courseType, courseCategory, page] = ctx.params?.slug as string[];
   return {
     props: {
-      params: { courseType, courseCategory, page },
+      params: ctx.params?.slug,
     },
   };
 };

@@ -9,9 +9,11 @@ import {
 } from '@components/svg';
 import { useScroll } from '@libs/client/useScroll';
 import { cls } from '@libs/client/utils';
+import { useRouter } from 'next/router';
 
 export default function Header() {
   const { y } = useScroll();
+  const router = useRouter();
   return (
     <header className='fixed top-0 left-0 z-[9999] h-32 w-screen'>
       <div className='bg-[#f8f8f8]'>
@@ -48,8 +50,13 @@ export default function Header() {
 
       <div
         className={cls(
-          y === 0 ? '' : 'bg-[#01111e]',
-          'border-b border-[rgba(232,232,232,0.3)] transition-all duration-300'
+          router.pathname === '/course' ||
+            router.pathname.includes('/course/detail')
+            ? 'bg-white'
+            : y === 0
+            ? 'bg-transparent text-white'
+            : 'bg-[#01111e] text-white',
+          'border-b border-[rgba(232,232,232,0.3)] transition-all'
         )}
       >
         <div className='mx-auto max-w-[1400px] flex justify-between items-center h-20'>
@@ -59,7 +66,7 @@ export default function Header() {
             </a>
           </Link>
 
-          <div className='flex items-center space-x-14 text-lg font-medium text-white'>
+          <div className='flex items-center space-x-14 text-lg font-medium'>
             <Link href='/'>
               <a>온라인연수 소개</a>
             </Link>
