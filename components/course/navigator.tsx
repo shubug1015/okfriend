@@ -9,8 +9,8 @@ interface IProps {
 export default function Navigator({ courseType, courseCategory }: IProps) {
   return (
     <div className='flex justify-center items-center h-16 border-b border-[#e8e8e8]'>
-      {courseCategory === 'live' && (
-        <Link href={`/course/${courseType}/live/1`}>
+      {courseType === 'online' && (
+        <Link href={`/course/list/${courseType}/live/1`}>
           <a>
             <div
               className={cls(
@@ -26,7 +26,7 @@ export default function Navigator({ courseType, courseCategory }: IProps) {
         </Link>
       )}
 
-      <Link href={`/course/${courseType}/required/1`}>
+      <Link href={`/course/list/${courseType}/required/1`}>
         <a>
           <div
             className={cls(
@@ -41,7 +41,7 @@ export default function Navigator({ courseType, courseCategory }: IProps) {
         </a>
       </Link>
 
-      <Link href={`/course/${courseType}/elective/1`}>
+      <Link href={`/course/list/${courseType}/elective/1`}>
         <a>
           <div
             className={cls(
@@ -56,7 +56,7 @@ export default function Navigator({ courseType, courseCategory }: IProps) {
         </a>
       </Link>
 
-      <Link href={`/course/${courseType}/past/1`}>
+      <Link href={`/course/list/${courseType}/past/1`}>
         <a>
           <div
             className={cls(
