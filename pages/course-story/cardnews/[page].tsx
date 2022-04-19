@@ -11,13 +11,13 @@ interface IProps {
   params: string[];
 }
 
-const Gallery: NextPage<IProps> = ({ params }) => {
+const Cardnews: NextPage<IProps> = ({ params }) => {
   const [currrentTab, setCurrentTab] = useState('전체');
   const toggleTab = (tab: string) => {
     setCurrentTab(tab);
     console.log(currrentTab);
   };
-  const galleryList = [
+  const cardnewsList = [
     {
       id: 0,
       title: '2021 OKF 1st',
@@ -86,11 +86,11 @@ const Gallery: NextPage<IProps> = ({ params }) => {
   return (
     <>
       <SEO title='연수이야기' />
-      <Banner title='연수이야기' navList={['연수이야기', '연수 갤러리']} />
-      <MenuBar pageName='연수 갤러리' />
+      <Banner title='연수이야기' navList={['연수이야기', '카드뉴스']} />
+      <MenuBar pageName='카드뉴스' />
       <Layout>
         <div className='border-b border-[#9e9e9e] pt-[4.214rem] pb-[1.281rem] text-4xl font-bold leading-[3.15rem] text-[#01111e]'>
-          연수 갤러리
+          카드뉴스
         </div>
 
         {/* 서브메뉴 탭 */}
@@ -107,51 +107,34 @@ const Gallery: NextPage<IProps> = ({ params }) => {
             전체
           </div>
           <div
-            onClick={() => toggleTab('2021')}
+            onClick={() => toggleTab('KOR')}
             className={cls(
-              currrentTab === '2021'
+              currrentTab === 'KOR'
                 ? 'cursor-default border-[#01111e] text-[#01111e]'
                 : 'cursor-pointer border-transparent',
               'w-[6.5rem] border-b-4 pb-[0.653rem]'
             )}
           >
-            2021
+            KOR
           </div>
           <div
-            onClick={() => toggleTab('2020')}
+            onClick={() => toggleTab('ENG')}
             className={cls(
-              currrentTab === '2020'
+              currrentTab === 'ENG'
                 ? 'cursor-default border-[#01111e] text-[#01111e]'
                 : 'cursor-pointer border-transparent',
               'w-[6.5rem] border-b-4 pb-[0.653rem]'
             )}
           >
-            2020
-          </div>
-          <div
-            onClick={() => toggleTab('2019')}
-            className={cls(
-              currrentTab === '2019'
-                ? 'cursor-default border-[#01111e] text-[#01111e]'
-                : 'cursor-pointer border-transparent',
-              'w-[6.5rem] border-b-4 pb-[0.653rem]'
-            )}
-          >
-            2019
+            ENG
           </div>
         </div>
 
         {/* 갤러리 이미지 */}
-        <div>
-          <div className='mt-[1.847rem] h-[41.393rem] w-[73.813rem] rounded bg-slate-300' />
-        </div>
-        <div className='mt-20 grid grid-cols-4 grid-rows-4 gap-y-[1.536rem] gap-x-5 pb-20'>
-          {galleryList.map((gallery) => (
+        <div className='mt-[1.875rem] grid grid-cols-4 grid-rows-4 gap-y-10 gap-x-[1.187rem] pb-20'>
+          {cardnewsList.map((cardnews) => (
             <div>
-              <div className='h-[17.5rem] w-[17.5rem] rounded bg-slate-300' />
-              <div className='mt-4 text-[1.125rem] font-medium leading-[1.8rem]'>
-                {gallery.title}
-              </div>
+              <div className='h-[17.5rem] w-[17.5rem] rounded-lg bg-slate-300' />
             </div>
           ))}
         </div>
@@ -168,4 +151,4 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   };
 };
 
-export default Gallery;
+export default Cardnews;
