@@ -16,7 +16,7 @@ export default function Navigator({ courseType, courseCategory }: IProps) {
               className={cls(
                 courseCategory === 'live'
                   ? 'border-[#2fb6bc]'
-                  : 'border-transparent',
+                  : 'border-transparent text-[#9e9e9e]',
                 'flex justify-center w-48 h-16 items-center text-[1.375rem] font-bold border-b-4'
               )}
             >
@@ -32,7 +32,7 @@ export default function Navigator({ courseType, courseCategory }: IProps) {
             className={cls(
               courseCategory === 'required'
                 ? 'border-[#2fb6bc]'
-                : 'border-transparent',
+                : 'border-transparent text-[#9e9e9e]',
               'flex justify-center w-48 h-16 items-center text-[1.375rem] font-bold border-b-4'
             )}
           >
@@ -47,7 +47,7 @@ export default function Navigator({ courseType, courseCategory }: IProps) {
             className={cls(
               courseCategory === 'elective'
                 ? 'border-[#2fb6bc]'
-                : 'border-transparent',
+                : 'border-transparent text-[#9e9e9e]',
               'flex justify-center w-48 h-16 items-center text-[1.375rem] font-bold border-b-4'
             )}
           >
@@ -62,7 +62,7 @@ export default function Navigator({ courseType, courseCategory }: IProps) {
             className={cls(
               courseCategory === 'past'
                 ? 'border-[#2fb6bc]'
-                : 'border-transparent',
+                : 'border-transparent text-[#9e9e9e]',
               'flex justify-center w-48 h-16 items-center text-[1.375rem] font-bold border-b-4'
             )}
           >
