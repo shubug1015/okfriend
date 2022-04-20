@@ -1,65 +1,61 @@
-import Image from "next/image";
-import Bg1 from "@public/training-introduction/bg1.png";
-import Sign1 from "@public/training-introduction/sign1.png";
-import Bg2 from "@public/training-introduction/bg2.png";
-import Sign2 from "@public/training-introduction/sign2.png";
+import Image from 'next/image';
+import Bg1 from '@public/training-introduction/bg1.png';
+import Sign1 from '@public/training-introduction/sign1.png';
+import Bg2 from '@public/training-introduction/bg2.png';
+import Sign2 from '@public/training-introduction/sign2.png';
 
 export default function Online() {
   return (
     <div>
-      <div className="relative">
-        <div className="absolute top-1/2 left-1/2 z-[-1] h-full w-full -translate-x-1/2 -translate-y-1/2">
-          <div className="relative h-full w-full">
+      <div className='relative'>
+        <div className='absolute top-1/2 left-1/2 z-[-1] h-full w-full -translate-x-1/2 -translate-y-1/2'>
+          <div className='relative h-full w-full'>
             <Image
               src={Bg1}
-              alt="Background Image1"
-              layout="fill"
-              objectFit="cover"
-              placeholder="blur"
+              alt='Background Image1'
+              layout='fill'
+              objectFit='cover'
+              placeholder='blur'
               quality={100}
             />
           </div>
         </div>
 
-        <div className="flex justify-center">
-          <div className="flex w-[61.25rem] justify-end">
-            <div className="w-[32rem] pt-[13.125rem] pb-[18.625rem]">
+        <div className='flex justify-center'>
+          <div className='flex w-[61.25rem] justify-end'>
+            <div className='w-[32rem] pt-[13.125rem] pb-[18.625rem]'>
               <svg
-                width="28"
-                height="28"
-                viewBox="0 0 28 28"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+                width='28'
+                height='28'
+                viewBox='0 0 28 28'
+                fill='none'
+                xmlns='http://www.w3.org/2000/svg'
               >
-                <path d="M2 28V2H28" stroke="#F8F8F8" stroke-width="4" />
+                <path d='M2 28V2H28' stroke='#F8F8F8' strokeWidth='4' />
               </svg>
 
-              <div className="ml-[1.625rem]">
-                <div className="text-xl font-bold text-white">
+              <div className='ml-[1.625rem]'>
+                <div className='text-xl font-bold text-white'>
                   2022 재외동포 대학생 온라인연수
                 </div>
-                <div className="mt-[15px] text-[2.5rem] leading-[55px] text-white">
+                <div className='mt-[15px] text-[2.5rem] leading-[55px] text-white'>
                   온라인연수에 참여한 여러분,
                   <br />
-                  <span className="font-bold text-[#2fb6bc]">
+                  <span className='font-bold text-[#2fb6bc]'>
                     진심으로 환영합니다.
                   </span>
                 </div>
               </div>
 
-              <div className="flex translate-y-[-20] justify-end">
+              <div className='flex translate-y-[-20] justify-end'>
                 <svg
-                  width="28"
-                  height="28"
-                  viewBox="0 0 28 28"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+                  width='28'
+                  height='28'
+                  viewBox='0 0 28 28'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
                 >
-                  <path
-                    d="M26 0L26 26L0 26"
-                    stroke="#F8F8F8"
-                    stroke-width="4"
-                  />
+                  <path d='M26 0L26 26L0 26' stroke='#F8F8F8' strokeWidth='4' />
                 </svg>
               </div>
             </div>
@@ -67,15 +63,15 @@ export default function Online() {
         </div>
       </div>
 
-      <div className="flex justify-center">
-        <div className="mt-[-5.687rem] h-[35.875rem] w-[61.25rem] bg-slate-400" />
+      <div className='flex justify-center'>
+        <div className='mt-[-5.687rem] h-[35.875rem] w-[61.25rem] bg-slate-400' />
       </div>
 
-      <div className="flex flex-col items-center pb-20">
-        <div className="mt-10 w-[61.25rem] text-[1.875rem] font-bold leading-6 text-[#01111e]">
+      <div className='flex flex-col items-center pb-20'>
+        <div className='mt-10 w-[61.25rem] text-[1.875rem] font-bold leading-6 text-[#01111e]'>
           2022 재외동포 대학생 온라인연수에 참여한 여러분, 진심으로 환영합니다.
         </div>
-        <div className="mt-[1.813rem] w-[61.25rem] text-[1.125rem] font-normal leading-[1.65rem] text-[#6b6b6b]">
+        <div className='mt-[1.813rem] w-[61.25rem] text-[1.125rem] font-normal leading-[1.65rem] text-[#6b6b6b]'>
           코로나19 팬데믹으로 인하여 올해는 온라인을 통해 여러분들을 만나게
           되었습니다.
           <br />
@@ -91,71 +87,67 @@ export default function Online() {
           홍익인간의 가치를 실현할 수 있는 ‘세계시민’입니다. 이번 모국연수
           참여를 통해 좋은 친구들 많이 만나시고 앞으로 세계 무대에서 활약할
           여러분들의 모습도 마음껏 그려보시기를 바랍니다.
-          <div className="mt-[2.375rem] text-right">
+          <div className='mt-[2.375rem] text-right'>
             <Image
               src={Sign1}
-              alt="Sign Image1"
-              objectFit="cover"
-              placeholder="blur"
+              alt='Sign Image1'
+              objectFit='cover'
+              placeholder='blur'
               quality={100}
             />
           </div>
         </div>
       </div>
 
-      <div className="relative">
-        <div className="absolute top-1/2 left-1/2 z-[-1] h-full w-full -translate-x-1/2 -translate-y-1/2">
-          <div className="relative h-full w-full">
+      <div className='relative'>
+        <div className='absolute top-1/2 left-1/2 z-[-1] h-full w-full -translate-x-1/2 -translate-y-1/2'>
+          <div className='relative h-full w-full'>
             <Image
               src={Bg2}
-              alt="Background Image2"
-              layout="fill"
-              objectFit="cover"
-              placeholder="blur"
+              alt='Background Image2'
+              layout='fill'
+              objectFit='cover'
+              placeholder='blur'
               quality={100}
             />
           </div>
         </div>
 
-        <div className="flex justify-center">
-          <div className="flex w-[61.25rem] justify-end">
-            <div className="w-[450px] pt-[13.125rem] pb-[18.625rem]">
+        <div className='flex justify-center'>
+          <div className='flex w-[61.25rem] justify-end'>
+            <div className='w-[450px] pt-[13.125rem] pb-[18.625rem]'>
               <svg
-                width="28"
-                height="28"
-                viewBox="0 0 28 28"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+                width='28'
+                height='28'
+                viewBox='0 0 28 28'
+                fill='none'
+                xmlns='http://www.w3.org/2000/svg'
               >
-                <path d="M2 28V2H28" stroke="#F8F8F8" stroke-width="4" />
+                <path d='M2 28V2H28' stroke='#F8F8F8' strokeWidth='4' />
               </svg>
 
-              <div className="ml-[1.625rem]">
-                <div className="text-xl font-bold text-white">
+              <div className='ml-[1.625rem]'>
+                <div className='text-xl font-bold text-white'>
                   재외동포 대학생 온라인연수에 참여한
                 </div>
-                <div className="mt-[15px] text-[2.5rem] leading-[55px] text-white">
+                <div className='mt-[15px] text-[2.5rem] leading-[55px] text-white'>
                   재외동포 대학생 여러분,
                   <br />
-                  <span className="font-bold text-[#2fb6bc]">
+                  <span className='font-bold text-[#2fb6bc]'>
                     진심으로 반갑습니다.
                   </span>
                 </div>
               </div>
 
-              <div className="flex translate-y-[-20px] justify-end">
+              <div className='flex translate-y-[-20px] justify-end'>
                 <svg
-                  width="28"
-                  height="28"
-                  viewBox="0 0 28 28"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+                  width='28'
+                  height='28'
+                  viewBox='0 0 28 28'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
                 >
-                  <path
-                    d="M26 0L26 26L0 26"
-                    stroke="#F8F8F8"
-                    stroke-width="4"
-                  />
+                  <path d='M26 0L26 26L0 26' stroke='#F8F8F8' strokeWidth='4' />
                 </svg>
               </div>
             </div>
@@ -163,16 +155,16 @@ export default function Online() {
         </div>
       </div>
 
-      <div className="flex justify-center">
-        <div className="mt-[-5.687rem] h-[35.875rem] w-[61.25rem] bg-slate-400" />
+      <div className='flex justify-center'>
+        <div className='mt-[-5.687rem] h-[35.875rem] w-[61.25rem] bg-slate-400' />
       </div>
 
-      <div className="flex flex-col items-center pb-[3.921rem]">
-        <div className="mt-10 w-[61.25rem] text-[1.875rem] font-bold leading-[2.813rem] text-[#01111e]">
+      <div className='flex flex-col items-center pb-[3.921rem]'>
+        <div className='mt-10 w-[61.25rem] text-[1.875rem] font-bold leading-[2.813rem] text-[#01111e]'>
           재외동포 대학생 온라인연수에 참여한 재외동포 대학생 여러분,
           반갑습니다.
         </div>
-        <div className="mt-[2.188rem] w-[61.25rem] text-[1.125rem] font-normal leading-[1.856rem] text-[#9e9e9e]">
+        <div className='mt-[2.188rem] w-[61.25rem] text-[1.125rem] font-normal leading-[1.856rem] text-[#9e9e9e]'>
           코로나19가 우리 삶의 많은 부분들을 바꾸고 있습니다.
           <br />
           매년 여름이 되면, 세계 곳곳에서 자랑스런 세계한인 청년들이 모국
@@ -202,12 +194,12 @@ export default function Online() {
           모쪼록 2021 온라인 연수를 통해 여러분의 삶에 새로운 경험이 더해지고,
           한민족 공동체의 일원이자 세계한인의 리더로 성장하는 기회가 되기를
           바랍니다. 감사합니다.
-          <div className="mt-[2.375rem] text-right">
+          <div className='mt-[2.375rem] text-right'>
             <Image
               src={Sign2}
-              alt="Sign Image2"
-              objectFit="cover"
-              placeholder="blur"
+              alt='Sign Image2'
+              objectFit='cover'
+              placeholder='blur'
               quality={100}
             />
           </div>

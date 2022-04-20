@@ -147,7 +147,7 @@ const Gallery: NextPage<IProps> = ({ params }) => {
         </div>
         <div className='mt-20 grid grid-cols-4 grid-rows-4 gap-y-[1.536rem] gap-x-5 pb-20'>
           {galleryList.map((gallery) => (
-            <div>
+            <div key={gallery.id}>
               <div className='h-[17.5rem] w-[17.5rem] rounded bg-slate-300' />
               <div className='mt-4 text-[1.125rem] font-medium leading-[1.8rem]'>
                 {gallery.title}

@@ -133,7 +133,7 @@ const Cardnews: NextPage<IProps> = ({ params }) => {
         {/* 갤러리 이미지 */}
         <div className='mt-[1.875rem] grid grid-cols-4 grid-rows-4 gap-y-10 gap-x-[1.187rem] pb-20'>
           {cardnewsList.map((cardnews) => (
-            <div>
+            <div key={cardnews.id}>
               <div className='h-[17.5rem] w-[17.5rem] rounded-lg bg-slate-300' />
             </div>
           ))}

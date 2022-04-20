@@ -53,7 +53,10 @@ const Newsletter: NextPage<IProps> = ({ params }) => {
 
         <div>
           {newsletterList.map((newsletter) => (
-            <div className='flex h-[3.75rem] w-full items-center border-b-2 border-b-[#ebebeb] text-center text-[1.125rem] leading-[1.688rem] text-[#01111e]'>
+            <div
+              key={newsletter.id}
+              className='flex h-[3.75rem] w-full items-center border-b-2 border-b-[#ebebeb] text-center text-[1.125rem] leading-[1.688rem] text-[#01111e]'
+            >
               <div className='w-[9%] text-[#9e9e9e]'>{newsletter.id}</div>
               <div className='grow text-left'>{newsletter.title}</div>
               <div className='w-[11%]'>{newsletter.author}</div>
