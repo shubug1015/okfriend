@@ -11,9 +11,9 @@ import { useEffect, useState } from 'react';
 import { FieldErrors, useForm } from 'react-hook-form';
 
 interface IForm {
-  currentPassword: string;
-  password: string;
-  passwordCheck: string;
+  email: string;
+  phoneNum: string;
+  introduction: string;
 }
 
 const Edit: NextPage = () => {
@@ -75,6 +75,24 @@ const Edit: NextPage = () => {
                 <div className='flex h-[3.75rem] items-center rounded border border-[#d6d6d6] bg-[#f8f8f8] pl-5 text-lg font-medium text-[#d6d6d6]'>
                   korea
                 </div>
+              </div>
+
+              <div className='h-20 items-center space-y-3'>
+                <div className='font-medium'>이메일</div>
+
+                <input
+                  type='text'
+                  placeholder='이메일'
+                  {...register('email', {
+                    value: '',
+                    required: '비밀번호를 입력해주세요',
+                    validate: {
+                      //   notPw: (value) => {
+                      //   },
+                    },
+                  })}
+                  className='h-[3.75rem] w-full rounded border border-[#d6d6d6] pl-5 text-lg font-medium placeholder:text-[#d6d6d6]'
+                />
               </div>
             </div>
 

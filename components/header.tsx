@@ -51,7 +51,11 @@ export default function Header() {
 
       <div
         className={cls(
-          router.pathname === '/course' ||
+          router.pathname === '/login' ||
+            router.pathname === '/signup' ||
+            router.pathname === '/find-id' ||
+            router.pathname === '/reset-pw' ||
+            router.pathname === '/course' ||
             router.pathname.includes('/course/detail') ||
             router.pathname.includes('/mypage')
             ? 'bg-white'
@@ -64,7 +68,11 @@ export default function Header() {
         <div className='mx-auto flex h-20 max-w-[1400px] items-center justify-between'>
           <Link href='/'>
             <a>
-              {router.pathname === '/course' ||
+              {router.pathname === '/login' ||
+              router.pathname === '/signup' ||
+              router.pathname === '/find-id' ||
+              router.pathname === '/reset-pw' ||
+              router.pathname === '/course' ||
               router.pathname.includes('/course/detail') ||
               router.pathname.includes('/mypage') ? (
                 <HeaderLogoBlack />
