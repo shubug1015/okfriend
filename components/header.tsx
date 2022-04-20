@@ -3,7 +3,8 @@ import {
   TopLogo1,
   TopLogo2,
   Facebook,
-  HeaderLogo,
+  HeaderLogoWhite,
+  HeaderLogoBlack,
   Instagram,
   Youtube,
 } from '@components/svg';
@@ -51,7 +52,8 @@ export default function Header() {
       <div
         className={cls(
           router.pathname === '/course' ||
-            router.pathname.includes('/course/detail')
+            router.pathname.includes('/course/detail') ||
+            router.pathname.includes('/mypage')
             ? 'bg-white'
             : y === 0
             ? 'bg-transparent text-white'
@@ -62,7 +64,13 @@ export default function Header() {
         <div className='mx-auto flex h-20 max-w-[1400px] items-center justify-between'>
           <Link href='/'>
             <a>
-              <HeaderLogo />
+              {router.pathname === '/course' ||
+              router.pathname.includes('/course/detail') ||
+              router.pathname.includes('/mypage') ? (
+                <HeaderLogoBlack />
+              ) : (
+                <HeaderLogoWhite />
+              )}
             </a>
           </Link>
 
