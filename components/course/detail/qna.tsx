@@ -6,49 +6,49 @@ interface IProps {
   data: any[];
 }
 
-const qnaVar = {
-  invisible: {
-    opacity: 0,
-    height: 0,
-  },
-  visible: {
-    opacity: 1,
-    height: '5rem',
-    transition: {
-      duration: 0.2,
-    },
-  },
-  exit: {
-    opacity: 0,
-    height: 0,
-    transition: {
-      duration: 0.2,
-    },
-  },
-};
 export default function Qna() {
   const [openedQna, setOpenedQna] = useState(0);
-
   const toggleQna = (id: number) => setOpenedQna(id);
+
+  const qnaVar = {
+    invisible: {
+      opacity: 0,
+      height: 0,
+    },
+    visible: {
+      opacity: 1,
+      height: '5rem',
+      transition: {
+        duration: 0.2,
+      },
+    },
+    exit: {
+      opacity: 0,
+      height: 0,
+      transition: {
+        duration: 0.2,
+      },
+    },
+  };
   return (
     <Layout padding='pt-20 pb-24'>
       <div className='text-2xl font-bold'>Q&A</div>
 
-      <div className='border border-[#e8e8e8] mt-8 divide-y divide-[#e8e8e8]'>
+      <div className='mt-8 divide-y divide-[#e8e8e8] border border-[#e8e8e8]'>
         {[0, 1].map((i) => (
           <Fragment key={i}>
             <div
               onClick={() => toggleQna(i)}
-              className='flex justify-between items-center px-10 h-20 cursor-pointer hover:opacity-70 transition-all'
+              className='flex h-20 cursor-pointer items-center justify-between px-10 transition-all hover:opacity-70'
             >
               <div className='flex space-x-2'>
-                <div className='flex justify-center items-center text-white font-medium w-8 h-8 rounded-full bg-[#2fb6bc]'>
+                <div className='flex h-8 w-8 items-center justify-center rounded-full bg-[#2fb6bc] font-medium text-white'>
                   Q
                 </div>
                 <div className='text-lg font-medium'>온라인 강의 인가요?</div>
               </div>
 
-              <div className='flex justify-center items-center w-8 h-8 rounded-full border border-[#e8e8e8]'>
+              <div className='flex h-8 w-8 items-center justify-center rounded-full border border-[#e8e8e8]'>
                 {openedQna === i ? (
                   <svg
                     width='14'
@@ -86,10 +86,10 @@ export default function Qna() {
                   initial='invisible'
                   animate='visible'
                   exit='exit'
-                  className='flex justify-between items-center px-10 h-20 bg-[#f4f9fb]'
+                  className='flex h-20 items-center justify-between bg-[#f4f9fb] px-10'
                 >
                   <div className='flex space-x-2'>
-                    <div className='flex justify-center items-center text-white font-medium w-8 h-8 rounded-full bg-[#d60a51]'>
+                    <div className='flex h-8 w-8 items-center justify-center rounded-full bg-[#d60a51] font-medium text-white'>
                       A
                     </div>
                     <div className='text-lg font-medium'>

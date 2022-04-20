@@ -56,8 +56,8 @@ export default function Banner({ title, navList }: IProps) {
                   <path
                     d='M1 13L7 7L1 1'
                     stroke='white'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
                   />
                 </svg>
 

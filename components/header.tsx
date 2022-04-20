@@ -79,16 +79,24 @@ export default function Header() {
             <Link href='/course-story/video/1'>
               <a>연수이야기</a>
             </Link>
-            <Link href='/'>
+            <Link href='/support/notice/title/created/1'>
               <a>지원센터</a>
             </Link>
           </div>
 
-          <Link href='/login'>
-            <a className='rounded-full bg-[#2fb6bc] px-10 py-3 font-bold text-white'>
-              로그인
-            </a>
-          </Link>
+          <div className='space-x-2.5'>
+            <Link href='/mypage/course/1'>
+              <a className='rounded-full border border-[#2fb6bc] px-10 py-3 font-bold text-[#2fb6bc]'>
+                마이페이지
+              </a>
+            </Link>
+
+            <Link href='/login'>
+              <a className='rounded-full bg-[#2fb6bc] px-10 py-3 font-bold text-white'>
+                로그인
+              </a>
+            </Link>
+          </div>
         </div>
       </div>
     </header>
