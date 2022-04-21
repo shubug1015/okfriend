@@ -7,12 +7,13 @@ import Layout from '@layouts/sectionLayout';
 import type { GetServerSidePropsContext, NextPage } from 'next';
 
 interface IProps {
-  params: string[];
+  slugs: string[];
 }
 
-const Notice: NextPage<IProps> = ({ params }) => {
-  const [orderType, searchType, page, search] = params;
-  // console.log(orderType, searchType, page, search);
+const Notice: NextPage<IProps> = ({ slugs }) => {
+  const [searchType, orderType, page, searchTerm] = slugs;
+
+  // console.log(orderType, searchType, page, searchTerm);
   return (
     <>
       <SEO title='연수이야기' />
@@ -29,7 +30,7 @@ const Notice: NextPage<IProps> = ({ params }) => {
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   return {
     props: {
-      params: ctx.params?.slug,
+      slugs: ctx.params?.slug,
     },
   };
 };

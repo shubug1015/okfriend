@@ -5,18 +5,19 @@ import { useRouter } from 'next/router';
 export default function Search() {
   const router = useRouter();
   const slugs = router.query.slug as string[];
+
   const [searchType, setSearchType] = useState({
-    label: (slugs[0] === 'title' ? '제목' : '글쓴일') || '제목',
-    value: slugs[0] || 'title',
+    label: slugs[0] === 'title' ? '제목' : '글쓴일',
+    value: slugs[0],
   });
   const [orderType, setOrderType] = useState({
     label:
-      (slugs[1] === 'created'
+      slugs[1] === 'created'
         ? '최신순'
         : slugs[1] === 'view_num'
         ? '조회순'
-        : '댓글 많은 순') || '최신순',
-    value: slugs[1] || 'created',
+        : '댓글 많은 순',
+    value: slugs[1],
   });
   const [searchTerm, setSearchTerm] = useState(slugs[3] || '');
 
@@ -91,9 +92,9 @@ export default function Search() {
             value: 'like_num',
           },
         ]}
-        url={(order: string) =>
+        url={(orderType: string) =>
           router.push(
-            `/support/notice/${searchType.value}/${order}/1/${searchTerm}`
+            `/support/notice/${searchType.value}/${orderType}/1/${searchTerm}`
           )
         }
         setSelect={setOrderType}

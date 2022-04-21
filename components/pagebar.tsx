@@ -1,23 +1,16 @@
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import { cls } from '@libs/client/utils';
 
 interface IProps {
   totalItems: number;
   currentPage: number;
+  url: (page: number) => void;
 }
 
 const PAGE_LIST_LENGTH = 5;
 
-const Pagebar = ({ totalItems, currentPage }: IProps) => {
-  const router = useRouter();
-  const [searchType, orderType, _, searchTerm] = router.query.slug as string[];
-  // console.log(router.query.slug);
-  const originUrl = router.pathname
-    .replace('/[...slug]', '')
-    .replace('/[page]', '');
-
-  const maxPage = Math.ceil(totalItems / PAGE_LIST_LENGTH);
+const Pagebar = ({ totalItems, currentPage, url }: IProps) => {
+  const maxPage = Math.ceil(totalItems / PAGE_LIST_LENGTH); // 마지막 페이지
   const quo = Math.floor(currentPage / PAGE_LIST_LENGTH); // 몫
   const rem = currentPage % PAGE_LIST_LENGTH; // 나머지
   const pageArray = [...Array(5)]
@@ -37,13 +30,9 @@ const Pagebar = ({ totalItems, currentPage }: IProps) => {
     setPageList([...Array(5)].map((_, index) => index + tmp));
   };
 
-  const firstPage = () => {
-    router.push(`${originUrl}/`);
-  };
+  const firstPage = () => url(1);
 
-  const lastPage = () => {
-    router.push(`/class/real-estate/${maxPage}`);
-  };
+  const lastPage = () => url(maxPage);
 
   useEffect(() => {
     setPageList(pageArray);
@@ -98,7 +87,7 @@ const Pagebar = ({ totalItems, currentPage }: IProps) => {
       {pageList.map((page) => (
         <div
           key={page}
-          onClick={() => router.push(`/real-estate/${page}`)}
+          onClick={() => url(page)}
           className={cls(
             page === currentPage
               ? 'border-black bg-black text-white'

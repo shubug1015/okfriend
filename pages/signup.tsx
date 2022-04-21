@@ -11,11 +11,16 @@ import Checkbox from '@components/checkbox';
 // import { useAuth } from '@libs/client/useAuth';
 
 interface IForm {
+  joinType: string;
   username: string;
   password: string;
   passwordCheck: string;
   korName: string;
   engName: string;
+  year: string;
+  month: string;
+  day: string;
+  country: string;
   email: string;
   code: string;
   phoneNum: string;
@@ -89,6 +94,57 @@ const SignUp: NextPage = () => {
 
         {/* Input 필드 */}
         <div className='mt-12 w-full space-y-8'>
+          {/* 가입유형 */}
+          <div className='flex w-full flex-col'>
+            <label className='font-medium'>가입유형</label>
+
+            <div className='mt-5 flex w-full space-x-6'>
+              <div className='flex items-center space-x-1.5'>
+                {/* 국내 대학생 */}
+                <input
+                  type='radio'
+                  {...register('joinType', {
+                    required: '이름을 입력해주세요',
+                  })}
+                  className={cls(
+                    errors?.joinType?.message
+                      ? 'border-red-500'
+                      : 'border-[#d6d6d6]',
+                    'h-6 w-6 cursor-pointer appearance-none rounded-full border-2 border-[#d6d6d6] bg-cover checked:border-none checked:bg-[url("/icons/radio-checked.png")]'
+                  )}
+                />
+
+                <div className='text-lg'>국내 대학생</div>
+              </div>
+              {/* 국내 대학생 */}
+
+              {/* 재외동포 대학생 */}
+              <div className='flex items-center space-x-1.5'>
+                <input
+                  type='radio'
+                  {...register('joinType', {
+                    required: '이름을 입력해주세요',
+                  })}
+                  className={cls(
+                    errors?.joinType?.message
+                      ? 'border-red-500'
+                      : 'border-[#d6d6d6]',
+                    'h-6 w-6 cursor-pointer appearance-none rounded-full border-2 border-[#d6d6d6] bg-cover checked:border-none checked:bg-[url("/icons/radio-checked.png")]'
+                  )}
+                />
+
+                <div className='text-lg'>재외동포 대학생</div>
+              </div>
+              {/* 재외동포 대학생 */}
+            </div>
+
+            <div className='mt-2 text-sm text-red-500'>
+              {errors?.joinType?.message && '가입유형을 선택해주세요'}
+            </div>
+          </div>
+          {/* 가입유형 */}
+
+          {/* 아이디 */}
           <Input
             type='text'
             label='아이디'
@@ -115,7 +171,9 @@ const SignUp: NextPage = () => {
             })}
             error={errors?.username?.message}
           />
+          {/* 아이디 */}
 
+          {/* 비밀번호 */}
           <Input
             type='password'
             label='비밀번호'
@@ -135,7 +193,9 @@ const SignUp: NextPage = () => {
             })}
             error={errors?.password?.message}
           />
+          {/* 비밀번호 */}
 
+          {/* 비밀번호 확인 */}
           <Input
             type='password'
             label='비밀번호 확인'
@@ -148,10 +208,13 @@ const SignUp: NextPage = () => {
             })}
             error={errors?.passwordCheck?.message}
           />
+          {/* 비밀번호 확인 */}
 
+          {/* 이름 */}
           <div className='flex w-full flex-col'>
             <label className='font-medium'>이름</label>
 
+            {/* 국문 이름 */}
             <div className='mt-2 flex h-[3.75rem] w-full space-x-3.5'>
               <div className='w-1/2'>
                 <input
@@ -175,12 +238,10 @@ const SignUp: NextPage = () => {
                     'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm'
                   )}
                 />
-
-                <div className='mt-2 text-sm text-red-500'>
-                  {errors?.korName?.message}
-                </div>
               </div>
+              {/* 국문 이름 */}
 
+              {/* 영문 이름 */}
               <div className='w-1/2'>
                 <input
                   type='text'
@@ -203,14 +264,153 @@ const SignUp: NextPage = () => {
                     'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm'
                   )}
                 />
-
-                <div className='mt-2 text-sm text-red-500'>
-                  {errors?.engName?.message}
-                </div>
               </div>
+              {/* 영문 이름 */}
+            </div>
+
+            <div className='mt-2 text-sm text-red-500'>
+              {(errors?.korName?.message || errors?.engName?.message) &&
+                '이름을 입력해주세요'}
             </div>
           </div>
+          {/* 이름 */}
 
+          {/* 생년월일 */}
+          <div className='flex w-full flex-col'>
+            <label className='font-medium'>생년월일</label>
+
+            {/* 년도 */}
+            <div className='mt-2 flex h-[3.75rem] w-full space-x-3.5'>
+              <div className='w-1/3'>
+                <select
+                  defaultValue='default'
+                  {...register('year', {
+                    required: '년도를 선택해주세요',
+                    validate: {
+                      notDefault: (value) =>
+                        value !== 'default' || '년도를 선택해주세요',
+                    },
+                  })}
+                  className={cls(
+                    errors?.year?.message
+                      ? 'border-red-500'
+                      : 'border-[#d6d6d6]',
+                    'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm'
+                  )}
+                >
+                  <option value='default' disabled hidden>
+                    년(4자)
+                  </option>
+                  {[...Array(20)].map((_, index) => (
+                    <option key={index}>{index + 2003}</option>
+                  ))}
+                </select>
+              </div>
+              {/* 년도 */}
+
+              {/* 월 */}
+              <div className='w-1/3'>
+                <select
+                  defaultValue='default'
+                  {...register('month', {
+                    required: '월을 선택해주세요',
+                    validate: {
+                      notDefault: (value) =>
+                        value !== 'default' || '월을 선택해주세요',
+                    },
+                  })}
+                  className={cls(
+                    errors?.month?.message
+                      ? 'border-red-500'
+                      : 'border-[#d6d6d6]',
+                    'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm'
+                  )}
+                >
+                  <option value='default' disabled hidden>
+                    월
+                  </option>
+                  {[...Array(12)].map((_, index) => (
+                    <option key={index}>{index + 1}</option>
+                  ))}
+                </select>
+              </div>
+              {/* 월 */}
+
+              {/* 일 */}
+              <div className='w-1/3'>
+                <select
+                  defaultValue='default'
+                  {...register('day', {
+                    required: '일을 선택해주세요',
+                    validate: {
+                      notDefault: (value) =>
+                        value !== 'default' || '일을 선택해주세요',
+                    },
+                  })}
+                  className={cls(
+                    errors?.day?.message
+                      ? 'border-red-500'
+                      : 'border-[#d6d6d6]',
+                    'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm'
+                  )}
+                >
+                  <option value='default' disabled hidden>
+                    일
+                  </option>
+                  {[...Array(31)].map((_, index) => (
+                    <option key={index}>{index + 1}</option>
+                  ))}
+                </select>
+              </div>
+              {/* 일 */}
+            </div>
+
+            <div className='mt-2 text-sm text-red-500'>
+              {(errors?.year?.message ||
+                errors?.year?.message ||
+                errors?.year?.message) &&
+                '생년월일을 선택해주세요'}
+            </div>
+          </div>
+          {/* 생년월일 */}
+
+          {/* 국가 */}
+          <div className='flex w-full flex-col'>
+            <label className='font-medium'>국가</label>
+
+            <div className='mt-2 flex h-[3.75rem] w-full space-x-3.5'>
+              <select
+                defaultValue='default'
+                {...register('country', {
+                  required: '국가를 선택해주세요',
+                  validate: {
+                    notDefault: (value) =>
+                      value !== 'default' || '국가를 선택해주세요',
+                  },
+                })}
+                className={cls(
+                  errors?.country?.message
+                    ? 'border-red-500'
+                    : 'border-[#d6d6d6]',
+                  'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm'
+                )}
+              >
+                <option value='default' disabled>
+                  국가 선택
+                </option>
+                <option>한국</option>
+                <option>미국</option>
+                <option>러시아</option>
+              </select>
+            </div>
+
+            <div className='mt-2 text-sm text-red-500'>
+              {errors?.country?.message}
+            </div>
+          </div>
+          {/* 국가 */}
+
+          {/* 이메일 */}
           <Input
             type='tel'
             label='이메일'
@@ -231,12 +431,14 @@ const SignUp: NextPage = () => {
             error={errors?.email?.message}
             readOnly={code.sended}
           />
+          {/* 이메일 */}
 
+          {/* 휴대폰 번호 */}
           <Input
             type='tel'
-            label='전화번호'
+            label='휴대폰 번호'
             register={register('phoneNum', {
-              required: '전화번호를 입력해주세요',
+              required: '휴대폰 번호를 입력해주세요',
               validate: {
                 notPhoneNum: (value) => {
                   const regPhoneNum =
@@ -244,7 +446,7 @@ const SignUp: NextPage = () => {
                   if (regPhoneNum.test(value)) {
                     return true;
                   } else {
-                    return '올바른 전화번호를 입력해주세요';
+                    return '올바른 휴대폰 번호를 입력해주세요';
                   }
                 },
               },
@@ -252,6 +454,7 @@ const SignUp: NextPage = () => {
             error={errors?.phoneNum?.message}
             readOnly={code.sended}
           >
+            {/* 인증번호 받기 */}
             <div
               onClick={() => {
                 if (getValues('phoneNum') && !errors?.phoneNum?.message) {
@@ -262,7 +465,7 @@ const SignUp: NextPage = () => {
                 watch('phoneNum') && !errors?.phoneNum?.message
                   ? 'cursor-pointer transition-all hover:opacity-70'
                   : '',
-                'ml-4 flex h-full w-[8.25rem] items-center justify-center rounded border border-[#2fb6bc] text-[#2fb6bc] font-medium text-sm'
+                'ml-4 flex h-full w-[8.25rem] items-center justify-center rounded border border-[#2fb6bc] text-sm font-medium text-[#2fb6bc]'
               )}
             >
               {code.loading ? (
@@ -286,8 +489,11 @@ const SignUp: NextPage = () => {
                 '인증번호 받기'
               )}
             </div>
+            {/* 인증번호 받기 버튼 */}
           </Input>
+          {/* 휴대폰 번호 */}
 
+          {/* 인증번호 */}
           <Input
             type='tel'
             label='인증번호'
@@ -310,6 +516,7 @@ const SignUp: NextPage = () => {
             error={errors?.code?.message}
             readOnly={!code.sended}
           />
+          {/* 인증번호 */}
         </div>
         {/* Input 필드 */}
 

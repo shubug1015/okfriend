@@ -10,6 +10,9 @@ interface IProps {
 }
 
 export default function NoticeList({ data, totalItems, currentPage }: IProps) {
+  const router = useRouter();
+  const [searchType, orderType, page, searchTerm] = router.query
+    .slug as string[];
   return (
     <>
       <div className='mt-8 flex h-[3.75rem] items-center border-y border-[rgba(0,0,0,0.16)]'>
@@ -49,7 +52,17 @@ export default function NoticeList({ data, totalItems, currentPage }: IProps) {
       ))}
 
       <div className='mt-24 flex justify-center'>
-        <Pagebar totalItems={totalItems} currentPage={currentPage} />
+        <Pagebar
+          totalItems={totalItems}
+          currentPage={currentPage}
+          url={(page: number) =>
+            router.push(
+              `/support/notice/${searchType}/${orderType}/${page}/${
+                searchTerm || ''
+              }`
+            )
+          }
+        />
       </div>
     </>
   );

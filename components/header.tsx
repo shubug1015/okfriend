@@ -89,7 +89,7 @@ export default function Header() {
             <Link href='/course'>
               <a>연수실</a>
             </Link>
-            <Link href='/'>
+            <Link href='/library'>
               <a>도서관</a>
             </Link>
             <Link href='/course-story/video/1'>
