@@ -3,14 +3,14 @@ import Banner from '@components/banner';
 import Online from '@components/greeting/online';
 import Layout from '@layouts/sectionLayout';
 import Image from 'next/image';
-import SummaryMain from '@public/training-introduction/summary-main.png';
-import SummaryGoal1 from '@public/training-introduction/summary-goal-1.png';
-import SummaryGoal2 from '@public/training-introduction/summary-goal-2.png';
-import SummaryGoal3 from '@public/training-introduction/summary-goal-3.png';
-import SummaryGoal4 from '@public/training-introduction/summary-goal-4.png';
-import SummaryMileage1 from '@public/training-introduction/summary-mileage-1.png';
-import SummaryContent1 from '@public/training-introduction/summary-content-1.png';
-import SummaryContent2 from '@public/training-introduction/summary-content-2.png';
+import SummaryMain from '@public/course-introduction/summary-main.png';
+import SummaryGoal1 from '@public/course-introduction/summary-goal-1.png';
+import SummaryGoal2 from '@public/course-introduction/summary-goal-2.png';
+import SummaryGoal3 from '@public/course-introduction/summary-goal-3.png';
+import SummaryGoal4 from '@public/course-introduction/summary-goal-4.png';
+import SummaryMileage1 from '@public/course-introduction/summary-mileage-1.png';
+import SummaryContent1 from '@public/course-introduction/summary-content-1.png';
+import SummaryContent2 from '@public/course-introduction/summary-content-2.png';
 import MenuBar from '@components/greeting/menuBar';
 
 const Greeting: NextPage = () => {

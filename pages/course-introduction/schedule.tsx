@@ -1,7 +1,7 @@
 import Banner from '@components/banner';
 import { NextPage } from 'next';
 import Image from 'next/image';
-import Schedule1 from '@public/training-introduction/schedule-1.png';
+import Schedule1 from '@public/course-introduction/schedule-1.png';
 import Layout from '@layouts/sectionLayout';
 import MenuBar from '@components/greeting/menuBar';
 

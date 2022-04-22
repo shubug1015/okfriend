@@ -51,6 +51,7 @@ const SignUp: NextPage = () => {
     mode: 'onChange',
   });
   const onValid = async (data: IForm) => {
+    console.log(data);
     // const req = {
     //   name: data.name,
     //   nickname: data.nickname,
@@ -103,6 +104,7 @@ const SignUp: NextPage = () => {
                 {/* 국내 대학생 */}
                 <input
                   type='radio'
+                  value='domestic'
                   {...register('joinType', {
                     required: '이름을 입력해주세요',
                   })}
@@ -122,6 +124,7 @@ const SignUp: NextPage = () => {
               <div className='flex items-center space-x-1.5'>
                 <input
                   type='radio'
+                  value='excluded'
                   {...register('joinType', {
                     required: '이름을 입력해주세요',
                   })}

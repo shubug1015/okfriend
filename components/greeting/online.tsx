@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import Bg1 from '@public/training-introduction/bg1.png';
-import Sign1 from '@public/training-introduction/sign1.png';
-import Bg2 from '@public/training-introduction/bg2.png';
-import Sign2 from '@public/training-introduction/sign2.png';
+import Bg1 from '@public/course-introduction/bg1.png';
+import Sign1 from '@public/course-introduction/sign1.png';
+import Bg2 from '@public/course-introduction/bg2.png';
+import Sign2 from '@public/course-introduction/sign2.png';
 
 export default function Online() {
   return (

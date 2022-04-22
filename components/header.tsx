@@ -83,7 +83,7 @@ export default function Header() {
           </Link>
 
           <div className='flex items-center space-x-14 text-lg font-medium'>
-            <Link href='/greeting'>
+            <Link href='/course-introduction/greeting'>
               <a>온라인연수 소개</a>
             </Link>
             <Link href='/course'>
