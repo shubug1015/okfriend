@@ -110,7 +110,7 @@ const SignUp: NextPage = () => {
                     errors?.joinType?.message
                       ? 'border-red-500'
                       : 'border-[#d6d6d6]',
-                    'h-6 w-6 cursor-pointer appearance-none rounded-full border-2 border-[#d6d6d6] bg-cover checked:border-none checked:bg-[url("/icons/radio-checked.png")]'
+                    'h-6 w-6 cursor-pointer appearance-none rounded-full border-2 bg-cover outline-none checked:border-none checked:bg-[url("/icons/radio-checked.png")]'
                   )}
                 />
 
@@ -129,7 +129,7 @@ const SignUp: NextPage = () => {
                     errors?.joinType?.message
                       ? 'border-red-500'
                       : 'border-[#d6d6d6]',
-                    'h-6 w-6 cursor-pointer appearance-none rounded-full border-2 border-[#d6d6d6] bg-cover checked:border-none checked:bg-[url("/icons/radio-checked.png")]'
+                    'h-6 w-6 cursor-pointer appearance-none rounded-full border-2 bg-cover outline-none checked:border-none checked:bg-[url("/icons/radio-checked.png")]'
                   )}
                 />
 
@@ -412,7 +412,7 @@ const SignUp: NextPage = () => {
 
           {/* 이메일 */}
           <Input
-            type='tel'
+            type='text'
             label='이메일'
             register={register('email', {
               required: '이메일을 입력해주세요',

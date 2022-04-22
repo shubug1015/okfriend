@@ -2,7 +2,7 @@ import Layout from '@layouts/sectionLayout';
 import { cls } from '@libs/client/utils';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Popup from '@components/course/detail/popup';
 
 interface IProps {
@@ -20,6 +20,13 @@ export default function Detail({ category }: IProps) {
       .then(() => alert('링크가 복사되었습니다.'));
   };
 
+  useEffect(() => {
+    if (popup) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'visible';
+    }
+  }, [popup]);
   return (
     <>
       <div>

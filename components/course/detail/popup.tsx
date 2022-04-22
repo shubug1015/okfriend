@@ -2,6 +2,17 @@ import { cls } from '@libs/client/utils';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import React, { useState } from 'react';
+import { FieldErrors, useForm } from 'react-hook-form';
+
+interface IForm {
+  q1: string;
+  q2: string;
+  q3: string;
+  q4: string;
+  q5: string;
+  q6: string;
+  content: string;
+}
 
 interface IProps {
   title: string;
@@ -10,6 +21,21 @@ interface IProps {
 }
 
 export default function Popup({ title, content, closePopup }: IProps) {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setError,
+    watch,
+    getValues,
+  } = useForm<IForm>({
+    mode: 'onChange',
+  });
+  const onValid = async (data: IForm) => {};
+  const onInvalid = (errors: FieldErrors) => {
+    console.log(errors);
+  };
+
   const popupVar = {
     invisible: {
       opacity: 0,
@@ -33,7 +59,7 @@ export default function Popup({ title, content, closePopup }: IProps) {
   return (
     <div
       onClick={closePopup}
-      className='fixed top-32 left-0 z-50 flex h-[calc(100vh-8rem)] w-screen items-center justify-center bg-[rgba(0,0,0,0.2)]'
+      className='fixed top-0 left-0 z-[9999] flex h-screen w-screen items-start justify-center overflow-y-scroll bg-[rgba(0,0,0,0.2)] py-40'
     >
       <motion.div
         onClick={(e) => {
@@ -70,7 +96,7 @@ export default function Popup({ title, content, closePopup }: IProps) {
         </div>
 
         <div className='mt-2.5 text-center text-lg font-medium'>
-          2022 OKFriends CyberCamp –Youth-
+          2022 OKFriends CyberCamp -Youth-
         </div>
 
         <div className='mt-6 border-t-2 border-dotted border-[#9e9e9e] pt-6 text-center text-lg font-medium text-[#6b6b6b]'>
@@ -80,16 +106,198 @@ export default function Popup({ title, content, closePopup }: IProps) {
           여러분의 성실한 응답을 부탁합니다.
         </div>
 
-        <div></div>
+        <div className='mt-12 flex justify-between border-b border-[#d6d6d6] pb-3'>
+          <div className='text-sm font-medium text-[#2fb6bc]'>
+            매우 그렇지 못하다 1 / 매우 그렇다 5
+          </div>
 
+          <div className='flex space-x-5'>
+            <div className='flex w-6 justify-center text-sm font-medium text-[#6b6b6b]'>
+              1
+            </div>
+            <div className='flex w-6 justify-center text-sm font-medium text-[#6b6b6b]'>
+              2
+            </div>
+            <div className='flex w-6 justify-center text-sm font-medium text-[#6b6b6b]'>
+              3
+            </div>
+            <div className='flex w-6 justify-center text-sm font-medium text-[#6b6b6b]'>
+              4
+            </div>
+            <div className='flex w-6 justify-center text-sm font-medium text-[#6b6b6b]'>
+              5
+            </div>
+          </div>
+        </div>
+
+        {/* 문항 1 */}
+        <div className='flex h-20 items-center justify-between border-b border-dotted border-[#d6d6d6]'>
+          <div className='pl-1 text-lg'>
+            교육내용, 강사, 수업 환경 등을 고려해 보았을 때, 참여한 프로그램이
+            <br />
+            대체적으로 만족스러웠습니까?
+          </div>
+
+          <div className='flex space-x-5'>
+            {[1, 2, 3, 4, 5].map((i) => (
+              <input
+                key={i}
+                type='radio'
+                value={i}
+                {...register('q1', {
+                  required: '항목을 선택해주세요',
+                })}
+                className={cls(
+                  errors?.q1?.message ? 'border-red-500' : 'border-[#d6d6d6]',
+                  'h-6 w-6 cursor-pointer appearance-none rounded-full border-2 bg-cover outline-none checked:border-none checked:bg-[url("/icons/radio-checked.png")]'
+                )}
+              />
+            ))}
+          </div>
+        </div>
+        {/* 문항 1 */}
+
+        {/* 문항 2 */}
+        <div className='flex h-20 items-center justify-between border-b border-dotted border-[#d6d6d6]'>
+          <div className='pl-1 text-lg'>
+            담당강사의 강의계획서 및 강의자료는 강의전반을 이해하는데
+            <br />
+            도움이 되었다.
+          </div>
+
+          <div className='flex space-x-5'>
+            {[1, 2, 3, 4, 5].map((i) => (
+              <input
+                key={i}
+                type='radio'
+                value={i}
+                {...register('q2', {
+                  required: '항목을 선택해주세요',
+                })}
+                className={cls(
+                  errors?.q2?.message ? 'border-red-500' : 'border-[#d6d6d6]',
+                  'h-6 w-6 cursor-pointer appearance-none rounded-full border-2 bg-cover outline-none checked:border-none checked:bg-[url("/icons/radio-checked.png")]'
+                )}
+              />
+            ))}
+          </div>
+        </div>
+        {/* 문항 2 */}
+
+        {/* 문항 3 */}
+        <div className='flex h-20 items-center justify-between border-b border-dotted border-[#d6d6d6]'>
+          <div className='pl-1 text-lg'>
+            담당강사의 수업안내와 진행은 이해하기 쉽고, 학습활동의 유도와 참여에
+            <br />
+            효과적이었다.
+          </div>
+
+          <div className='flex space-x-5'>
+            {[1, 2, 3, 4, 5].map((i) => (
+              <input
+                key={i}
+                type='radio'
+                value={i}
+                {...register('q3', {
+                  required: '항목을 선택해주세요',
+                })}
+                className={cls(
+                  errors?.q3?.message ? 'border-red-500' : 'border-[#d6d6d6]',
+                  'h-6 w-6 cursor-pointer appearance-none rounded-full border-2 bg-cover outline-none checked:border-none checked:bg-[url("/icons/radio-checked.png")]'
+                )}
+              />
+            ))}
+          </div>
+        </div>
+        {/* 문항 3 */}
+
+        {/* 문항 4 */}
+        <div className='flex h-20 items-center justify-between border-b border-dotted border-[#d6d6d6]'>
+          <div className='pl-1 text-lg'>
+            이 강좌를 수강함으로써 핵심내용과 관련지식을 충분히 습득할 수
+            있었다.
+          </div>
+
+          <div className='flex space-x-5'>
+            {[1, 2, 3, 4, 5].map((i) => (
+              <input
+                key={i}
+                type='radio'
+                value={i}
+                {...register('q4', {
+                  required: '항목을 선택해주세요',
+                })}
+                className={cls(
+                  errors?.q4?.message ? 'border-red-500' : 'border-[#d6d6d6]',
+                  'h-6 w-6 cursor-pointer appearance-none rounded-full border-2 bg-cover outline-none checked:border-none checked:bg-[url("/icons/radio-checked.png")]'
+                )}
+              />
+            ))}
+          </div>
+        </div>
+        {/* 문항 4 */}
+
+        {/* 문항 5 */}
+        <div className='flex h-20 items-center justify-between border-b border-dotted border-[#d6d6d6]'>
+          <div className='pl-1 text-lg'>
+            이 강좌를 수강함으로써 나의 잠재력 개발이나 진로설계에 도움이
+            되었다.
+          </div>
+
+          <div className='flex space-x-5'>
+            {[1, 2, 3, 4, 5].map((i) => (
+              <input
+                key={i}
+                type='radio'
+                value={i}
+                {...register('q5', {
+                  required: '항목을 선택해주세요',
+                })}
+                className={cls(
+                  errors?.q5?.message ? 'border-red-500' : 'border-[#d6d6d6]',
+                  'h-6 w-6 cursor-pointer appearance-none rounded-full border-2 bg-cover outline-none checked:border-none checked:bg-[url("/icons/radio-checked.png")]'
+                )}
+              />
+            ))}
+          </div>
+        </div>
+        {/* 문항 5 */}
+
+        {/* 문항 6 */}
+        <div className='flex h-20 items-center justify-between border-b border-dotted border-[#d6d6d6]'>
+          <div className='pl-1 text-lg'>
+            이 강좌를 수강한 것에 만족하며, 다른 학생에게도 추천하고 싶다.
+          </div>
+
+          <div className='flex space-x-5'>
+            {[1, 2, 3, 4, 5].map((i) => (
+              <input
+                key={i}
+                type='radio'
+                value={i}
+                {...register('q6', {
+                  required: '항목을 선택해주세요',
+                })}
+                className={cls(
+                  errors?.q6?.message ? 'border-red-500' : 'border-[#d6d6d6]',
+                  'h-6 w-6 cursor-pointer appearance-none rounded-full border-2 bg-cover outline-none checked:border-none checked:bg-[url("/icons/radio-checked.png")]'
+                )}
+              />
+            ))}
+          </div>
+        </div>
+        {/* 문항 6 */}
+
+        {/* 제출하기 */}
         <div className='flex justify-center'>
           <div
-            onClick={closePopup}
+            onClick={handleSubmit(onValid, onInvalid)}
             className='mt-12 flex w-96 cursor-pointer justify-center rounded-lg bg-[#2fb6bc] py-4 text-lg font-medium text-white transition-all hover:opacity-90'
           >
             제출하기
           </div>
         </div>
+        {/* 제출하기 */}
       </motion.div>
     </div>
   );
