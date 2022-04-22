@@ -15,7 +15,7 @@ const Library: NextPage<IProps> = ({ params }) => {
   // console.log(orderType, searchType, page, search);
   return (
     <>
-      <SEO title='연수이야기' />
+      <SEO title='지원센터' />
       <Banner title='지원센터 자료실' navList={['지원센터', '자료실']} />
       <Navigator supportCategory='library' />
       <Layout padding='pt-20 pb-24'>

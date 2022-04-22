@@ -32,7 +32,7 @@ const Faq: NextPage = () => {
   };
   return (
     <>
-      <SEO title='연수이야기' />
+      <SEO title='지원센터' />
       <Banner title='지원센터 FAQ' navList={['지원센터', 'FAQ']} />
       <Navigator supportCategory='faq' />
       <Layout padding='pt-16 pb-24'>

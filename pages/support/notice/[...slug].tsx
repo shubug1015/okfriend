@@ -16,7 +16,7 @@ const Notice: NextPage<IProps> = ({ slugs }) => {
   // console.log(orderType, searchType, page, searchTerm);
   return (
     <>
-      <SEO title='연수이야기' />
+      <SEO title='지원센터' />
       <Banner title='지원센터 공지사항' navList={['지원센터', '공지사항']} />
       <Navigator supportCategory='notice' />
       <Layout padding='pt-20 pb-24'>
