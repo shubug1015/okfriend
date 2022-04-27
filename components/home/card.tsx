@@ -45,8 +45,6 @@ export default function Card() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [progressBar, setProgressBar] = useState(0);
 
-  // console.log(data);
-
   const settings = {
     dots: false,
     infinite: true,
