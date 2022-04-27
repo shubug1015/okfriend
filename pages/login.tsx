@@ -1,13 +1,13 @@
 import Input from '@components/input';
 import SEO from '@components/seo';
-// import { usersApi } from '@libs/api';
+import { usersApi } from '@libs/api';
+import { useUser } from '@libs/client/useUser';
 import useMutation from '@libs/client/useMutation';
 import { cls } from '@libs/client/utils';
+import axios from 'axios';
 import type { NextPage } from 'next';
 import Link from 'next/link';
 import { FieldErrors, useForm } from 'react-hook-form';
-// import { useAuth } from '@libs/client/useAuth';
-// import axios from 'axios';
 
 interface IForm {
   username: string;
@@ -15,10 +15,8 @@ interface IForm {
 }
 
 const Login: NextPage = () => {
-  //   const { mutate } = useAuth({
-  //     isPrivate: false,
-  //   });
-  const [login, { loading, error }] = useMutation('');
+  const { mutate } = useUser({});
+  const [login, { loading, error }] = useMutation(usersApi.loginNextApi);
 
   const {
     register,
@@ -29,15 +27,15 @@ const Login: NextPage = () => {
   });
   const onValid = async (data: IForm) => {
     const req = {
-      type: 'normal',
       username: data.username,
       password: data.password,
     };
-    // await login({ req });
-    // const {
-    //   data: { token, profile },
-    // } = await axios.get('/api/auth');
-    // mutate({ ok: true, token, profile });
+
+    await login({ req });
+    const {
+      data: { token, profile },
+    } = await axios.get('/api/auth');
+    mutate({ ok: true, token, profile });
   };
   const onInvalid = (errors: FieldErrors) => {
     console.log(errors);
@@ -116,7 +114,7 @@ const Login: NextPage = () => {
 
         {/* 회원가입 버튼 */}
         <Link href='/signup'>
-          <a className='flex h-[3.688rem] w-full items-center justify-center rounded text-[#2fb6bc] border border-[#2fb6bc] text-lg font-medium transition-all hover:opacity-70'>
+          <a className='flex h-[3.688rem] w-full items-center justify-center rounded border border-[#2fb6bc] text-lg font-medium text-[#2fb6bc] transition-all hover:opacity-70'>
             회원가입
           </a>
         </Link>

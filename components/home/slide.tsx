@@ -60,15 +60,15 @@ export default function Slide() {
   };
 
   return (
-    <div className='relative w-screen h-[54rem]'>
+    <div className='relative h-[54rem] w-screen md:h-[25.125rem]'>
       <Slider ref={slider} className='h-full overflow-hidden' {...settings}>
         {slide.map((i) => (
           <div
             key={i.id}
-            className='relative !flex justify-center text-white items-center flex-col w-screen h-[54rem]'
+            className='relative !flex h-[54rem] w-screen flex-col items-center justify-center text-white md:h-[25.125rem]'
           >
-            <div className='absolute w-full h-full -z-[1]'>
-              <div className='relative w-full h-full'>
+            <div className='absolute -z-[1] h-full w-full'>
+              <div className='relative h-full w-full'>
                 <Image
                   src={i.bgImg}
                   alt='Slide Image'
@@ -79,18 +79,18 @@ export default function Slide() {
               </div>
             </div>
 
-            <div className='drop-shadow-md text-center text-[5rem] font-sans font-bold leading-[1.2] whitespace-pre-wrap'>
+            <div className='whitespace-pre-wrap text-center font-sans text-[5rem] font-bold leading-[1.2] drop-shadow-md md:text-[2.5rem]'>
               {i.title}
             </div>
 
-            <div className='drop-shadow-md text-2xl font-bold mt-6'>
+            <div className='mt-6 text-2xl font-bold drop-shadow-md md:text-xl'>
               {i.text}
             </div>
           </div>
         ))}
       </Slider>
 
-      <div className='absolute left-1/2 bottom-10 -translate-y-1/2 space-y-4'>
+      <div className='absolute left-1/2 bottom-10 -translate-y-1/2 space-y-4 md:hidden'>
         <svg
           width='21'
           height='30'
@@ -129,8 +129,8 @@ export default function Slide() {
         </svg>
       </div>
 
-      <div className='relative w-full mx-auto max-w-[1400px]'>
-        <div className='absolute left-0 bottom-0 w-[21.5rem] h-[3.813rem] flex justify-center items-center bg-[#231916]'>
+      <div className='relative mx-auto w-full max-w-[1400px]'>
+        <div className='absolute left-0 bottom-0 flex h-[3.813rem] w-[21.5rem] items-center justify-center bg-[#231916] md:left-1/2 md:h-9 md:w-48 md:-translate-x-1/2'>
           <svg
             width='7'
             height='9'
@@ -146,18 +146,18 @@ export default function Slide() {
             />
           </svg>
 
-          <div className='text-sm font-bold ml-1 text-white'>
+          <div className='ml-1 text-sm font-bold text-white md:text-xs'>
             0{activeSlide + 1}
           </div>
 
-          <div className='w-[13.125rem] h-[0.188rem] bg-[rgba(255,255,255,0.4)] rounded-full mx-3'>
+          <div className='mx-3 h-[0.188rem] w-[13.125rem] rounded-full bg-[rgba(255,255,255,0.4)] md:mx-1 md:w-28'>
             <div
-              className='bg-white h-full rounded-full'
+              className='h-full rounded-full bg-white'
               style={{ width: `${progressBar}%` }}
             ></div>
           </div>
 
-          <div className='text-sm font-bold mr-1 text-white'>
+          <div className='mr-1 text-sm font-bold text-white md:text-xs'>
             0{slide.length}
           </div>
 

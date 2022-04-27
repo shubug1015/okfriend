@@ -6,8 +6,15 @@ import { useRef, useState } from 'react';
 import useInterval from '@libs/client/useInterval';
 import Layout from '@layouts/sectionLayout';
 import Link from 'next/link';
+import useSWR from 'swr';
+import { boardApi } from '@libs/api';
 
 export default function Card() {
+  const { data } = useSWR(`cardNews`, () =>
+    boardApi.getCardNewsList('1', 'KOR')
+  );
+
+  // console.log(data);
   const slide = [
     {
       id: 0,
@@ -38,6 +45,8 @@ export default function Card() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [progressBar, setProgressBar] = useState(0);
 
+  // console.log(data);
+
   const settings = {
     dots: false,
     infinite: true,
@@ -49,6 +58,15 @@ export default function Card() {
       setActiveSlide(index);
       setProgressBar(0);
     },
+    responsive: [
+      {
+        breakpoint: 639,
+        settings: {
+          slidesToShow: 2,
+          centerPadding: '60px',
+        },
+      },
+    ],
   };
 
   useInterval(() => {
@@ -71,13 +89,22 @@ export default function Card() {
   const nextSlide = () => {
     slider.current?.slickNext();
   };
-
   return (
-    <Layout bgColor='bg-[#01111e]' padding='py-20'>
-      <div className='text-4xl font-bold font-sans text-white'>CARD NEWS</div>
+    <Layout bgColor='bg-[#01111e]' padding='py-20 md:py-10'>
+      <div className='md:flex md:items-center md:justify-between'>
+        <div className='font-sans text-4xl font-bold text-white md:text-2xl'>
+          CARD NEWS
+        </div>
 
-      <div className='mt-11 flex justify-between text-white'>
-        <div className='flex justify-between items-center'>
+        <Link href='/'>
+          <a className='hidden rounded-full border border-white py-[0.35rem] px-[0.7rem] text-[0.75rem] font-bold text-white md:block'>
+            전체보기
+          </a>
+        </Link>
+      </div>
+
+      <div className='mt-11 flex justify-between text-white md:mt-5'>
+        <div className='flex items-center justify-between'>
           <svg
             width='7'
             height='9'
@@ -93,16 +120,20 @@ export default function Card() {
             />
           </svg>
 
-          <div className='text-sm font-bold ml-1'>0{activeSlide + 1}</div>
+          <div className='ml-1 text-sm font-bold md:ml-1.5 md:text-xs'>
+            0{activeSlide + 1}
+          </div>
 
-          <div className='w-[13.125rem] h-[0.188rem] bg-[rgba(255,255,255,0.4)] rounded-full mx-3'>
+          <div className='mx-3 h-[0.188rem] w-[13.125rem] rounded-full bg-[rgba(255,255,255,0.4)] md:w-28'>
             <div
-              className='bg-white h-full rounded-full'
+              className='h-full rounded-full bg-white'
               style={{ width: `${progressBar}%` }}
             ></div>
           </div>
 
-          <div className='text-sm font-bold mr-1'>0{slide.length}</div>
+          <div className='mr-1 text-sm font-bold md:mr-1.5 md:text-xs'>
+            0{slide.length}
+          </div>
 
           <svg
             width='7'
@@ -118,18 +149,20 @@ export default function Card() {
         </div>
 
         <Link href='/'>
-          <a>
-            <div className='py-2 px-[1.375rem] rounded-full border border-white text-lg font-bold'>
-              전체보기
-            </div>
+          <a className='rounded-full border border-white py-2 px-[1.375rem] text-lg font-bold md:hidden'>
+            전체보기
           </a>
         </Link>
       </div>
 
-      <Slider ref={slider} className='overflow-hidden mt-12' {...settings}>
+      <Slider
+        ref={slider}
+        className='mt-12 overflow-hidden md:mt-8'
+        {...settings}
+      >
         {slide.map((i) => (
           <div key={i.id} className='!flex justify-center'>
-            <div className='w-80 aspect-square rounded-lg bg-slate-300'></div>
+            <div className='aspect-square w-80 rounded-lg bg-slate-300 md:w-40'></div>
           </div>
         ))}
       </Slider>
