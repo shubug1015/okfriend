@@ -3,6 +3,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Image from 'next/image';
 import SlideBg1 from '@public/home/slide-bg-1.png';
+import SlideBg2 from '@public/home/slide-bg-2.png';
 import { useRef, useState } from 'react';
 import useInterval from '@libs/client/useInterval';
 
@@ -16,7 +17,7 @@ export default function Slide() {
     },
     {
       id: 1,
-      bgImg: SlideBg1,
+      bgImg: SlideBg2,
       title: '2022 OKFriends\nCyberCamp',
       text: '재외동포 대학생 온라인 모국연수',
     },
@@ -60,12 +61,12 @@ export default function Slide() {
   };
 
   return (
-    <div className='relative h-[54rem] w-screen md:h-[25.125rem]'>
+    <div className='relative h-[57rem] w-screen md:h-[25.125rem]'>
       <Slider ref={slider} className='h-full overflow-hidden' {...settings}>
         {slide.map((i) => (
           <div
             key={i.id}
-            className='relative !flex h-[54rem] w-screen flex-col items-center justify-center text-white md:h-[25.125rem]'
+            className='relative !flex h-[57rem] w-screen flex-col items-center justify-center text-white md:h-[25.125rem]'
           >
             <div className='absolute -z-[1] h-full w-full'>
               <div className='relative h-full w-full'>
