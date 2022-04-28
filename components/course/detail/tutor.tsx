@@ -1,10 +1,12 @@
 import Layout from '@layouts/sectionLayout';
+import Image from 'next/image';
 
 interface IProps {
-  data: any[];
+  [key: string]: any;
 }
 
-export default function Tutor() {
+export default function Tutor({ tutor }: IProps) {
+  console.log(tutor);
   return (
     <>
       <Layout padding='pt-20 pb-24'>
@@ -26,19 +28,13 @@ export default function Tutor() {
 
             <div className='ml-[1.625rem]'>
               <div className='flex items-center space-x-6'>
-                <span className='text-[2rem] font-bold'>Kim Junu</span>
-                <span className='text-xl font-bold'>김준우</span>
+                <span className='text-[2rem] font-bold'>{tutor?.en_name}</span>
+                <span className='text-xl font-bold'>{tutor?.name}</span>
               </div>
 
-              <div className='text-lg text-[#9e9e9e] mt-1'>
-                icessea@naver.com
-              </div>
+              <div className='mt-1 text-lg text-[#9e9e9e]'>{tutor?.email}</div>
 
-              <div className='mt-2.5'>
-                글로벌 유행인 K팝과 K패션의 흐름과 트랜드를 알아보며
-                <br />
-                글로벌 패션을 선도하고 K패션의 글로벌 인지도를 확대하고자 함
-              </div>
+              <div className='mt-2.5'>{tutor?.text}</div>
             </div>
 
             <svg
@@ -56,18 +52,23 @@ export default function Tutor() {
           <div className='mt-6 ml-[1.625rem]'>
             <div className='text-xl font-bold'>상세 이력</div>
 
-            <div className='text-[#626262] mt-2.5'>
-              現)EBS(한국교육방송) 강사
-              <br />
-              現)신일고등학교 교사
-              <br />
-              現)EBS(한국교육방송) 강사
-              <br />
-              現)신일고등학교 교사
+            <div className='mt-2.5 text-[#626262]'>
+              {tutor?.career.map((i: { [key: string]: any }) => (
+                <div key={i.id}>{i.text}</div>
+              ))}
             </div>
           </div>
 
-          <div className='absolute top-1/2 right-0 -translate-y-1/2 w-[36.25rem] h-[35.875rem] bg-slate-500'></div>
+          <div className='absolute top-1/2 right-0 h-[35.875rem] w-[36.25rem] -translate-y-1/2'>
+            {tutor?.image && (
+              <Image
+                src={tutor?.image}
+                alt='Tutor Image'
+                layout='fill'
+                objectFit='cover'
+              />
+            )}
+          </div>
         </div>
       </Layout>
 

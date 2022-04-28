@@ -9,6 +9,8 @@ import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { FieldErrors, useForm } from 'react-hook-form';
+import { useUser } from '@libs/client/useUser';
+import { usersApi } from '@libs/api';
 
 interface IForm {
   email: string;
@@ -16,28 +18,35 @@ interface IForm {
   year: string;
   month: string;
   day: string;
-  introduction: string;
+  introduce: string;
 }
 
 const Edit: NextPage = () => {
+  const { token, profile } = useUser({ isPrivate: true });
+  const [editMyInfos] = useMutation(usersApi.editInfos);
   const {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
   } = useForm<IForm>({
     mode: 'onChange',
   });
-  const onValid = (data: IForm) => {
-    // try {
-    //   const req = {
-    //     password: data.password,
-    //     token,
-    //   };
-    //   editMyInfos({ req });
-    // } catch {
-    //   alert('Error');
-    // }
+  const onValid = ({ email, phoneNum, year, month, day, introduce }: IForm) => {
+    try {
+      const req = {
+        ...(email && { email }),
+        ...(phoneNum && { phoneNum }),
+        ...(year && { year }),
+        ...(month && { month }),
+        ...(day && { day }),
+        ...(introduce && { introduce }),
+        token,
+      };
+      editMyInfos({ req });
+      alert('회원 정보 수정이 완료되었습니다.');
+    } catch {
+      alert('Error');
+    }
   };
   const onInvalid = (errors: FieldErrors) => {
     console.log(errors);
@@ -60,7 +69,7 @@ const Edit: NextPage = () => {
                 <div className='font-medium'>이름</div>
 
                 <div className='flex h-[3.75rem] items-center rounded border border-[#d6d6d6] bg-[#f8f8f8] pl-5 text-lg font-medium text-[#d6d6d6]'>
-                  홍길동
+                  {profile?.name}
                 </div>
               </div>
 
@@ -68,7 +77,7 @@ const Edit: NextPage = () => {
                 <div className='font-medium'>아이디</div>
 
                 <div className='flex h-[3.75rem] items-center rounded border border-[#d6d6d6] bg-[#f8f8f8] pl-5 text-lg font-medium text-[#d6d6d6]'>
-                  testid000
+                  {profile?.username}
                 </div>
               </div>
 
@@ -76,7 +85,7 @@ const Edit: NextPage = () => {
                 <div className='font-medium'>국가</div>
 
                 <div className='flex h-[3.75rem] items-center rounded border border-[#d6d6d6] bg-[#f8f8f8] pl-5 text-lg font-medium text-[#d6d6d6]'>
-                  korea
+                  {profile?.country}
                 </div>
               </div>
 
@@ -87,6 +96,7 @@ const Edit: NextPage = () => {
                   type='text'
                   placeholder='이메일'
                   {...register('email', {
+                    value: profile?.email,
                     required: '이메일을 입력해주세요',
                     validate: {
                       notEmail: (value) => {
@@ -111,6 +121,7 @@ const Edit: NextPage = () => {
                   type='text'
                   placeholder='휴대폰번호'
                   {...register('phoneNum', {
+                    value: profile?.phone_number,
                     required: '전화번호를 입력해주세요',
                     validate: {
                       notPhoneNum: (value) => {
@@ -128,109 +139,112 @@ const Edit: NextPage = () => {
                 />
               </div>
 
-              <div className='flex w-full flex-col'>
-                <label className='font-medium'>생년월일</label>
+              {profile && (
+                <div className='flex w-full flex-col'>
+                  <label className='font-medium'>생년월일</label>
 
-                {/* 년도 */}
-                <div className='mt-2 flex h-[3.75rem] w-full space-x-3.5'>
-                  <div className='w-1/3'>
-                    <select
-                      defaultValue='default'
-                      {...register('year', {
-                        required: '년도를 선택해주세요',
-                        validate: {
-                          notDefault: (value) =>
-                            value !== 'default' || '년도를 선택해주세요',
-                        },
-                      })}
-                      className={cls(
-                        errors?.year?.message
-                          ? 'border-red-500'
-                          : 'border-[#d6d6d6]',
-                        'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm'
-                      )}
-                    >
-                      <option value='default' disabled hidden>
-                        년(4자)
-                      </option>
-                      {[...Array(20)].map((_, index) => (
-                        <option key={index}>{index + 2003}</option>
-                      ))}
-                    </select>
-                  </div>
                   {/* 년도 */}
+                  <div className='mt-2 flex h-[3.75rem] w-full space-x-3.5'>
+                    <div className='w-1/3'>
+                      <select
+                        defaultValue={profile?.birth.split('-')[0]}
+                        {...register('year', {
+                          required: '년도를 선택해주세요',
+                          validate: {
+                            notDefault: (value) =>
+                              value !== 'default' || '년도를 선택해주세요',
+                          },
+                        })}
+                        className={cls(
+                          errors?.year?.message
+                            ? 'border-red-500'
+                            : 'border-[#d6d6d6]',
+                          'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm'
+                        )}
+                      >
+                        <option value='default' disabled hidden>
+                          년(4자)
+                        </option>
+                        {[...Array(20)].map((_, index) => (
+                          <option key={index}>{index + 2003}</option>
+                        ))}
+                      </select>
+                    </div>
+                    {/* 년도 */}
 
-                  {/* 월 */}
-                  <div className='w-1/3'>
-                    <select
-                      defaultValue='default'
-                      {...register('month', {
-                        required: '월을 선택해주세요',
-                        validate: {
-                          notDefault: (value) =>
-                            value !== 'default' || '월을 선택해주세요',
-                        },
-                      })}
-                      className={cls(
-                        errors?.month?.message
-                          ? 'border-red-500'
-                          : 'border-[#d6d6d6]',
-                        'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm'
-                      )}
-                    >
-                      <option value='default' disabled hidden>
-                        월
-                      </option>
-                      {[...Array(12)].map((_, index) => (
-                        <option key={index}>{index + 1}</option>
-                      ))}
-                    </select>
+                    {/* 월 */}
+                    <div className='w-1/3'>
+                      <select
+                        defaultValue={profile?.birth.split('-')[1]}
+                        {...register('month', {
+                          required: '월을 선택해주세요',
+                          validate: {
+                            notDefault: (value) =>
+                              value !== 'default' || '월을 선택해주세요',
+                          },
+                        })}
+                        className={cls(
+                          errors?.month?.message
+                            ? 'border-red-500'
+                            : 'border-[#d6d6d6]',
+                          'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm'
+                        )}
+                      >
+                        <option value='default' disabled hidden>
+                          월
+                        </option>
+                        {[...Array(12)].map((_, index) => (
+                          <option key={index}>{index + 1}</option>
+                        ))}
+                      </select>
+                    </div>
+                    {/* 월 */}
+
+                    {/* 일 */}
+                    <div className='w-1/3'>
+                      <select
+                        defaultValue={profile?.birth.split('-')[2]}
+                        {...register('day', {
+                          required: '일을 선택해주세요',
+                          validate: {
+                            notDefault: (value) =>
+                              value !== 'default' || '일을 선택해주세요',
+                          },
+                        })}
+                        className={cls(
+                          errors?.day?.message
+                            ? 'border-red-500'
+                            : 'border-[#d6d6d6]',
+                          'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm'
+                        )}
+                      >
+                        <option value='default' disabled hidden>
+                          일
+                        </option>
+                        {[...Array(31)].map((_, index) => (
+                          <option key={index}>{index + 1}</option>
+                        ))}
+                      </select>
+                    </div>
+                    {/* 일 */}
                   </div>
-                  {/* 월 */}
 
-                  {/* 일 */}
-                  <div className='w-1/3'>
-                    <select
-                      defaultValue='default'
-                      {...register('day', {
-                        required: '일을 선택해주세요',
-                        validate: {
-                          notDefault: (value) =>
-                            value !== 'default' || '일을 선택해주세요',
-                        },
-                      })}
-                      className={cls(
-                        errors?.day?.message
-                          ? 'border-red-500'
-                          : 'border-[#d6d6d6]',
-                        'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm'
-                      )}
-                    >
-                      <option value='default' disabled hidden>
-                        일
-                      </option>
-                      {[...Array(31)].map((_, index) => (
-                        <option key={index}>{index + 1}</option>
-                      ))}
-                    </select>
+                  <div className='mt-2 text-sm text-red-500'>
+                    {(errors?.year?.message ||
+                      errors?.year?.message ||
+                      errors?.year?.message) &&
+                      '생년월일을 선택해주세요'}
                   </div>
-                  {/* 일 */}
                 </div>
-
-                <div className='mt-2 text-sm text-red-500'>
-                  {(errors?.year?.message ||
-                    errors?.year?.message ||
-                    errors?.year?.message) &&
-                    '생년월일을 선택해주세요'}
-                </div>
-              </div>
+              )}
 
               <div className='space-y-3'>
                 <div className='font-medium'>자기소개</div>
 
                 <textarea
                   placeholder='자유롭게 작성해보세요.'
-                  {...register('introduction', {
+                  {...register('introduce', {
+                    value: profile?.introduce,
                     required: '자기소개를 입력해주세요',
                   })}
                   className='h-44 w-full rounded border border-[#d6d6d6] pt-4 pl-5 text-lg font-medium outline-none placeholder:text-[#d6d6d6]'

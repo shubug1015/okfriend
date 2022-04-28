@@ -2,12 +2,12 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import useSWR from 'swr';
 
-interface IProfile {
-  [key: string]: any;
-}
-
 interface IProps {
   isPrivate?: boolean;
+}
+
+interface IProfile {
+  [key: string]: any;
 }
 
 export interface IUser {
@@ -17,10 +17,8 @@ export interface IUser {
 }
 
 export const useUser = ({ isPrivate = false }: IProps) => {
-  const { data, error, mutate } = useSWR<IUser>('/api/auth');
+  const { data, error, mutate } = useSWR<IUser>('/api/user');
   const router = useRouter();
-
-  console.log(data);
 
   useEffect(() => {
     if (data && data.token && data.profile && !isPrivate) {

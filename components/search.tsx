@@ -7,7 +7,7 @@ export default function Search() {
   const slugs = router.query.slug as string[];
 
   const [searchType, setSearchType] = useState({
-    label: slugs[0] === 'title' ? '제목' : '글쓴일',
+    label: slugs[0] === 'title' ? '제목' : '글쓴이',
     value: slugs[0],
   });
   const [orderType, setOrderType] = useState({
@@ -42,7 +42,7 @@ export default function Search() {
             },
             {
               id: 1,
-              label: '글쓴일',
+              label: '글쓴이',
               value: 'user',
             },
           ]}
@@ -86,11 +86,11 @@ export default function Search() {
             label: '조회순',
             value: 'view_num',
           },
-          {
-            id: 2,
-            label: '댓글 많은 순',
-            value: 'like_num',
-          },
+          // {
+          //   id: 2,
+          //   label: '댓글 많은 순',
+          //   value: 'like_num',
+          // },
         ]}
         url={(orderType: string) =>
           router.push(

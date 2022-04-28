@@ -15,8 +15,8 @@ export default function Course() {
       : category === '필수 차시'
       ? '온라인 연수 - 필수차시'
       : '온라인 연수 - 선택차시';
-  const { data } = useSWR(`onlineCourseList-${request}`, () =>
-    courseApi.getOnlineCourseList(request)
+  const { data } = useSWR(`onlineCourseList/${request}`, () =>
+    courseApi.getCourseList(request, '1')
   );
 
   return (
@@ -50,7 +50,7 @@ export default function Course() {
             사전 온라인 연수
           </div> */}
 
-          <Link href='/'>
+          <Link href='/course/online/live/1'>
             <a className='hidden rounded-full bg-[#2fb6bc] py-[0.35rem] px-[0.7rem] text-[0.75rem] font-bold text-white md:block'>
               전체보기
             </a>
@@ -94,7 +94,7 @@ export default function Course() {
             </div>
           </div>
 
-          <Link href='/'>
+          <Link href='/course/list/online/live/1'>
             <a className='rounded-full bg-[#2fb6bc] py-2 px-[1.375rem] text-lg font-bold md:hidden'>
               전체보기
             </a>
@@ -102,7 +102,7 @@ export default function Course() {
         </div>
 
         <div className='mt-8 grid grid-cols-3 gap-x-5 gap-y-9 md:grid-cols-1 md:gap-x-0 md:gap-y-5'>
-          {data?.results.map((i: { [key: string]: any }) => (
+          {data?.results.slice(0, 6).map((i: { [key: string]: any }) => (
             <div key={i.id}>
               <div className='group relative h-[15.625rem] md:h-48'>
                 <div className='absolute left-0 top-0 -z-[1] h-full w-full'>
@@ -115,7 +115,16 @@ export default function Course() {
                   />
                 </div>
                 <div className='invisible flex h-full w-full items-center justify-center bg-[rgba(1,17,30,0.5)] opacity-0 transition-all group-hover:visible group-hover:opacity-100'>
-                  <Link key={i.id} href='/'>
+                  <Link
+                    key={i.id}
+                    href={`/course/detail/online/${
+                      category === '라이브 차시'
+                        ? 'live'
+                        : category === '필수 차시'
+                        ? 'required'
+                        : 'elective'
+                    }/${i.id}`}
+                  >
                     <a>
                       <div className='translate-y-4 rounded-md border border-white bg-[rgba(0,0,0,0.5)] py-2.5 px-7 text-xl font-bold text-white transition-all group-hover:translate-y-0'>
                         바로가기
@@ -136,6 +145,7 @@ export default function Course() {
                     viewBox='0 0 9 10'
                     fill='none'
                     xmlns='http://www.w3.org/2000/svg'
+                    className='ml-px mb-0.5'
                   >
                     <path
                       d='M8.77246 5.00112L0.11355 10.0003L0.11355 0.00189791L8.77246 5.00112Z'

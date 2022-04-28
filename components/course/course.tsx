@@ -6,15 +6,33 @@ interface IProps {
   thumbnail: string;
   name: string;
   tutor: any;
+  courseType: string;
+  courseCategory: string;
 }
 
-export default function Course({ id, thumbnail, tutor, name }: IProps) {
+export default function Course({
+  id,
+  thumbnail,
+  tutor,
+  name,
+  courseType,
+  courseCategory,
+}: IProps) {
   return (
-    <Link href='/'>
+    <Link href={`/course/detail/${courseType}/${courseCategory}/${id}`}>
       <a>
-        <div className='flex flex-col justify-between h-[13.875rem] bg-slate-500 rounded-lg mt-4'>
+        <div className='relative mt-4 flex h-[13.875rem] flex-col justify-between rounded-lg bg-gradient-to-b from-transparent via-transparent to-[rgba(0,0,0,0.8)]'>
+          <div className='absolute top-0 left-0 -z-[1] h-full w-full'>
+            <Image
+              src={thumbnail}
+              alt='Course Thumbnail'
+              layout='fill'
+              objectFit='cover'
+            />
+          </div>
+
           <div className='flex justify-end pt-3.5 pr-3.5'>
-            <div className='bg-[#d60a51] pl-0.5 w-7 aspect-square flex justify-center items-center rounded-full'>
+            <div className='flex aspect-square w-7 items-center justify-center rounded-full bg-[#d60a51] pl-0.5'>
               <svg
                 width='9'
                 height='10'
@@ -31,11 +49,9 @@ export default function Course({ id, thumbnail, tutor, name }: IProps) {
           </div>
 
           <div className='pl-5 pb-5'>
-            <div className='text-xl font-bold text-white'>
-              M.A.G.I.C Project로 글로벌 리더 되기
-            </div>
+            <div className='text-xl font-bold text-white'>{name}</div>
 
-            <div className='text-white mt-1'>홍길동 강사</div>
+            <div className='mt-1 text-white'>{tutor.name} 강사</div>
           </div>
         </div>
       </a>

@@ -4,13 +4,14 @@ import Library from './library';
 
 interface IProps {
   //   notice: any[];
-  data: any[];
+  data: { [key: string]: any };
   totalItems: number;
-  currentPage: number;
 }
 
-export default function LibraryList({ data, totalItems, currentPage }: IProps) {
+export default function LibraryList({ data, totalItems }: IProps) {
   const router = useRouter();
+  const [searchType, orderType, currentPage, searchTerm] = router.query
+    .slug as string[];
   return (
     <>
       <div className='mt-8 flex h-[3.75rem] items-center border-y border-[rgba(0,0,0,0.16)]'>
@@ -22,38 +23,45 @@ export default function LibraryList({ data, totalItems, currentPage }: IProps) {
         <div className='flex w-[10%] justify-center'>조회수</div>
       </div>
 
-      {data?.map((i) => (
+      {data?.fixed.map((i: { [key: string]: any }) => (
         <Library
-          key={i}
-          id={i}
+          key={i.id}
+          id={i.id}
           type={'notice'}
           subject={'공지'}
-          title={'제목'}
-          created={'2022-04-19T'}
+          title={i.title}
+          created={i.created}
           name={'관리자'}
-          view={1}
+          view={i.view_num}
         />
       ))}
 
-      {data?.map((i) => (
+      {data?.results.map((i: { [key: string]: any }, index: number) => (
         <Library
-          key={i}
-          id={i}
+          key={i.id}
+          id={i.id}
           type={''}
-          num={1}
-          subject={'주제'}
-          title={'제목'}
-          created={'2022-04-19T'}
+          num={(+currentPage - 1) * 15 + index + 1}
+          subject={i.subject}
+          title={i.title}
+          created={i.created}
           name={'관리자'}
-          view={1}
+          view={i.view_num}
         />
       ))}
 
       <div className='mt-24 flex justify-center'>
         <Pagebar
           totalItems={totalItems}
-          currentPage={currentPage}
-          url={(page: number) => router.push(`/`)}
+          itemsPerPage={15}
+          currentPage={+currentPage}
+          url={(page: number) =>
+            router.push(
+              `/support/libaray/${searchType}/${orderType}/${page}/${
+                searchTerm || ''
+              }`
+            )
+          }
         />
       </div>
     </>

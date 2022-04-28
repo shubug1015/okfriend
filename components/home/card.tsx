@@ -13,34 +13,6 @@ export default function Card() {
   const { data } = useSWR(`cardNews`, () =>
     boardApi.getCardNewsList('1', 'KOR')
   );
-
-  // console.log(data);
-  const slide = [
-    {
-      id: 0,
-      bgImg: '',
-    },
-    {
-      id: 1,
-      bgImg: '',
-    },
-    {
-      id: 2,
-      bgImg: '',
-    },
-    {
-      id: 3,
-      bgImg: '',
-    },
-    {
-      id: 4,
-      bgImg: '',
-    },
-    {
-      id: 5,
-      bgImg: '',
-    },
-  ];
   const slider = useRef<Slider | null>(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const [progressBar, setProgressBar] = useState(0);
@@ -130,7 +102,7 @@ export default function Card() {
           </div>
 
           <div className='mr-1 text-sm font-bold md:mr-1.5 md:text-xs'>
-            0{slide.length}
+            0{data?.results.length}
           </div>
 
           <svg
@@ -158,9 +130,17 @@ export default function Card() {
         className='mt-12 overflow-hidden md:mt-8'
         {...settings}
       >
-        {slide.map((i) => (
+        {data?.results.map((i: { [key: string]: any }) => (
           <div key={i.id} className='!flex justify-center'>
-            <div className='aspect-square w-80 rounded-lg bg-slate-300 md:w-40'></div>
+            <div className='relative aspect-square w-80 md:w-40'>
+              <Image
+                src={i.thumbnail}
+                alt='Card News Thumbnail'
+                layout='fill'
+                objectFit='cover'
+                className='rounded-lg'
+              />
+            </div>
           </div>
         ))}
       </Slider>

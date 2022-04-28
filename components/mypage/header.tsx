@@ -6,23 +6,21 @@ interface IProfile {
   [key: string]: any;
 }
 
-interface AuthResponse {
+interface IUser {
   ok: boolean;
   token: string | null;
   profile: IProfile | null;
 }
 
 export default function Header() {
-  const { data } = useSWR<AuthResponse>('/api/auth');
+  const { data } = useSWR<IUser>('/api/user');
   return (
     <Layout bgColor='bg-[#f4f9fb]' padding='pt-40'>
       <div className='flex justify-center text-4xl font-bold'>마이페이지</div>
 
       <div className='flex translate-y-[4.5rem] space-x-5'>
         <div className='flex h-36 w-[48.75rem] flex-col justify-between rounded bg-white py-7 px-12 shadow-md'>
-          <div className='text-[1.75rem] font-bold'>
-            {data?.profile?.name}이동현님
-          </div>
+          <div className='text-[1.75rem] font-bold'>{data?.profile?.name}</div>
 
           <Link href='/mypage/edit'>
             <a className='flex'>
@@ -70,7 +68,9 @@ export default function Header() {
                 </a>
               </Link>
             </div>
-            <div className='mt-2 text-[1.75rem] font-bold'>1,570</div>
+            <div className='mt-2 text-[1.75rem] font-bold'>
+              {data?.profile?.total_mileage.toLocaleString()}
+            </div>
           </div>
         </div>
       </div>

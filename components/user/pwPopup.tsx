@@ -1,4 +1,5 @@
 import Input from '@components/input';
+import { usersApi } from '@libs/api';
 // import { usersApi } from '@libs/api';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
@@ -22,17 +23,16 @@ export default function Popup({ username, closePopup }: IProps) {
     handleSubmit,
     formState: { errors },
     watch,
-    getValues,
   } = useForm<IForm>({
     mode: 'onChange',
   });
-  const onValid = async (data: IForm) => {
-    // try {
-    //   await usersApi.resetPw(username, data.password);
-    //   router.push('/login');
-    // } catch {
-    //   alert('Error');
-    // }
+  const onValid = async ({ password }: IForm) => {
+    try {
+      await usersApi.resetPw(username, password);
+      router.push('/login');
+    } catch {
+      alert('Error');
+    }
   };
   const onInvalid = (errors: FieldErrors) => {
     console.log(errors);
@@ -115,7 +115,7 @@ export default function Popup({ username, closePopup }: IProps) {
 
         <div
           onClick={handleSubmit(onValid, onInvalid)}
-          className='mt-6 flex cursor-pointer justify-center rounded text-white bg-[#2fb6bc] py-4 text-lg font-medium transition-all hover:opacity-90'
+          className='mt-6 flex cursor-pointer justify-center rounded bg-[#2fb6bc] py-4 text-lg font-medium text-white transition-all hover:opacity-90'
         >
           패스워드 재설정 완료
         </div>

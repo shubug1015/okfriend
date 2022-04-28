@@ -11,17 +11,94 @@ interface IProps {
 }
 
 export const boardApi = {
-  getNoticeList: () => api.get('/board/notice').then((res) => res.data),
+  getNoticeList: (
+    searchType: string,
+    orderType: string,
+    page: string,
+    searchTerm: string
+  ) =>
+    api
+      .get(
+        `/board/notice?search_keyword=${searchType}&filter_keyword=${orderType}&page=${page}&search=${
+          searchTerm || ''
+        }`
+      )
+      .then((res) => res.data),
+
+  getNoticeDetail: (id: string) =>
+    api.get(`/board/notice/${id}`).then((res) => res.data),
+
+  getLibraryeList: (
+    searchType: string,
+    orderType: string,
+    page: string,
+    searchTerm: string
+  ) =>
+    api
+      .get(
+        `/board/resource?search_keyword=${searchType}&filter_keyword=${orderType}&page=${page}&search=${
+          searchTerm || ''
+        }`
+      )
+      .then((res) => res.data),
+
+  getLibraryDetail: (id: string) =>
+    api.get(`/board/resource/${id}`).then((res) => res.data),
 
   getCardNewsList: (page: string, category: string) =>
     api
       .get(`/board/card_news?page=${page}&category=${category}`)
       .then((res) => res.data),
+
+  getVideoList: (page: string) =>
+    api.get(`/board/promotion_video?page=${page}`).then((res) => res.data),
 };
 
 export const courseApi = {
-  getOnlineCourseList: (category: string) =>
-    api.get(`/lectures?category=${category}`).then((res) => res.data),
+  getCourseList: (category: string, page: string) =>
+    api
+      .get(`/lectures?category=${category}&page=${page}`)
+      .then((res) => res.data),
+
+  registerCourse: (id: string, token: string) =>
+    api.post(
+      `/lectures/${id}/register/`,
+      {},
+      {
+        headers: {
+          Authorization: token,
+          'Content-Type': 'application/json',
+        },
+      }
+    ),
+
+  detail: (id: string, token?: string | null) =>
+    api
+      .get(`/lectures/${id}/`, {
+        ...(token && {
+          headers: {
+            Authorization: token,
+            'Content-Type': 'application/json',
+          },
+        }),
+      })
+      .then((res) => res.data),
+
+  // 강의 상세 리뷰 작성
+  writeReview: (id: string, text: string, token: string) =>
+    api.post(
+      '/lectures/review/',
+      {
+        lecture_pk: id,
+        text,
+      },
+      {
+        headers: {
+          Authorization: token,
+          'Content-Type': 'application/json',
+        },
+      }
+    ),
 };
 
 export const usersApi = {
@@ -30,23 +107,23 @@ export const usersApi = {
     api.get(`/users/check_id?username=${username}`),
 
   // 회원가입 인증번호 발급
-  getSignupCode: (phoneNum: string) =>
+  getSignupCode: (email: string) =>
     api.post('/users/signup_code_gen/', {
-      phone_number: phoneNum,
+      email,
     }),
 
   // 인증번호 발급
-  getCode: (phone_number: string, username?: string) =>
+  getCode: (email: string, username?: string) =>
     api.post('/users/code_gen/', {
-      phone_number,
+      email,
       ...(username && { username }),
     }),
 
   // 인증번호 확인
-  checkCode: (phone_number: string, code: string) =>
+  checkCode: (email: string, code: string) =>
     api.get('/users/code_auth/', {
       params: {
-        phone_number,
+        email,
         code,
       },
     }),
@@ -55,13 +132,32 @@ export const usersApi = {
   signupNextApi: (req: IProps) => axios.post('/api/signup', req),
 
   // 회원가입
-  signup: ({ name, nickname, phoneNum, username, password, adAgree }: IProps) =>
+  signup: ({
+    local,
+    stage,
+    username,
+    password,
+    korName,
+    engName,
+    year,
+    month,
+    day,
+    country,
+    email,
+    phoneNum,
+    adAgree,
+  }: IProps) =>
     api.post('/users/signup/', {
-      name,
-      nickname,
-      phone_number: phoneNum,
+      local,
+      stage,
       username,
       password,
+      name: korName,
+      en_name: engName,
+      birth: `${year}-${month}-${day}`,
+      country,
+      email,
+      phone_number: phoneNum,
       ad_agree: adAgree,
     }),
 
@@ -73,12 +169,7 @@ export const usersApi = {
       username,
       password,
     }),
-  // 카카오 로그인
-  kakaoLogin: ({ id }: IProps) =>
-    api.post('/users/login/', {
-      login_method: 'kakao',
-      kakao_id: id,
-    }),
+
   // 로그아웃(NextJS api)
   logoutNextApi: () => axios.post('/api/logout'),
 
@@ -90,7 +181,7 @@ export const usersApi = {
   resetPw: (username: string, password: string) =>
     api.post('/users/change_password/', { username, password }),
 
-  // 마이페이지 내 정보
+  // 내 정보
   myInfos: (token: string) =>
     api.get('/mypage/', {
       headers: {
@@ -100,15 +191,24 @@ export const usersApi = {
     }),
 
   // 마이페이지 회원 정보 수정
-  editInfos: ({ name, nickname, phoneNum, password, adAgree, token }: IProps) =>
+  editInfos: ({
+    email,
+    phoneNum,
+    year,
+    month,
+    day,
+    introduce,
+    password,
+    token,
+  }: IProps) =>
     api.post(
       '/mypage/',
       {
-        ...(name && { name }),
-        ...(nickname && { nickname }),
+        ...(email && { email }),
         ...(phoneNum && { phone_number: phoneNum }),
+        ...(year && month && day && { birth: `${year}-${month}-${day}` }),
+        ...(introduce && { introduce }),
         ...(password && { password }),
-        ad_agree: adAgree,
       },
       {
         headers: {
@@ -117,4 +217,21 @@ export const usersApi = {
         },
       }
     ),
+};
+
+export const contactApi = {
+  submitContact: (
+    name: string,
+    phone_number: string,
+    email: string,
+    category: string,
+    content: string
+  ) =>
+    api.post('/contact/', {
+      name,
+      phone_number,
+      email,
+      category,
+      content,
+    }),
 };

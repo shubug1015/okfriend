@@ -4,15 +4,22 @@ import SEO from '@components/seo';
 import LibraryList from '@components/support/libraryList';
 import Navigator from '@components/support/navigator';
 import Layout from '@layouts/sectionLayout';
+import { boardApi } from '@libs/api';
 import type { GetServerSidePropsContext, NextPage } from 'next';
+import useSWR from 'swr';
 
 interface IProps {
-  params: string[];
+  slug: string[];
 }
 
-const Library: NextPage<IProps> = ({ params }) => {
-  const [orderType, searchType, page, search] = params;
-  // console.log(orderType, searchType, page, search);
+const Library: NextPage<IProps> = ({ slug }) => {
+  const [searchType, orderType, page, searchTerm] = slug;
+  const { data } = useSWR(
+    `libraryList/${searchType}/${orderType}/${page}/${searchTerm}`,
+    () => boardApi.getLibraryeList(searchType, orderType, page, searchTerm)
+  );
+
+  console.log(data);
   return (
     <>
       <SEO title='지원센터' />
@@ -20,7 +27,7 @@ const Library: NextPage<IProps> = ({ params }) => {
       <Navigator supportCategory='library' />
       <Layout padding='pt-20 pb-24'>
         <Search />
-        <LibraryList data={[0, 1]} totalItems={200} currentPage={+page} />
+        <LibraryList data={data} totalItems={data?.count} />
       </Layout>
     </>
   );
@@ -29,7 +36,7 @@ const Library: NextPage<IProps> = ({ params }) => {
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   return {
     props: {
-      params: ctx.params?.slug,
+      slug: ctx.params?.slug,
     },
   };
 };

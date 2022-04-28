@@ -12,10 +12,19 @@ import {
 import { useScroll } from '@libs/client/useScroll';
 import { cls } from '@libs/client/utils';
 import { useRouter } from 'next/router';
+import { IUser } from '@libs/client/useUser';
+import useSWR from 'swr';
+import axios from 'axios';
 
 export default function Header() {
+  const { data, mutate } = useSWR<IUser>('/api/user');
   const { y } = useScroll();
   const router = useRouter();
+
+  const handleLogout = async () => {
+    await axios.post('/api/logout');
+    mutate({ ok: false, token: null, profile: null });
+  };
   return (
     <header className='fixed top-0 left-0 z-[9999] w-screen'>
       <div className='bg-[#f8f8f8]'>
@@ -70,23 +79,25 @@ export default function Header() {
         )}
       >
         <div className='mx-auto flex h-20 max-w-[1400px] items-center justify-between md:h-[4.5rem] md:max-w-[330px]'>
-          <Link href='/'>
-            <a>
-              {router.pathname === '/login' ||
-              router.pathname === '/signup' ||
-              router.pathname === '/find-id' ||
-              router.pathname === '/reset-pw' ||
-              router.pathname === '/course' ||
-              router.pathname.includes('/course/detail') ||
-              router.pathname.includes('/mypage') ? (
-                <HeaderLogoBlack />
-              ) : (
-                <HeaderLogoWhite />
-              )}
-            </a>
-          </Link>
+          <div className='w-1/4'>
+            <Link href='/'>
+              <a>
+                {router.pathname === '/login' ||
+                router.pathname === '/signup' ||
+                router.pathname === '/find-id' ||
+                router.pathname === '/reset-pw' ||
+                router.pathname === '/course' ||
+                router.pathname.includes('/course/detail') ||
+                router.pathname.includes('/mypage') ? (
+                  <HeaderLogoBlack />
+                ) : (
+                  <HeaderLogoWhite />
+                )}
+              </a>
+            </Link>
+          </div>
 
-          <div className='flex items-center space-x-14 text-lg font-medium md:hidden'>
+          <div className='flex w-2/4 items-center justify-center space-x-14 text-lg font-medium md:hidden'>
             <Link href='/course-introduction/greeting'>
               <a>온라인연수 소개</a>
             </Link>
@@ -104,18 +115,29 @@ export default function Header() {
             </Link>
           </div>
 
-          <div className='space-x-2.5 md:hidden'>
-            <Link href='/mypage/course/1'>
-              <a className='rounded-full border border-[#2fb6bc] px-10 py-3 font-bold text-[#2fb6bc]'>
-                마이페이지
-              </a>
-            </Link>
+          <div className='flex w-1/4 justify-end space-x-2.5 md:hidden'>
+            {data?.token && data?.profile ? (
+              <>
+                <Link href='/mypage/course/1'>
+                  <a className='rounded-full border border-[#2fb6bc] px-10 py-3 font-bold text-[#2fb6bc]'>
+                    마이페이지
+                  </a>
+                </Link>
 
-            <Link href='/login'>
-              <a className='rounded-full bg-[#2fb6bc] px-10 py-3 font-bold text-white'>
-                로그인
-              </a>
-            </Link>
+                <div
+                  onClick={handleLogout}
+                  className='cursor-pointer rounded-full bg-[#2fb6bc] px-10 py-3 font-bold text-white'
+                >
+                  로그아웃
+                </div>
+              </>
+            ) : (
+              <Link href='/login'>
+                <a className='rounded-full bg-[#2fb6bc] px-10 py-3 font-bold text-white'>
+                  로그인
+                </a>
+              </Link>
+            )}
           </div>
 
           <div className='hidden md:block'>

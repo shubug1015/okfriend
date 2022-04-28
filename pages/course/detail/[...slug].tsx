@@ -5,16 +5,25 @@ import Review from '@components/course/detail/review';
 import Tutor from '@components/course/detail/tutor';
 import SEO from '@components/seo';
 import Layout from '@layouts/sectionLayout';
+import { courseApi } from '@libs/api';
+import { IUser } from '@libs/client/useUser';
 import { cls } from '@libs/client/utils';
 import type { GetServerSidePropsContext, NextPage } from 'next';
 import { useState } from 'react';
+import useSWR from 'swr';
 
 interface IProps {
-  params: string[];
+  slug: string[];
 }
 
-const CourseDetail: NextPage<IProps> = ({ params }) => {
-  const [courseType, courseCategory, page] = params;
+const CourseDetail: NextPage<IProps> = ({ slug }) => {
+  const { data: myData } = useSWR<IUser>('/api/user');
+  const [, , id] = slug;
+  const { data, mutate } = useSWR(myData?.token ? 'courseDetail' : null, () =>
+    courseApi.detail(id, myData?.token)
+  );
+  const courseData = data?.lecture || data;
+
   const [section, setSection] = useState('강의소개');
   const sectionList = [
     {
@@ -38,7 +47,11 @@ const CourseDetail: NextPage<IProps> = ({ params }) => {
     <>
       <SEO title='연수실' />
       <Layout padding='pt-32 bg-[#f4f9fb]'>
-        <Detail category={courseCategory} />
+        <Detail
+          data={courseData}
+          isRegistered={data?.lecture ? true : false}
+          mutate={mutate}
+        />
 
         <div className='mt-24 flex text-lg font-medium'>
           {sectionList.map((i) => (
@@ -47,7 +60,7 @@ const CourseDetail: NextPage<IProps> = ({ params }) => {
               onClick={() => setSection(i.label)}
               className={cls(
                 section === i.label
-                  ? 'border-[#2fb6bc] text-[#2fb6bc] font-bold'
+                  ? 'border-[#2fb6bc] font-bold text-[#2fb6bc]'
                   : 'border-transparent text-[#6b6b6b]',
                 'flex w-[12.5rem] cursor-pointer justify-center border-b-4 pb-2 text-xl transition-all'
               )}
@@ -58,10 +71,10 @@ const CourseDetail: NextPage<IProps> = ({ params }) => {
         </div>
       </Layout>
 
-      {section === '강의소개' && <Info />}
-      {section === '강사소개' && <Tutor />}
+      {section === '강의소개' && <Info info={courseData?.detail} />}
+      {section === '강사소개' && <Tutor tutor={courseData?.tutor} />}
       {section === 'Q&A' && <Qna />}
-      {section === '강의리뷰' && <Review />}
+      {section === '강의리뷰' && <Review data={courseData} mutate={mutate} />}
     </>
   );
 };
@@ -69,7 +82,7 @@ const CourseDetail: NextPage<IProps> = ({ params }) => {
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   return {
     props: {
-      params: ctx.params?.slug,
+      slug: ctx.params?.slug,
     },
   };
 };

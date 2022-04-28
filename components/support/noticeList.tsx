@@ -3,15 +3,13 @@ import { useRouter } from 'next/router';
 import Notice from './notice';
 
 interface IProps {
-  //   notice: any[];
-  data: any[];
+  data: { [key: string]: any };
   totalItems: number;
-  currentPage: number;
 }
 
-export default function NoticeList({ data, totalItems, currentPage }: IProps) {
+export default function NoticeList({ data, totalItems }: IProps) {
   const router = useRouter();
-  const [searchType, orderType, page, searchTerm] = router.query
+  const [searchType, orderType, currentPage, searchTerm] = router.query
     .slug as string[];
   return (
     <>
@@ -24,37 +22,38 @@ export default function NoticeList({ data, totalItems, currentPage }: IProps) {
         <div className='flex w-[10%] justify-center'>조회수</div>
       </div>
 
-      {data?.map((i) => (
+      {data?.fixed.map((i: { [key: string]: any }) => (
         <Notice
-          key={i}
-          id={i}
+          key={i.id}
+          id={i.id}
           type={'notice'}
           subject={'공지'}
-          title={'제목'}
-          created={'2022-04-19T'}
+          title={i.title}
+          created={i.created}
           name={'관리자'}
-          view={1}
+          view={i.view_num}
         />
       ))}
 
-      {data?.map((i) => (
+      {data?.results.map((i: { [key: string]: any }, index: number) => (
         <Notice
-          key={i}
-          id={i}
+          key={i.id}
+          id={i.id}
           type={''}
-          num={1}
-          subject={'주제'}
-          title={'제목'}
-          created={'2022-04-19T'}
+          num={(+currentPage - 1) * 15 + index + 1}
+          subject={i.subject}
+          title={i.title}
+          created={i.created}
           name={'관리자'}
-          view={1}
+          view={i.view_num}
         />
       ))}
 
       <div className='mt-24 flex justify-center'>
         <Pagebar
           totalItems={totalItems}
-          currentPage={currentPage}
+          itemsPerPage={15}
+          currentPage={+currentPage}
           url={(page: number) =>
             router.push(
               `/support/notice/${searchType}/${orderType}/${page}/${

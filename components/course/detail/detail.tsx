@@ -4,12 +4,22 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Popup from '@components/course/detail/popup';
+import { courseApi } from '@libs/api';
+import { useRouter } from 'next/router';
+import { IUser } from '@libs/client/useUser';
+import useSWR from 'swr';
 
 interface IProps {
-  category: string;
+  [key: string]: any;
+  isRegistered: boolean;
+  mutate: (args: { [key: string]: any }) => void;
 }
 
-export default function Detail({ category }: IProps) {
+export default function Detail({ data, isRegistered, mutate }: IProps) {
+  const { data: myData } = useSWR<IUser>('/api/user');
+  const router = useRouter();
+  const [, category, id] = router.query.slug as string[];
+
   const [popup, setPopup] = useState(false);
   const closePopup = () => setPopup(false);
 
@@ -18,6 +28,19 @@ export default function Detail({ category }: IProps) {
     navigator.clipboard
       .writeText(url)
       .then(() => alert('링크가 복사되었습니다.'));
+  };
+
+  const registerCourse = () => {
+    if (myData?.token) {
+      try {
+        courseApi.registerCourse(id, myData?.token as string);
+        mutate({ ...data });
+      } catch {
+        alert('Error');
+      }
+    } else {
+      router.push('/login');
+    }
   };
 
   useEffect(() => {
@@ -32,14 +55,16 @@ export default function Detail({ category }: IProps) {
       <div>
         <div className='flex justify-between space-x-20'>
           {/* 썸네일 */}
-          <div className='relative h-[26.125rem] w-[44.688rem] rounded-lg bg-slate-500'>
-            {/* <Image
-            src={thumbnail}
-            alt='Detail Thumbnail'
-            layout='fill'
-            objectFit='cover'
-            className='rounded-lg'
-          /> */}
+          <div className='relative h-[26.125rem] w-[44.688rem]'>
+            {data?.thumbnail && (
+              <Image
+                src={data?.thumbnail}
+                alt='Course Thumbnail'
+                layout='fill'
+                objectFit='cover'
+                className='rounded-lg'
+              />
+            )}
           </div>
           {/* 썸네일 */}
 
@@ -63,23 +88,25 @@ export default function Detail({ category }: IProps) {
             {/* 카테고리 */}
 
             {/* 강의명 */}
-            <div className='mt-4 text-3xl font-bold'>강의명</div>
+            <div className='mt-4 text-3xl font-bold'>{data?.name}</div>
             {/* 강의명 */}
 
             {/* 강사명 & 강의 길이 */}
-            <div className='mt-1.5 text-sm'>서유경 강사 · 19:23분</div>
+            <div className='mt-1.5 text-sm'>
+              {data?.tutor.name} · {data?.total_time}
+            </div>
             {/* 강사명 & 강의 길이 */}
 
             {/* 간략 설명 */}
-            <div className='mt-5'>
-              글로벌 유행인 K팝과 K패션의 흐름과 트랜드를 알아보며 글로벌 패션을
-              선도하고 K패션의 글로벌 인지도를 확대하고자 함
-            </div>
+            <div className='mt-5'>{data?.text}</div>
             {/* 간략 설명 */}
 
             {/* 복사 & 구매 버튼 */}
             <div className='mt-8 space-y-3'>
-              <div className='flex h-[3.625rem] cursor-pointer items-center justify-center rounded-lg bg-[#01111e] font-bold text-white transition-all hover:opacity-90'>
+              <div
+                onClick={registerCourse}
+                className='flex h-[3.625rem] cursor-pointer items-center justify-center rounded-lg bg-[#01111e] font-bold text-white transition-all hover:opacity-90'
+              >
                 강의 듣기
               </div>
 
@@ -148,15 +175,17 @@ export default function Detail({ category }: IProps) {
         </div>
 
         {/* 진행률 */}
-        <div className='mt-5 flex w-[44.688rem] items-center space-x-4'>
-          <div className='flex h-9 w-24 items-center justify-center rounded-lg border border-[#d60a51] text-lg font-bold text-[#d60a51]'>
-            진행률
-          </div>
+        {isRegistered && (
+          <div className='mt-5 flex w-[44.688rem] items-center space-x-4'>
+            <div className='flex h-9 w-24 items-center justify-center rounded-lg border border-[#d60a51] text-lg font-bold text-[#d60a51]'>
+              진행률
+            </div>
 
-          <div className='h-3 grow rounded-full bg-[#d6d6d6]'>
-            <div className='h-3 w-1/2 rounded-full bg-[#d60a51]' />
+            <div className='h-3 grow rounded-full bg-[#d6d6d6]'>
+              <div className='h-3 w-1/2 rounded-full bg-[#d60a51]' />
+            </div>
           </div>
-        </div>
+        )}
         {/* 진행률 */}
       </div>
 

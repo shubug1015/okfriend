@@ -4,16 +4,20 @@ import SEO from '@components/seo';
 import Navigator from '@components/support/navigator';
 import NoticeList from '@components/support/noticeList';
 import Layout from '@layouts/sectionLayout';
+import { boardApi } from '@libs/api';
 import type { GetServerSidePropsContext, NextPage } from 'next';
+import useSWR from 'swr';
 
 interface IProps {
-  slugs: string[];
+  slug: string[];
 }
 
-const Notice: NextPage<IProps> = ({ slugs }) => {
-  const [searchType, orderType, page, searchTerm] = slugs;
-
-  // console.log(orderType, searchType, page, searchTerm);
+const Notice: NextPage<IProps> = ({ slug }) => {
+  const [searchType, orderType, page, searchTerm] = slug;
+  const { data } = useSWR(
+    `noticeList/${searchType}/${orderType}/${page}/${searchTerm}`,
+    () => boardApi.getNoticeList(searchType, orderType, page, searchTerm)
+  );
   return (
     <>
       <SEO title='지원센터' />
@@ -21,7 +25,7 @@ const Notice: NextPage<IProps> = ({ slugs }) => {
       <Navigator supportCategory='notice' />
       <Layout padding='pt-20 pb-24'>
         <Search />
-        <NoticeList data={[0, 1]} totalItems={200} currentPage={+page} />
+        <NoticeList data={data} totalItems={data?.count} />
       </Layout>
     </>
   );
@@ -30,7 +34,7 @@ const Notice: NextPage<IProps> = ({ slugs }) => {
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   return {
     props: {
-      slugs: ctx.params?.slug,
+      slug: ctx.params?.slug,
     },
   };
 };

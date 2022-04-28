@@ -5,7 +5,9 @@ import Link from 'next/link';
 import useSWR from 'swr';
 
 export default function Notice() {
-  const { data } = useSWR('noticeList', () => boardApi.getNoticeList());
+  const { data } = useSWR('noticeList/title/created/1/', () =>
+    boardApi.getNoticeList('title', 'created', '1', '')
+  );
 
   return (
     <Layout padding='pt-[4.625rem] pb-[5.688rem] md:py-10'>
@@ -16,7 +18,7 @@ export default function Notice() {
               NOTICE
             </div>
 
-            <Link href='/'>
+            <Link href='/support/notice/title/created/1'>
               <a className='flex items-center'>
                 <span className='text-lg font-medium md:text-sm'>더보기</span>
                 <svg
@@ -39,7 +41,7 @@ export default function Notice() {
 
           <div className='mt-8 grid grid-flow-col grid-rows-5 md:mt-5'>
             {data?.fixed.slice(0, 5).map((i: { [key: string]: any }) => (
-              <Link href='/' key={i.id}>
+              <Link href={`/support/notice/detail/${i.id}`} key={i.id}>
                 <a className='flex h-20 items-center justify-between border-b border-[#d6d6d6] transition-all hover:opacity-70 md:h-24'>
                   <div className='flex items-center space-x-3 md:flex-col md:items-start md:space-x-0 md:space-y-2.5'>
                     <div className='flex md:items-center md:space-x-1.5'>
@@ -64,7 +66,7 @@ export default function Notice() {
             {data?.results
               .slice(0, 5 - data?.fixed.length)
               .map((i: { [key: string]: any }) => (
-                <Link href='/' key={i.id}>
+                <Link href={`/support/notice/detail/${i.id}`} key={i.id}>
                   <a className='flex h-20 items-center justify-between border-b border-[#d6d6d6] transition-all hover:opacity-70 md:h-24'>
                     <div className='flex items-center md:flex-col md:items-start md:space-x-0 md:space-y-2.5'>
                       <div className='hidden text-xs md:block'>

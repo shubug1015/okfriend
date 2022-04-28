@@ -1,18 +1,21 @@
 import Layout from '@layouts/sectionLayout';
-// import { API_URL, lecturesApi } from '@libs/api';
-// import { AuthResponse } from '@libs/client/useAuth';
+import { courseApi } from '@libs/api';
+import { IUser } from '@libs/client/useUser';
+import { trimDate } from '@libs/client/utils';
 import { FieldErrors, useForm } from 'react-hook-form';
-// import useSWR from 'swr';
+import useSWR from 'swr';
+
+interface IProps {
+  [key: string]: any;
+  mutate: (args: { [key: string]: any }) => void;
+}
 
 interface IForm {
   review: string;
 }
 
-export default function Review() {
-  // const { data } = useSWR<AuthResponse>('/api/auth');
-  // const { data: lectureData, mutate } = useSWR(
-  //   id ? `${API_URL}/lectures/${id}/` : null
-  // );
+export default function Review({ data, mutate }: IProps) {
+  const { data: myData } = useSWR<IUser>('/api/user');
 
   const {
     register,
@@ -23,39 +26,40 @@ export default function Review() {
   } = useForm<IForm>({
     mode: 'onSubmit',
   });
-  const onValid = async (values: IForm) => {
-    // if (data?.token) {
-    //   try {
-    //     const { data: message } = await lecturesApi.writeReview(
-    //       id,
-    //       values.review,
-    //       data.token
-    //     );
-    //     if (message === 'unregistered lecture') {
-    //       setError('review', { message: '구매하지 않은 강의입니다.' });
-    //     } else if (message === 'review exist') {
-    //       setError('review', { message: '이미 리뷰를 작성한 강의입니다.' });
-    //     } else {
-    //       setValue('review', '');
-    //       mutate({
-    //         ...lectureData,
-    //         review: [
-    //           ...lectureData.review,
-    //           {
-    //             user: {
-    //               nickname: data?.profile?.nickname,
-    //               grade: data?.profile?.nickname,
-    //             },
-    //             text: values.review,
-    //             created: new Date().toISOString(),
-    //           },
-    //         ],
-    //       });
-    //     }
-    //   } catch {
-    //     alert('Error');
-    //   }
-    // }
+  const onValid = async ({ review }: IForm) => {
+    if (myData?.token) {
+      try {
+        const { data: message } = await courseApi.writeReview(
+          data?.id,
+          review,
+          myData?.token
+        );
+        if (message === 'unregistered lecture') {
+          setError('review', { message: '수강하지 않은 강의입니다.' });
+        } else if (message === 'review exist') {
+          setError('review', { message: '이미 리뷰를 작성한 강의입니다.' });
+        } else {
+          setValue('review', '');
+          mutate({
+            ...data,
+            review: [
+              ...data?.review,
+              {
+                id: Math.random(),
+                user: {
+                  nickname: myData?.profile?.nickname,
+                  grade: myData?.profile?.grade,
+                },
+                text: review,
+                created: new Date().toISOString(),
+              },
+            ],
+          });
+        }
+      } catch {
+        alert('Error');
+      }
+    }
   };
   const onInvalid = (errors: FieldErrors) => {
     console.log(errors);
@@ -65,12 +69,15 @@ export default function Review() {
       <div className='flex justify-between'>
         <div className='flex items-center space-x-3'>
           <div className='text-2xl font-bold'>강의리뷰</div>
-          <div className='flex justify-center items-center text-white font-medium w-12 h-8 rounded-full bg-[#2fb6bc]'>
-            3
+          <div className='flex h-8 w-12 items-center justify-center rounded-full bg-[#2fb6bc] font-medium text-white'>
+            {data?.review.length}
           </div>
         </div>
 
-        <div className='flex justify-center items-center text-white font-medium w-40 h-12 rounded-lg bg-[#2fb6bc] cursor-pointer hover:opacity-90 transition-all'>
+        <div
+          onClick={handleSubmit(onValid, onInvalid)}
+          className='flex h-12 w-40 cursor-pointer items-center justify-center rounded-lg bg-[#2fb6bc] font-medium text-white transition-all hover:opacity-90'
+        >
           작성하기
         </div>
       </div>
@@ -84,12 +91,13 @@ export default function Review() {
           },
         })}
         placeholder='강의리뷰를 작성해 주세요.'
-        className='mt-6 h-36 w-full py-6 px-7 outline-none border border-[#dadada] border-t-2 border-t-[#9e9e9e]'
+        className='mt-6 h-36 w-full border border-t-2 border-[#dadada] border-t-[#9e9e9e] py-6 px-7 outline-none'
       />
+      <div className='mt-2 text-sm text-red-500'>{errors?.review?.message}</div>
 
       <div>
-        {[0, 1].map((i) => (
-          <div key={i} className='py-10 border-b border-b-[#e8e8e8]'>
+        {data?.review.map((i: { [key: string]: any }) => (
+          <div key={i.id} className='border-b border-b-[#e8e8e8] py-10'>
             <div className='flex items-center space-x-2'>
               <svg
                 width='36'
@@ -103,13 +111,13 @@ export default function Review() {
                   fill='#2FB6BC'
                 />
               </svg>
-              <div className='text-lg'>닉네임</div>
+              <div className='text-lg'>{i.user.name}</div>
             </div>
-            <div className='text-[#9e9e9e] text-sm mt-1.5'>
-              2022-02-14 12:10:36
+            <div className='mt-1.5 text-sm text-[#9e9e9e]'>
+              {trimDate(i.created, 0, 10)} {i.created.split('T')[1].slice(0, 8)}
             </div>
 
-            <div className='text-lg mt-5'>작성한 글이 들어갑니다.</div>
+            <div className='mt-5 text-lg'>{i.text}</div>
           </div>
         ))}
       </div>

@@ -9,14 +9,17 @@ import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { FieldErrors, useForm } from 'react-hook-form';
+import { useUser } from '@libs/client/useUser';
+import { usersApi } from '@libs/api';
 
 interface IForm {
-  currentPassword: string;
   password: string;
   passwordCheck: string;
 }
 
 const ResetPw: NextPage = () => {
+  const { token } = useUser({ isPrivate: true });
+  const [editMyInfos] = useMutation(usersApi.editInfos);
   const {
     register,
     handleSubmit,
@@ -25,16 +28,17 @@ const ResetPw: NextPage = () => {
   } = useForm<IForm>({
     mode: 'onChange',
   });
-  const onValid = (data: IForm) => {
-    // try {
-    //   const req = {
-    //     password: data.password,
-    //     token,
-    //   };
-    //   editMyInfos({ req });
-    // } catch {
-    //   alert('Error');
-    // }
+  const onValid = ({ password }: IForm) => {
+    try {
+      const req = {
+        password,
+        token,
+      };
+      editMyInfos({ req });
+      alert('비밀번호 변경이 완료되었습니다.');
+    } catch {
+      alert('Error');
+    }
   };
   const onInvalid = (errors: FieldErrors) => {
     console.log(errors);
@@ -58,19 +62,7 @@ const ResetPw: NextPage = () => {
                   현재 비밀번호
                 </div>
 
-                <input
-                  type='password'
-                  placeholder='현재 비밀번호'
-                  {...register('currentPassword', {
-                    value: '',
-                    required: '비밀번호를 입력해주세요',
-                    validate: {
-                      //   notPw: (value) => {
-                      //   },
-                    },
-                  })}
-                  className='outline-none placeholder:text-[#d6d6d6]'
-                />
+                <div>**********</div>
               </div>
 
               <div className='flex h-20 items-center'>
@@ -78,26 +70,32 @@ const ResetPw: NextPage = () => {
                   새 비밀번호
                 </div>
 
-                <input
-                  type='password'
-                  placeholder='새 비밀번호'
-                  {...register('password', {
-                    value: '',
-                    required: '비밀번호를 입력해주세요',
-                    // validate: {
-                    //   notPw: (value) => {
-                    //     const regPw =
-                    //       /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
-                    //     if (regPw.test(value)) {
-                    //       return true;
-                    //     } else {
-                    //       return '비밀번호는 8자리 이상 / 1개 이상의 문자, 숫자, 특수문자가 포함되어야 합니다';
-                    //     }
-                    //   },
-                    // },
-                  })}
-                  className='outline-none placeholder:text-[#d6d6d6]'
-                />
+                <div>
+                  <input
+                    type='password'
+                    placeholder='새 비밀번호'
+                    {...register('password', {
+                      value: '',
+                      required: '비밀번호를 입력해주세요',
+                      validate: {
+                        notPw: (value) => {
+                          const regPw =
+                            /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
+                          if (regPw.test(value)) {
+                            return true;
+                          } else {
+                            return '비밀번호는 8자리 이상 / 1개 이상의 문자, 숫자, 특수문자가 포함되어야 합니다';
+                          }
+                        },
+                      },
+                    })}
+                    className='outline-none placeholder:text-[#d6d6d6]'
+                  />
+
+                  <div className='mt-2 text-xs text-red-500'>
+                    {errors?.password?.message}
+                  </div>
+                </div>
               </div>
 
               <div className='flex h-20 items-center'>
@@ -105,20 +103,26 @@ const ResetPw: NextPage = () => {
                   새 비밀번호 확인
                 </div>
 
-                <input
-                  type='password'
-                  placeholder='새 비밀번호 확인'
-                  {...register('passwordCheck', {
-                    value: '',
-                    required: '비밀번호를 입력해주세요',
-                    // validate: {
-                    //   notPwCheck: (value) =>
-                    //     value === watch('password') ||
-                    //     '비밀번호가 일치하지 않습니다',
-                    // },
-                  })}
-                  className='outline-none placeholder:text-[#d6d6d6]'
-                />
+                <div>
+                  <input
+                    type='password'
+                    placeholder='새 비밀번호 확인'
+                    {...register('passwordCheck', {
+                      value: '',
+                      required: '비밀번호를 입력해주세요',
+                      validate: {
+                        notPwCheck: (value) =>
+                          value === watch('password') ||
+                          '비밀번호가 일치하지 않습니다',
+                      },
+                    })}
+                    className='outline-none placeholder:text-[#d6d6d6]'
+                  />
+                </div>
+
+                <div className='mt-2 text-xs text-red-500'>
+                  {errors?.passwordCheck?.message}
+                </div>
               </div>
             </div>
 

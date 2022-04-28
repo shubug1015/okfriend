@@ -2,13 +2,17 @@ import Banner from '@components/banner';
 import MenuBar from '@components/course-story/menuBar';
 import SEO from '@components/seo';
 import Layout from '@layouts/sectionLayout';
+import { boardApi } from '@libs/api';
 import type { GetServerSidePropsContext, NextPage } from 'next';
+import useSWR from 'swr';
 
 interface IProps {
-  params: string[];
+  page: string;
 }
 
-const Video: NextPage<IProps> = ({ params }) => {
+const Video: NextPage<IProps> = ({ page }) => {
+  const { data } = useSWR('videoList', () => boardApi.getVideoList(page));
+  console.log(data);
   const videoList = [
     {
       id: 0,
@@ -54,12 +58,39 @@ const Video: NextPage<IProps> = ({ params }) => {
           <span className='text-[#2fb6bc]'> 홍보영상</span>
         </div>
 
-        <div className='mt-10 grid grid-cols-2 grid-rows-4 gap-x-5 gap-y-10 pb-[13.709rem]'>
-          {videoList.map((video) => (
-            <div
-              key={video.id}
-              className='h-[20.041rem] w-[36.188rem] rounded bg-slate-300'
-            />
+        <div className='mt-10 grid grid-cols-2 gap-x-5 gap-y-10 pb-56'>
+          {data?.results.map((i: { [key: string]: any }) => (
+            <div key={i.id} className='relative h-80 w-full'>
+              <video
+                key={i.id}
+                // controls
+                // autoPlay
+                loop
+                playsInline
+                className='h-full w-full rounded'
+              >
+                <source src={i.url} />
+              </video>
+
+              <div className='absolute left-8 bottom-8 flex items-center space-x-4'>
+                <div className='flex aspect-square w-[2.4rem] items-center justify-center rounded-full border border-white'>
+                  <svg
+                    viewBox='0 0 9 10'
+                    fill='none'
+                    xmlns='http://www.w3.org/2000/svg'
+                    className='ml-1.5 w-4'
+                  >
+                    <path
+                      d='M8.77246 5.00112L0.11355 10.0003L0.11355 0.00189791L8.77246 5.00112Z'
+                      fill='white'
+                    />
+                  </svg>
+                </div>
+                <div className='text-lg font-bold text-white'>
+                  M.A.G.I.C Project로 글로벌 리더 되기
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </Layout>
@@ -70,7 +101,7 @@ const Video: NextPage<IProps> = ({ params }) => {
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   return {
     props: {
-      params: ctx.params?.page,
+      page: ctx.params?.page,
     },
   };
 };

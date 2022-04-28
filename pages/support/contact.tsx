@@ -3,6 +3,7 @@ import Input from '@components/input';
 import SEO from '@components/seo';
 import Navigator from '@components/support/navigator';
 import Layout from '@layouts/sectionLayout';
+import { contactApi } from '@libs/api';
 import { cls } from '@libs/client/utils';
 import type { NextPage } from 'next';
 import { FieldErrors, useForm } from 'react-hook-form';
@@ -20,11 +21,28 @@ const Contact: NextPage = () => {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm<IForm>({
     mode: 'onSubmit',
   });
-  const onValid = (data: IForm) => {
-    console.log('submit!');
+  const onValid = async ({
+    name,
+    phoneNum,
+    email,
+    category,
+    content,
+  }: IForm) => {
+    try {
+      await contactApi.submitContact(name, phoneNum, email, category, content);
+      alert('문의가 제출되었습니다.');
+      setValue('name', '');
+      setValue('phoneNum', '');
+      setValue('email', '');
+      setValue('category', 'default');
+      setValue('content', '');
+    } catch {
+      alert('Error');
+    }
   };
   const onInValid = (errors: FieldErrors) => {
     console.log(errors);
@@ -32,7 +50,10 @@ const Contact: NextPage = () => {
   return (
     <>
       <SEO title='지원센터' />
-      <Banner title='지원센터 FAQ' navList={['지원센터', '1:1 문의하기']} />
+      <Banner
+        title='지원센터 1:1 문의하기'
+        navList={['지원센터', '1:1 문의하기']}
+      />
       <Navigator supportCategory='contact' />
 
       <div className='bg-[#f4f9fb]'>
