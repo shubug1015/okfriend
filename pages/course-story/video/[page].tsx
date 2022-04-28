@@ -63,7 +63,7 @@ const Video: NextPage<IProps> = ({ page }) => {
             <div key={i.id} className='relative h-80 w-full'>
               <video
                 key={i.id}
-                // controls
+                controls
                 // autoPlay
                 loop
                 playsInline
