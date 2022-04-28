@@ -154,7 +154,7 @@ const SignUp: NextPage = () => {
 
                   <div className='mt-5 flex w-full space-x-16'>
                     {[1, 2, 3, 4].map((i) => (
-                      <div className='flex items-center space-x-1.5'>
+                      <div key={i} className='flex items-center space-x-1.5'>
                         <input
                           type='radio'
                           value={i}
