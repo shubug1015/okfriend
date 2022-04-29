@@ -10,8 +10,8 @@ import useSWR from 'swr';
 import { boardApi } from '@libs/api';
 
 export default function Card() {
-  const { data } = useSWR(`cardNews`, () =>
-    boardApi.getCardNewsList('1', 'KOR')
+  const { data } = useSWR('cardNews/전체', () =>
+    boardApi.getCardNewsList('1', '전체')
   );
   const slider = useRef<Slider | null>(null);
   const [activeSlide, setActiveSlide] = useState(0);

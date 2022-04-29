@@ -4,43 +4,57 @@ import { useRouter } from 'next/router';
 
 interface IProps {
   id: number;
-  order: number;
   thumbnail: string;
   name: string;
   created: string;
-  expiration: string;
   progress: number;
+  courseCategory: string;
   category: string;
 }
 
 export default function Course({
   id,
-  order,
   thumbnail,
   name,
   created,
-  expiration,
   progress,
+  courseCategory,
   category,
 }: IProps) {
   const router = useRouter();
+  const setDetailUrl = () => {
+    if (courseCategory === '사전 온라인 연수 - 필수차시')
+      return 'pre-online/required';
+    if (courseCategory === '사전 온라인 연수 - 선택차시')
+      return 'pre-online/elective';
+    if (courseCategory === '사전 온라인 연수 - 지난 연수 자료')
+      return 'pre-online/past';
+    if (courseCategory === '온라인 연수 - 필수차시 - 공통')
+      return 'online/required';
+    if (courseCategory === '온라인 연수 - 선택차시') return 'online/elective';
+    if (courseCategory === '온라인 연수 - 지난 연수 자료') return 'online/past';
+  };
   return (
     <div
       onClick={() =>
-        category === '진행중' ? router.push(`/lecture/my/${id}/${order}`) : null
+        category === '진행중'
+          ? router.push(`/course/detail/${setDetailUrl()}/${id}`)
+          : null
       }
       className={cls(
-        category === '진행중' ? 'cursor-pointer' : 'opacity-50',
+        category === '진행중'
+          ? 'cursor-pointer transition-opacity hover:opacity-70'
+          : 'opacity-50',
         'flex w-full items-center space-x-5 rounded border border-[#d6d6d6] p-8'
       )}
     >
       <div className='relative h-40 w-72 rounded bg-gray-700'>
-        {/* <Image
+        <Image
           src={thumbnail}
           alt='Lecture Thumbnail'
           layout='fill'
           objectFit='cover'
-        /> */}
+        />
       </div>
 
       <div className='flex h-40 flex-col justify-between'>
@@ -71,7 +85,7 @@ export default function Course({
           <div className='flex space-x-4 font-medium'>
             <div className='font-medium'>강의 기간</div>
             <div className='font-medium text-[#9e9e9e]'>
-              {trimDate(created, 0, 10)} ~ {expiration}
+              {trimDate(created, 0, 10)} ~
             </div>
           </div>
 

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.5.0",
+    "@u-wave/react-vimeo": "^0.9.8",
     "axios": "^0.26.1",
     "framer-motion": "^6.3.0",
     "next": "12.1.5",

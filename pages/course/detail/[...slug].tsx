@@ -19,8 +19,9 @@ interface IProps {
 const CourseDetail: NextPage<IProps> = ({ slug }) => {
   const { data: myData } = useSWR<IUser>('/api/user');
   const [, , id] = slug;
-  const { data, mutate } = useSWR(myData?.token ? 'courseDetail' : null, () =>
-    courseApi.detail(id, myData?.token)
+  const { data, mutate } = useSWR(
+    myData?.token ? 'courseDetail/logged' : 'courseDetail/unlogged',
+    () => courseApi.detail(id, myData?.token)
   );
   const courseData = data?.lecture || data;
 
@@ -49,6 +50,7 @@ const CourseDetail: NextPage<IProps> = ({ slug }) => {
       <Layout padding='pt-32 bg-[#f4f9fb]'>
         <Detail
           data={courseData}
+          progress={data?.total_progress}
           isRegistered={data?.lecture ? true : false}
           mutate={mutate}
         />

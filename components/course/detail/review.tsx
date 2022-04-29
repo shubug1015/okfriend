@@ -2,6 +2,7 @@ import Layout from '@layouts/sectionLayout';
 import { courseApi } from '@libs/api';
 import { IUser } from '@libs/client/useUser';
 import { trimDate } from '@libs/client/utils';
+import { useRouter } from 'next/router';
 import { FieldErrors, useForm } from 'react-hook-form';
 import useSWR from 'swr';
 
@@ -16,6 +17,7 @@ interface IForm {
 
 export default function Review({ data, mutate }: IProps) {
   const { data: myData } = useSWR<IUser>('/api/user');
+  const router = useRouter();
 
   const {
     register,
@@ -47,8 +49,7 @@ export default function Review({ data, mutate }: IProps) {
               {
                 id: Math.random(),
                 user: {
-                  nickname: myData?.profile?.nickname,
-                  grade: myData?.profile?.grade,
+                  name: myData?.profile?.name,
                 },
                 text: review,
                 created: new Date().toISOString(),
@@ -59,6 +60,8 @@ export default function Review({ data, mutate }: IProps) {
       } catch {
         alert('Error');
       }
+    } else {
+      router.push('/login');
     }
   };
   const onInvalid = (errors: FieldErrors) => {

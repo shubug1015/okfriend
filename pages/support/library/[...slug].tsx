@@ -18,8 +18,6 @@ const Library: NextPage<IProps> = ({ slug }) => {
     `libraryList/${searchType}/${orderType}/${page}/${searchTerm}`,
     () => boardApi.getLibraryeList(searchType, orderType, page, searchTerm)
   );
-
-  console.log(data);
   return (
     <>
       <SEO title='지원센터' />

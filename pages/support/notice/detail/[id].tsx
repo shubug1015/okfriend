@@ -3,6 +3,7 @@ import SEO from '@components/seo';
 import Navigator from '@components/support/navigator';
 import Layout from '@layouts/sectionLayout';
 import { boardApi } from '@libs/api';
+import { trimDate } from '@libs/client/utils';
 import type { GetServerSidePropsContext, NextPage } from 'next';
 import Link from 'next/link';
 import useSWR from 'swr';
@@ -19,7 +20,7 @@ const NoticeDetail: NextPage<IProps> = ({ id }) => {
       <Banner title='지원센터 공지사항' navList={['지원센터', '공지사항']} />
       <Navigator supportCategory='notice' />
       <Layout bgColor='bg-[#f4f9fb]' padding='py-14'>
-        <div className='font-bold'>Title</div>
+        <div className='font-bold'>공지사항</div>
 
         <div className='mt-6 text-[1.875rem] font-medium'>{data?.title}</div>
 
@@ -40,7 +41,11 @@ const NoticeDetail: NextPage<IProps> = ({ id }) => {
               <div className='text-lg'>관리자</div>
             </div>
 
-            <div className='text-[#6b6b6b]'>2021.10.28</div>
+            {data?.created && (
+              <div className='text-[#6b6b6b]'>
+                {trimDate(data?.created, 0, 10)}
+              </div>
+            )}
           </div>
 
           <div className='flex items-end space-x-2'>

@@ -1,94 +1,36 @@
 import Banner from '@components/banner';
 import MenuBar from '@components/course-story/menuBar';
+import Pagebar from '@components/pagebar';
 import SEO from '@components/seo';
 import Layout from '@layouts/sectionLayout';
+import { boardApi } from '@libs/api';
 import { cls } from '@libs/client/utils';
 import type { GetServerSidePropsContext, NextPage } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
+import useSWR from 'swr';
 
 interface IProps {
-  params: string[];
+  page: string;
 }
 
-const Cardnews: NextPage<IProps> = ({ params }) => {
-  const [currrentTab, setCurrentTab] = useState('전체');
+const Cardnews: NextPage<IProps> = ({ page }) => {
+  const router = useRouter();
+  const [currentTab, setCurrentTab] = useState('전체');
+  const { data } = useSWR(`cardNews/${currentTab}`, () =>
+    boardApi.getCardNewsList('1', currentTab)
+  );
   const toggleTab = (tab: string) => {
     setCurrentTab(tab);
-    console.log(currrentTab);
   };
-  const cardnewsList = [
-    {
-      id: 0,
-      title: '2021 OKF 1st',
-    },
-    {
-      id: 1,
-      title: '2021 OKF 2nd',
-    },
-    {
-      id: 2,
-      title: '2021 OKF 3rd',
-    },
-    {
-      id: 3,
-      title: '2021 OKF 4th',
-    },
-    {
-      id: 4,
-      title: '2021 OKF 5th',
-    },
-    {
-      id: 5,
-      title: '2021 OKF 6th',
-    },
-    {
-      id: 6,
-      title: '2021 OKF 7th',
-    },
-    {
-      id: 7,
-      title: '2021 OKF 8th',
-    },
-    {
-      id: 8,
-      title: '2021 OKF 9th',
-    },
-    {
-      id: 9,
-      title: '2021 OKF 10th',
-    },
-    {
-      id: 10,
-      title: '2021 OKF 11th',
-    },
-    {
-      id: 11,
-      title: '2021 OKF 12th',
-    },
-    {
-      id: 12,
-      title: '2021 OKF 13th',
-    },
-    {
-      id: 13,
-      title: '2021 OKF 14th',
-    },
-    {
-      id: 14,
-      title: '2021 OKF 15th',
-    },
-    {
-      id: 15,
-      title: '2021 OKF 16th',
-    },
-  ];
   return (
     <>
       <SEO title='연수이야기' />
       <Banner title='연수이야기' navList={['연수이야기', '카드뉴스']} />
       <MenuBar pageName='카드뉴스' />
-      <Layout>
+      <Layout padding='pt-16 pb-20'>
         <div className='border-b border-[#9e9e9e] pt-[4.214rem] pb-[1.281rem] text-4xl font-bold leading-[3.15rem] text-[#01111e]'>
           카드뉴스
         </div>
@@ -98,7 +40,7 @@ const Cardnews: NextPage<IProps> = ({ params }) => {
           <div
             onClick={() => toggleTab('전체')}
             className={cls(
-              currrentTab === '전체'
+              currentTab === '전체'
                 ? 'cursor-default border-[#01111e] text-[#01111e]'
                 : 'cursor-pointer border-transparent',
               'w-[6.5rem] border-b-4 pb-[0.653rem]'
@@ -109,7 +51,7 @@ const Cardnews: NextPage<IProps> = ({ params }) => {
           <div
             onClick={() => toggleTab('KOR')}
             className={cls(
-              currrentTab === 'KOR'
+              currentTab === 'KOR'
                 ? 'cursor-default border-[#01111e] text-[#01111e]'
                 : 'cursor-pointer border-transparent',
               'w-[6.5rem] border-b-4 pb-[0.653rem]'
@@ -120,7 +62,7 @@ const Cardnews: NextPage<IProps> = ({ params }) => {
           <div
             onClick={() => toggleTab('ENG')}
             className={cls(
-              currrentTab === 'ENG'
+              currentTab === 'ENG'
                 ? 'cursor-default border-[#01111e] text-[#01111e]'
                 : 'cursor-pointer border-transparent',
               'w-[6.5rem] border-b-4 pb-[0.653rem]'
@@ -131,12 +73,31 @@ const Cardnews: NextPage<IProps> = ({ params }) => {
         </div>
 
         {/* 갤러리 이미지 */}
-        <div className='mt-[1.875rem] grid grid-cols-4 grid-rows-4 gap-y-10 gap-x-[1.187rem] pb-20'>
-          {cardnewsList.map((cardnews) => (
-            <div key={cardnews.id}>
-              <div className='h-[17.5rem] w-[17.5rem] rounded-lg bg-slate-300' />
-            </div>
+        <div className='mt-[1.875rem] grid grid-cols-4 gap-y-10 gap-x-[1.187rem]'>
+          {data?.results.map((i: { [key: string]: any }) => (
+            <Link key={i.id} href={`/course-story/cardnews/detail/${i.id}`}>
+              <a className='relative h-[17.5rem] w-[17.5rem] transition-opacity hover:opacity-70'>
+                <Image
+                  src={i.thumbnail}
+                  alt='Card News Thumbnail'
+                  layout='fill'
+                  objectFit='cover'
+                  className='rounded'
+                />
+              </a>
+            </Link>
           ))}
+        </div>
+
+        <div className='mt-24 flex justify-center'>
+          <Pagebar
+            totalItems={data?.count}
+            itemsPerPage={16}
+            currentPage={+page}
+            url={(page: number) =>
+              router.push(`/course-story/cardnews/${page}`)
+            }
+          />
         </div>
       </Layout>
     </>
@@ -146,7 +107,7 @@ const Cardnews: NextPage<IProps> = ({ params }) => {
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   return {
     props: {
-      params: ctx.params?.page,
+      page: ctx.params?.page,
     },
   };
 };

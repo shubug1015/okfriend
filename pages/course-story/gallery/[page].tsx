@@ -1,161 +1,124 @@
 import Banner from '@components/banner';
 import MenuBar from '@components/course-story/menuBar';
+import Popup from '@components/course-story/popup';
+import Pagebar from '@components/pagebar';
 import SEO from '@components/seo';
 import Layout from '@layouts/sectionLayout';
+import { boardApi } from '@libs/api';
 import { cls } from '@libs/client/utils';
 import type { GetServerSidePropsContext, NextPage } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import useSWR from 'swr';
 
 interface IProps {
-  params: string[];
+  page: string;
 }
 
-const Gallery: NextPage<IProps> = ({ params }) => {
-  const [currrentTab, setCurrentTab] = useState('전체');
+const Gallery: NextPage<IProps> = ({ page }) => {
+  const router = useRouter();
+  const [currentTab, setCurrentTab] = useState('전체');
+  const { data } = useSWR(`galleryList/${currentTab}`, () =>
+    boardApi.getGalleryList(currentTab, page)
+  );
+
+  const [popup, setPopup] = useState({
+    open: false,
+    index: -1,
+  });
+
   const toggleTab = (tab: string) => {
     setCurrentTab(tab);
-    console.log(currrentTab);
   };
-  const galleryList = [
-    {
-      id: 0,
-      title: '2021 OKF 1st',
-    },
-    {
-      id: 1,
-      title: '2021 OKF 2nd',
-    },
-    {
-      id: 2,
-      title: '2021 OKF 3rd',
-    },
-    {
-      id: 3,
-      title: '2021 OKF 4th',
-    },
-    {
-      id: 4,
-      title: '2021 OKF 5th',
-    },
-    {
-      id: 5,
-      title: '2021 OKF 6th',
-    },
-    {
-      id: 6,
-      title: '2021 OKF 7th',
-    },
-    {
-      id: 7,
-      title: '2021 OKF 8th',
-    },
-    {
-      id: 8,
-      title: '2021 OKF 9th',
-    },
-    {
-      id: 9,
-      title: '2021 OKF 10th',
-    },
-    {
-      id: 10,
-      title: '2021 OKF 11th',
-    },
-    {
-      id: 11,
-      title: '2021 OKF 12th',
-    },
-    {
-      id: 12,
-      title: '2021 OKF 13th',
-    },
-    {
-      id: 13,
-      title: '2021 OKF 14th',
-    },
-    {
-      id: 14,
-      title: '2021 OKF 15th',
-    },
-    {
-      id: 15,
-      title: '2021 OKF 16th',
-    },
-  ];
+  const closePopup = () => setPopup({ open: false, index: -1 });
+  const prevPopup = () =>
+    setPopup((prev) => ({ ...prev, index: prev.index - 1 }));
+  const nextPopup = () =>
+    setPopup((prev) => ({ ...prev, index: prev.index + 1 }));
+
+  useEffect(() => {
+    if (popup.open) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'visible';
+    }
+  }, [popup]);
   return (
     <>
       <SEO title='연수이야기' />
       <Banner title='연수이야기' navList={['연수이야기', '연수 갤러리']} />
       <MenuBar pageName='연수 갤러리' />
-      <Layout>
-        <div className='border-b border-[#9e9e9e] pt-[4.214rem] pb-[1.281rem] text-4xl font-bold leading-[3.15rem] text-[#01111e]'>
+      <Layout padding='pt-16 pb-20'>
+        <div className='border-b border-[#9e9e9e] pb-[1.281rem] text-4xl font-bold leading-[3.15rem] text-[#01111e]'>
           연수 갤러리
         </div>
 
         {/* 서브메뉴 탭 */}
         <div className='mt-[2.531rem] flex space-x-4 text-center text-[1.375rem] font-bold leading-[2.2rem] text-[#9e9e9e]'>
-          <div
-            onClick={() => toggleTab('전체')}
-            className={cls(
-              currrentTab === '전체'
-                ? 'cursor-default border-[#01111e] text-[#01111e]'
-                : 'cursor-pointer border-transparent',
-              'w-[6.5rem] border-b-4 pb-[0.653rem]'
-            )}
-          >
-            전체
-          </div>
-          <div
-            onClick={() => toggleTab('2021')}
-            className={cls(
-              currrentTab === '2021'
-                ? 'cursor-default border-[#01111e] text-[#01111e]'
-                : 'cursor-pointer border-transparent',
-              'w-[6.5rem] border-b-4 pb-[0.653rem]'
-            )}
-          >
-            2021
-          </div>
-          <div
-            onClick={() => toggleTab('2020')}
-            className={cls(
-              currrentTab === '2020'
-                ? 'cursor-default border-[#01111e] text-[#01111e]'
-                : 'cursor-pointer border-transparent',
-              'w-[6.5rem] border-b-4 pb-[0.653rem]'
-            )}
-          >
-            2020
-          </div>
-          <div
-            onClick={() => toggleTab('2019')}
-            className={cls(
-              currrentTab === '2019'
-                ? 'cursor-default border-[#01111e] text-[#01111e]'
-                : 'cursor-pointer border-transparent',
-              'w-[6.5rem] border-b-4 pb-[0.653rem]'
-            )}
-          >
-            2019
-          </div>
+          {['전체', '2021', '2020', '2019'].map((i) => (
+            <div
+              key={i}
+              onClick={() => toggleTab(i)}
+              className={cls(
+                currentTab === i
+                  ? 'cursor-default border-[#01111e] text-[#01111e]'
+                  : 'cursor-pointer border-transparent',
+                'w-[6.5rem] border-b-4 pb-[0.653rem]'
+              )}
+            >
+              {i}
+            </div>
+          ))}
         </div>
 
         {/* 갤러리 이미지 */}
         <div>
           <div className='mt-[1.847rem] h-[41.393rem] w-[73.813rem] rounded bg-slate-300' />
         </div>
-        <div className='mt-20 grid grid-cols-4 grid-rows-4 gap-y-[1.536rem] gap-x-5 pb-20'>
-          {galleryList.map((gallery) => (
-            <div key={gallery.id}>
-              <div className='h-[17.5rem] w-[17.5rem] rounded bg-slate-300' />
+        <div className='mt-20 grid grid-cols-4 gap-y-6 gap-x-5 pb-20'>
+          {data?.results.map((i: { [key: string]: any }, index: number) => (
+            <div
+              key={i.id}
+              onClick={() => setPopup({ open: true, index })}
+              className='cursor-pointer transition-opacity hover:opacity-70'
+            >
+              <div className='relative h-[17.5rem] w-[17.5rem]'>
+                <Image
+                  src={i.image}
+                  alt='Gallery Image'
+                  layout='fill'
+                  objectFit='cover'
+                  className='rounded'
+                />
+              </div>
               <div className='mt-4 text-[1.125rem] font-medium leading-[1.8rem]'>
-                {gallery.title}
+                {i.name}
               </div>
             </div>
           ))}
         </div>
+
+        <div className='mt-24 flex justify-center'>
+          <Pagebar
+            totalItems={data?.count}
+            itemsPerPage={16}
+            currentPage={+page}
+            url={(page: number) => router.push(`/course-story/gallery/${page}`)}
+          />
+        </div>
       </Layout>
+
+      {popup.open && (
+        <Popup
+          data={data?.results}
+          index={popup.index || 0}
+          closePopup={closePopup}
+          prevPopup={prevPopup}
+          nextPopup={nextPopup}
+        />
+      )}
     </>
   );
 };
@@ -163,7 +126,7 @@ const Gallery: NextPage<IProps> = ({ params }) => {
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   return {
     props: {
-      params: ctx.params?.page,
+      page: ctx.params?.page,
     },
   };
 };

@@ -45,19 +45,93 @@ export const boardApi = {
   getLibraryDetail: (id: string) =>
     api.get(`/board/resource/${id}`).then((res) => res.data),
 
-  getCardNewsList: (page: string, category: string) =>
-    api
-      .get(`/board/card_news?page=${page}&category=${category}`)
-      .then((res) => res.data),
-
   getVideoList: (page: string) =>
     api.get(`/board/promotion_video?page=${page}`).then((res) => res.data),
+
+  getGalleryList: (category: string, page: string) =>
+    api
+      .get(
+        `/board/gallery?page=${page}&${
+          category === '전체' ? '' : `category=${category}`
+        }`
+      )
+      .then((res) => res.data),
+
+  getCardNewsList: (page: string, category: string) =>
+    api
+      .get(
+        `/board/card_news?page=${page}&${
+          category === '전체' ? '' : `category=${category}`
+        }`
+      )
+      .then((res) => res.data),
+
+  getCardNewsDetail: (id: string) =>
+    api.get(`/board/card_news/${id}`).then((res) => res.data),
+
+  getNewsLetterList: (page: string) =>
+    api.get(`/board/news_letter?page=${page}`).then((res) => res.data),
+
+  getNewsLetterDetail: (id: string, token?: string | null) =>
+    api
+      .get(`/board/news_letter/${id}`, {
+        ...(token && {
+          headers: {
+            Authorization: token,
+            'Content-Type': 'application/json',
+          },
+        }),
+      })
+      .then((res) => res.data),
+
+  likeNewsLetter: (id: string, token: string) =>
+    api
+      .post(
+        '/board/news_letter/like/',
+        { type: 'news_letter', news_letter_pk: id },
+        {
+          headers: {
+            Authorization: token,
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+      .then((res) => res.data),
+
+  // 강의 상세 리뷰 작성
+  writeNewsLetterReply: (id: string, text: string, token: string) =>
+    api.post(
+      '/board/news_letter/reply/',
+      {
+        type: 'news_letter',
+        news_letter_pk: id,
+        text,
+      },
+      {
+        headers: {
+          Authorization: token,
+          'Content-Type': 'application/json',
+        },
+      }
+    ),
 };
 
 export const courseApi = {
   getCourseList: (category: string, page: string) =>
     api
       .get(`/lectures?category=${category}&page=${page}`)
+      .then((res) => res.data),
+
+  detail: (id: string, token?: string | null) =>
+    api
+      .get(`/lectures/${id}/`, {
+        ...(token && {
+          headers: {
+            Authorization: token,
+            'Content-Type': 'application/json',
+          },
+        }),
+      })
       .then((res) => res.data),
 
   registerCourse: (id: string, token: string) =>
@@ -72,17 +146,17 @@ export const courseApi = {
       }
     ),
 
-  detail: (id: string, token?: string | null) =>
-    api
-      .get(`/lectures/${id}/`, {
-        ...(token && {
-          headers: {
-            Authorization: token,
-            'Content-Type': 'application/json',
-          },
-        }),
-      })
-      .then((res) => res.data),
+  sendProgress: (id: string, progress: number, token: string) =>
+    api.post(
+      `/lectures/${id}/progress/`,
+      { progress },
+      {
+        headers: {
+          Authorization: token,
+          'Content-Type': 'application/json',
+        },
+      }
+    ),
 
   // 강의 상세 리뷰 작성
   writeReview: (id: string, text: string, token: string) =>
@@ -189,6 +263,19 @@ export const usersApi = {
         'Content-Type': 'application/json',
       },
     }),
+};
+
+export const mypageApi = {
+  // 마이페이지 내 강의 리스트
+  myCourseList: (page: string, token: string) =>
+    api
+      .get(`/mypage/registered_lecture?page=${page}`, {
+        headers: {
+          Authorization: token,
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((res) => res.data),
 
   // 마이페이지 회원 정보 수정
   editInfos: ({

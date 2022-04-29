@@ -34,6 +34,7 @@ export default function CourseList({ data, totalItems }: IProps) {
             tutor={i.tutor}
             courseType={courseType}
             courseCategory={courseCategory}
+            url={i.url}
           />
         ))}
       </div>

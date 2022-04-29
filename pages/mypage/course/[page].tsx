@@ -3,21 +3,22 @@ import CourseList from '@components/mypage/courseList';
 import Navigator from '@components/mypage/navigator';
 import SEO from '@components/seo';
 import Layout from '@layouts/sectionLayout';
-import useMutation from '@libs/client/useMutation';
 import { cls } from '@libs/client/utils';
-import type {
-  GetServerSideProps,
-  GetServerSidePropsContext,
-  NextPage,
-} from 'next';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import type { GetServerSidePropsContext, NextPage } from 'next';
+import { useState } from 'react';
+import useSWR from 'swr';
+import { useUser } from '@libs/client/useUser';
+import { mypageApi } from '@libs/api';
 
 interface IProps {
-  params: string[];
+  page: string;
 }
 
-const MyCourse: NextPage<IProps> = ({ params }) => {
+const MyCourse: NextPage<IProps> = ({ page }) => {
+  const { token } = useUser({ isPrivate: true });
+  const { data } = useSWR(token ? `myCourseList` : null, () =>
+    mypageApi.myCourseList(page, token as string)
+  );
   const [category, setCategory] = useState('진행중');
   return (
     <>
@@ -57,8 +58,16 @@ const MyCourse: NextPage<IProps> = ({ params }) => {
 
             <CourseList
               category={category}
-              data={category === '진행중' ? [0, 1] : [0, 1]}
-              count={category === '진행중' ? 2 : 2}
+              data={
+                category === '진행중'
+                  ? data?.ongoing.results
+                  : data?.completed.results
+              }
+              totalItems={
+                category === '진행중'
+                  ? data?.ongoing.count
+                  : data?.completed.count
+              }
             />
           </div>
         </div>
@@ -70,7 +79,7 @@ const MyCourse: NextPage<IProps> = ({ params }) => {
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   return {
     props: {
-      params: ctx.params?.page,
+      page: ctx.params?.page,
     },
   };
 };

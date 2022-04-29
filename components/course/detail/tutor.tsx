@@ -53,7 +53,7 @@ export default function Tutor({ tutor }: IProps) {
             <div className='text-xl font-bold'>상세 이력</div>
 
             <div className='mt-2.5 text-[#626262]'>
-              {tutor?.career.map((i: { [key: string]: any }) => (
+              {tutor?.career?.map((i: { [key: string]: any }) => (
                 <div key={i.id}>{i.text}</div>
               ))}
             </div>

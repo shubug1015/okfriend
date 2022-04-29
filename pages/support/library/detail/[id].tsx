@@ -3,6 +3,7 @@ import SEO from '@components/seo';
 import Navigator from '@components/support/navigator';
 import Layout from '@layouts/sectionLayout';
 import { boardApi } from '@libs/api';
+import { trimDate } from '@libs/client/utils';
 import type { GetServerSidePropsContext, NextPage } from 'next';
 import Link from 'next/link';
 import useSWR from 'swr';
@@ -19,7 +20,7 @@ const LibraryDetail: NextPage<IProps> = ({ id }) => {
       <Banner title='지원센터 자료실' navList={['지원센터', '자료실']} />
       <Navigator supportCategory='notice' />
       <Layout bgColor='bg-[#f4f9fb]' padding='py-14'>
-        <div className='font-bold'>Title</div>
+        <div className='font-bold'>자료실</div>
 
         <div className='mt-6 text-[1.875rem] font-medium'>{data?.title}</div>
 
@@ -40,7 +41,11 @@ const LibraryDetail: NextPage<IProps> = ({ id }) => {
               <div className='text-lg'>관리자</div>
             </div>
 
-            <div className='text-[#6b6b6b]'>2021.10.28</div>
+            {data?.created && (
+              <div className='text-[#6b6b6b]'>
+                {trimDate(data?.created, 0, 10)}
+              </div>
+            )}
           </div>
 
           <div className='flex items-end space-x-2'>
@@ -72,6 +77,16 @@ const LibraryDetail: NextPage<IProps> = ({ id }) => {
 
       <Layout padding='py-20'>
         <div dangerouslySetInnerHTML={{ __html: data?.content }} />
+
+        <div className='mt-20 border-y border-[#cccccc] py-5'>
+          <a
+            href={data?.file}
+            download
+            className='text-lg text-[#9e9e9e] transition-opacity hover:opacity-70'
+          >
+            {decodeURI(data?.file).replace('http://127.0.0.1:8000/media/', '')}
+          </a>
+        </div>
 
         <Link href='/support/library/title/created/1'>
           <a className='mt-6 flex h-[2.8rem] w-[6.5rem] items-center justify-center rounded-lg border border-[#6b6b6b] text-lg font-medium text-[#6b6b6b] transition-all hover:opacity-70'>

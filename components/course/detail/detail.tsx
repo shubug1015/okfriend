@@ -8,14 +8,21 @@ import { courseApi } from '@libs/api';
 import { useRouter } from 'next/router';
 import { IUser } from '@libs/client/useUser';
 import useSWR from 'swr';
+import Vimeo from '@u-wave/react-vimeo';
 
 interface IProps {
   [key: string]: any;
+  progress: number;
   isRegistered: boolean;
   mutate: (args: { [key: string]: any }) => void;
 }
 
-export default function Detail({ data, isRegistered, mutate }: IProps) {
+export default function Detail({
+  data,
+  progress,
+  isRegistered,
+  mutate,
+}: IProps) {
   const { data: myData } = useSWR<IUser>('/api/user');
   const router = useRouter();
   const [, category, id] = router.query.slug as string[];
@@ -56,14 +63,29 @@ export default function Detail({ data, isRegistered, mutate }: IProps) {
         <div className='flex justify-between space-x-20'>
           {/* 썸네일 */}
           <div className='relative h-[26.125rem] w-[44.688rem]'>
-            {data?.thumbnail && (
-              <Image
-                src={data?.thumbnail}
-                alt='Course Thumbnail'
-                layout='fill'
-                objectFit='cover'
-                className='rounded-lg'
+            {isRegistered ? (
+              <Vimeo
+                video={data?.url}
+                className='h-full w-full'
+                onTimeUpdate={(e) =>
+                  courseApi.sendProgress(
+                    id,
+                    e.percent * 100,
+                    myData?.token as string
+                  )
+                }
+                onCuePoint={(e) => console.log(e)}
               />
+            ) : (
+              data?.thumbnail && (
+                <Image
+                  src={data?.thumbnail}
+                  alt='Course Thumbnail'
+                  layout='fill'
+                  objectFit='cover'
+                  className='rounded-lg'
+                />
+              )
             )}
           </div>
           {/* 썸네일 */}
@@ -103,12 +125,18 @@ export default function Detail({ data, isRegistered, mutate }: IProps) {
 
             {/* 복사 & 구매 버튼 */}
             <div className='mt-8 space-y-3'>
-              <div
-                onClick={registerCourse}
-                className='flex h-[3.625rem] cursor-pointer items-center justify-center rounded-lg bg-[#01111e] font-bold text-white transition-all hover:opacity-90'
-              >
-                강의 듣기
-              </div>
+              {isRegistered ? (
+                <div className='flex h-[3.625rem] items-center justify-center rounded-lg bg-[#01111e] font-bold text-white'>
+                  수강중인 강의
+                </div>
+              ) : (
+                <div
+                  onClick={registerCourse}
+                  className='flex h-[3.625rem] cursor-pointer items-center justify-center rounded-lg bg-[#01111e] font-bold text-white transition-all hover:opacity-90'
+                >
+                  강의 듣기
+                </div>
+              )}
 
               <div className='grid grid-cols-2 gap-x-5'>
                 {category === 'past' ? (
@@ -162,9 +190,13 @@ export default function Detail({ data, isRegistered, mutate }: IProps) {
                       필수 설문조사
                     </div>
 
-                    <div className='flex h-[3.625rem] cursor-pointer items-center justify-center rounded-lg border border-[#9e9e9e] text-[#6b6b6b] transition-all hover:opacity-70'>
+                    <a
+                      href={data?.syllabus}
+                      download
+                      className='flex h-[3.625rem] cursor-pointer items-center justify-center rounded-lg border border-[#9e9e9e] text-[#6b6b6b] transition-all hover:opacity-70'
+                    >
                       강의 계획서
-                    </div>
+                    </a>
                   </>
                 )}
               </div>
@@ -182,7 +214,10 @@ export default function Detail({ data, isRegistered, mutate }: IProps) {
             </div>
 
             <div className='h-3 grow rounded-full bg-[#d6d6d6]'>
-              <div className='h-3 w-1/2 rounded-full bg-[#d60a51]' />
+              <div
+                className='h-3 rounded-full bg-[#d60a51]'
+                style={{ width: `${progress}%` }}
+              />
             </div>
           </div>
         )}

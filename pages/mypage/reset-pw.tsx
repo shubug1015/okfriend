@@ -1,16 +1,12 @@
 import Header from '@components/mypage/header';
-import CourseList from '@components/mypage/courseList';
 import Navigator from '@components/mypage/navigator';
 import SEO from '@components/seo';
 import Layout from '@layouts/sectionLayout';
 import useMutation from '@libs/client/useMutation';
-import { cls } from '@libs/client/utils';
 import type { NextPage } from 'next';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
 import { FieldErrors, useForm } from 'react-hook-form';
 import { useUser } from '@libs/client/useUser';
-import { usersApi } from '@libs/api';
+import { mypageApi } from '@libs/api';
 
 interface IForm {
   password: string;
@@ -19,7 +15,7 @@ interface IForm {
 
 const ResetPw: NextPage = () => {
   const { token } = useUser({ isPrivate: true });
-  const [editMyInfos] = useMutation(usersApi.editInfos);
+  const [editMyInfos] = useMutation(mypageApi.editInfos);
   const {
     register,
     handleSubmit,
