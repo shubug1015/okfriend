@@ -304,6 +304,17 @@ export const mypageApi = {
         },
       }
     ),
+
+  // 마이페이지 마일리지 리스트
+  getMileageList: (page: string, token: string) =>
+    api
+      .get(`/mypage/mileage?page=${page}`, {
+        headers: {
+          Authorization: token,
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((res) => res.data),
 };
 
 export const contactApi = {

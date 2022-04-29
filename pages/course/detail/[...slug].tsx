@@ -18,6 +18,7 @@ interface IProps {
 
 const CourseDetail: NextPage<IProps> = ({ slug }) => {
   const { data: myData } = useSWR<IUser>('/api/user');
+  console.log(myData);
   const [, , id] = slug;
   const { data, mutate } = useSWR(
     myData?.token ? 'courseDetail/logged' : 'courseDetail/unlogged',

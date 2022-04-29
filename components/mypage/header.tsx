@@ -48,7 +48,7 @@ export default function Header() {
             <div className='flex justify-between'>
               <div className='font-bold'>현재 마일리지</div>
 
-              <Link href='/mypage'>
+              <Link href='/mypage/mileage/1'>
                 <a className='flex'>
                   <span className='text-sm text-[#9e9e9e]'>마일리지 내역</span>
                   <svg
