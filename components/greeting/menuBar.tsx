@@ -13,7 +13,7 @@ export default function MenuBar({ pageName }: IProps) {
           <div
             className={cls(
               pageName === '인사말'
-                ? 'border-[#2fb6bc]  text-[#01111e]'
+                ? 'border-[#2fb6bc]  text-[#2fb6bc]'
                 : 'border-transparent',
               'flex h-[4.188rem] w-[12.5rem] items-center justify-center border-b-4 font-bold'
             )}
@@ -28,7 +28,7 @@ export default function MenuBar({ pageName }: IProps) {
           <div
             className={cls(
               pageName === '개요'
-                ? 'border-[#2fb6bc] font-bold text-[#01111e]'
+                ? 'border-[#2fb6bc] font-bold text-[#2fb6bc]'
                 : 'border-transparent',
               'flex h-[4.188rem] w-[12.5rem] items-center justify-center border-b-4 font-bold'
             )}
@@ -43,7 +43,7 @@ export default function MenuBar({ pageName }: IProps) {
           <div
             className={cls(
               pageName === '연수 편성표'
-                ? 'border-[#2fb6bc] font-bold text-[#01111e]'
+                ? 'border-[#2fb6bc] font-bold text-[#2fb6bc]'
                 : 'border-transparent',
               'flex h-[4.188rem] w-[12.5rem] items-center justify-center border-b-4 font-bold'
             )}

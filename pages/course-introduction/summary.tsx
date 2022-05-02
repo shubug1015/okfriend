@@ -8,9 +8,9 @@ import SummaryGoal1 from '@public/course-introduction/summary-goal-1.png';
 import SummaryGoal2 from '@public/course-introduction/summary-goal-2.png';
 import SummaryGoal3 from '@public/course-introduction/summary-goal-3.png';
 import SummaryGoal4 from '@public/course-introduction/summary-goal-4.png';
+import SummaryBenefit1 from '@public/course-introduction/summary-benefit-1.png';
 import SummaryMileage1 from '@public/course-introduction/summary-mileage-1.png';
-import SummaryContent1 from '@public/course-introduction/summary-content-1.png';
-import SummaryContent2 from '@public/course-introduction/summary-content-2.png';
+import SummaryBenefit2 from '@public/course-introduction/summary-benefit-2.png';
 import MenuBar from '@components/greeting/menuBar';
 
 const Greeting: NextPage = () => {
@@ -40,7 +40,7 @@ const Greeting: NextPage = () => {
           <span className='text-[#01111e]'>재외동포 대학생 온라인 연수</span>
         </div>
 
-        <div className='border-b border-[#e8e8e8] pt-[2.719rem] pb-[3.094rem] text-2xl text-[#01111e]'>
+        <div className='border-b border-[#e8e8e8] pt-[1.594rem] pb-[2.719rem] text-2xl text-[#01111e]'>
           <div className='font-bold leading-[2.25rem]'>연수목적</div>
           <div className='mt-2 text-[1.125rem] font-normal leading-[1.856rem]'>
             온라인 플랫폼을 중점 활용한 온라인 모국연수를 통해 재외동포 참가자
@@ -81,7 +81,7 @@ const Greeting: NextPage = () => {
           </div>
         </div>
 
-        <div className='border-b border-[#e8e8e8] pt-[2.719rem] pb-[3.094rem] text-2xl text-[#01111e]'>
+        <div className='border-b border-[#e8e8e8] pt-[3.094rem] pb-[2.719rem] text-2xl text-[#01111e]'>
           <div className='flex items-center font-bold leading-[2.25rem]'>
             연수대상
             <span className='ml-[0.813rem] text-[1.063rem] font-normal leading-[1.753rem] text-[#6b6b6b]'>
@@ -94,8 +94,8 @@ const Greeting: NextPage = () => {
               <div className='inline rounded-full bg-[#2fb6bc] py-[0.438rem] pr-[1.063rem] pl-[1.125rem] text-2xl font-bold leading-6 text-white'>
                 1
               </div>
-              <div className='mt-2 font-bold leading-[1.65]'>대상 인원</div>
-              <div className='fonr-normal mt-[1.5] leading-[1.33] text-[#6b6b6b]'>
+              <div className='mt-2 font-bold leading-[1.856]'>대상 인원</div>
+              <div className='fonr-normal mt-[6px] leading-6 text-[#6b6b6b]'>
                 재외동포 및<br />
                 국내 대학생 참가자 500여명
               </div>
@@ -104,8 +104,8 @@ const Greeting: NextPage = () => {
               <div className='inline rounded-full bg-[#2fb6bc] py-[0.438rem] pr-[1.063rem] pl-[1.125rem] text-2xl font-bold leading-6 text-white'>
                 2
               </div>
-              <div className='mt-2 font-bold leading-[1.65]'>대상 연령</div>
-              <div className='fonr-normal mt-[1.5] leading-[1.33] text-[#6b6b6b]'>
+              <div className='mt-2 font-bold leading-[1.856]'>대상 연령</div>
+              <div className='fonr-normal mt-[6px] leading-6 text-[#6b6b6b]'>
                 18세부터 25세 까지의 <br />
                 청소년
               </div>
@@ -114,8 +114,8 @@ const Greeting: NextPage = () => {
               <div className='inline rounded-full bg-[#2fb6bc] py-[0.438rem] pr-[1.063rem] pl-[1.125rem] text-2xl font-bold leading-6 text-white'>
                 3
               </div>
-              <div className='mt-2 font-bold leading-[1.65]'>대상 자격</div>
-              <div className='fonr-normal mt-[1.5] leading-[1.33] text-[#6b6b6b]'>
+              <div className='mt-2 font-bold leading-[1.856]'>대상 자격</div>
+              <div className='fonr-normal mt-[6px] leading-6 text-[#6b6b6b]'>
                 재외동포 대학생 중<br />
                 <span className='text-[0.875rem] leading-[1.444]'>
                   (5년이상 합법적으로 해외 체류 중인 학생)
@@ -133,127 +133,89 @@ const Greeting: NextPage = () => {
           </div>
         </div>
 
-        <div className='border-b border-[#e8e8e8] pt-[2.719rem] pb-[3.094rem] text-2xl text-[#01111e]'>
+        <div className='border-b border-[#e8e8e8] pt-[2.969rem] pb-[2.531rem] text-2xl text-[#01111e]'>
           <div className='font-bold leading-[2.25rem]'>연수방식</div>
           <div className='mt-4 text-[1.125rem] leading-[1.856rem]'>
             OKF 온라인 플랫폼을 활용한 실시간 쌍방향 원격 연수
           </div>
         </div>
 
-        {/* 집중연수기간 */}
-        <div className='border-b border-[#e8e8e8] pt-[2.719rem] pb-[3.094rem] text-2xl text-[#01111e]'>
-          <div className='font-bold leading-[2.25rem]'>집중연수기간</div>
+        {/* 2022 재외동포대학생(온라인) 연수 기간 */}
+        <div className='border-b border-[#e8e8e8] pt-[2.906rem] pb-[2.531rem] text-2xl text-[#01111e]'>
+          <div className='font-bold leading-[2.25rem]'>
+            2022 재외동포대학생(온라인) 연수 기간
+          </div>
           <div className='mt-[1.438rem] flex justify-between'>
-            <div className='w-[23.75rem] border-t-2 border-[#2fb6bc] bg-[#d5f0f2] pt-[1.438rem] pb-6 text-center'>
+            <div className='w-[17.75rem] border-t-2 border-[#2fb6bc] bg-[#d5f0f2] pt-[1.438rem] pb-6 text-center'>
               <div className='text-xl font-bold leading-[2.062rem]'>1회기</div>
               <div className='text-[1.125rem] leading-[1.856rem]'>
-                2021년 9월 26일(일) ~<br />
-                10월 02일(토)
+                2022년 7월 1일(금) ~<br />
+                7월 31일(일)
               </div>
             </div>
-            <div className='w-[23.75rem] border-t-2 border-[#2fb6bc] bg-[#d5f0f2] pt-[1.438rem] pb-6 text-center'>
+            <div className='w-[17.75rem] border-t-2 border-[#2fb6bc] bg-[#d5f0f2] pt-[1.438rem] pb-6 text-center'>
               <div className='text-xl font-bold leading-[2.062rem]'>2회기</div>
               <div className='text-[1.125rem] leading-[1.856rem]'>
-                2021년 9월 26일(일) ~<br />
-                10월 02일(토)
+                2022년 8월 1일(일) ~<br />
+                8월 31일(토)
               </div>
             </div>
-            <div className='w-[23.75rem] border-t-2 border-[#2fb6bc] bg-[#d5f0f2] pt-[1.438rem] pb-6 text-center'>
+            <div className='w-[17.75rem] border-t-2 border-[#2fb6bc] bg-[#d5f0f2] pt-[1.438rem] pb-6 text-center'>
               <div className='text-xl font-bold leading-[2.062rem]'>3회기</div>
               <div className='text-[1.125rem] leading-[1.856rem]'>
-                2021년 9월 26일(일) ~<br />
-                10월 02일(토)
+                2022년 9월 1일(목) ~<br />
+                9월 30일(금)
+              </div>
+            </div>
+            <div className='w-[17.75rem] border-t-2 border-[#2fb6bc] bg-[#d5f0f2] pt-[1.438rem] pb-6 text-center'>
+              <div className='text-xl font-bold leading-[2.062rem]'>4회기</div>
+              <div className='text-[1.125rem] leading-[1.856rem]'>
+                2022년 10월 1일(토) ~<br />
+                10월 31일(월)
               </div>
             </div>
           </div>
         </div>
 
-        {/* 연수기간 */}
-        <div className='pt-[2.719rem] text-2xl text-[#01111e]'>
-          <div className='font-bold leading-[2.25rem]'>연수기간</div>
-          <div className='mt-[1.438rem] flex justify-between'>
-            <div className='w-[23.75rem] border border-t-2 border-[#d6d6d6] border-t-[#2fb6bc] pt-[1.438rem] pb-6 text-center'>
-              <div className='text-xl font-bold leading-[2.062rem]'>1회기</div>
-              <div className='text-[1.125rem] leading-[1.856rem]'>
-                2021년 9월 26일(일) ~<br />
-                10월 02일(토)
-              </div>
-            </div>
-            <div className='w-[23.75rem] border border-t-2 border-[#d6d6d6] border-t-[#2fb6bc] pt-[1.438rem] pb-6 text-center'>
-              <div className='text-xl font-bold leading-[2.062rem]'>2회기</div>
-              <div className='text-[1.125rem] leading-[1.856rem]'>
-                2021년 9월 26일(일) ~<br />
-                10월 02일(토)
-              </div>
-            </div>
-            <div className='w-[23.75rem] border border-t-2 border-[#d6d6d6] border-t-[#2fb6bc] pt-[1.438rem] pb-6 text-center'>
-              <div className='text-xl font-bold leading-[2.062rem]'>3회기</div>
-              <div className='text-[1.125rem] leading-[1.856rem]'>
-                2021년 9월 26일(일) ~<br />
-                10월 02일(토)
-              </div>
-            </div>
+        {/* 2022 재외동포대학생 모국연수(사전온라인) 연수 기간 */}
+        <div className='border-b border-[#e8e8e8] pt-[2.531rem] pb-[2.469rem] text-2xl text-[#01111e]'>
+          <div className='font-bold leading-[2.25rem]'>
+            2022 재외동포대학생 모국연수(사전온라인) 연수 기간
+          </div>
+          <div className='mt-3 text-[1.125rem] leading-[1.856rem]'>
+            - 2022년 6월 중 이수완료
           </div>
         </div>
 
         {/* 문의방법 */}
-        <div className='mt-[2.688rem] text-2xl text-[#01111e]'>
+        <div className='mt-[2.531rem] text-2xl text-[#01111e]'>
           <div className='font-bold leading-[2.25rem]'>문의방법</div>
           <button className='mt-[1.188rem] rounded-md bg-[#2fb2bc] px-[2.875rem] py-[0.75rem] text-[1.063rem] leading-[1.594rem] text-white'>
             <a href='#'>문의하기</a>
           </button>
         </div>
 
-        {/* 주요콘텐츠편성표 */}
-        <div className='mt-[4.313rem] text-[#01111e]'>
-          <div className='border-b border-[#9e9e9e] pb-[1.469rem] text-4xl font-bold leading-[3.15rem]'>
-            <span className='text-[#2fb6bc]'>주요</span> 콘텐츠편성표
-          </div>
+        {/* 온라인연수 마일리지 제도란? */}
+        <div className='mt-[5.25rem] border-b border-[#9e9e9e] pb-[1.469rem] text-4xl font-bold leading-[3.15rem] text-[#01111e]'>
+          <span className='text-[#2fb6bc]'>온라인연수</span> 마일리지 제도란?
+        </div>
 
-          <div className='mt-[2.531rem] text-2xl font-bold'>
-            오전, 오후, 저녁 (대한민국 표준시 기준)
+        {/* 마일리지 제도 적립/활용 */}
+        <div className='border-b border-[#e8e8e8] pt-[2.656rem] pb-[1.838rem] text-2xl text-[#01111e]'>
+          <div className='font-bold leading-[2.25rem]'>
+            마일리지 제도 적립/활용
           </div>
-
-          <div className='relative mt-[1.406rem] h-[340px] w-[1180px]'>
-            <Image
-              src={SummaryContent1}
-              alt='Summary Page Content Section Image1'
-              objectFit='cover'
-              placeholder='blur'
-              layout='fill'
-              quality={100}
-            />
-          </div>
-
-          <div className='relative mt-[1.25rem] h-[301px] w-[1180px]'>
-            <Image
-              src={SummaryContent2}
-              alt='Summary Page Content Section Image2'
-              objectFit='cover'
-              placeholder='blur'
-              layout='fill'
-              quality={100}
-            />
+          <div className='mt-4 text-[1.125rem] leading-[1.856rem]'>
+            온라인 연수의 필수, 선택, 라이브차시 프로그램을 이수시 아래의
+            적립기준에 의하여 마일리지가 적립되며,
+            <br />
+            강의 후기 및 리뷰를 통해 추가 마일리지를 적립하여 익년도 참가 및
+            당해연도 시상에 반영합니다.
           </div>
         </div>
 
-        <div className='mt-[4.281rem] pb-[6.25rem] text-[#01111e]'>
-          <div className='border-b border-[#9e9e9e] pb-[1.469rem] text-4xl font-bold leading-[3.15rem]'>
-            <span className='text-[#2fb6bc]'>모국연수</span> 마일리지 제도란?
-          </div>
-
-          <div className='mt-[2.531rem] text-2xl font-bold'>
-            마일리지 지급 프로세스
-          </div>
-
-          <div className='mt-4 border-b border-[#e8e8e8] pb-[1.838rem] text-[1.125rem] leading-[1.856rem]'>
-            2021 재외동포 대학생 온라인연수 내 필수차시 프로그램 외 선택차시
-            프로그램을 이수하였을때 적립기준에 맞춰 마일리지가 부여되고,
-            선택차시 프로그램 내 과제 수행시 추가 마일리지를 적립하여 익년도
-            연수 참가시 활용할 수 있는 제도
-          </div>
-
-          <div className='relative mt-[1.849rem] h-24 w-[73.625rem]'>
+        <div className='border-b border-[#e8e8e8] pt-[1.849rem] pb-[2.906rem] text-2xl text-[#01111e]'>
+          <div className='relative h-[256.5px] w-full'>
             <Image
               src={SummaryMileage1}
               alt='Summary Page Mileage Section Image1'
@@ -263,21 +225,63 @@ const Greeting: NextPage = () => {
               quality={100}
             />
           </div>
-
-          <div className='relative mt-[1.313rem] h-24 w-[73.625rem]'>
-            <Image
-              src={SummaryMileage1}
-              alt='Summary Page Mileage Section Image1'
-              objectFit='cover'
-              placeholder='blur'
-              layout='fill'
-              quality={100}
-            />
+          <div className='mt-8 flex items-center justify-center bg-[#f8f8f8] py-[1.125rem]'>
+            <div className='mr-[7px] rounded bg-[#d60a51] py-[0.085rem] px-[0.438rem] text-[0.875rem] leading-5 text-white'>
+              POINT 01
+            </div>
+            <div className='text-xl font-medium leading-7 text-[#01111e]'>
+              국내외 참가자는 해당 콘텐츠의 95%이상 시청시 마일리지 획득 가능
+            </div>
           </div>
+          <div className='mt-6 flex items-center justify-center bg-[#f8f8f8] py-[1.125rem]'>
+            <div className='mr-[7px] rounded bg-[#d60a51] py-[0.085rem] px-[0.438rem] text-[0.875rem] leading-5 text-white'>
+              POINT 02
+            </div>
+            <div className='text-xl font-medium leading-7 text-[#01111e]'>
+              라이브 차시의 경우 라이브로 이수시 가점(+10점)이 발생함. 녹화방송
+              이수시 기본 점수 5점만 부여
+            </div>
+          </div>
+        </div>
 
-          <div className='mt-[1.875rem] bg-[#01111e] py-[1.125rem] text-center text-xl leading-[1.75rem] text-[#f8f8f8]'>
+        {/* 연수참여혜택 */}
+        <div className='border-b border-[#e8e8e8] pt-[2.531rem] pb-[6.938rem] text-2xl text-[#01111e]'>
+          <div className='font-bold leading-[2.25rem]'>연수참여혜택</div>
+          <div className='mt-4 text-[1.125rem] leading-[1.856rem]'>
             적립 마일리지에 따른 장학금 차등지급 및 익년도 연수 참가기회 우선권
             부여, 항공료 일부 보조
+          </div>
+          <div className='flex'>
+            <div className='mr-[1.375rem] mt-[2.313rem]'>
+              <div className='text-[1.125rem] leading-[1.688rem]'>
+                • 재외동포대학생 대상
+              </div>
+              <div className='relative mt-3 h-[302px] w-[580px]'>
+                <Image
+                  src={SummaryBenefit1}
+                  alt='Summary Page Benefit Section Image1'
+                  objectFit='cover'
+                  placeholder='blur'
+                  layout='fill'
+                  quality={100}
+                />
+              </div>
+            </div>
+            <div className='mt-[2.313rem]'>
+              <div className='text-[1.125rem] leading-[1.688rem]'>
+                • 국내대학생 대상
+              </div>
+              <div className='relative mt-3 h-[302px] w-[580px]'>
+                <Image
+                  src={SummaryBenefit2}
+                  alt='Summary Page Benefit Section Image2'
+                  objectFit='cover'
+                  placeholder='blur'
+                  layout='fill'
+                  quality={100}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </Layout>
