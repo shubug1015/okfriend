@@ -18,7 +18,7 @@ const Home: NextPage = () => {
       <Course />
       <Card />
       <Contact />
-      <Partner />
+      {/* <Partner /> */}
     </>
   );
 };
