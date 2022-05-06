@@ -9,12 +9,12 @@ export default function Tutor({ tutor }: IProps) {
   console.log(tutor);
   return (
     <>
-      <Layout padding='pt-20 pb-24'>
-        <div className='text-2xl font-bold'>강사소개</div>
+      <Layout padding='pt-20 pb-24 md:py-12'>
+        <div className='text-2xl font-bold md:text-xl'>강사소개</div>
       </Layout>
 
-      <Layout bgColor='bg-[#f8f8f8]'>
-        <div className='relative pt-16 pb-8'>
+      <Layout bgColor='bg-[#f8f8f8] md:bg-transparent'>
+        <div className='relative pt-16 pb-8 md:flex md:flex-col md:items-center md:pt-0'>
           <div>
             <svg
               width='28'
@@ -28,13 +28,19 @@ export default function Tutor({ tutor }: IProps) {
 
             <div className='ml-[1.625rem]'>
               <div className='flex items-center space-x-6'>
-                <span className='text-[2rem] font-bold'>{tutor?.en_name}</span>
-                <span className='text-xl font-bold'>{tutor?.name}</span>
+                <span className='text-[2rem] font-bold md:text-[1.75rem]'>
+                  {tutor?.en_name}
+                </span>
+                <span className='text-xl font-bold md:text-lg'>
+                  {tutor?.name}
+                </span>
               </div>
 
-              <div className='mt-1 text-lg text-[#9e9e9e]'>{tutor?.email}</div>
+              <div className='mt-1 text-lg text-[#9e9e9e] md:text-base'>
+                {tutor?.email}
+              </div>
 
-              <div className='mt-2.5'>{tutor?.text}</div>
+              <div className='mt-2.5 md:text-sm'>{tutor?.text}</div>
             </div>
 
             <svg
@@ -43,13 +49,13 @@ export default function Tutor({ tutor }: IProps) {
               viewBox='0 0 28 28'
               fill='none'
               xmlns='http://www.w3.org/2000/svg'
-              className='ml-[28.5rem]'
+              className='ml-[28.5rem] md:ml-52'
             >
               <path d='M26 0L26 26L0 26' stroke='#6B6B6B' strokeWidth='3' />
             </svg>
           </div>
 
-          <div className='mt-6 ml-[1.625rem]'>
+          <div className='mt-6 ml-[1.625rem] md:hidden'>
             <div className='text-xl font-bold'>상세 이력</div>
 
             <div className='mt-2.5 text-[#626262]'>
@@ -59,7 +65,7 @@ export default function Tutor({ tutor }: IProps) {
             </div>
           </div>
 
-          <div className='absolute top-1/2 right-0 h-[35.875rem] w-[36.25rem] -translate-y-1/2'>
+          <div className='absolute top-1/2 right-0 h-[35.875rem] w-[36.25rem] -translate-y-1/2 md:static md:mt-6 md:h-80 md:w-full md:translate-y-0'>
             {tutor?.image && (
               <Image
                 src={tutor?.image}
@@ -68,6 +74,16 @@ export default function Tutor({ tutor }: IProps) {
                 objectFit='cover'
               />
             )}
+          </div>
+
+          <div className='mt-8 ml-[1.625rem] hidden md:block md:w-full'>
+            <div className='text-xl font-bold md:text-base'>상세 이력</div>
+
+            <div className='mt-2.5 text-[#626262] md:text-sm'>
+              {tutor?.career?.map((i: { [key: string]: any }) => (
+                <div key={i.id}>{i.text}</div>
+              ))}
+            </div>
           </div>
         </div>
       </Layout>

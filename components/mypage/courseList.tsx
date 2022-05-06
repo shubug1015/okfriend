@@ -13,7 +13,7 @@ export default function CourseList({ category, data, totalItems }: IProps) {
   const currentPage = router.query.page as string;
   return (
     <div>
-      <div className='space-y-4'>
+      <div className='space-y-4 md:space-y-8'>
         {data?.map((i) => (
           <Course
             key={i.id}

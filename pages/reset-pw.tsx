@@ -5,7 +5,7 @@ import SEO from '@components/seo';
 import { cls } from '@libs/client/utils';
 import type { NextPage } from 'next';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FieldErrors, useForm } from 'react-hook-form';
 import { usersApi } from '@libs/api';
 import { useUser } from '@libs/client/useUser';
@@ -74,19 +74,27 @@ const ResetPw: NextPage = () => {
       setCode((prev) => ({ ...prev, loading: false }));
     }
   };
+
+  useEffect(() => {
+    if (popup) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'visible';
+    }
+  }, [popup]);
   return (
     <>
       <SEO title='비밀번호 찾기' />
-      <div className='bg-[#f4f9fb] pt-48 pb-28'>
-        <div className='mx-auto flex max-w-[43.75rem] flex-col items-center rounded-lg bg-white p-[3.75rem]'>
-          <h1 className='text-3xl font-bold'>비밀번호 찾기</h1>
-          <h2 className='mt-3 text-lg font-medium text-[#6b6b6b]'>
+      <div className='bg-[#f4f9fb] pt-48 pb-28 md:pt-28 md:pb-12'>
+        <div className='mx-auto flex max-w-[43.75rem] flex-col items-center rounded-lg bg-white p-[3.75rem] md:max-w-[330px] md:py-9 md:px-3.5'>
+          <h1 className='text-3xl font-bold md:text-2xl'>비밀번호 찾기</h1>
+          <h2 className='mt-3 text-lg font-medium text-[#6b6b6b] md:text-center md:text-base'>
             회원 가입 시 등록한 정보로 비밀번호를 찾을 수 있습니다.
           </h2>
 
           <form onSubmit={handleSubmit(onValid, onInvalid)} className='w-full'>
             {/* Input 필드 */}
-            <div className='mt-12 w-full space-y-8'>
+            <div className='mt-12 w-full space-y-8 md:mt-7 md:space-y-5'>
               <Input
                 type='text'
                 label='아이디'
@@ -134,7 +142,7 @@ const ResetPw: NextPage = () => {
                       !errors?.email?.message
                       ? 'cursor-pointer transition-all hover:opacity-70'
                       : '',
-                    'ml-4 flex h-full w-[7.5rem] items-center justify-center rounded border border-[#2fb6bc] text-sm font-medium text-[#2fb6bc]'
+                    'ml-4 flex h-full w-[7.5rem] items-center justify-center rounded border border-[#2fb6bc] text-sm font-medium text-[#2fb6bc] md:ml-2 md:w-24'
                   )}
                 >
                   {code.loading ? (
@@ -191,14 +199,14 @@ const ResetPw: NextPage = () => {
             {/* 비밀번호 찾기 버튼 */}
             <button
               type='submit'
-              className='mt-8 flex h-[3.688rem] w-full cursor-pointer items-center justify-center rounded bg-[#2fb6bc] text-lg font-medium text-white transition-all hover:opacity-90'
+              className='mt-8 flex h-[3.688rem] w-full cursor-pointer items-center justify-center rounded bg-[#2fb6bc] text-lg font-medium text-white transition-all hover:opacity-90 md:h-[2.813rem] md:text-base'
             >
               패스워드 재설정
             </button>
             {/* 비밀번호 찾기 버튼 */}
           </form>
 
-          <div className='mt-10 flex items-center font-medium text-[#6b6b6b]'>
+          <div className='mt-10 flex items-center font-medium text-[#6b6b6b] md:mt-8 md:text-sm'>
             <Link href='/find-id'>
               <a>아이디 찾기</a>
             </Link>

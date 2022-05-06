@@ -35,7 +35,7 @@ export default function Navigator() {
     mutate({ ok: false, token: null, profile: null });
   };
   return (
-    <div className='space-y-2.5'>
+    <div className='space-y-2.5 md:grid md:grid-cols-2 md:gap-2.5 md:space-y-0'>
       {navList.map((i) => (
         <Link key={i.id} href={i.url}>
           <a
@@ -43,7 +43,7 @@ export default function Navigator() {
               i.active
                 ? 'bg-[#2fb6bc] font-bold text-white'
                 : 'border-[#d6d6d6]',
-              'flex h-12 w-[13.625rem] items-center justify-center rounded-lg border transition-all hover:opacity-70'
+              'flex h-12 w-[13.625rem] items-center justify-center rounded-lg border transition-all hover:opacity-70 md:w-full'
             )}
           >
             {i.label}
@@ -53,7 +53,7 @@ export default function Navigator() {
 
       <div
         onClick={handleLogout}
-        className='flex h-12 w-[13.625rem] cursor-pointer items-center justify-center rounded-lg border border-[#d6d6d6] transition-all hover:opacity-70'
+        className='flex h-12 w-[13.625rem] cursor-pointer items-center justify-center rounded-lg border border-[#d6d6d6] transition-all hover:opacity-70 md:w-full'
       >
         로그아웃
       </div>

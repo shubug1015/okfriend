@@ -43,13 +43,13 @@ const Login: NextPage = () => {
   return (
     <>
       <SEO title='로그인' />
-      <div className='bg-[#f4f9fb] pt-48 pb-28'>
-        <div className='mx-auto flex max-w-[43.75rem] flex-col items-center rounded-lg bg-white p-[3.75rem]'>
-          <h1 className='text-3xl font-bold'>로그인</h1>
+      <div className='bg-[#f4f9fb] pt-48 pb-28 md:pt-28 md:pb-12'>
+        <div className='mx-auto flex max-w-[43.75rem] flex-col items-center rounded-lg bg-white p-[3.75rem] md:max-w-[330px] md:py-9 md:px-3.5'>
+          <h1 className='text-3xl font-bold md:text-2xl'>로그인</h1>
 
           <form onSubmit={handleSubmit(onValid, onInvalid)} className='w-full'>
             {/* Input 필드 */}
-            <div className='mt-12 w-full space-y-8'>
+            <div className='mt-12 w-full space-y-8 md:mt-7 md:space-y-5'>
               <Input
                 type='text'
                 label='아이디'
@@ -83,8 +83,8 @@ const Login: NextPage = () => {
             <button
               type='submit'
               className={cls(
-                error ? 'mt-4' : 'mt-8',
-                'flex h-[3.688rem] w-full cursor-pointer items-center justify-center rounded bg-[#2fb6bc] text-lg font-medium text-white transition-all hover:opacity-90'
+                error ? 'mt-4' : 'mt-8 md:mt-10',
+                'flex h-[3.688rem] w-full cursor-pointer items-center justify-center rounded bg-[#2fb6bc] text-lg font-medium text-white transition-all hover:opacity-90 md:h-[2.813rem] md:text-base'
               )}
             >
               {loading ? (
@@ -115,13 +115,13 @@ const Login: NextPage = () => {
 
           {/* 회원가입 버튼 */}
           <Link href='/signup'>
-            <a className='flex h-[3.688rem] w-full items-center justify-center rounded border border-[#2fb6bc] text-lg font-medium text-[#2fb6bc] transition-all hover:opacity-70'>
+            <a className='flex h-[3.688rem] w-full items-center justify-center rounded border border-[#2fb6bc] text-lg font-medium text-[#2fb6bc] transition-all hover:opacity-70 md:h-[2.813rem] md:text-base'>
               회원가입
             </a>
           </Link>
           {/* 회원가입 버튼 */}
 
-          <div className='mt-10 flex items-center font-medium text-[#6b6b6b]'>
+          <div className='mt-10 flex items-center font-medium text-[#6b6b6b] md:mt-8 md:text-sm'>
             <Link href='/find-id'>
               <a>아이디 찾기</a>
             </Link>

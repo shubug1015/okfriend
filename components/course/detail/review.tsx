@@ -68,18 +68,18 @@ export default function Review({ data, mutate }: IProps) {
     console.log(errors);
   };
   return (
-    <Layout padding='pt-20 pb-24'>
+    <Layout padding='pt-20 pb-24 md:pt-12 md:pb-14'>
       <div className='flex justify-between'>
         <div className='flex items-center space-x-3'>
-          <div className='text-2xl font-bold'>강의리뷰</div>
-          <div className='flex h-8 w-12 items-center justify-center rounded-full bg-[#2fb6bc] font-medium text-white'>
+          <div className='text-2xl font-bold md:text-xl'>강의리뷰</div>
+          <div className='mt-0.5 rounded-full bg-[#2fb6bc] px-3 font-medium text-white md:px-2.5'>
             {data?.review.length}
           </div>
         </div>
 
         <div
           onClick={handleSubmit(onValid, onInvalid)}
-          className='flex h-12 w-40 cursor-pointer items-center justify-center rounded-lg bg-[#2fb6bc] font-medium text-white transition-all hover:opacity-90'
+          className='flex h-12 w-40 cursor-pointer items-center justify-center rounded-lg bg-[#2fb6bc] font-medium text-white transition-all hover:opacity-90 md:h-10 md:w-24 md:text-sm'
         >
           작성하기
         </div>
@@ -94,33 +94,35 @@ export default function Review({ data, mutate }: IProps) {
           },
         })}
         placeholder='강의리뷰를 작성해 주세요.'
-        className='mt-6 h-36 w-full border border-t-2 border-[#dadada] border-t-[#9e9e9e] py-6 px-7 outline-none'
+        className='mt-6 h-36 w-full border border-t-2 border-[#dadada] border-t-[#9e9e9e] py-6 px-7 outline-none md:mt-4 md:h-24 md:px-3 md:py-3.5'
       />
       <div className='mt-2 text-sm text-red-500'>{errors?.review?.message}</div>
 
       <div>
         {data?.review.map((i: { [key: string]: any }) => (
-          <div key={i.id} className='border-b border-b-[#e8e8e8] py-10'>
+          <div
+            key={i.id}
+            className='border-b border-b-[#e8e8e8] py-10 md:py-5 md:px-4'
+          >
             <div className='flex items-center space-x-2'>
               <svg
-                width='36'
-                height='36'
                 viewBox='0 0 36 36'
                 fill='none'
                 xmlns='http://www.w3.org/2000/svg'
+                className='w-9 md:w-6'
               >
                 <path
                   d='M18 0C8.2422 0 0 8.2422 0 18C0 27.7578 8.2422 36 18 36C27.7578 36 36 27.7578 36 18C36 8.2422 27.7578 0 18 0ZM18 9C21.1086 9 23.4 11.2896 23.4 14.4C23.4 17.5104 21.1086 19.8 18 19.8C14.8932 19.8 12.6 17.5104 12.6 14.4C12.6 11.2896 14.8932 9 18 9ZM8.8092 26.5896C10.4238 24.2136 13.1166 22.6296 16.2 22.6296H19.8C22.8852 22.6296 25.5762 24.2136 27.1908 26.5896C24.8904 29.052 21.627 30.6 18 30.6C14.373 30.6 11.1096 29.052 8.8092 26.5896Z'
                   fill='#2FB6BC'
                 />
               </svg>
-              <div className='text-lg'>{i.user.name}</div>
+              <div className='text-lg md:text-sm'>{i.user.name}</div>
             </div>
-            <div className='mt-1.5 text-sm text-[#9e9e9e]'>
+            <div className='mt-1.5 text-sm text-[#9e9e9e] md:text-xs'>
               {trimDate(i.created, 0, 10)} {i.created.split('T')[1].slice(0, 8)}
             </div>
 
-            <div className='mt-5 text-lg'>{i.text}</div>
+            <div className='mt-5 text-lg md:text-sm'>{i.text}</div>
           </div>
         ))}
       </div>

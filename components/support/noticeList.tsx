@@ -13,7 +13,7 @@ export default function NoticeList({ data, totalItems }: IProps) {
     .slug as string[];
   return (
     <>
-      <div className='mt-8 flex h-[3.75rem] items-center border-y border-[rgba(0,0,0,0.16)]'>
+      <div className='mt-8 flex h-[3.75rem] items-center border-y border-[rgba(0,0,0,0.16)] md:hidden'>
         <div className='flex w-[8.5%] justify-center'>번호</div>
         <div className='flex w-[8.5%] justify-center'>주제</div>
         <div className='flex grow justify-center'>제목</div>

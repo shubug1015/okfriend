@@ -72,13 +72,13 @@ export default function Popup({ username, closePopup }: IProps) {
         initial='invisible'
         animate='visible'
         exit='exit'
-        className='w-[43.75rem] rounded bg-white p-12'
+        className='w-[43.75rem] rounded bg-white p-12 md:w-[330px] md:py-9 md:px-3.5'
       >
-        <div className='flex justify-center text-3xl font-bold'>
+        <div className='flex justify-center text-3xl font-bold md:text-2xl'>
           비밀번호 재설정
         </div>
 
-        <div className='mt-12 w-full space-y-8'>
+        <div className='mt-12 w-full space-y-8 md:mt-8'>
           <Input
             type='password'
             label='새 비밀번호'
@@ -115,7 +115,7 @@ export default function Popup({ username, closePopup }: IProps) {
 
         <div
           onClick={handleSubmit(onValid, onInvalid)}
-          className='mt-6 flex cursor-pointer justify-center rounded bg-[#2fb6bc] py-4 text-lg font-medium text-white transition-all hover:opacity-90'
+          className='mt-6 flex cursor-pointer justify-center rounded bg-[#2fb6bc] py-4 text-lg font-medium text-white transition-all hover:opacity-90 md:py-2.5 md:text-base'
         >
           패스워드 재설정 완료
         </div>

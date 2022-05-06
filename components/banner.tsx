@@ -10,8 +10,8 @@ interface IProps {
 
 export default function Banner({ title, navList }: IProps) {
   return (
-    <div className='relative h-80 flex items-end pb-24'>
-      <div className='absolute top-0 left-0 w-full h-full -z-[1]'>
+    <div className='relative flex h-80 items-end pb-24 md:h-56 md:pb-10'>
+      <div className='absolute top-0 left-0 -z-[1] h-full w-full'>
         <Image
           src={BgImg}
           alt='Global Banner Bg'
@@ -22,10 +22,12 @@ export default function Banner({ title, navList }: IProps) {
       </div>
 
       <Layout>
-        <div className='flex justify-between items-end'>
-          <div className='text-4xl font-bold text-white'>{title}</div>
+        <div className='flex items-end justify-between md:flex-col md:items-center md:justify-center md:space-y-4'>
+          <div className='text-4xl font-bold text-white md:text-2xl'>
+            {title}
+          </div>
 
-          <div className='text-white flex items-center space-x-2.5'>
+          <div className='flex items-center space-x-2.5 text-white md:text-sm'>
             <svg
               width='24'
               height='24'

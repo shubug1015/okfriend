@@ -14,15 +14,15 @@ export default function Select({ select, option, url, setSelect }: IProps) {
     <Menu as='div' className='relative inline-block text-left'>
       <Menu.Button
         className={cls(
-          url ? 'w-48' : 'w-36',
-          'flex h-12 items-center justify-between rounded-lg border border-[#d6d6d6] px-5 text-lg'
+          url ? 'w-48 md:hidden' : 'w-36 md:w-20',
+          'flex h-12 items-center justify-between rounded-lg border border-[#d6d6d6] px-5 text-lg md:h-[2.188rem] md:px-2.5 md:text-[0.813rem]'
         )}
       >
         <span>{select.label}</span>
 
         <svg
           xmlns='http://www.w3.org/2000/svg'
-          className='h-5 w-5'
+          className='h-5 w-5 md:w-3.5'
           fill='none'
           viewBox='0 0 24 24'
           stroke='currentColor'
@@ -47,8 +47,8 @@ export default function Select({ select, option, url, setSelect }: IProps) {
       >
         <Menu.Items
           className={cls(
-            url ? 'w-48' : 'w-36',
-            'absolute left-0 mt-1.5 rounded-lg bg-white shadow-[0_4px_10px_0_rgba(0,0,0,0.25)] outline-none'
+            url ? 'w-48' : 'w-36 md:w-20',
+            'absolute left-0 mt-1.5 rounded-lg bg-white shadow-[0_4px_10px_0_rgba(0,0,0,0.25)] outline-none md:mt-0.5'
           )}
         >
           <div>
@@ -72,7 +72,7 @@ export default function Select({ select, option, url, setSelect }: IProps) {
                     select.label === i.label
                       ? 'font-medium'
                       : 'cursor-pointer text-[#9e9e9e] hover:opacity-70',
-                    'px-5 py-4 text-lg transition-all'
+                    'px-5 py-4 text-lg transition-all md:px-2.5 md:py-0.5 md:text-[0.813rem]'
                   )}
                 >
                   {i.label}

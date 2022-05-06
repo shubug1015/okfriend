@@ -54,40 +54,42 @@ const Edit: NextPage = () => {
 
       <Header />
 
-      <Layout padding='pt-12 pb-44'>
-        <div className='mt-[4.5rem] flex space-x-20'>
+      <Layout padding='pt-12 pb-44 md:pt-7 md:pb-14'>
+        <div className='mt-[4.5rem] flex space-x-20 md:mt-0 md:flex-col md:space-x-0 md:space-y-8'>
           <Navigator />
 
           <div className='grow space-y-8'>
-            <div className='text-2xl font-bold'>내 강의실</div>
+            <div className='text-2xl font-bold md:text-[1.375rem]'>
+              회원 정보 수정
+            </div>
 
-            <div className='space-y-[1.875rem]'>
-              <div className='h-20 items-center space-y-3'>
-                <div className='font-medium'>이름</div>
+            <div className='space-y-[1.875rem] md:space-y-[1.375rem]'>
+              <div className='h-20 items-center space-y-3 md:space-y-2'>
+                <div className='font-medium md:text-[0.938rem]'>이름</div>
 
-                <div className='flex h-[3.75rem] items-center rounded border border-[#d6d6d6] bg-[#f8f8f8] pl-5 text-lg font-medium text-[#d6d6d6]'>
+                <div className='flex h-[3.75rem] items-center rounded border border-[#d6d6d6] bg-[#f8f8f8] pl-5 text-lg font-medium text-[#d6d6d6] md:h-[2.813rem] md:pl-2.5 md:text-[0.938rem]'>
                   {profile?.name}
                 </div>
               </div>
 
-              <div className='h-20 items-center space-y-3'>
-                <div className='font-medium'>아이디</div>
+              <div className='h-20 items-center space-y-3 md:space-y-2'>
+                <div className='font-medium md:text-[0.938rem]'>아이디</div>
 
-                <div className='flex h-[3.75rem] items-center rounded border border-[#d6d6d6] bg-[#f8f8f8] pl-5 text-lg font-medium text-[#d6d6d6]'>
+                <div className='flex h-[3.75rem] items-center rounded border border-[#d6d6d6] bg-[#f8f8f8] pl-5 text-lg font-medium text-[#d6d6d6] md:h-[2.813rem] md:pl-2.5 md:text-[0.938rem]'>
                   {profile?.username}
                 </div>
               </div>
 
-              <div className='space-y-3'>
-                <div className='font-medium'>국가</div>
+              <div className='space-y-3 md:space-y-2'>
+                <div className='font-medium md:text-[0.938rem]'>국가</div>
 
-                <div className='flex h-[3.75rem] items-center rounded border border-[#d6d6d6] bg-[#f8f8f8] pl-5 text-lg font-medium text-[#d6d6d6]'>
+                <div className='flex h-[3.75rem] items-center rounded border border-[#d6d6d6] bg-[#f8f8f8] pl-5 text-lg font-medium text-[#d6d6d6] md:h-[2.813rem] md:pl-2.5 md:text-[0.938rem]'>
                   {profile?.country}
                 </div>
               </div>
 
-              <div className='space-y-3'>
-                <div className='font-medium'>이메일</div>
+              <div className='space-y-3 md:space-y-2'>
+                <div className='font-medium md:text-[0.938rem]'>이메일</div>
 
                 <input
                   type='text'
@@ -107,12 +109,12 @@ const Edit: NextPage = () => {
                       },
                     },
                   })}
-                  className='h-[3.75rem] w-full rounded border border-[#d6d6d6] pl-5 text-lg font-medium outline-none placeholder:text-[#d6d6d6]'
+                  className='h-[3.75rem] w-full rounded border border-[#d6d6d6] pl-5 text-lg font-medium outline-none placeholder:text-[#d6d6d6] md:h-[2.813rem] md:pl-2.5 md:text-[0.938rem]'
                 />
               </div>
 
-              <div className='space-y-3'>
-                <div className='font-medium'>휴대폰번호</div>
+              <div className='space-y-3 md:space-y-2'>
+                <div className='font-medium md:text-[0.938rem]'>휴대폰번호</div>
 
                 <input
                   type='text'
@@ -132,16 +134,18 @@ const Edit: NextPage = () => {
                       },
                     },
                   })}
-                  className='h-[3.75rem] w-full rounded border border-[#d6d6d6] pl-5 text-lg font-medium outline-none placeholder:text-[#d6d6d6]'
+                  className='h-[3.75rem] w-full rounded border border-[#d6d6d6] pl-5 text-lg font-medium outline-none placeholder:text-[#d6d6d6] md:h-[2.813rem] md:pl-2.5 md:text-[0.938rem]'
                 />
               </div>
 
               {profile && (
                 <div className='flex w-full flex-col'>
-                  <label className='font-medium'>생년월일</label>
+                  <label className='font-medium md:text-[0.938rem]'>
+                    생년월일
+                  </label>
 
                   {/* 년도 */}
-                  <div className='mt-2 flex h-[3.75rem] w-full space-x-3.5'>
+                  <div className='mt-2 flex h-[3.75rem] w-full space-x-3.5 md:h-[2.813rem]'>
                     <div className='w-1/3'>
                       <select
                         defaultValue={profile?.birth.split('-')[0]}
@@ -156,7 +160,7 @@ const Edit: NextPage = () => {
                           errors?.year?.message
                             ? 'border-red-500'
                             : 'border-[#d6d6d6]',
-                          'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm'
+                          'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm md:text-[0.938rem]'
                         )}
                       >
                         <option value='default' disabled hidden>
@@ -184,7 +188,7 @@ const Edit: NextPage = () => {
                           errors?.month?.message
                             ? 'border-red-500'
                             : 'border-[#d6d6d6]',
-                          'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm'
+                          'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm md:text-[0.938rem]'
                         )}
                       >
                         <option value='default' disabled hidden>
@@ -212,7 +216,7 @@ const Edit: NextPage = () => {
                           errors?.day?.message
                             ? 'border-red-500'
                             : 'border-[#d6d6d6]',
-                          'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm'
+                          'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm md:text-[0.938rem]'
                         )}
                       >
                         <option value='default' disabled hidden>
@@ -235,7 +239,7 @@ const Edit: NextPage = () => {
                 </div>
               )}
 
-              <div className='space-y-3'>
+              <div className='space-y-3 md:space-y-2'>
                 <div className='font-medium'>자기소개</div>
 
                 <textarea
@@ -244,7 +248,7 @@ const Edit: NextPage = () => {
                     value: profile?.introduce,
                     required: '자기소개를 입력해주세요',
                   })}
-                  className='h-44 w-full rounded border border-[#d6d6d6] pt-4 pl-5 text-lg font-medium outline-none placeholder:text-[#d6d6d6]'
+                  className='h-44 w-full rounded border border-[#d6d6d6] px-5 pt-4 text-lg font-medium outline-none placeholder:text-[#d6d6d6] md:h-52 md:px-2.5 md:pt-[0.8rem] md:text-[0.938rem]'
                 />
               </div>
             </div>
@@ -252,7 +256,7 @@ const Edit: NextPage = () => {
             <div className='flex justify-end'>
               <div
                 onClick={handleSubmit(onValid, onInvalid)}
-                className='cursor-pointer rounded bg-[#2fb6bc] py-4 px-14 font-bold text-white transition-all hover:opacity-90'
+                className='cursor-pointer rounded bg-[#2fb6bc] py-4 px-14 font-bold text-white transition-all hover:opacity-90 md:flex md:w-full md:justify-center md:px-0 md:py-3'
               >
                 변경하기
               </div>

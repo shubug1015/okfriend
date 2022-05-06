@@ -1,18 +1,17 @@
 export default function RequiredNotice() {
   return (
     <>
-      <div className='text-4xl font-bold flex justify-center whitespace-pre-wrap'>
+      <div className='flex justify-center whitespace-pre-wrap text-4xl font-bold md:justify-start md:text-xl'>
         <span className='text-[#d60a51]'>필수 </span>차시 강의 시청 시 유의사항
       </div>
 
-      <div className='grid grid-cols-2 gap-x-5 mt-9'>
-        <div className='h-[6.875rem] bg-[rgba(214,10,81,0.05)] border-t-2 border-[#d60a51] flex justify-center items-center'>
+      <div className='mt-9 md:mt-6'>
+        <div className='flex h-[6.875rem] items-center justify-center border-t-2 border-[#d60a51] bg-[rgba(214,10,81,0.05)] md:h-24 md:px-6'>
           <svg
-            width='66'
-            height='60'
             viewBox='0 0 66 60'
             fill='none'
             xmlns='http://www.w3.org/2000/svg'
+            className='w-[4.125rem] md:w-14'
           >
             <path
               d='M53.1659 59.9982C53.4084 59.9982 53.6468 59.9446 53.8691 59.8374L57.2641 58.2215C57.6683 58.0319 57.9714 57.6897 58.1209 57.2651C58.2745 56.8405 58.2543 56.3788 58.0644 55.9707L54.3582 47.8622L60.1337 46.8069C60.9016 46.6667 61.1158 46.1514 61.1764 45.9371C61.233 45.7227 61.3017 45.1662 60.7035 44.6509L43.3164 29.6128C42.9688 29.3118 42.6495 29.25 42.4394 29.25C42.1565 29.25 41.8897 29.3613 41.6876 29.5674C41.526 29.7323 41.332 30.0415 41.336 30.5526L41.4532 53.8024C41.4572 54.6557 42.015 55.1009 42.5687 55.1009C42.7748 55.1009 43.0941 55.0391 43.4417 54.7464L47.9481 50.9127L51.6543 59.0212C51.9291 59.6148 52.5233 59.9982 53.1659 59.9982ZM48.417 48.7856C48.3604 48.7732 48.2998 48.7649 48.2391 48.7649C48.0532 48.7649 47.8673 48.8309 47.7218 48.9546L43.0739 52.912L42.9648 31.4637L59.0061 45.3352L53.0446 46.4235C52.7981 46.4688 52.5839 46.6296 52.4707 46.8563C52.3535 47.083 52.3495 47.351 52.4546 47.586L56.6053 56.6633C56.6134 56.6839 56.6013 56.7169 56.5851 56.7251L53.1901 58.341C53.178 58.3452 53.1538 58.374 53.1295 58.3204L48.9787 49.2431C48.8656 49.0123 48.6595 48.8433 48.417 48.7856Z'
@@ -60,13 +59,13 @@ export default function RequiredNotice() {
             />
           </svg>
 
-          <div className='ml-5'>
+          <div className='ml-5 md:ml-3.5 md:text-[0.9rem]'>
             반드시 모든 프로그램을 이수하여야
             <div className='font-medium'>이수증 발급이 됩니다.</div>
           </div>
         </div>
 
-        <div className='h-[6.875rem] bg-[rgba(214,10,81,0.05)] border-t-2 border-[#d60a51] flex justify-center items-center'>
+        {/* <div className='h-[6.875rem] bg-[rgba(214,10,81,0.05)] border-t-2 border-[#d60a51] flex justify-center items-center'>
           <svg
             width='68'
             height='53'
@@ -118,7 +117,7 @@ export default function RequiredNotice() {
               다음 차시 프로그램 이수가 가능합니다.
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

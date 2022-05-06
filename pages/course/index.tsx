@@ -10,18 +10,19 @@ const Course: NextPage = () => {
   return (
     <>
       <SEO title='연수실' />
-      <div className='w-screen pt-44 pb-24'>
-        <div className='mx-auto w-full max-w-[1180px]'>
+      <div className='w-screen pt-44 pb-24 md:pt-32'>
+        <div className='mx-auto w-full max-w-[1180px] md:max-w-[330px]'>
           {/* <Layout padding='pt-44 pb-24'> */}
-          <div className='flex justify-center text-4xl font-bold'>
+          <div className='flex justify-center text-4xl font-bold md:text-3xl'>
             재외동포 대학생 연수실
           </div>
-          <div className='mt-4 flex justify-center font-bold'>
+          <div className='mt-4 flex justify-center font-bold md:mt-2'>
             사전온라인연수 / 온라인연수 바로가기
           </div>
 
-          <div className='mt-16 grid grid-cols-2 gap-x-5'>
-            <div className='relative flex h-[26rem] flex-col items-center justify-center space-y-6 rounded-lg'>
+          {/* 사전 온라인연수 */}
+          <div className='mt-16 grid grid-cols-2 gap-x-5 md:mt-10 md:grid-cols-1 md:gap-x-0 md:gap-y-5'>
+            <div className='relative flex h-[26rem] flex-col items-center justify-center space-y-6 rounded-lg md:h-60 md:space-y-4'>
               <div className='absolute top-0 left-0 -z-[1] h-full w-full'>
                 <Image
                   src={PreOnlieBgImg}
@@ -34,20 +35,22 @@ const Course: NextPage = () => {
                 />
               </div>
 
-              <div className='text-[1.625rem] font-bold text-white'>
+              <div className='text-[1.625rem] font-bold text-white md:text-2xl'>
                 사전 온라인연수
               </div>
 
               <Link href='/course/list/pre-online/required/1'>
                 <a>
-                  <div className='flex h-[3.75rem] w-44 cursor-pointer items-center justify-center rounded-lg border border-white bg-[rgba(0,0,0,0.5)] text-xl font-bold text-white'>
+                  <div className='flex h-[3.75rem] w-44 cursor-pointer items-center justify-center rounded-lg border border-white bg-[rgba(0,0,0,0.5)] text-xl font-bold text-white md:h-14 md:w-36 md:text-lg'>
                     바로가기
                   </div>
                 </a>
               </Link>
             </div>
+            {/* 사전 온라인연수 */}
 
-            <div className='relative flex h-[26rem] flex-col items-center justify-center space-y-6'>
+            {/* 온라인연수 */}
+            <div className='relative flex h-[26rem] flex-col items-center justify-center space-y-6 md:h-60 md:space-y-4'>
               <div className='absolute top-0 left-0 -z-[1] h-full w-full'>
                 <Image
                   src={OnlieBgImg}
@@ -64,12 +67,13 @@ const Course: NextPage = () => {
               </div>
               <Link href='/course/list/online/live/1'>
                 <a>
-                  <div className='flex h-[3.75rem] w-44 cursor-pointer items-center justify-center rounded-lg border border-white bg-[rgba(0,0,0,0.5)] text-xl font-bold text-white'>
+                  <div className='flex h-[3.75rem] w-44 cursor-pointer items-center justify-center rounded-lg border border-white bg-[rgba(0,0,0,0.5)] text-xl font-bold text-white md:h-14 md:w-36 md:text-lg'>
                     바로가기
                   </div>
                 </a>
               </Link>
             </div>
+            {/* 온라인연수 */}
           </div>
           {/* </Layout> */}
         </div>

@@ -111,18 +111,18 @@ const SignUp: NextPage = () => {
   return (
     <>
       <SEO title='회원가입' />
-      <div className='bg-[#f4f9fb] pt-48 pb-28'>
-        <div className='mx-auto flex max-w-[43.75rem] flex-col items-center rounded-lg bg-white p-[3.75rem]'>
-          <h1 className='text-3xl font-bold'>회원가입</h1>
+      <div className='bg-[#f4f9fb] pt-48 pb-28 md:pt-28 md:pb-12'>
+        <div className='mx-auto flex max-w-[43.75rem] flex-col items-center rounded-lg bg-white p-[3.75rem] md:max-w-[330px] md:py-9 md:px-3.5'>
+          <h1 className='text-3xl font-bold md:text-2xl'>회원가입</h1>
 
           {local === null ? (
             <div>
               {/* 가입유형 */}
-              <div className='mt-4 text-center text-lg font-medium text-[#6b6b6b]'>
+              <div className='mt-4 text-center text-lg font-medium text-[#6b6b6b] md:text-base'>
                 가입유형을 선택해주세요.
               </div>
 
-              <div className='mt-10 flex space-x-5'>
+              <div className='mt-10 flex space-x-5 md:mt-8 md:flex-col md:space-x-0 md:space-y-5'>
                 <div
                   onClick={() => setLocal(true)}
                   className='flex h-[12.7rem] w-[17.5rem] cursor-pointer flex-col items-center justify-center space-y-4 rounded-lg border border-[#2fb6bc] transition-all hover:opacity-70'
@@ -147,12 +147,14 @@ const SignUp: NextPage = () => {
           ) : (
             <>
               {/* Input 필드 */}
-              <div className='mt-12 w-full space-y-8'>
+              <div className='mt-12 w-full space-y-8 md:mt-7 md:space-y-5'>
                 {/* 가입유형 */}
                 <div className='flex w-full flex-col'>
-                  <label className='font-medium'>기수 선택</label>
+                  <label className='font-medium md:text-[0.938rem]'>
+                    기수 선택
+                  </label>
 
-                  <div className='mt-5 flex w-full space-x-16'>
+                  <div className='mt-5 flex w-full space-x-16 md:mt-4 md:space-x-6'>
                     {[1, 2, 3, 4].map((i) => (
                       <div key={i} className='flex items-center space-x-1.5'>
                         <input
@@ -165,11 +167,11 @@ const SignUp: NextPage = () => {
                             errors?.stage?.message
                               ? 'border-red-500'
                               : 'border-[#d6d6d6]',
-                            'h-6 w-6 cursor-pointer appearance-none rounded-full border-2 bg-cover outline-none checked:border-none checked:bg-[url("/icons/radio-checked.png")]'
+                            'h-6 w-6 cursor-pointer appearance-none rounded-full border-2 bg-cover outline-none checked:border-none checked:bg-[url("/icons/radio-checked.png")] md:h-5 md:w-5'
                           )}
                         />
 
-                        <div className='text-lg'>{i}기</div>
+                        <div className='text-lg md:text-[0.938rem]'>{i}기</div>
                       </div>
                     ))}
                   </div>
@@ -249,7 +251,7 @@ const SignUp: NextPage = () => {
 
                 {/* 이름 */}
                 <div className='flex w-full flex-col'>
-                  <label className='font-medium'>이름</label>
+                  <label className='font-medium md:text-[0.938rem]'>이름</label>
 
                   {/* 국문 이름 */}
                   <div className='mt-2 flex h-[3.75rem] w-full space-x-3.5'>
@@ -272,7 +274,7 @@ const SignUp: NextPage = () => {
                           errors?.korName?.message
                             ? 'border-red-500'
                             : 'border-[#d6d6d6]',
-                          'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm'
+                          'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm md:h-[2.813rem] md:pl-2.5 md:text-[0.938rem]'
                         )}
                       />
                     </div>
@@ -298,7 +300,7 @@ const SignUp: NextPage = () => {
                           errors?.engName?.message
                             ? 'border-red-500'
                             : 'border-[#d6d6d6]',
-                          'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm'
+                          'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm md:h-[2.813rem] md:pl-2.5 md:text-[0.938rem]'
                         )}
                       />
                     </div>
@@ -314,7 +316,9 @@ const SignUp: NextPage = () => {
 
                 {/* 생년월일 */}
                 <div className='flex w-full flex-col'>
-                  <label className='font-medium'>생년월일</label>
+                  <label className='font-medium md:text-[0.938rem]'>
+                    생년월일
+                  </label>
 
                   {/* 년도 */}
                   <div className='mt-2 flex h-[3.75rem] w-full space-x-3.5'>
@@ -332,7 +336,7 @@ const SignUp: NextPage = () => {
                           errors?.year?.message
                             ? 'border-red-500'
                             : 'border-[#d6d6d6]',
-                          'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm'
+                          'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm md:h-[2.813rem] md:pl-2.5 md:text-[0.938rem]'
                         )}
                       >
                         <option value='default' disabled hidden>
@@ -360,7 +364,7 @@ const SignUp: NextPage = () => {
                           errors?.month?.message
                             ? 'border-red-500'
                             : 'border-[#d6d6d6]',
-                          'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm'
+                          'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm md:h-[2.813rem] md:pl-2.5 md:text-[0.938rem]'
                         )}
                       >
                         <option value='default' disabled hidden>
@@ -388,7 +392,7 @@ const SignUp: NextPage = () => {
                           errors?.day?.message
                             ? 'border-red-500'
                             : 'border-[#d6d6d6]',
-                          'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm'
+                          'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm md:h-[2.813rem] md:pl-2.5 md:text-[0.938rem]'
                         )}
                       >
                         <option value='default' disabled hidden>
@@ -413,7 +417,7 @@ const SignUp: NextPage = () => {
 
                 {/* 국가 */}
                 <div className='flex w-full flex-col'>
-                  <label className='font-medium'>국가</label>
+                  <label className='font-medium md:text-[0.938rem]'>국가</label>
 
                   <div className='mt-2 flex h-[3.75rem] w-full space-x-3.5'>
                     <select
@@ -429,7 +433,7 @@ const SignUp: NextPage = () => {
                         errors?.country?.message
                           ? 'border-red-500'
                           : 'border-[#d6d6d6]',
-                        'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm'
+                        'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm md:h-[2.813rem] md:pl-2.5 md:text-[0.938rem]'
                       )}
                     >
                       <option value='default' disabled>
@@ -479,7 +483,7 @@ const SignUp: NextPage = () => {
                       watch('email') && !errors?.email?.message
                         ? 'cursor-pointer transition-all hover:opacity-70'
                         : '',
-                      'ml-4 flex h-full w-[8.25rem] items-center justify-center rounded border border-[#2fb6bc] text-sm font-medium text-[#2fb6bc]'
+                      'ml-4 flex h-full w-[8.25rem] items-center justify-center rounded border border-[#2fb6bc] text-sm font-medium text-[#2fb6bc] md:ml-2 md:w-24'
                     )}
                   >
                     {code.loading ? (
@@ -565,8 +569,8 @@ const SignUp: NextPage = () => {
                   })}
                   error={errors?.serviceAgree?.message}
                 >
-                  <div>
-                    <span className='font-medium underline'>
+                  <div className='md:text-sm md:tracking-tight'>
+                    <span className='font-medium underline '>
                       서비스이용약관
                     </span>
                     에 동의합니다. (필수)
@@ -579,8 +583,8 @@ const SignUp: NextPage = () => {
                   })}
                   error={errors?.privacyAgree?.message}
                 >
-                  <div>
-                    <span className='font-medium underline'>
+                  <div className='md:text-sm md:tracking-tight'>
+                    <span className='font-medium underline '>
                       개인정보 수집 및 이용동의
                     </span>
                     에 동의합니다. (필수)
@@ -594,11 +598,13 @@ const SignUp: NextPage = () => {
                   })}
                   error={errors?.ageOver?.message}
                 >
-                  <div>만 14세 이상 입니다. (필수)</div>
+                  <div className='md:text-sm md:tracking-tight'>
+                    만 14세 이상 입니다. (필수)
+                  </div>
                 </Checkbox>
 
                 <Checkbox register={register('adAgree')}>
-                  <div>
+                  <div className='md:text-sm md:tracking-tight'>
                     <span className='font-medium underline'>
                       광고성 정보 수신동의
                     </span>
@@ -611,7 +617,7 @@ const SignUp: NextPage = () => {
               {/* 회원가입 버튼 */}
               <div
                 onClick={handleSubmit(onValid, onInvalid)}
-                className='mt-12 flex h-[3.688rem] w-full cursor-pointer items-center justify-center rounded bg-[#2fb6bc] text-lg font-medium text-white transition-all hover:opacity-90'
+                className='mt-12 flex h-[3.688rem] w-full cursor-pointer items-center justify-center rounded bg-[#2fb6bc] text-lg font-medium text-white transition-all hover:opacity-90 md:mt-8 md:h-[2.813rem] md:text-base'
               >
                 {loading ? (
                   <svg

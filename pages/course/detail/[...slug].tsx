@@ -18,7 +18,6 @@ interface IProps {
 
 const CourseDetail: NextPage<IProps> = ({ slug }) => {
   const { data: myData } = useSWR<IUser>('/api/user');
-  console.log(myData);
   const [, , id] = slug;
   const { data, mutate } = useSWR(
     myData?.token ? 'courseDetail/logged' : 'courseDetail/unlogged',
@@ -47,16 +46,17 @@ const CourseDetail: NextPage<IProps> = ({ slug }) => {
   ];
   return (
     <>
-      <SEO title='연수실' />
-      <Layout padding='pt-32 bg-[#f4f9fb]'>
+      <SEO title={courseData?.name} />
+      <Layout bgColor='bg-[#f4f9fb]' padding='pt-32 md:pt-28'>
         <Detail
           data={courseData}
           progress={data?.total_progress}
           isRegistered={data?.lecture ? true : false}
+          completed={data?.completed}
           mutate={mutate}
         />
 
-        <div className='mt-24 flex text-lg font-medium'>
+        <div className='mt-24 flex text-lg font-medium md:mt-14 md:grid md:grid-cols-2 md:gap-y-6'>
           {sectionList.map((i) => (
             <div
               key={i.id}
@@ -65,7 +65,7 @@ const CourseDetail: NextPage<IProps> = ({ slug }) => {
                 section === i.label
                   ? 'border-[#2fb6bc] font-bold text-[#2fb6bc]'
                   : 'border-transparent text-[#6b6b6b]',
-                'flex w-[12.5rem] cursor-pointer justify-center border-b-4 pb-2 text-xl transition-all'
+                'flex w-[12.5rem] cursor-pointer justify-center border-b-4 pb-2 text-xl transition-all md:w-full md:pb-3'
               )}
             >
               {i.label}

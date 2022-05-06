@@ -146,17 +146,28 @@ export const courseApi = {
       }
     ),
 
+  // sendProgress: (id: string, progress: number, token: string) =>
+  //   api.post(
+  //     `/lectures/${id}/progress/`,
+  //     { progress },
+  //     {
+  //       headers: {
+  //         Authorization: token,
+  //         'Content-Type': 'application/json',
+  //       },
+  //     }
+  //   ),
+
   sendProgress: (id: string, progress: number, token: string) =>
-    api.post(
-      `/lectures/${id}/progress/`,
-      { progress },
-      {
-        headers: {
-          Authorization: token,
-          'Content-Type': 'application/json',
-        },
-      }
-    ),
+    fetch(`${API_URL}/lectures/${id}/progress/`, {
+      method: 'POST',
+      keepalive: true,
+      headers: {
+        Authorization: token,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ progress }),
+    }),
 
   // 강의 상세 리뷰 작성
   writeReview: (id: string, text: string, token: string) =>

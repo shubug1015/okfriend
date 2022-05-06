@@ -45,10 +45,10 @@ export default function Course({
         category === '진행중'
           ? 'cursor-pointer transition-opacity hover:opacity-70'
           : 'opacity-50',
-        'flex w-full items-center space-x-5 rounded border border-[#d6d6d6] p-8'
+        'flex w-full items-center space-x-5 rounded border border-[#d6d6d6] p-8 md:flex-col md:space-y-4 md:space-x-0 md:border-transparent md:p-0'
       )}
     >
-      <div className='relative h-40 w-72 rounded bg-gray-700'>
+      <div className='relative h-40 w-72 rounded md:h-[11.5rem] md:w-full'>
         <Image
           src={thumbnail}
           alt='Lecture Thumbnail'
@@ -60,7 +60,7 @@ export default function Course({
       <div className='flex h-40 flex-col justify-between'>
         <div className='text-lg font-bold'>{name}</div>
 
-        <div className='space-y-1.5'>
+        <div className='space-y-1.5 md:mt-5'>
           <div className='flex space-x-4 font-medium'>
             <div className='font-medium'>강의 시작</div>
             <div className='font-medium text-[#9e9e9e]'>
@@ -70,7 +70,7 @@ export default function Course({
 
           <div className='flex items-center font-medium'>
             <div className='font-medium'>진도율</div>
-            <div className='ml-9 h-1 w-72 rounded-full bg-[rgba(0,231,255,0.24)]'>
+            <div className='ml-9 h-1 w-72 rounded-full bg-[rgba(0,231,255,0.24)] md:w-52'>
               <div
                 className={cls(
                   category === '진행중' ? 'bg-[#2fb6bc]' : 'bg-[#d60a51]',

@@ -45,28 +45,32 @@ const ResetPw: NextPage = () => {
 
       <Header />
 
-      <Layout padding='pt-12 pb-44'>
-        <div className='mt-[4.5rem] flex space-x-20'>
+      <Layout padding='pt-12 pb-44 md:pt-7 md:pb-14'>
+        <div className='mt-[4.5rem] flex space-x-20 md:mt-0 md:flex-col md:space-x-0 md:space-y-8'>
           <Navigator />
 
           <div className='grow space-y-6'>
-            <div className='text-2xl font-bold'>내 강의실</div>
+            <div className='text-2xl font-bold md:text-[1.375rem]'>
+              비밀번호 변경
+            </div>
 
-            <div className='divide-y-[#eeeeee] divide-y rounded border border-[#d6d6d6] p-10'>
-              <div className='flex h-20 items-center'>
-                <div className='w-48 font-medium text-[#6b6b6b]'>
+            <div className='divide-y-[#eeeeee] divide-y rounded border border-[#d6d6d6] p-10 md:divide-transparent md:border-transparent md:p-0'>
+              <div className='flex h-20 items-center md:h-auto md:flex-col md:items-start md:justify-between'>
+                <div className='w-48 font-medium text-[#6b6b6b] md:mt-3 md:flex md:h-12 md:w-full md:items-center md:text-[0.938rem]'>
                   현재 비밀번호
                 </div>
 
-                <div>**********</div>
+                <div className='md:flex md:h-12 md:w-full md:items-center md:border-b md:border-[#d6d6d6] md:pl-2.5 md:text-[0.938rem]'>
+                  **********
+                </div>
               </div>
 
-              <div className='flex h-20 items-center'>
-                <div className='w-48 font-medium text-[#6b6b6b]'>
+              <div className='flex h-20 items-center md:h-auto md:flex-col md:items-start md:justify-between'>
+                <div className='w-48 font-medium text-[#6b6b6b] md:mt-3 md:flex md:h-12 md:w-full md:items-center md:pb-1 md:text-[0.938rem]'>
                   새 비밀번호
                 </div>
 
-                <div>
+                <div className='md:w-full'>
                   <input
                     type='password'
                     placeholder='새 비밀번호'
@@ -85,7 +89,7 @@ const ResetPw: NextPage = () => {
                         },
                       },
                     })}
-                    className='outline-none placeholder:text-[#d6d6d6]'
+                    className='outline-none placeholder:text-[#d6d6d6] md:h-12 md:w-full md:flex-col md:items-start md:justify-between md:border-b md:border-[#d6d6d6] md:pl-2.5 md:pb-1 md:text-[0.938rem]'
                   />
 
                   <div className='mt-2 text-xs text-red-500'>
@@ -94,12 +98,12 @@ const ResetPw: NextPage = () => {
                 </div>
               </div>
 
-              <div className='flex h-20 items-center'>
-                <div className='w-48 font-medium text-[#6b6b6b]'>
+              <div className='flex h-20 items-center md:h-auto md:flex-col md:items-start md:justify-between'>
+                <div className='w-48 font-medium text-[#6b6b6b] md:mt-3 md:flex md:h-12 md:w-full md:items-center md:text-[0.938rem]'>
                   새 비밀번호 확인
                 </div>
 
-                <div>
+                <div className='md:w-full'>
                   <input
                     type='password'
                     placeholder='새 비밀번호 확인'
@@ -112,7 +116,7 @@ const ResetPw: NextPage = () => {
                           '비밀번호가 일치하지 않습니다',
                       },
                     })}
-                    className='outline-none placeholder:text-[#d6d6d6]'
+                    className='outline-none placeholder:text-[#d6d6d6] md:h-12 md:w-full md:flex-col md:items-start md:justify-between md:border-b md:border-[#d6d6d6] md:pl-2.5 md:pb-1 md:text-[0.938rem]'
                   />
                 </div>
 
@@ -125,7 +129,7 @@ const ResetPw: NextPage = () => {
             <div className='flex justify-end'>
               <div
                 onClick={handleSubmit(onValid, onInvalid)}
-                className='cursor-pointer rounded bg-[#2fb6bc] py-4 px-14 font-bold text-white transition-all hover:opacity-90'
+                className='cursor-pointer rounded bg-[#2fb6bc] py-4 px-14 font-bold text-white transition-all hover:opacity-90 md:flex md:w-full md:justify-center md:px-0 md:py-3'
               >
                 변경하기
               </div>

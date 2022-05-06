@@ -14,6 +14,7 @@ interface IProps {
   [key: string]: any;
   progress: number;
   isRegistered: boolean;
+  completed: boolean;
   mutate: (args: { [key: string]: any }) => void;
 }
 
@@ -21,6 +22,7 @@ export default function Detail({
   data,
   progress,
   isRegistered,
+  completed,
   mutate,
 }: IProps) {
   const { data: myData } = useSWR<IUser>('/api/user');
@@ -33,6 +35,7 @@ export default function Detail({
   const copyUrl = () => {
     const url = window.location.href;
     navigator.clipboard
+
       .writeText(url)
       .then(() => alert('링크가 복사되었습니다.'));
   };
@@ -57,24 +60,35 @@ export default function Detail({
       document.body.style.overflow = 'visible';
     }
   }, [popup]);
+
+  let progressPercent = 0;
+  useEffect(() => {
+    const setProgress = () => {
+      console.log(progressPercent);
+      courseApi.sendProgress(
+        id,
+        progressPercent * 100,
+        myData?.token as string
+      );
+    };
+    router.events.on('routeChangeStart', setProgress);
+    window.addEventListener('beforeunload', setProgress);
+    return () => {
+      router.events.off('routeChangeStart', setProgress);
+      window.removeEventListener('beforeunload', setProgress);
+    };
+  }, [myData, progressPercent]);
   return (
     <>
       <div>
-        <div className='flex justify-between space-x-20'>
+        <div className='flex justify-between space-x-20 md:flex-col md:space-x-0 md:space-y-6'>
           {/* 썸네일 */}
-          <div className='relative h-[26.125rem] w-[44.688rem]'>
+          <div className='relative h-[26.125rem] w-[44.688rem] md:h-48 md:w-full'>
             {isRegistered ? (
               <Vimeo
                 video={data?.url}
                 className='h-full w-full'
-                onTimeUpdate={(e) =>
-                  courseApi.sendProgress(
-                    id,
-                    e.percent * 100,
-                    myData?.token as string
-                  )
-                }
-                onCuePoint={(e) => console.log(e)}
+                onTimeUpdate={(e) => (progressPercent = e.percent)}
               />
             ) : (
               data?.thumbnail && (
@@ -91,7 +105,7 @@ export default function Detail({
           {/* 썸네일 */}
 
           {/* 강의 상세정보 */}
-          <div className='flex w-[23.75rem] flex-col justify-center'>
+          <div className='flex w-[23.75rem] flex-col justify-center md:w-full'>
             {/* 카테고리 */}
             <div
               className={cls(
@@ -110,21 +124,23 @@ export default function Detail({
             {/* 카테고리 */}
 
             {/* 강의명 */}
-            <div className='mt-4 text-3xl font-bold'>{data?.name}</div>
+            <div className='mt-4 text-3xl font-bold md:mt-3 md:text-2xl'>
+              {data?.name}
+            </div>
             {/* 강의명 */}
 
             {/* 강사명 & 강의 길이 */}
-            <div className='mt-1.5 text-sm'>
+            <div className='mt-1.5 text-sm md:mt-4'>
               {data?.tutor.name} · {data?.total_time}
             </div>
             {/* 강사명 & 강의 길이 */}
 
             {/* 간략 설명 */}
-            <div className='mt-5'>{data?.text}</div>
+            <div className='mt-5 md:mt-2.5 md:text-sm'>{data?.text}</div>
             {/* 간략 설명 */}
 
             {/* 복사 & 구매 버튼 */}
-            <div className='mt-8 space-y-3'>
+            <div className='mt-8 space-y-3 md:mt-6'>
               {isRegistered ? (
                 <div className='flex h-[3.625rem] items-center justify-center rounded-lg bg-[#01111e] font-bold text-white'>
                   수강중인 강의
@@ -184,8 +200,13 @@ export default function Detail({
                 ) : (
                   <>
                     <div
-                      onClick={() => setPopup(true)}
-                      className='flex h-[3.625rem] cursor-pointer items-center justify-center rounded-lg border border-[#9e9e9e] text-[#6b6b6b] transition-all hover:opacity-70'
+                      onClick={() => (completed ? setPopup(true) : null)}
+                      className={cls(
+                        completed
+                          ? 'cursor-pointer transition-all hover:opacity-70'
+                          : '',
+                        'flex h-[3.625rem] items-center justify-center rounded-lg border border-[#9e9e9e] text-[#6b6b6b]'
+                      )}
                     >
                       필수 설문조사
                     </div>
@@ -208,14 +229,14 @@ export default function Detail({
 
         {/* 진행률 */}
         {isRegistered && (
-          <div className='mt-5 flex w-[44.688rem] items-center space-x-4'>
+          <div className='mt-5 flex w-[44.688rem] items-center space-x-4 md:mt-8 md:w-full md:flex-col md:items-start md:space-x-0 md:space-y-4'>
             <div className='flex h-9 w-24 items-center justify-center rounded-lg border border-[#d60a51] text-lg font-bold text-[#d60a51]'>
               진행률
             </div>
 
-            <div className='h-3 grow rounded-full bg-[#d6d6d6]'>
+            <div className='h-3 grow rounded-full bg-[#d6d6d6] md:h-2 md:w-full'>
               <div
-                className='h-3 rounded-full bg-[#d60a51]'
+                className='h-3 rounded-full bg-[#d60a51] md:h-2'
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -224,15 +245,7 @@ export default function Detail({
         {/* 진행률 */}
       </div>
 
-      {popup && (
-        <Popup
-          title='환불신청'
-          content={
-            '환불신청 또는 환불금액 관련 문의는\nhelp@company.co.kr로 문의주시면 상세히 안내드리겠습니다.'
-          }
-          closePopup={closePopup}
-        />
-      )}
+      {popup && <Popup closePopup={closePopup} />}
     </>
   );
 }

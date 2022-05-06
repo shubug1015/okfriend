@@ -26,14 +26,16 @@ const MyCourse: NextPage<IProps> = ({ page }) => {
 
       <Header />
 
-      <Layout padding='pt-12 pb-44'>
-        <div className='mt-[4.5rem] flex space-x-20'>
+      <Layout padding='pt-12 pb-44 md:pt-7 md:pb-14'>
+        <div className='mt-[4.5rem] flex space-x-20 md:mt-0 md:flex-col md:space-x-0 md:space-y-8'>
           <Navigator />
 
-          <div className='grow space-y-6'>
-            <div className='text-2xl font-bold'>내 강의실</div>
+          <div className='grow space-y-6 md:space-y-5'>
+            <div className='text-2xl font-bold md:text-[1.375rem]'>
+              내 강의실
+            </div>
 
-            <div className='flex space-x-5 text-lg font-medium'>
+            <div className='flex space-x-5 text-lg font-medium md:text-base'>
               <div
                 onClick={() => setCategory('진행중')}
                 className={cls(

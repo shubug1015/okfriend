@@ -20,9 +20,9 @@ export default function Input({
 }: IProps) {
   return (
     <div className='flex w-full flex-col'>
-      <label className='font-medium'>{label}</label>
+      <label className='font-medium md:text-[0.938rem]'>{label}</label>
 
-      <div className='mt-2 flex h-[3.75rem] w-full justify-between'>
+      <div className='mt-2 flex h-[3.75rem] w-full justify-between md:h-[2.813rem]'>
         <input
           type={type}
           placeholder={label}
@@ -31,7 +31,7 @@ export default function Input({
           className={cls(
             error ? 'border-red-500' : 'border-[#d6d6d6]',
             readOnly ? 'opacity-50' : '',
-            'h-full grow rounded border bg-transparent pl-4 outline-none placeholder:text-sm'
+            'h-full grow rounded border bg-transparent pl-4 outline-none placeholder:text-sm md:pl-2.5 md:text-[0.938rem]'
           )}
         />
         {children}

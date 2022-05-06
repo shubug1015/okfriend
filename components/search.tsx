@@ -30,8 +30,8 @@ export default function Search() {
   };
 
   return (
-    <div className='flex justify-between'>
-      <div className='flex space-x-4'>
+    <div className='flex justify-between md:mb-8'>
+      <div className='flex space-x-4 md:space-x-2'>
         <Select
           select={searchType}
           option={[
@@ -49,13 +49,13 @@ export default function Search() {
           setSelect={setSearchType}
         />
 
-        <div className='flex space-x-4'>
+        <div className='flex space-x-4 md:space-x-2'>
           <input
             type='text'
             placeholder=''
             value={searchTerm}
             onChange={handleSearchTerm}
-            className='h-12 w-80 rounded-lg border border-[#d6d6d6] pl-3 outline-none'
+            className='h-12 w-80 rounded-lg border border-[#d6d6d6] pl-3 outline-none md:h-[2.188rem] md:w-auto md:grow'
           />
 
           <div
@@ -66,7 +66,7 @@ export default function Search() {
                 `/support/notice/${searchType.value}/${orderType.value}/1/${searchTerm}`
               )
             }
-            className='flex h-12 w-24 cursor-pointer items-center justify-center rounded-lg bg-[#2fb6bc] text-lg font-medium text-white'
+            className='flex h-12 w-24 cursor-pointer items-center justify-center rounded-lg bg-[#2fb6bc] text-lg font-medium text-white md:h-[2.188rem] md:w-[3.312rem] md:text-[0.813rem]'
           >
             검 색
           </div>
