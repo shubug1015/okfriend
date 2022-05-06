@@ -35,10 +35,10 @@ const CourseDetail: NextPage<IProps> = ({ slug }) => {
       id: 1,
       label: '강사소개',
     },
-    {
-      id: 2,
-      label: 'Q&A',
-    },
+    // {
+    //   id: 2,
+    //   label: 'Q&A',
+    // },
     {
       id: 3,
       label: '강의리뷰',
@@ -76,7 +76,7 @@ const CourseDetail: NextPage<IProps> = ({ slug }) => {
 
       {section === '강의소개' && <Info info={courseData?.detail} />}
       {section === '강사소개' && <Tutor tutor={courseData?.tutor} />}
-      {section === 'Q&A' && <Qna />}
+      {/* {section === 'Q&A' && <Qna />} */}
       {section === '강의리뷰' && <Review data={courseData} mutate={mutate} />}
     </>
   );

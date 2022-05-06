@@ -8,7 +8,7 @@ export default function Online() {
   return (
     <div>
       <div className='relative'>
-        <div className='absolute top-1/2 left-1/2 z-[-1] h-full w-full -translate-x-1/2 -translate-y-1/2'>
+        <div className='absolute top-0 left-0 z-[-1] h-[50vw] w-full'>
           <Image
             src={Bg1}
             alt='Background Image1'
