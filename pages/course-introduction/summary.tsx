@@ -11,6 +11,10 @@ import SummaryGoal4 from '@public/course-introduction/summary-goal-4.png';
 import SummaryBenefit1 from '@public/course-introduction/summary-benefit-1.png';
 import SummaryMileage1 from '@public/course-introduction/summary-mileage-1.png';
 import SummaryBenefit2 from '@public/course-introduction/summary-benefit-2.png';
+import SummaryBenefit1m from '@public/course-introduction/summary-benefit-1-m.png';
+import SummaryBenefit2m from '@public/course-introduction/summary-benefit-2-m.png';
+import SummaryMileage1m from '@public/course-introduction/summary-mileage-1-m.png';
+
 import MenuBar from '@components/greeting/menuBar';
 
 const Greeting: NextPage = () => {
@@ -24,32 +28,36 @@ const Greeting: NextPage = () => {
       <MenuBar pageName='개요' />
 
       <Layout>
-        <div className='relative mt-20'>
+        {/* 메인이미지1 */}
+        <div className='relative mt-20 md:mt-[1.875rem]'>
           <Image
             src={SummaryMain}
             alt='Summary Page Main Image'
             objectFit='cover'
             placeholder='blur'
             quality={100}
+            className='md:rounded'
           />
         </div>
 
-        <div className='mt-[1.875rem] border-b border-[#9e9e9e] pb-[1.594rem] text-4xl font-bold leading-[3.15rem] text-[#2fb6bc]'>
+        {/* 2022 재외동포 대학생 온라인 연수 */}
+        <div className='mt-[1.875rem] border-b border-[#9e9e9e] pb-[1.594rem] text-4xl font-bold leading-[3.15rem] text-[#2fb6bc] md:text-[1.375rem] md:leading-[2.25rem]'>
           2022
           <br />
           <span className='text-[#01111e]'>재외동포 대학생 온라인 연수</span>
         </div>
 
-        <div className='border-b border-[#e8e8e8] pt-[1.594rem] pb-[2.719rem] text-2xl text-[#01111e]'>
+        {/* 연수목적 */}
+        <div className='border-b border-[#e8e8e8] pt-[1.594rem] pb-[2.719rem] text-2xl text-[#01111e] md:text-xl'>
           <div className='font-bold leading-[2.25rem]'>연수목적</div>
-          <div className='mt-2 text-[1.125rem] font-normal leading-[1.856rem]'>
+          <div className='mt-2 text-[1.125rem] font-normal leading-[1.856rem] md:mt-[0.313rem] md:text-[0.875rem] md:leading-[1.444rem]'>
             온라인 플랫폼을 중점 활용한 온라인 모국연수를 통해 재외동포 참가자
             및 국내참가자들이 모두 참여하는 온라인 소통공간 제공하며 다양한 활동
             내용을
             <br />
             온라인상으로 교류 하고자 함
           </div>
-          <div className='mt-[1.063rem] flex justify-between'>
+          <div className='mt-[1.063rem] flex justify-between md:mt-[1.688rem] md:grid md:grid-cols-2 md:gap-4'>
             <Image
               src={SummaryGoal1}
               alt='Summary Page Goal Section Image1'
@@ -81,16 +89,21 @@ const Greeting: NextPage = () => {
           </div>
         </div>
 
-        <div className='border-b border-[#e8e8e8] pt-[3.094rem] pb-[2.719rem] text-2xl text-[#01111e]'>
-          <div className='flex items-center font-bold leading-[2.25rem]'>
+        {/* 연수대상 */}
+        <div className='text- border-b border-[#e8e8e8] pt-[3.094rem] pb-[2.719rem] text-2xl text-[#01111e] md:pt-[1.969rem] md:pb-[1.906rem] md:pt-[1.969rem] md:text-xl'>
+          <div className='flex items-center font-bold leading-[2.25rem] md:block'>
             연수대상
-            <span className='ml-[0.813rem] text-[1.063rem] font-normal leading-[1.753rem] text-[#6b6b6b]'>
+            <span className='ml-[0.813rem] text-[1.063rem] font-normal leading-[1.753rem] text-[#6b6b6b] md:hidden md:text-[0.875rem] md:leading-[1.444rem]'>
               ※ 국가별 상이한 학제를 감안, 만18세 예비 대학생은 연수(청소년,
               대학생)를 선택하여 신청 가능
             </span>
+            <div className='hidden text-[0.875rem] font-normal leading-[1.444rem] text-[#6b6b6b] md:block'>
+              ※ 국가별 상이한 학제를 감안, 만18세 예비 대학생은 연수(청소년,
+              대학생)를 선택하여 신청 가능
+            </div>
           </div>
-          <div className='mt-[1.438rem] flex justify-between'>
-            <div className='w-[23.75rem] border border-[#d6d6d6] pt-[2.25rem] pb-[1.125rem] text-center text-[1.125rem]'>
+          <div className='mt-[1.438rem] flex justify-between md:block'>
+            <div className='w-[23.75rem] border border-[#d6d6d6] pt-[2.25rem] pb-[1.125rem] text-center text-[1.125rem] md:w-full'>
               <div className='inline rounded-full bg-[#2fb6bc] py-[0.438rem] pr-[1.063rem] pl-[1.125rem] text-2xl font-bold leading-6 text-white'>
                 1
               </div>
@@ -100,7 +113,7 @@ const Greeting: NextPage = () => {
                 국내 대학생 참가자 500여명
               </div>
             </div>
-            <div className='w-[23.75rem] border border-[#d6d6d6] pt-[2.25rem] pb-[1.125rem] text-center text-[1.125rem]'>
+            <div className='w-[23.75rem] border border-[#d6d6d6] pt-[2.25rem] pb-[1.125rem] text-center text-[1.125rem] md:mt-[1.438rem] md:w-full'>
               <div className='inline rounded-full bg-[#2fb6bc] py-[0.438rem] pr-[1.063rem] pl-[1.125rem] text-2xl font-bold leading-6 text-white'>
                 2
               </div>
@@ -110,7 +123,7 @@ const Greeting: NextPage = () => {
                 청소년
               </div>
             </div>
-            <div className='w-[23.75rem] border border-[#d6d6d6] pt-[2.25rem] pb-[1.125rem] text-center text-[1.125rem]'>
+            <div className='w-[23.75rem] border border-[#d6d6d6] pt-[2.25rem] pb-[1.125rem] text-center text-[1.125rem] md:mt-[1.438rem] md:w-full'>
               <div className='inline rounded-full bg-[#2fb6bc] py-[0.438rem] pr-[1.063rem] pl-[1.125rem] text-2xl font-bold leading-6 text-white'>
                 3
               </div>
@@ -124,7 +137,7 @@ const Greeting: NextPage = () => {
             </div>
           </div>
 
-          <div className='mt-[1.438rem] text-base leading-[1.65rem]'>
+          <div className='mt-[1.438rem] text-base leading-[1.65rem] md:mt-[0.75rem] md:text-[0.875rem] md:leading-[1.444rem]'>
             ‧ 시민권자, 영주권자, 한국 국적자, 입양인 및 입양인 자녀, 다문화
             가정 자녀
             <br />
@@ -133,41 +146,47 @@ const Greeting: NextPage = () => {
           </div>
         </div>
 
-        <div className='border-b border-[#e8e8e8] pt-[2.969rem] pb-[2.531rem] text-2xl text-[#01111e]'>
+        {/* 연수방식 */}
+        <div className='border-b border-[#e8e8e8] pt-[2.969rem] pb-[2.531rem] text-2xl text-[#01111e] md:pt-[1.406rem] md:text-xl'>
           <div className='font-bold leading-[2.25rem]'>연수방식</div>
-          <div className='mt-4 text-[1.125rem] leading-[1.856rem]'>
+          <div className='mt-4 text-[1.125rem] leading-[1.856rem] md:mt-[0.313rem] md:text-[0.875rem]'>
             OKF 온라인 플랫폼을 활용한 실시간 쌍방향 원격 연수
           </div>
         </div>
 
         {/* 2022 재외동포대학생(온라인) 연수 기간 */}
-        <div className='border-b border-[#e8e8e8] pt-[2.906rem] pb-[2.531rem] text-2xl text-[#01111e]'>
-          <div className='font-bold leading-[2.25rem]'>
+        <div className='border-b border-[#e8e8e8] pt-[2.906rem] pb-[2.531rem] text-2xl text-[#01111e] md:pt-[1.906rem] md:text-xl'>
+          <div className='font-bold leading-[2.25rem] md:hidden md:leading-[1.875rem]'>
             2022 재외동포대학생(온라인) 연수 기간
           </div>
-          <div className='mt-[1.438rem] flex justify-between'>
-            <div className='w-[17.75rem] border-t-2 border-[#2fb6bc] bg-[#d5f0f2] pt-[1.438rem] pb-6 text-center'>
+          <div className='hidden font-bold leading-[2.25rem] md:block md:leading-[1.875rem]'>
+            2022 재외동포대학생(온라인)
+            <br />
+            연수 기간
+          </div>
+          <div className='mt-[1.438rem] flex justify-between md:block'>
+            <div className='w-[17.75rem] border-t-2 border-[#2fb6bc] bg-[#d5f0f2] pt-[1.438rem] pb-6 text-center md:mt-[0.938rem] md:w-full'>
               <div className='text-xl font-bold leading-[2.062rem]'>1회기</div>
               <div className='text-[1.125rem] leading-[1.856rem]'>
                 2022년 7월 1일(금) ~<br />
                 7월 31일(일)
               </div>
             </div>
-            <div className='w-[17.75rem] border-t-2 border-[#2fb6bc] bg-[#d5f0f2] pt-[1.438rem] pb-6 text-center'>
+            <div className='w-[17.75rem] border-t-2 border-[#2fb6bc] bg-[#d5f0f2] pt-[1.438rem] pb-6 text-center md:mt-[1.438rem] md:w-full'>
               <div className='text-xl font-bold leading-[2.062rem]'>2회기</div>
               <div className='text-[1.125rem] leading-[1.856rem]'>
                 2022년 8월 1일(일) ~<br />
                 8월 31일(토)
               </div>
             </div>
-            <div className='w-[17.75rem] border-t-2 border-[#2fb6bc] bg-[#d5f0f2] pt-[1.438rem] pb-6 text-center'>
+            <div className='w-[17.75rem] border-t-2 border-[#2fb6bc] bg-[#d5f0f2] pt-[1.438rem] pb-6 text-center md:mt-[1.438rem] md:w-full'>
               <div className='text-xl font-bold leading-[2.062rem]'>3회기</div>
               <div className='text-[1.125rem] leading-[1.856rem]'>
                 2022년 9월 1일(목) ~<br />
                 9월 30일(금)
               </div>
             </div>
-            <div className='w-[17.75rem] border-t-2 border-[#2fb6bc] bg-[#d5f0f2] pt-[1.438rem] pb-6 text-center'>
+            <div className='w-[17.75rem] border-t-2 border-[#2fb6bc] bg-[#d5f0f2] pt-[1.438rem] pb-6 text-center md:mt-[1.438rem] md:w-full'>
               <div className='text-xl font-bold leading-[2.062rem]'>4회기</div>
               <div className='text-[1.125rem] leading-[1.856rem]'>
                 2022년 10월 1일(토) ~<br />
@@ -178,34 +197,34 @@ const Greeting: NextPage = () => {
         </div>
 
         {/* 2022 재외동포대학생 모국연수(사전온라인) 연수 기간 */}
-        <div className='border-b border-[#e8e8e8] pt-[2.531rem] pb-[2.469rem] text-2xl text-[#01111e]'>
-          <div className='font-bold leading-[2.25rem]'>
+        <div className='border-b border-[#e8e8e8] pt-[2.531rem] pb-[2.469rem] text-2xl text-[#01111e] md:pt-[1.281rem] md:pb-[1.781rem] md:text-xl'>
+          <div className='font-bold leading-[2.25rem] md:leading-[1.875rem]'>
             2022 재외동포대학생 모국연수(사전온라인) 연수 기간
           </div>
-          <div className='mt-3 text-[1.125rem] leading-[1.856rem]'>
+          <div className='mt-3 text-[1.125rem] leading-[1.856rem] md:text-[0.875rem]'>
             - 2022년 6월 중 이수완료
           </div>
         </div>
 
         {/* 문의방법 */}
-        <div className='mt-[2.531rem] text-2xl text-[#01111e]'>
+        <div className='mt-[2.531rem] text-2xl text-[#01111e] md:text-[1.375rem]'>
           <div className='font-bold leading-[2.25rem]'>문의방법</div>
-          <button className='mt-[1.188rem] rounded-md bg-[#2fb2bc] px-[2.875rem] py-[0.75rem] text-[1.063rem] leading-[1.594rem] text-white'>
+          <button className='mt-[1.188rem] rounded-md bg-[#2fb2bc] px-[2.875rem] py-[0.75rem] text-[1.063rem] leading-[1.594rem] text-white md:w-full'>
             <a href='#'>문의하기</a>
           </button>
         </div>
 
         {/* 온라인연수 마일리지 제도란? */}
-        <div className='mt-[5.25rem] border-b border-[#9e9e9e] pb-[1.469rem] text-4xl font-bold leading-[3.15rem] text-[#01111e]'>
+        <div className='mt-[5.25rem] border-b border-[#9e9e9e] pb-[1.469rem] text-4xl font-bold leading-[3.15rem] text-[#01111e] md:mt-[4.188rem] md:text-2xl'>
           <span className='text-[#2fb6bc]'>온라인연수</span> 마일리지 제도란?
         </div>
 
         {/* 마일리지 제도 적립/활용 */}
-        <div className='border-b border-[#e8e8e8] pt-[2.656rem] pb-[1.838rem] text-2xl text-[#01111e]'>
+        <div className='border-b border-[#e8e8e8] pt-[2.656rem] pb-[1.838rem] text-2xl text-[#01111e] md:pb-[1.781rem] md:pt-[1.656rem] md:text-xl'>
           <div className='font-bold leading-[2.25rem]'>
             마일리지 제도 적립/활용
           </div>
-          <div className='mt-4 text-[1.125rem] leading-[1.856rem]'>
+          <div className='mt-4 text-[1.125rem] leading-[1.856rem] md:mt-[0.313rem] md:text-[0.875rem] md:leading-[1.444rem]'>
             온라인 연수의 필수, 선택, 라이브차시 프로그램을 이수시 아래의
             적립기준에 의하여 마일리지가 적립되며,
             <br />
@@ -214,8 +233,8 @@ const Greeting: NextPage = () => {
           </div>
         </div>
 
-        <div className='border-b border-[#e8e8e8] pt-[1.849rem] pb-[2.906rem] text-2xl text-[#01111e]'>
-          <div className='relative h-[256.5px] w-full'>
+        <div className='border-b border-[#e8e8e8] pt-[1.849rem] pb-[2.906rem] text-2xl text-[#01111e] md:pt-[1.281rem]'>
+          <div className='relative h-[256.5px] w-full md:hidden'>
             <Image
               src={SummaryMileage1}
               alt='Summary Page Mileage Section Image1'
@@ -225,19 +244,30 @@ const Greeting: NextPage = () => {
               quality={100}
             />
           </div>
-          <div className='mt-8 flex items-center justify-center bg-[#f8f8f8] py-[1.125rem]'>
-            <div className='mr-[7px] rounded bg-[#d60a51] py-[0.085rem] px-[0.438rem] text-[0.875rem] leading-5 text-white'>
+          <div className='relative hidden h-[903px] w-full md:block'>
+            <Image
+              src={SummaryMileage1m}
+              alt='Summary Page Mileage Section Image1'
+              objectFit='cover'
+              placeholder='blur'
+              layout='fill'
+              quality={100}
+            />
+          </div>
+          <div className='mt-8 flex items-center justify-center bg-[#f8f8f8] py-[1.125rem] md:flex-col md:px-[1.563rem]'>
+            <div className='mr-[7px] rounded bg-[#d60a51] py-[0.085rem] px-[0.438rem] text-[0.875rem] leading-5 text-white md:w-[5rem] md:text-center'>
               POINT 01
             </div>
-            <div className='text-xl font-medium leading-7 text-[#01111e]'>
+            <div className='text-xl font-medium leading-7 text-[#01111e] md:mt-[0.813rem] md:text-center md:text-[0.875rem] md:leading-[1.225rem]'>
               국내외 참가자는 해당 콘텐츠의 95%이상 시청시 마일리지 획득 가능
             </div>
           </div>
-          <div className='mt-6 flex items-center justify-center bg-[#f8f8f8] py-[1.125rem]'>
+
+          <div className='mt-6 flex items-center justify-center bg-[#f8f8f8] py-[1.125rem] md:flex-col md:px-[1.563rem]'>
             <div className='mr-[7px] rounded bg-[#d60a51] py-[0.085rem] px-[0.438rem] text-[0.875rem] leading-5 text-white'>
               POINT 02
             </div>
-            <div className='text-xl font-medium leading-7 text-[#01111e]'>
+            <div className='text-xl font-medium leading-7 text-[#01111e] md:mt-[0.813rem] md:text-center md:text-[0.875rem] md:leading-[1.225rem]'>
               라이브 차시의 경우 라이브로 이수시 가점(+10점)이 발생함. 녹화방송
               이수시 기본 점수 5점만 부여
             </div>
@@ -245,20 +275,30 @@ const Greeting: NextPage = () => {
         </div>
 
         {/* 연수참여혜택 */}
-        <div className='border-b border-[#e8e8e8] pt-[2.531rem] pb-[6.938rem] text-2xl text-[#01111e]'>
+        <div className='border-b border-[#e8e8e8] pt-[2.531rem] pb-[6.938rem] text-2xl text-[#01111e] md:pb-[3.719rem] md:pt-[2.094rem] md:text-xl'>
           <div className='font-bold leading-[2.25rem]'>연수참여혜택</div>
-          <div className='mt-4 text-[1.125rem] leading-[1.856rem]'>
+          <div className='mt-4 text-[1.125rem] leading-[1.856rem] md:mt-[0.313rem] md:text-[0.875rem] md:leading-[1.444rem]'>
             적립 마일리지에 따른 장학금 차등지급 및 익년도 연수 참가기회 우선권
             부여, 항공료 일부 보조
           </div>
-          <div className='flex'>
-            <div className='mr-[1.375rem] mt-[2.313rem]'>
+          <div className='flex md:block'>
+            <div className='mr-[1.375rem] mt-[2.313rem] md:mt-7 md:mr-0'>
               <div className='text-[1.125rem] leading-[1.688rem]'>
                 • 재외동포대학생 대상
               </div>
-              <div className='relative mt-3 h-[302px] w-[580px]'>
+              <div className='relative mt-3 h-[302px] w-[580px] md:hidden'>
                 <Image
                   src={SummaryBenefit1}
+                  alt='Summary Page Benefit Section Image1'
+                  objectFit='cover'
+                  placeholder='blur'
+                  layout='fill'
+                  quality={100}
+                />
+              </div>
+              <div className='relative mt-3 hidden h-[497px] w-full md:block'>
+                <Image
+                  src={SummaryBenefit1m}
                   alt='Summary Page Benefit Section Image1'
                   objectFit='cover'
                   placeholder='blur'
@@ -271,9 +311,19 @@ const Greeting: NextPage = () => {
               <div className='text-[1.125rem] leading-[1.688rem]'>
                 • 국내대학생 대상
               </div>
-              <div className='relative mt-3 h-[302px] w-[580px]'>
+              <div className='relative mt-3 h-[302px] w-[580px] md:hidden'>
                 <Image
                   src={SummaryBenefit2}
+                  alt='Summary Page Benefit Section Image2'
+                  objectFit='cover'
+                  placeholder='blur'
+                  layout='fill'
+                  quality={100}
+                />
+              </div>
+              <div className='relative mt-3 hidden h-[302px] w-full md:block'>
+                <Image
+                  src={SummaryBenefit2m}
                   alt='Summary Page Benefit Section Image2'
                   objectFit='cover'
                   placeholder='blur'
