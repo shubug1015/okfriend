@@ -61,7 +61,7 @@ interface IForm {
 }
 
 const Certificate: NextPage = () => {
-  const { token } = useUser({ isPrivate: true });
+  // const { token } = useUser({ isPrivate: true });
   const [popup, setPopup] = useState(false);
 
   const {
@@ -74,20 +74,20 @@ const Certificate: NextPage = () => {
   });
 
   const onValid = async ({ Q1_etc, Q8_5_etc, ...data }: IForm) => {
-    try {
-      await surveyApi.certificateSurvey(
-        {
-          ...data,
-          Q1: data.Q1 === '기타' ? Q1_etc : data.Q1,
-          Q8_5: `${Q8_5_etc} ${data.Q8_5}`,
-        },
-        token as string
-      );
-      alert('제출이 완료되었습니다');
-      closePopup();
-    } catch {
-      alert('Error');
-    }
+    // try {
+    //   await surveyApi.certificateSurvey(
+    //     {
+    //       ...data,
+    //       Q1: data.Q1 === '기타' ? Q1_etc : data.Q1,
+    //       Q8_5: `${Q8_5_etc} ${data.Q8_5}`,
+    //     },
+    //     token as string
+    //   );
+    //   alert('제출이 완료되었습니다');
+    //   closePopup();
+    // } catch {
+    //   alert('Error');
+    // }
   };
   const onInvalid = (errors: FieldErrors) => {
     console.log(errors);
@@ -110,25 +110,30 @@ const Certificate: NextPage = () => {
       />
       <Navigator supportCategory='certificate' />
 
-      <Layout bgColor='bg-[#f4f9fb]' padding='pt-16 pb-24'>
+      <Layout bgColor='bg-[#f4f9fb]' padding='pt-16 pb-24 md:pt-8'>
         <div>
-          <div className='font-nexonBold text-4xl font-bold'>
+          <div className='font-nexonBold text-4xl font-bold md:text-center md:text-2xl'>
             <span className='text-[#2fb6bc]'>이수증</span> 발급 안내
           </div>
 
-          <div className='mt-4 text-lg'>
+          <div className='mt-4 text-lg md:mt-[0.563rem] md:text-center md:text-[0.813rem]'>
             아래 설문조사를 모두 마칠 경우, 이수증 발급이 가능합니다.
           </div>
 
-          <div className='mt-14 rounded bg-white p-10 pb-16'>
-            <div className='border-b border-[#9e9e9e] pb-10 text-2xl font-bold'>
+          <div className='mt-14 rounded bg-white p-10 pb-16 md:mt-[1.313rem] md:px-[1.313rem]'>
+            <div className='border-b border-[#9e9e9e] pb-10 text-2xl font-bold md:pb-4 md:text-base md:tracking-tighter'>
               <span className='text-[#2fb6bc]'>2022</span> 재외동포대학생
               온라인연수 만족도 조사
+              <div className='mt-2 hidden text-center text-sm font-medium text-[#2fb6bc] md:block'>
+                이해하고 알게 된 정도에 따라
+                <br />
+                10점에 가깝게 표시해주세요.
+              </div>
             </div>
 
             {/* 문항 1 */}
-            <div className='space-y-7 border-b border-dotted border-[#d6d6d6] py-12 md:h-40 md:flex-col md:justify-center md:space-y-6'>
-              <div className='text-xl font-medium'>
+            <div className='space-y-7 border-b border-dotted border-[#d6d6d6] py-12 md:h-[21rem] md:flex-col md:justify-center md:space-y-6 md:py-4'>
+              <div className='text-xl font-medium md:text-sm md:font-bold md:tracking-tighter'>
                 1. 귀하께서 개인적으로 이 프로그램에 참가한 목적은 무엇입니까?{' '}
                 <span className='text-[#2fb6bc]'>* 필수</span>
               </div>
@@ -141,10 +146,7 @@ const Certificate: NextPage = () => {
                   '한국어 능력 향상',
                   '기타',
                 ].map((i) => (
-                  <div
-                    key={i}
-                    className='flex items-center space-x-4 md:flex-col md:items-center md:space-y-1'
-                  >
+                  <div key={i} className='flex items-center space-x-4'>
                     <input
                       type='radio'
                       value={i}
@@ -155,11 +157,11 @@ const Certificate: NextPage = () => {
                         errors?.Q1?.message
                           ? 'bg-[url("/icons/checked-error.png")]'
                           : 'bg-[url("/icons/unchecked.png")] checked:bg-[url("/icons/checked.png")]',
-                        'h-2.5 w-3.5 cursor-pointer appearance-none bg-cover outline-none'
+                        'h-2.5 w-3.5 cursor-pointer appearance-none bg-cover bg-no-repeat outline-none md:bg-contain'
                       )}
                     />
 
-                    <div className='text-lg'>{i}</div>
+                    <div className='text-lg md:w-[18rem] md:text-sm'>{i}</div>
 
                     {i === '기타' && (
                       <input
@@ -170,7 +172,7 @@ const Certificate: NextPage = () => {
                           watch('Q1') !== '기타'
                             ? 'cursor-default opacity-50'
                             : '',
-                          'h-10 w-[28rem] rounded-lg border border-[#d6d6d6] px-2.5 outline-none'
+                          'h-10 w-[12rem] rounded-lg border border-[#d6d6d6] px-2.5 outline-none'
                         )}
                       />
                     )}
@@ -181,8 +183,8 @@ const Certificate: NextPage = () => {
             {/* 문항 1 */}
 
             {/* 문항 2 */}
-            <div className='space-y-7 border-b border-dotted border-[#d6d6d6] py-12 md:h-40 md:flex-col md:justify-center md:space-y-6'>
-              <div className='text-xl font-medium'>
+            <div className='space-y-7 border-b border-dotted border-[#d6d6d6] py-12 md:h-[19rem] md:flex-col md:justify-center md:space-y-6 md:py-4'>
+              <div className='text-xl font-medium md:text-sm md:font-bold md:leading-6 md:tracking-tighter'>
                 2. 위에서 답한 ‘개인적인 참가 목적’이 달성되었다고 생각하십니까?{' '}
                 <span className='text-[#2fb6bc]'>*</span>
               </div>
@@ -195,10 +197,7 @@ const Certificate: NextPage = () => {
                   '4) 그렇지 않다',
                   '5) 전혀 그렇지 않다',
                 ].map((i) => (
-                  <div
-                    key={i}
-                    className='flex items-center space-x-4 md:flex-col md:items-center md:space-y-1'
-                  >
+                  <div key={i} className='flex items-center space-x-4'>
                     <input
                       type='radio'
                       value={i}
@@ -209,11 +208,11 @@ const Certificate: NextPage = () => {
                         errors?.Q2?.message
                           ? 'bg-[url("/icons/checked-error.png")]'
                           : 'bg-[url("/icons/unchecked.png")] checked:bg-[url("/icons/checked.png")]',
-                        'h-2.5 w-3.5 cursor-pointer appearance-none bg-cover outline-none'
+                        'h-2.5 w-3.5 cursor-pointer appearance-none bg-cover bg-no-repeat outline-none md:bg-contain'
                       )}
                     />
 
-                    <div className='text-lg'>{i}</div>
+                    <div className='text-lg md:text-sm'>{i}</div>
                   </div>
                 ))}
               </div>
@@ -222,13 +221,13 @@ const Certificate: NextPage = () => {
 
             {/* 문항 3~9 */}
             {list.map((i) => (
-              <div key={i.id} className='mt-14'>
-                <div className='text-xl font-medium'>
+              <div key={i.id} className='mt-14 md:mt-4'>
+                <div className='text-xl font-medium md:text-sm md:font-bold md:tracking-tighter'>
                   {i.title} <span className='text-[#2fb6bc]'>*</span>
                 </div>
 
-                <div className='mt-6 flex justify-between md:mt-7'>
-                  <div className='text-sm font-medium text-[#2fb6bc] md:text-xs'>
+                <div className='mt-6 flex justify-between md:mt-2'>
+                  <div className='text-sm font-medium text-[#2fb6bc] md:hidden md:text-xs'>
                     · 이해하고 알게 된 정도에 따라 10점에 가깝게 표시해주세요.
                   </div>
 
@@ -267,8 +266,8 @@ const Certificate: NextPage = () => {
             {/* 문항 3~9 */}
 
             {/* 문항 10 */}
-            <div className='space-y-7 border-b border-dotted border-[#d6d6d6] py-12 md:h-40 md:flex-col md:justify-center md:space-y-6'>
-              <div className='text-xl font-medium'>
+            <div className='space-y-7 border-b border-dotted border-[#d6d6d6] py-12 md:h-[12rem] md:flex-col md:justify-center md:space-y-6 md:py-4'>
+              <div className='text-xl font-medium md:text-sm md:font-bold md:tracking-tighter'>
                 10. 연수 프로그램에 대해 어떻게 생각하시나요?{' '}
                 <span className='text-[#2fb6bc]'>*</span>
               </div>
@@ -279,10 +278,7 @@ const Certificate: NextPage = () => {
                   '2) 금년과 같은 수준으로 유지',
                   '3) 금년보다 축소되어야 한다.',
                 ].map((i) => (
-                  <div
-                    key={i}
-                    className='flex items-center space-x-4 md:flex-col md:items-center md:space-y-1'
-                  >
+                  <div key={i} className='flex items-center space-x-4'>
                     <input
                       type='radio'
                       value={i}
@@ -293,11 +289,11 @@ const Certificate: NextPage = () => {
                         errors?.Q10?.message
                           ? 'bg-[url("/icons/checked-error.png")]'
                           : 'bg-[url("/icons/unchecked.png")] checked:bg-[url("/icons/checked.png")]',
-                        'h-2.5 w-3.5 cursor-pointer appearance-none bg-cover outline-none'
+                        'h-2.5 w-3.5 cursor-pointer appearance-none bg-cover bg-no-repeat outline-none md:bg-contain'
                       )}
                     />
 
-                    <div className='text-lg'>{i}</div>
+                    <div className='text-lg md:text-sm'>{i}</div>
                   </div>
                 ))}
               </div>
@@ -305,18 +301,15 @@ const Certificate: NextPage = () => {
             {/* 문항 10 */}
 
             {/* 문항 11 */}
-            <div className='space-y-7 py-12 md:h-40 md:flex-col md:justify-center md:space-y-6'>
-              <div className='text-xl font-medium'>
+            <div className='space-y-7 py-12 md:h-[12rem] md:flex-col md:justify-center md:space-y-6 md:py-4'>
+              <div className='text-xl font-medium md:text-sm md:tracking-tighter'>
                 11. 연수 프로그램을 친척이나 다른 친구들에게 권유하시겠습니까?{' '}
                 <span className='text-[#2fb6bc]'>*</span>
               </div>
 
               <div className='space-y-5 md:w-full md:justify-between'>
                 {['1) 권유 하겠습니다.', '2) 권유하지 않겠습니다.'].map((i) => (
-                  <div
-                    key={i}
-                    className='flex items-center space-x-4 md:flex-col md:items-center md:space-y-1'
-                  >
+                  <div key={i} className='flex items-center space-x-4'>
                     <input
                       type='radio'
                       value={i}
@@ -327,11 +320,11 @@ const Certificate: NextPage = () => {
                         errors?.Q11?.message
                           ? 'bg-[url("/icons/checked-error.png")]'
                           : 'bg-[url("/icons/unchecked.png")] checked:bg-[url("/icons/checked.png")]',
-                        'h-2.5 w-3.5 cursor-pointer appearance-none bg-cover outline-none'
+                        'h-2.5 w-3.5 cursor-pointer appearance-none bg-cover bg-no-repeat outline-none md:bg-contain'
                       )}
                     />
 
-                    <div className='text-lg'>{i}</div>
+                    <div className='text-lg md:text-sm'>{i}</div>
                   </div>
                 ))}
               </div>

@@ -16,21 +16,23 @@ export default function Checkbox({
   children,
 }: IProps) {
   return (
-    <div className='flex h-20 items-center justify-between border-b border-dotted border-[#d6d6d6] md:h-40 md:flex-col md:justify-center md:space-y-6'>
-      <div className='flex items-center space-x-4'>
-        <div className='whitespace-pre-wrap pl-1 text-lg md:text-sm'>
+    <div className='flex h-20 items-center justify-between border-b border-dotted border-[#d6d6d6] md:h-[14rem] md:flex-col md:justify-center md:space-y-6'>
+      <div className='flex items-center space-x-4 md:w-full'>
+        <div className='whitespace-pre-wrap pl-1 text-lg md:w-full md:text-sm md:tracking-tighter'>
           {question}
         </div>
 
         {children}
       </div>
 
-      <div className='flex space-x-5 md:w-full md:justify-between'>
+      <div className='flex space-x-5 md:grid md:w-full md:grid-cols-5 md:gap-y-4 md:space-x-0'>
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
           <div
             key={i}
             className='flex md:flex-col md:items-center md:space-y-1'
           >
+            <div className='hidden text-sm text-[#6b6b6b] md:block'>{i}</div>
+
             <input
               type='radio'
               value={i}
