@@ -9,7 +9,7 @@ export default function Navigator({ supportCategory }: IProps) {
   return (
     <div className='border-b border-[#e8e8e8]'>
       <div className='flex items-center justify-center md:mx-auto md:max-w-[330px] md:justify-between'>
-        <Link href={'/support/notice/title/created/1'}>
+        <Link href='/support/notice/title/created/1'>
           <a>
             <div
               className={cls(
@@ -24,7 +24,7 @@ export default function Navigator({ supportCategory }: IProps) {
           </a>
         </Link>
 
-        <Link href={'/support/faq'}>
+        <Link href='/support/faq'>
           <a>
             <div
               className={cls(
@@ -54,7 +54,7 @@ export default function Navigator({ supportCategory }: IProps) {
           </a>
         </Link>
 
-        <Link href={'/support/library/title/created/1'}>
+        <Link href='/support/library/title/created/1'>
           <a>
             <div
               className={cls(
@@ -69,11 +69,11 @@ export default function Navigator({ supportCategory }: IProps) {
           </a>
         </Link>
 
-        <Link href={'/'}>
+        <Link href='/support/certificate'>
           <a>
             <div
               className={cls(
-                supportCategory === ''
+                supportCategory === 'certificate'
                   ? 'border-[#2fb6bc]'
                   : 'border-transparent text-[#9e9e9e]',
                 'flex h-16 w-48 items-center justify-center border-b-4 text-[1.375rem] font-bold md:w-auto md:border-b-2 md:text-base'
