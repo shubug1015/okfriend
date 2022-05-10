@@ -74,7 +74,7 @@ export default function Popup({ username, closePopup }: IProps) {
         exit='exit'
         className='w-[43.75rem] rounded bg-white p-12 md:w-[330px] md:py-9 md:px-3.5'
       >
-        <div className='flex justify-center text-3xl font-bold md:text-2xl'>
+        <div className='flex justify-center font-nexonBold text-3xl font-bold md:text-2xl'>
           비밀번호 재설정
         </div>
 
@@ -115,7 +115,7 @@ export default function Popup({ username, closePopup }: IProps) {
 
         <div
           onClick={handleSubmit(onValid, onInvalid)}
-          className='mt-6 flex cursor-pointer justify-center rounded bg-[#2fb6bc] py-4 text-lg font-medium text-white transition-all hover:opacity-90 md:py-2.5 md:text-base'
+          className='mt-12 flex cursor-pointer justify-center rounded bg-[#2fb6bc] py-4 text-lg font-medium text-white transition-all hover:opacity-90 md:py-2.5 md:text-base'
         >
           패스워드 재설정 완료
         </div>

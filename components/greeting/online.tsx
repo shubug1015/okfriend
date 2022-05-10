@@ -25,10 +25,10 @@ export default function Online() {
         <div className='flex justify-center'>
           <div className='flex w-[61.25rem] justify-end'>
             <div className='w-[32rem] pt-[4.214rem] pb-[29.25rem] md:w-screen md:pb-[15.438rem] md:pt-[1.875rem]'>
-              <div className='text-[2.5rem] leading-[3.438rem] text-[#01111e] md:mx-[1.563rem] md:text-xl'>
+              <div className='font-nexon text-[2.5rem] leading-[3.438rem] text-[#01111e] md:mx-[1.563rem] md:text-xl'>
                 온라인연수에 참여한 여러분,
                 <br />
-                <span className='font-bold text-[#2fb6bc]'>
+                <span className='font-nexonBold font-bold text-[#2fb6bc]'>
                   진심으로 환영합니다.
                 </span>
               </div>
@@ -58,10 +58,10 @@ export default function Online() {
                 <div className='text-xl font-bold text-white'>
                   2022 재외동포 대학생 온라인연수
                 </div>
-                <div className='mt-[15px] text-[2.5rem] leading-[55px] text-white'>
+                <div className='mt-[15px] font-nexon text-[2.5rem] leading-[55px] text-white'>
                   재외동포재단 이사장
                   <br />
-                  <span className='font-bold text-[#2fb6bc]'>
+                  <span className='font-nexonBold font-bold text-[#2fb6bc]'>
                     김성곤입니다.
                   </span>
                 </div>
@@ -90,7 +90,7 @@ export default function Online() {
 
       {/* 2022 - 환영합니다.  */}
       <div className='flex flex-col items-center pb-20 md:w-screen md:pb-[3.625rem]'>
-        <div className='md: mt-10 w-[61.25rem] text-[1.875rem] font-bold leading-6 text-[#01111e] md:w-screen md:px-[1.563rem] md:text-[1.25rem] md:leading-[1.875rem]'>
+        <div className='md: mt-10 w-[61.25rem] font-nexonBold text-[1.875rem] font-bold leading-6 text-[#01111e] md:w-screen md:px-[1.563rem] md:text-[1.25rem] md:leading-[1.875rem]'>
           2022 재외동포 대학생 온라인연수에 참여한 여러분, 진심으로 환영합니다.
         </div>
         <div className='mt-[1.813rem] w-[61.25rem] text-[1.125rem] font-normal leading-[1.856rem] text-[#6b6b6b] md:w-screen md:px-[1.563rem] md:text-[0.875rem] md:leading-[1.444rem]'>
@@ -144,10 +144,10 @@ export default function Online() {
         <div className='flex justify-center'>
           <div className='flex w-[61.25rem] justify-end'>
             <div className='w-[450px] pt-[5.691rem] pb-[24.938rem] md:w-screen md:pb-[15.313rem] md:pt-0'>
-              <div className='text-[2.5rem] leading-[3.438rem] text-[#01111e] md:px-[1.563rem] md:text-xl md:leading-[1.875rem]'>
+              <div className='font-nexon text-[2.5rem] leading-[3.438rem] text-[#01111e] md:px-[1.563rem] md:text-xl md:leading-[1.875rem]'>
                 재외동포 대학생 여러분,
                 <br />
-                <span className='font-bold text-[#2fb6bc]'>
+                <span className='font-nexonBold font-bold text-[#2fb6bc]'>
                   진심으로 반갑습니다.
                 </span>
               </div>
@@ -166,9 +166,9 @@ export default function Online() {
                 <div className='text-xl font-bold text-white'>
                   2022 재외동포 대학생 온라인연수
                 </div>
-                <div className='mt-[15px] text-[2.5rem] leading-[55px] text-white'>
+                <div className='mt-[15px] font-nexon text-[2.5rem] leading-[55px] text-white'>
                   사업단장&nbsp;
-                  <span className='font-bold text-[#2fb6bc]'>
+                  <span className='font-nexonBold font-bold text-[#2fb6bc]'>
                     오문범입니다.
                   </span>
                 </div>
@@ -208,7 +208,7 @@ export default function Online() {
 
       {/* 재외동포 - 반갑습니다. */}
       <div className='flex flex-col items-center pb-[4.796rem]'>
-        <div className='mt-10 w-[61.25rem] text-[1.875rem] font-bold leading-[2.813rem] text-[#01111e] md:w-screen md:px-[1.563rem] md:text-xl'>
+        <div className='mt-10 w-[61.25rem] font-nexonBold text-[1.875rem] font-bold leading-[2.813rem] text-[#01111e] md:w-screen md:px-[1.563rem] md:text-xl'>
           재외동포 대학생 온라인연수에 참여한 재외동포 대학생 여러분,
           반갑습니다.
         </div>

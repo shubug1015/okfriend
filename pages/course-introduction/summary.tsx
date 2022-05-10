@@ -14,7 +14,6 @@ import SummaryBenefit2 from '@public/course-introduction/summary-benefit-2.png';
 import SummaryBenefit1m from '@public/course-introduction/summary-benefit-1-m.png';
 import SummaryBenefit2m from '@public/course-introduction/summary-benefit-2-m.png';
 import SummaryMileage1m from '@public/course-introduction/summary-mileage-1-m.png';
-
 import MenuBar from '@components/greeting/menuBar';
 
 const Greeting: NextPage = () => {
@@ -41,7 +40,7 @@ const Greeting: NextPage = () => {
         </div>
 
         {/* 2022 재외동포 대학생 온라인 연수 */}
-        <div className='mt-[1.875rem] border-b border-[#9e9e9e] pb-[1.594rem] text-4xl font-bold leading-[3.15rem] text-[#2fb6bc] md:text-[1.375rem] md:leading-[2.25rem]'>
+        <div className='mt-[1.875rem] border-b border-[#9e9e9e] pb-[1.594rem] font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#2fb6bc] md:text-[1.375rem] md:leading-[2.25rem]'>
           2022
           <br />
           <span className='text-[#01111e]'>재외동포 대학생 온라인 연수</span>
@@ -49,7 +48,9 @@ const Greeting: NextPage = () => {
 
         {/* 연수목적 */}
         <div className='border-b border-[#e8e8e8] pt-[1.594rem] pb-[2.719rem] text-2xl text-[#01111e] md:text-xl'>
-          <div className='font-bold leading-[2.25rem]'>연수목적</div>
+          <div className='font-nexonBold font-bold leading-[2.25rem]'>
+            연수목적
+          </div>
           <div className='mt-2 text-[1.125rem] font-normal leading-[1.856rem] md:mt-[0.313rem] md:text-[0.875rem] md:leading-[1.444rem]'>
             온라인 플랫폼을 중점 활용한 온라인 모국연수를 통해 재외동포 참가자
             및 국내참가자들이 모두 참여하는 온라인 소통공간 제공하며 다양한 활동
@@ -90,9 +91,9 @@ const Greeting: NextPage = () => {
         </div>
 
         {/* 연수대상 */}
-        <div className='text- border-b border-[#e8e8e8] pt-[3.094rem] pb-[2.719rem] text-2xl text-[#01111e] md:pt-[1.969rem] md:pb-[1.906rem] md:pt-[1.969rem] md:text-xl'>
+        <div className='text- border-b border-[#e8e8e8] pt-[3.094rem] pb-[2.719rem] text-2xl text-[#01111e] md:pb-[1.906rem] md:pt-[1.969rem] md:text-xl'>
           <div className='flex items-center font-bold leading-[2.25rem] md:block'>
-            연수대상
+            <span className='font-nexonBold'>연수대상</span>
             <span className='ml-[0.813rem] text-[1.063rem] font-normal leading-[1.753rem] text-[#6b6b6b] md:hidden md:text-[0.875rem] md:leading-[1.444rem]'>
               ※ 국가별 상이한 학제를 감안, 만18세 예비 대학생은 연수(청소년,
               대학생)를 선택하여 신청 가능
@@ -148,7 +149,9 @@ const Greeting: NextPage = () => {
 
         {/* 연수방식 */}
         <div className='border-b border-[#e8e8e8] pt-[2.969rem] pb-[2.531rem] text-2xl text-[#01111e] md:pt-[1.406rem] md:text-xl'>
-          <div className='font-bold leading-[2.25rem]'>연수방식</div>
+          <div className='font-nexonBold font-bold leading-[2.25rem]'>
+            연수방식
+          </div>
           <div className='mt-4 text-[1.125rem] leading-[1.856rem] md:mt-[0.313rem] md:text-[0.875rem]'>
             OKF 온라인 플랫폼을 활용한 실시간 쌍방향 원격 연수
           </div>
@@ -156,7 +159,7 @@ const Greeting: NextPage = () => {
 
         {/* 2022 재외동포대학생(온라인) 연수 기간 */}
         <div className='border-b border-[#e8e8e8] pt-[2.906rem] pb-[2.531rem] text-2xl text-[#01111e] md:pt-[1.906rem] md:text-xl'>
-          <div className='font-bold leading-[2.25rem] md:hidden md:leading-[1.875rem]'>
+          <div className='font-nexonBold font-bold leading-[2.25rem] md:hidden md:leading-[1.875rem]'>
             2022 재외동포대학생(온라인) 연수 기간
           </div>
           <div className='hidden font-bold leading-[2.25rem] md:block md:leading-[1.875rem]'>
@@ -198,7 +201,7 @@ const Greeting: NextPage = () => {
 
         {/* 2022 재외동포대학생 모국연수(사전온라인) 연수 기간 */}
         <div className='border-b border-[#e8e8e8] pt-[2.531rem] pb-[2.469rem] text-2xl text-[#01111e] md:pt-[1.281rem] md:pb-[1.781rem] md:text-xl'>
-          <div className='font-bold leading-[2.25rem] md:leading-[1.875rem]'>
+          <div className='font-nexonBold font-bold leading-[2.25rem] md:leading-[1.875rem]'>
             2022 재외동포대학생 모국연수(사전온라인) 연수 기간
           </div>
           <div className='mt-3 text-[1.125rem] leading-[1.856rem] md:text-[0.875rem]'>
@@ -208,20 +211,22 @@ const Greeting: NextPage = () => {
 
         {/* 문의방법 */}
         <div className='mt-[2.531rem] text-2xl text-[#01111e] md:text-[1.375rem]'>
-          <div className='font-bold leading-[2.25rem]'>문의방법</div>
+          <div className='font-nexonBold font-bold leading-[2.25rem]'>
+            문의방법
+          </div>
           <button className='mt-[1.188rem] rounded-md bg-[#2fb2bc] px-[2.875rem] py-[0.75rem] text-[1.063rem] leading-[1.594rem] text-white md:w-full'>
             <a href='#'>문의하기</a>
           </button>
         </div>
 
         {/* 온라인연수 마일리지 제도란? */}
-        <div className='mt-[5.25rem] border-b border-[#9e9e9e] pb-[1.469rem] text-4xl font-bold leading-[3.15rem] text-[#01111e] md:mt-[4.188rem] md:text-2xl'>
+        <div className='mt-[5.25rem] border-b border-[#9e9e9e] pb-[1.469rem] font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#01111e] md:mt-[4.188rem] md:text-2xl'>
           <span className='text-[#2fb6bc]'>온라인연수</span> 마일리지 제도란?
         </div>
 
         {/* 마일리지 제도 적립/활용 */}
         <div className='border-b border-[#e8e8e8] pt-[2.656rem] pb-[1.838rem] text-2xl text-[#01111e] md:pb-[1.781rem] md:pt-[1.656rem] md:text-xl'>
-          <div className='font-bold leading-[2.25rem]'>
+          <div className='font-nexonBold font-bold leading-[2.25rem]'>
             마일리지 제도 적립/활용
           </div>
           <div className='mt-4 text-[1.125rem] leading-[1.856rem] md:mt-[0.313rem] md:text-[0.875rem] md:leading-[1.444rem]'>
@@ -276,7 +281,9 @@ const Greeting: NextPage = () => {
 
         {/* 연수참여혜택 */}
         <div className='border-b border-[#e8e8e8] pt-[2.531rem] pb-[6.938rem] text-2xl text-[#01111e] md:pb-[3.719rem] md:pt-[2.094rem] md:text-xl'>
-          <div className='font-bold leading-[2.25rem]'>연수참여혜택</div>
+          <div className='font-nexonBold font-bold leading-[2.25rem]'>
+            연수참여혜택
+          </div>
           <div className='mt-4 text-[1.125rem] leading-[1.856rem] md:mt-[0.313rem] md:text-[0.875rem] md:leading-[1.444rem]'>
             적립 마일리지에 따른 장학금 차등지급 및 익년도 연수 참가기회 우선권
             부여, 항공료 일부 보조

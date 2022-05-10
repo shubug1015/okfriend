@@ -98,7 +98,9 @@ export default function Popup({ closePopup }: IProps) {
         exit='exit'
         className='top-1/2 left-1/2 w-[21.875rem] rounded-xl bg-white py-10 shadow-sm'
       >
-        <div className='text-center text-[1.375rem] font-bold'>이수증 발급</div>
+        <div className='text-center font-nexonBold text-[1.375rem] font-bold'>
+          이수증 발급
+        </div>
 
         <div className='mt-8 flex justify-center space-x-24'>
           {['영문', '국문'].map((i) => (
@@ -154,7 +156,7 @@ export default function Popup({ closePopup }: IProps) {
 
         <div
           id='pdfName'
-          className='absolute left-1/2 top-0 translate-y-[41.35rem] -translate-x-1/2 font-sans text-[2.75rem] font-bold text-[#292E31]'
+          className='font-sans absolute left-1/2 top-0 translate-y-[41.35rem] -translate-x-1/2 text-[2.75rem] font-bold text-[#292E31]'
         >
           Dong Hyun Lee
         </div>

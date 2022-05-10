@@ -6,7 +6,10 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      sans: 'Montserrat, sans-serif',
+      nexon: ['NEXON Lv1 Gothic OTF'],
+      nexonBold: ['NEXON Lv1 Gothic OTF Bold'],
+      quicksand: ['Quicksand', 'sans-serif'],
+      montserrat: ['Montserrat', 'sans-serif'],
     },
     screens: {
       '2xl': { max: '1535px' },

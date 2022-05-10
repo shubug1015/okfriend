@@ -83,7 +83,6 @@ const Contact: NextPage = () => {
       document.body.style.overflow = 'visible';
     }
   }, [popup]);
-  console.log(errors?.q1?.message);
   return (
     <>
       <SEO title='지원센터' />
@@ -95,7 +94,7 @@ const Contact: NextPage = () => {
 
       <Layout bgColor='bg-[#f4f9fb]' padding='pt-16 pb-24'>
         <div>
-          <div className='text-4xl font-bold'>
+          <div className='font-nexonBold text-4xl font-bold'>
             <span className='text-[#2fb6bc]'>이수증</span> 발급 안내
           </div>
 

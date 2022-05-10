@@ -23,7 +23,7 @@ export default function Banner({ title, navList }: IProps) {
 
       <Layout>
         <div className='flex items-end justify-between md:flex-col md:items-center md:justify-center md:space-y-4'>
-          <div className='text-4xl font-bold text-white md:text-2xl'>
+          <div className='font-nexonBold text-4xl font-bold text-white md:text-2xl'>
             {title}
           </div>
 

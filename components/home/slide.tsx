@@ -80,7 +80,7 @@ export default function Slide() {
               </div>
             </div>
 
-            <div className='whitespace-pre-wrap text-center font-sans text-[5rem] font-bold leading-[1.2] drop-shadow-md md:text-[2.5rem]'>
+            <div className='whitespace-pre-wrap text-center font-quicksand text-[5rem] font-bold leading-none drop-shadow-md md:text-[2.5rem]'>
               {i.title}
             </div>
 

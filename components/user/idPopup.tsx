@@ -45,7 +45,7 @@ export default function Popup({ username, closePopup }: IProps) {
         exit='exit'
         className='w-[43.75rem] rounded bg-white p-12 md:w-[330px] md:py-9 md:px-3.5'
       >
-        <div className='flex justify-center text-3xl font-bold md:text-2xl'>
+        <div className='flex justify-center font-nexonBold text-3xl font-bold md:text-2xl'>
           아이디 찾기
         </div>
 

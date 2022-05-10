@@ -23,7 +23,7 @@ const Video: NextPage<IProps> = ({ page }) => {
       <Banner title='연수이야기' navList={['연수이야기', '홍보 영상']} />
       <MenuBar pageName='홍보 영상' />
       <Layout padding='pt-16 pb-56'>
-        <div className='text-4xl font-bold leading-[3.15rem] text-[#01111e]'>
+        <div className='font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#01111e]'>
           재외동포 대학생 온라인연수
           <span className='text-[#2fb6bc]'> 홍보영상</span>
         </div>

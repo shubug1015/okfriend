@@ -58,7 +58,7 @@ const Contact: NextPage = () => {
 
       <div className='bg-[#f4f9fb]'>
         <Layout padding='pt-16 pb-24'>
-          <div className='text-4xl font-bold leading-[3.375rem]'>
+          <div className='font-nexonBold text-4xl font-bold leading-[3.375rem]'>
             궁금한 사항에 대해
             <span className='text-[#2fb6bc]'> 신속히 답변드리겠습니다.</span>
           </div>

@@ -23,7 +23,7 @@ const Newsletter: NextPage<IProps> = ({ page }) => {
       <Banner title='연수이야기' navList={['연수이야기', '뉴스레터']} />
       <MenuBar pageName='뉴스레터' />
       <Layout padding='pt-16 pb-20'>
-        <div className='text-4xl font-bold leading-[3.15rem] text-[#01111e]'>
+        <div className='font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#01111e]'>
           뉴스레터
         </div>
 

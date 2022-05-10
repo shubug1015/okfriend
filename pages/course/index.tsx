@@ -13,10 +13,10 @@ const Course: NextPage = () => {
       <div className='w-screen pt-44 pb-24 md:pt-32'>
         <div className='mx-auto w-full max-w-[1180px] md:max-w-[330px]'>
           {/* <Layout padding='pt-44 pb-24'> */}
-          <div className='flex justify-center text-4xl font-bold md:text-3xl'>
+          <div className='flex justify-center font-nexonBold text-4xl font-bold md:text-3xl'>
             재외동포 대학생 연수실
           </div>
-          <div className='mt-4 flex justify-center font-bold md:mt-2'>
+          <div className='mt-4 flex justify-center font-nexonBold font-bold md:mt-2'>
             사전온라인연수 / 온라인연수 바로가기
           </div>
 

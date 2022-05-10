@@ -33,7 +33,7 @@ export default function Course() {
 
       <Layout>
         <div className='flex w-full items-center space-x-7 md:justify-between'>
-          <div className='text-3xl font-bold text-white transition-all md:text-[1.375rem]'>
+          <div className='font-nexonBold text-3xl font-bold text-white transition-all md:text-[1.375rem]'>
             온라인 연수
           </div>
           {/* <div className='h-6 w-[0.18rem] bg-[#d6d6d6] text-3xl' />

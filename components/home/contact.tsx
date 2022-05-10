@@ -21,7 +21,7 @@ export default function Contact() {
           <div className='flex h-9 w-[5.875rem] items-center justify-center rounded-md border border-white font-bold md:h-[1.85rem] md:w-[4.75rem] md:text-[0.81rem]'>
             지원센터
           </div>
-          <div className='mt-4 font-sans text-[3.438rem] font-bold md:text-[2.125rem]'>
+          <div className='mt-4 font-quicksand text-[3.438rem] font-bold md:text-[2.125rem]'>
             Contact
           </div>
           <div className='mt-4 text-[1.375rem] md:mt-0.5 md:text-base'>

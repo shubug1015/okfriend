@@ -62,8 +62,8 @@ export default function Card() {
   return (
     <Layout bgColor='bg-[#01111e]' padding='py-20 md:py-10'>
       <div className='md:flex md:items-center md:justify-between'>
-        <div className='font-sans text-4xl font-bold text-white md:text-2xl'>
-          CARD NEWS
+        <div className='font-quicksand text-4xl font-bold text-white md:text-2xl'>
+          Card News
         </div>
 
         <Link href='/'>

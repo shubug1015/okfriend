@@ -16,7 +16,7 @@ export default function Header() {
   const { data } = useSWR<IUser>('/api/user');
   return (
     <Layout bgColor='bg-[#f4f9fb]' padding='pt-40 md:pt-32 md:pb-5'>
-      <div className='flex justify-center text-4xl font-bold md:text-2xl'>
+      <div className='flex justify-center font-nexonBold text-4xl font-bold md:text-2xl'>
         마이페이지
       </div>
 

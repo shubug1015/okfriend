@@ -87,7 +87,7 @@ export default function Popup({ closePopup }: IProps) {
           </svg>
         </div>
 
-        <div className='text-center text-3xl font-bold leading-[1.5] md:text-[1.375rem]'>
+        <div className='text-center font-nexonBold text-3xl font-bold leading-[1.5] md:text-[1.375rem]'>
           2022 재외동포대학생모국연수 강의별{' '}
           <span className='text-[#2fb6bc]'>설문조사</span>
         </div>

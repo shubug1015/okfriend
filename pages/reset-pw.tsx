@@ -87,7 +87,9 @@ const ResetPw: NextPage = () => {
       <SEO title='비밀번호 찾기' />
       <div className='bg-[#f4f9fb] pt-48 pb-28 md:pt-28 md:pb-12'>
         <div className='mx-auto flex max-w-[43.75rem] flex-col items-center rounded-lg bg-white p-[3.75rem] md:max-w-[330px] md:py-9 md:px-3.5'>
-          <h1 className='text-3xl font-bold md:text-2xl'>비밀번호 찾기</h1>
+          <h1 className='font-nexonBold text-3xl font-bold md:text-2xl'>
+            비밀번호 찾기
+          </h1>
           <h2 className='mt-3 text-lg font-medium text-[#6b6b6b] md:text-center md:text-base'>
             회원 가입 시 등록한 정보로 비밀번호를 찾을 수 있습니다.
           </h2>

@@ -1,7 +1,7 @@
 export default function LiveNotice() {
   return (
     <>
-      <div className='flex justify-center whitespace-pre-wrap text-4xl font-bold md:justify-start md:text-xl'>
+      <div className='flex justify-center whitespace-pre-wrap font-nexonBold text-4xl font-bold md:justify-start md:text-xl'>
         <span className='text-[#f6a500]'>LIVE </span>차시 강의 시청 시 유의사항
       </div>
 

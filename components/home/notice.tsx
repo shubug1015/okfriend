@@ -14,7 +14,7 @@ export default function Notice() {
       <div className='flex space-x-20 md:flex-col md:space-x-0'>
         <div className='w-1/2 md:w-full'>
           <div className='flex w-full justify-between'>
-            <div className='font-sans text-4xl font-bold md:text-2xl'>
+            <div className='font-quicksand text-4xl font-bold md:text-2xl'>
               NOTICE
             </div>
 
@@ -88,7 +88,9 @@ export default function Notice() {
         </div>
 
         <div className='w-1/2 md:mt-10 md:w-full'>
-          <div className='font-sans text-4xl font-bold md:text-2xl'>Video</div>
+          <div className='font-quicksand text-4xl font-bold md:text-2xl'>
+            Video
+          </div>
 
           <div className='mt-8 h-[25.625rem] w-full rounded-lg bg-slate-300 md:mt-5 md:h-48'></div>
         </div>

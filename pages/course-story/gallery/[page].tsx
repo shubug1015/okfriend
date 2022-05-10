@@ -51,7 +51,7 @@ const Gallery: NextPage<IProps> = ({ page }) => {
       <Banner title='연수이야기' navList={['연수이야기', '연수 갤러리']} />
       <MenuBar pageName='연수 갤러리' />
       <Layout padding='pt-16 pb-20'>
-        <div className='border-b border-[#9e9e9e] pb-[1.281rem] text-4xl font-bold leading-[3.15rem] text-[#01111e]'>
+        <div className='border-b border-[#9e9e9e] pb-[1.281rem] font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#01111e]'>
           연수 갤러리
         </div>
 

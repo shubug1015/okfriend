@@ -17,11 +17,11 @@ export default function About() {
 
       <Layout>
         <div className='flex flex-col items-center text-white'>
-          <div className='font-sans text-4xl font-bold md:text-2xl'>
+          <div className='font-quicksand text-4xl font-bold md:text-2xl'>
             About Us
           </div>
 
-          <div className='mt-4 flex flex-col items-center text-[1.625rem] md:hidden'>
+          <div className='mt-5 flex flex-col items-center text-[1.625rem] md:hidden'>
             <div>
               재외동포 대학생과 국내교류참가자가 함께 실시간으로 소통하고
               교류하는 공간으로
