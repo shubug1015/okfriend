@@ -64,7 +64,6 @@ export default function Detail({
   let progressPercent = 0;
   useEffect(() => {
     const setProgress = () => {
-      console.log(progressPercent);
       courseApi.sendProgress(
         id,
         progressPercent * 100,
@@ -88,7 +87,9 @@ export default function Detail({
               <Vimeo
                 video={data?.url}
                 className='h-full w-full'
-                onTimeUpdate={(e) => (progressPercent = e.percent)}
+                onTimeUpdate={(e) => {
+                  progressPercent = e.percent;
+                }}
               />
             ) : (
               data?.thumbnail && (
@@ -245,7 +246,7 @@ export default function Detail({
         {/* 진행률 */}
       </div>
 
-      {popup && <Popup closePopup={closePopup} />}
+      {popup && <Popup id={id} closePopup={closePopup} />}
     </>
   );
 }

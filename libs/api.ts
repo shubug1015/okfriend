@@ -344,3 +344,25 @@ export const contactApi = {
       content,
     }),
 };
+
+export const surveyApi = {
+  courseSurvey: (
+    id: string,
+    questions: { [key: string]: string },
+    token: string
+  ) =>
+    api.post(`/survey/lecture/${id}/`, questions, {
+      headers: {
+        Authorization: token,
+        'Content-Type': 'application/json',
+      },
+    }),
+
+  certificateSurvey: (questions: { [key: string]: string }, token: string) =>
+    api.post(`/survey/certificate/`, questions, {
+      headers: {
+        Authorization: token,
+        'Content-Type': 'application/json',
+      },
+    }),
+};

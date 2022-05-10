@@ -1,23 +1,28 @@
+import { surveyApi } from '@libs/api';
+import { IUser } from '@libs/client/useUser';
 import { cls } from '@libs/client/utils';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { FieldErrors, useForm } from 'react-hook-form';
+import useSWR from 'swr';
 
 interface IForm {
-  q1: string;
-  q2: string;
-  q3: string;
-  q4: string;
-  q5: string;
-  q6: string;
-  content: string;
+  Q1: string;
+  Q2: string;
+  Q3: string;
+  Q4: string;
+  Q5: string;
+  Q6: string;
+  Q7: string;
 }
 
 interface IProps {
+  id: string;
   closePopup: () => void;
 }
 
-export default function Popup({ closePopup }: IProps) {
+export default function Popup({ id, closePopup }: IProps) {
+  const { data: myData } = useSWR<IUser>('/api/user');
   const {
     register,
     handleSubmit,
@@ -28,7 +33,15 @@ export default function Popup({ closePopup }: IProps) {
   } = useForm<IForm>({
     mode: 'onChange',
   });
-  const onValid = async (data: IForm) => {};
+  const onValid = async (data: IForm) => {
+    try {
+      await surveyApi.courseSurvey(id, { ...data }, myData?.token as string);
+      alert('제출이 완료되었습니다');
+      closePopup();
+    } catch {
+      alert('Error');
+    }
+  };
   const onInvalid = (errors: FieldErrors) => {
     console.log(errors);
   };
@@ -147,11 +160,11 @@ export default function Popup({ closePopup }: IProps) {
                 <input
                   type='radio'
                   value={i}
-                  {...register('q1', {
+                  {...register('Q1', {
                     required: '항목을 선택해주세요',
                   })}
                   className={cls(
-                    errors?.q1?.message ? 'border-red-500' : 'border-[#d6d6d6]',
+                    errors?.Q1?.message ? 'border-red-500' : 'border-[#d6d6d6]',
                     'h-6 w-6 cursor-pointer appearance-none rounded-full border-2 bg-cover outline-none checked:border-none checked:bg-[url("/icons/radio-checked.png")]'
                   )}
                 />
@@ -181,11 +194,11 @@ export default function Popup({ closePopup }: IProps) {
                 <input
                   type='radio'
                   value={i}
-                  {...register('q2', {
+                  {...register('Q2', {
                     required: '항목을 선택해주세요',
                   })}
                   className={cls(
-                    errors?.q2?.message ? 'border-red-500' : 'border-[#d6d6d6]',
+                    errors?.Q2?.message ? 'border-red-500' : 'border-[#d6d6d6]',
                     'h-6 w-6 cursor-pointer appearance-none rounded-full border-2 bg-cover outline-none checked:border-none checked:bg-[url("/icons/radio-checked.png")]'
                   )}
                 />
@@ -215,11 +228,11 @@ export default function Popup({ closePopup }: IProps) {
                 <input
                   type='radio'
                   value={i}
-                  {...register('q3', {
+                  {...register('Q3', {
                     required: '항목을 선택해주세요',
                   })}
                   className={cls(
-                    errors?.q3?.message ? 'border-red-500' : 'border-[#d6d6d6]',
+                    errors?.Q3?.message ? 'border-red-500' : 'border-[#d6d6d6]',
                     'h-6 w-6 cursor-pointer appearance-none rounded-full border-2 bg-cover outline-none checked:border-none checked:bg-[url("/icons/radio-checked.png")]'
                   )}
                 />
@@ -248,11 +261,11 @@ export default function Popup({ closePopup }: IProps) {
                 <input
                   type='radio'
                   value={i}
-                  {...register('q4', {
+                  {...register('Q4', {
                     required: '항목을 선택해주세요',
                   })}
                   className={cls(
-                    errors?.q4?.message ? 'border-red-500' : 'border-[#d6d6d6]',
+                    errors?.Q4?.message ? 'border-red-500' : 'border-[#d6d6d6]',
                     'h-6 w-6 cursor-pointer appearance-none rounded-full border-2 bg-cover outline-none checked:border-none checked:bg-[url("/icons/radio-checked.png")]'
                   )}
                 />
@@ -281,11 +294,11 @@ export default function Popup({ closePopup }: IProps) {
                 <input
                   type='radio'
                   value={i}
-                  {...register('q5', {
+                  {...register('Q5', {
                     required: '항목을 선택해주세요',
                   })}
                   className={cls(
-                    errors?.q5?.message ? 'border-red-500' : 'border-[#d6d6d6]',
+                    errors?.Q5?.message ? 'border-red-500' : 'border-[#d6d6d6]',
                     'h-6 w-6 cursor-pointer appearance-none rounded-full border-2 bg-cover outline-none checked:border-none checked:bg-[url("/icons/radio-checked.png")]'
                   )}
                 />
@@ -313,11 +326,11 @@ export default function Popup({ closePopup }: IProps) {
                 <input
                   type='radio'
                   value={i}
-                  {...register('q6', {
+                  {...register('Q6', {
                     required: '항목을 선택해주세요',
                   })}
                   className={cls(
-                    errors?.q6?.message ? 'border-red-500' : 'border-[#d6d6d6]',
+                    errors?.Q6?.message ? 'border-red-500' : 'border-[#d6d6d6]',
                     'h-6 w-6 cursor-pointer appearance-none rounded-full border-2 bg-cover outline-none checked:border-none checked:bg-[url("/icons/radio-checked.png")]'
                   )}
                 />
@@ -326,6 +339,23 @@ export default function Popup({ closePopup }: IProps) {
           </div>
         </div>
         {/* 문항 6 */}
+
+        {/* 문항 7 */}
+        <div className='mt-8 space-y-3 md:space-y-2'>
+          <div className='font-medium'>
+            본 강좌를 수강함으로써 유익했던 점과 건의하고 싶은 사항을 자유롭게
+            기재하여 주십시오.
+          </div>
+
+          <textarea
+            placeholder='자유롭게 작성해보세요.'
+            {...register('Q7', {
+              required: '항목 입력해주세요',
+            })}
+            className='h-40 w-full rounded border border-[#d6d6d6] px-5 pt-4 outline-none placeholder:text-[#d6d6d6] md:h-52 md:px-2.5 md:pt-[0.8rem] md:text-[0.938rem]'
+          />
+        </div>
+        {/* 문항 7 */}
 
         {/* 제출하기 */}
         <div className='flex justify-center'>

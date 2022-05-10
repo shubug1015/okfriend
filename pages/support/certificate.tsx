@@ -6,59 +6,62 @@ import Checkbox from '@components/support/certificate/checkbox';
 import { list } from '@components/support/certificate/list';
 import Navigator from '@components/support/navigator';
 import Layout from '@layouts/sectionLayout';
+import { surveyApi } from '@libs/api';
+import { useUser } from '@libs/client/useUser';
 import { cls } from '@libs/client/utils';
 import type { NextPage } from 'next';
 import { useEffect, useState } from 'react';
 import { FieldErrors, useForm } from 'react-hook-form';
 
 interface IForm {
-  q1: string;
-  q1_etc: string;
-  q2: string;
-  q3_1: string;
-  q3_2: string;
-  q3_3: string;
-  q3_4: string;
-  q3_5: string;
-  q3_6: string;
-  q3_7: string;
-  q3_8: string;
-  q4_1: string;
-  q4_2: string;
-  q4_3: string;
-  q4_4: string;
-  q4_5: string;
-  q5_1: string;
-  q5_2: string;
-  q5_3: string;
-  q5_4: string;
-  q6_1: string;
-  q6_2: string;
-  q6_3: string;
-  q6_4: string;
-  q6_5: string;
-  q7_1: string;
-  q7_2: string;
-  q7_3: string;
-  q7_4: string;
-  q8_1: string;
-  q8_2: string;
-  q8_3: string;
-  q8_4: string;
-  q8_5: string;
-  q8_5_etc: string;
-  q9_1: string;
-  q9_2: string;
-  q9_3: string;
-  q9_4: string;
-  q9_5: string;
-  q9_6: string;
-  q9_7: string;
-  q10: string;
-  q11: string;
+  Q1: string;
+  Q1_etc: string;
+  Q2: string;
+  Q3_1: string;
+  Q3_2: string;
+  Q3_3: string;
+  Q3_4: string;
+  Q3_5: string;
+  Q3_6: string;
+  Q3_7: string;
+  Q3_8: string;
+  Q4_1: string;
+  Q4_2: string;
+  Q4_3: string;
+  Q4_4: string;
+  Q4_5: string;
+  Q5_1: string;
+  Q5_2: string;
+  Q5_3: string;
+  Q5_4: string;
+  Q6_1: string;
+  Q6_2: string;
+  Q6_3: string;
+  Q6_4: string;
+  Q6_5: string;
+  Q7_1: string;
+  Q7_2: string;
+  Q7_3: string;
+  Q7_4: string;
+  Q8_1: string;
+  Q8_2: string;
+  Q8_3: string;
+  Q8_4: string;
+  Q8_5: string;
+  Q8_5_etc: string;
+  Q9_1: string;
+  Q9_2: string;
+  Q9_3: string;
+  Q9_4: string;
+  Q9_5: string;
+  Q9_6: string;
+  Q9_7: string;
+  Q10: string;
+  Q11: string;
 }
 
-const Contact: NextPage = () => {
+const Certificate: NextPage = () => {
+  const { token } = useUser({ isPrivate: true });
   const [popup, setPopup] = useState(false);
 
   const {
@@ -70,7 +73,22 @@ const Contact: NextPage = () => {
     mode: 'onChange',
   });
 
-  const onValid = async (data: IForm) => {};
+  const onValid = async ({ Q1_etc, Q8_5_etc, ...data }: IForm) => {
+    try {
+      await surveyApi.certificateSurvey(
+        {
+          ...data,
+          Q1: data.Q1 === '기타' ? Q1_etc : data.Q1,
+          Q8_5: `${Q8_5_etc} ${data.Q8_5}`,
+        },
+        token as string
+      );
+      alert('제출이 완료되었습니다');
+      closePopup();
+    } catch {
+      alert('Error');
+    }
+  };
   const onInvalid = (errors: FieldErrors) => {
     console.log(errors);
   };
@@ -130,11 +148,11 @@ const Contact: NextPage = () => {
                     <input
                       type='radio'
                       value={i}
-                      {...register('q1', {
+                      {...register('Q1', {
                         required: '항목을 선택해주세요',
                       })}
                       className={cls(
-                        errors?.q1?.message
+                        errors?.Q1?.message
                           ? 'bg-[url("/icons/checked-error.png")]'
                           : 'bg-[url("/icons/unchecked.png")] checked:bg-[url("/icons/checked.png")]',
                         'h-2.5 w-3.5 cursor-pointer appearance-none bg-cover outline-none'
@@ -146,10 +164,10 @@ const Contact: NextPage = () => {
                     {i === '기타' && (
                       <input
                         type='text'
-                        {...register('q1_etc')}
-                        readOnly={watch('q1') !== '기타'}
+                        {...register('Q1_etc')}
+                        readOnly={watch('Q1') !== '기타'}
                         className={cls(
-                          watch('q1') !== '기타'
+                          watch('Q1') !== '기타'
                             ? 'cursor-default opacity-50'
                             : '',
                           'h-10 w-[28rem] rounded-lg border border-[#d6d6d6] px-2.5 outline-none'
@@ -184,11 +202,11 @@ const Contact: NextPage = () => {
                     <input
                       type='radio'
                       value={i}
-                      {...register('q2', {
+                      {...register('Q2', {
                         required: '항목을 선택해주세요',
                       })}
                       className={cls(
-                        errors?.q2?.message
+                        errors?.Q2?.message
                           ? 'bg-[url("/icons/checked-error.png")]'
                           : 'bg-[url("/icons/unchecked.png")] checked:bg-[url("/icons/checked.png")]',
                         'h-2.5 w-3.5 cursor-pointer appearance-none bg-cover outline-none'
@@ -238,7 +256,7 @@ const Contact: NextPage = () => {
                     {j.question === '5. 기타' && (
                       <input
                         type='text'
-                        {...register('q8_5_etc')}
+                        {...register('Q8_5_etc')}
                         className='h-10 w-[28rem] rounded-lg border border-[#d6d6d6] px-2.5 outline-none'
                       />
                     )}
@@ -268,11 +286,11 @@ const Contact: NextPage = () => {
                     <input
                       type='radio'
                       value={i}
-                      {...register('q10', {
+                      {...register('Q10', {
                         required: '항목을 선택해주세요',
                       })}
                       className={cls(
-                        errors?.q10?.message
+                        errors?.Q10?.message
                           ? 'bg-[url("/icons/checked-error.png")]'
                           : 'bg-[url("/icons/unchecked.png")] checked:bg-[url("/icons/checked.png")]',
                         'h-2.5 w-3.5 cursor-pointer appearance-none bg-cover outline-none'
@@ -302,11 +320,11 @@ const Contact: NextPage = () => {
                     <input
                       type='radio'
                       value={i}
-                      {...register('q11', {
+                      {...register('Q11', {
                         required: '항목을 선택해주세요',
                       })}
                       className={cls(
-                        errors?.q11?.message
+                        errors?.Q11?.message
                           ? 'bg-[url("/icons/checked-error.png")]'
                           : 'bg-[url("/icons/unchecked.png")] checked:bg-[url("/icons/checked.png")]',
                         'h-2.5 w-3.5 cursor-pointer appearance-none bg-cover outline-none'
@@ -339,4 +357,4 @@ const Contact: NextPage = () => {
   );
 };
 
-export default Contact;
+export default Certificate;
