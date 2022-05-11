@@ -88,6 +88,7 @@ export default function Slide() {
             <div
               data-aos='fade-up'
               data-aos-duration='1500'
+              data-aos-delay='300'
               className='whitespace-pre-wrap text-center font-quicksand text-[5rem] font-bold leading-none drop-shadow-md md:text-[2.5rem]'
             >
               {i.title}
@@ -96,6 +97,7 @@ export default function Slide() {
             <div
               data-aos='fade-up'
               data-aos-duration='1500'
+              data-aos-delay='300'
               className='mt-6 text-2xl font-bold drop-shadow-md md:text-xl'
             >
               {i.text}
