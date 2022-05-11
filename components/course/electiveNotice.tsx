@@ -5,7 +5,7 @@ export default function ElectiveNotice() {
         <span className='text-[#2fb6bc]'>선택 </span>차시 강의 시청 시 유의사항
       </div>
 
-      <div className='mt-9 grid grid-cols-3 gap-x-5 md:mt-6 md:grid-cols-1 md:gap-x-0 md:gap-y-5'>
+      <div className='mt-9 grid grid-cols-2 gap-x-5 md:mt-6 md:grid-cols-1 md:gap-x-0 md:gap-y-5'>
         <div className='flex h-[9.375rem] items-center justify-center border-t-2 border-[#2fb6bc] bg-[#f4f9fb] md:h-[7.5rem] md:justify-start md:px-6'>
           <svg
             viewBox='0 0 66 60'
@@ -124,7 +124,7 @@ export default function ElectiveNotice() {
           </div>
         </div>
 
-        <div className='flex h-[9.375rem] items-center justify-center border-t-2 border-[#2fb6bc] bg-[#f4f9fb] md:h-[7.5rem] md:justify-start md:px-6'>
+        {/* <div className='flex h-[9.375rem] items-center justify-center border-t-2 border-[#2fb6bc] bg-[#f4f9fb] md:h-[7.5rem] md:justify-start md:px-6'>
           <svg
             viewBox='0 0 68 53'
             fill='none'
@@ -174,7 +174,7 @@ export default function ElectiveNotice() {
             <br />
             마일리지가 차등 적립 됩니다.
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

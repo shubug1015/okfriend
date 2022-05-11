@@ -129,7 +129,7 @@ export default function Online() {
       {/* 사업단장 오문범입니다. */}
       <div className='relative'>
         <div className='absolute top-1/2 left-1/2 z-[-1] h-full w-full -translate-x-1/2 -translate-y-1/2 md:hidden'>
-          <div className='relative h-full w-full'>
+          <div className='relative h-[50vw] w-full'>
             <Image
               src={Bg2}
               alt='Background Image2'

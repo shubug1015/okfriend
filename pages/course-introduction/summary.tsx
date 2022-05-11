@@ -202,7 +202,7 @@ const Greeting: NextPage = () => {
         {/* 2022 재외동포대학생 모국연수(사전온라인) 연수 기간 */}
         <div className='border-b border-[#e8e8e8] pt-[2.531rem] pb-[2.469rem] text-2xl text-[#01111e] md:pt-[1.281rem] md:pb-[1.781rem] md:text-xl'>
           <div className='font-nexonBold font-bold leading-[2.25rem] md:leading-[1.875rem]'>
-            2022 재외동포대학생 모국연수(사전온라인) 연수 기간
+            2022 재외동포대학생 모국연수 사전이해연수
           </div>
           <div className='mt-3 text-[1.125rem] leading-[1.856rem] md:text-[0.875rem]'>
             - 2022년 6월 중 이수완료
