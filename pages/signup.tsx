@@ -295,7 +295,7 @@ const SignUp: NextPage = () => {
                           },
                           maxLength: {
                             message: '이름은 5글자 이하여야 합니다',
-                            value: 5,
+                            value: 20,
                           },
                         })}
                         className={cls(
@@ -344,8 +344,8 @@ const SignUp: NextPage = () => {
                         <option value='default' disabled hidden>
                           년(4자)
                         </option>
-                        {[...Array(20)].map((_, index) => (
-                          <option key={index}>{index + 2003}</option>
+                        {[...Array(123)].map((_, index) => (
+                          <option key={index}>{index + 1900}</option>
                         ))}
                       </select>
                     </div>
@@ -418,39 +418,14 @@ const SignUp: NextPage = () => {
                 {/* 생년월일 */}
 
                 {/* 국가 */}
-                <div className='flex w-full flex-col'>
-                  <label className='font-medium md:text-[0.938rem]'>국가</label>
-
-                  <div className='mt-2 flex h-[3.75rem] w-full space-x-3.5'>
-                    <select
-                      defaultValue='default'
-                      {...register('country', {
-                        required: '국가를 선택해주세요',
-                        validate: {
-                          notDefault: (value) =>
-                            value !== 'default' || '국가를 선택해주세요',
-                        },
-                      })}
-                      className={cls(
-                        errors?.country?.message
-                          ? 'border-red-500'
-                          : 'border-[#d6d6d6]',
-                        'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm md:h-[2.813rem] md:pl-2.5 md:text-[0.938rem]'
-                      )}
-                    >
-                      <option value='default' disabled>
-                        국가 선택
-                      </option>
-                      <option>한국</option>
-                      <option>미국</option>
-                      <option>러시아</option>
-                    </select>
-                  </div>
-
-                  <div className='mt-2 text-sm text-red-500'>
-                    {errors?.country?.message}
-                  </div>
-                </div>
+                <Input
+                  type='text'
+                  label='국가'
+                  register={register('country', {
+                    required: '국가 입력해주세요',
+                  })}
+                  error={errors?.country?.message}
+                />
                 {/* 국가 */}
 
                 {/* 이메일 */}

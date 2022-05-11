@@ -37,6 +37,7 @@ export default function Header() {
     {
       id: 0,
       title: '온라인연수 소개',
+      url: '/course-introduction/greeting',
       isActivated: router.pathname.includes('/course-introduction'),
       subUrls: [
         {
@@ -56,6 +57,7 @@ export default function Header() {
     {
       id: 1,
       title: '연수실',
+      url: '/course',
       isActivated:
         router.pathname === '/course' ||
         router.pathname.includes('/course/list'),
@@ -77,6 +79,7 @@ export default function Header() {
     {
       id: 2,
       title: '도서관',
+      url: '/library/1',
       isActivated: router.pathname === '/library/[id]',
       subUrls: [
         {
@@ -108,6 +111,7 @@ export default function Header() {
     {
       id: 3,
       title: '연수이야기',
+      url: '/course-story/video/1',
       isActivated: router.pathname.includes('/course-story'),
       subUrls: [
         {
@@ -131,6 +135,7 @@ export default function Header() {
     {
       id: 4,
       title: '지원센터',
+      url: '/support/notice/title/created/1',
       isActivated: router.pathname.includes('/support'),
       subUrls: [
         {
@@ -350,16 +355,17 @@ export default function Header() {
                 onMouseLeave={() => setOpenedTab(-1)}
                 className='relative h-full'
               >
-                <div
-                  onClick={() => (i.id === 1 ? router.push('/course') : null)}
-                  className={cls(
-                    i.isActivated ? 'text-[#2fb6bc]' : '',
-                    i.id === 1 ? 'cursor-pointer' : 'cursor-default',
-                    'flex h-full items-center text-lg font-medium'
-                  )}
-                >
-                  {i.title}
-                </div>
+                <Link href={i.url}>
+                  <a
+                    onClick={() => setOpenedTab(-1)}
+                    className={cls(
+                      i.isActivated ? 'text-[#2fb6bc]' : '',
+                      'flex h-full cursor-pointer items-center text-lg font-medium'
+                    )}
+                  >
+                    {i.title}
+                  </a>
+                </Link>
 
                 <AnimatePresence>
                   {openedTab === i.id && (

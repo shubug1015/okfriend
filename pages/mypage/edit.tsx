@@ -166,8 +166,8 @@ const Edit: NextPage = () => {
                         <option value='default' disabled hidden>
                           년(4자)
                         </option>
-                        {[...Array(20)].map((_, index) => (
-                          <option key={index}>{index + 2003}</option>
+                        {[...Array(123)].map((_, index) => (
+                          <option key={index}>{index + 1900}</option>
                         ))}
                       </select>
                     </div>
