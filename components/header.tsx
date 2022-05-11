@@ -60,18 +60,18 @@ export default function Header() {
         router.pathname === '/course' ||
         router.pathname.includes('/course/list'),
       subUrls: [
-        {
-          label: '연수실',
-          url: '/course',
-        },
-        {
-          label: '사전 온라인연수',
-          url: '/course/list/pre-online/required/1',
-        },
-        {
-          label: '온라인연수',
-          url: '/course/list/online/live/1',
-        },
+        // {
+        //   label: '연수실',
+        //   url: '/course',
+        // },
+        // {
+        //   label: '사전 온라인연수',
+        //   url: '/course/list/pre-online/required/1',
+        // },
+        // {
+        //   label: '온라인연수',
+        //   url: '/course/list/online/live/1',
+        // },
       ],
     },
     {
@@ -351,9 +351,11 @@ export default function Header() {
                 className='relative h-full'
               >
                 <div
+                  onClick={() => (i.id === 1 ? router.push('/course') : null)}
                   className={cls(
                     i.isActivated ? 'text-[#2fb6bc]' : '',
-                    'flex h-full cursor-default items-center text-lg font-medium'
+                    i.id === 1 ? 'cursor-pointer' : 'cursor-default',
+                    'flex h-full items-center text-lg font-medium'
                   )}
                 >
                   {i.title}
@@ -516,39 +518,50 @@ export default function Header() {
                     onClick={() => setOpenedTab(i.id)}
                     className='mx-auto flex h-14 max-w-[330px] items-center justify-between'
                   >
-                    <div className='font-medium text-[#6b6b6b]'>{i.title}</div>
+                    <div
+                      onClick={() => {
+                        if (i.id === 1) {
+                          router.push('/course');
+                          setMobileMenuOpened(false);
+                        }
+                      }}
+                      className='font-medium text-[#6b6b6b]'
+                    >
+                      {i.title}
+                    </div>
 
-                    {openedTab === i.id ? (
-                      <svg
-                        xmlns='http://www.w3.org/2000/svg'
-                        className='mr-3 w-5 text-[#9e9e9e]'
-                        fill='none'
-                        viewBox='0 0 24 24'
-                        stroke='currentColor'
-                        strokeWidth={2}
-                      >
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          d='M5 15l7-7 7 7'
-                        />
-                      </svg>
-                    ) : (
-                      <svg
-                        xmlns='http://www.w3.org/2000/svg'
-                        className='mr-3 w-5 text-[#9e9e9e]'
-                        fill='none'
-                        viewBox='0 0 24 24'
-                        stroke='currentColor'
-                        strokeWidth={2}
-                      >
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          d='M19 9l-7 7-7-7'
-                        />
-                      </svg>
-                    )}
+                    {i.id !== 1 &&
+                      (openedTab === i.id ? (
+                        <svg
+                          xmlns='http://www.w3.org/2000/svg'
+                          className='mr-3 w-5 text-[#9e9e9e]'
+                          fill='none'
+                          viewBox='0 0 24 24'
+                          stroke='currentColor'
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            d='M5 15l7-7 7 7'
+                          />
+                        </svg>
+                      ) : (
+                        <svg
+                          xmlns='http://www.w3.org/2000/svg'
+                          className='mr-3 w-5 text-[#9e9e9e]'
+                          fill='none'
+                          viewBox='0 0 24 24'
+                          stroke='currentColor'
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            d='M19 9l-7 7-7-7'
+                          />
+                        </svg>
+                      ))}
                   </div>
 
                   <AnimatePresence>
