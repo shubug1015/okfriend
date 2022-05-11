@@ -15,7 +15,7 @@ const Library: NextPage<IProps> = ({ id }) => {
 
       <iframe
         src={`https://okfyouthcamp.com/tmp-${id}`}
-        className='h-[78rem] w-full'
+        className='h-[78rem] w-full md:h-[100rem]'
       ></iframe>
     </>
   );
