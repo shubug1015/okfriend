@@ -59,10 +59,9 @@ export default function Popup() {
 
         pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight, '', 'FAST');
 
-        const blob = pdf.output();
-        console.log(pdf.output());
+        const blob = pdf.output('blob');
         const formData = new FormData();
-        formData.append('certificate', pdf.output());
+        formData.append('certificate', blob);
 
         await surveyApi.sendCertificate(formData, data?.token as string);
         // pdf.output('dataurlnewwindow');
