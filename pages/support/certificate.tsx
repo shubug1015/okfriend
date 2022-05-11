@@ -3,7 +3,7 @@ import PdfKo from '@components/pdf/ko';
 import Popup from '@components/pdf/popup';
 import SEO from '@components/seo';
 import Checkbox from '@components/support/certificate/checkbox';
-import { list } from '@components/support/certificate/list';
+import { useList } from '@components/support/certificate/list';
 import Navigator from '@components/support/navigator';
 import Layout from '@layouts/sectionLayout';
 import { surveyApi } from '@libs/api';
@@ -228,7 +228,7 @@ const Certificate: NextPage = () => {
             {/* 문항 2 */}
 
             {/* 문항 3~9 */}
-            {list().map((i) => (
+            {useList().map((i) => (
               <div key={i.id} className='mt-14 md:mt-4'>
                 <div className='text-xl font-medium md:text-sm md:font-bold md:tracking-tighter'>
                   {i.title} <span className='text-[#2fb6bc]'>*</span>
