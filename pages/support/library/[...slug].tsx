@@ -6,6 +6,7 @@ import Navigator from '@components/support/navigator';
 import Layout from '@layouts/sectionLayout';
 import { boardApi } from '@libs/api';
 import type { GetServerSidePropsContext, NextPage } from 'next';
+import { useRouter } from 'next/router';
 import useSWR from 'swr';
 
 interface IProps {
@@ -13,10 +14,13 @@ interface IProps {
 }
 
 const Library: NextPage<IProps> = ({ slug }) => {
+  const router = useRouter();
+  const { locale } = router;
   const [searchType, orderType, page, searchTerm] = slug;
   const { data } = useSWR(
-    `libraryList/${searchType}/${orderType}/${page}/${searchTerm}`,
-    () => boardApi.getLibraryeList(searchType, orderType, page, searchTerm)
+    `${locale}/libraryList/${searchType}/${orderType}/${page}/${searchTerm}`,
+    () =>
+      boardApi.getLibraryeList(locale, searchType, orderType, page, searchTerm)
   );
   return (
     <>

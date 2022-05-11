@@ -10,12 +10,15 @@ import LiveNotice from '@components/course/liveNotice';
 import Banner from '@components/banner';
 import useSWR from 'swr';
 import { courseApi } from '@libs/api';
+import { useRouter } from 'next/router';
 
 interface IProps {
   params: string[];
 }
 
 const Course: NextPage<IProps> = ({ params }) => {
+  const router = useRouter();
+  const { locale } = router;
   const [courseType, courseCategory, page] = params;
   const request = `${
     courseType === 'pre-online' ? '사전 온라인 연수' : '온라인 연수'
@@ -28,8 +31,8 @@ const Course: NextPage<IProps> = ({ params }) => {
       ? '선택차시'
       : '지난 연수 자료'
   }`;
-  const { data } = useSWR(`courseList/online/${request}`, () =>
-    courseApi.getCourseList(request, page)
+  const { data } = useSWR(`${locale}/courseList/online/${request}`, () =>
+    courseApi.getCourseList(locale, request, page)
   );
   const navList = [
     '연수실',

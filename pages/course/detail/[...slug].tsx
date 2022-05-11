@@ -9,6 +9,7 @@ import { courseApi } from '@libs/api';
 import { IUser } from '@libs/client/useUser';
 import { cls } from '@libs/client/utils';
 import type { GetServerSidePropsContext, NextPage } from 'next';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import useSWR from 'swr';
 
@@ -18,10 +19,14 @@ interface IProps {
 
 const CourseDetail: NextPage<IProps> = ({ slug }) => {
   const { data: myData } = useSWR<IUser>('/api/user');
+  const router = useRouter();
+  const { locale } = router;
   const [, , id] = slug;
   const { data, mutate } = useSWR(
-    myData?.token ? 'courseDetail/logged' : 'courseDetail/unlogged',
-    () => courseApi.detail(id, myData?.token)
+    myData?.token
+      ? `${locale}/courseDetail/logged`
+      : `${locale}/courseDetail/unlogged`,
+    () => courseApi.detail(locale, id, myData?.token)
   );
   const courseData = data?.lecture || data;
 

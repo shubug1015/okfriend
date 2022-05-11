@@ -13,9 +13,9 @@ import 'aos/dist/aos.css';
 import { useLocale } from '@libs/client/useLocale';
 
 export default function Card() {
-  const { text } = useLocale();
-  const { data } = useSWR('cardNews/전체', () =>
-    boardApi.getCardNewsList('1', '전체')
+  const { locale, text } = useLocale();
+  const { data } = useSWR(`${locale}/cardNews/전체`, () =>
+    boardApi.getCardNewsList(locale, '1', '전체')
   );
   const slider = useRef<Slider | null>(null);
   const [activeSlide, setActiveSlide] = useState(0);

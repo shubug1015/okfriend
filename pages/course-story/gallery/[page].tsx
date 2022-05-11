@@ -18,9 +18,10 @@ interface IProps {
 
 const Gallery: NextPage<IProps> = ({ page }) => {
   const router = useRouter();
+  const { locale } = router;
   const [currentTab, setCurrentTab] = useState('전체');
-  const { data } = useSWR(`galleryList/${currentTab}`, () =>
-    boardApi.getGalleryList(currentTab, page)
+  const { data } = useSWR(`${locale}/galleryList/${currentTab}`, () =>
+    boardApi.getGalleryList(locale, currentTab, page)
   );
 
   const [popup, setPopup] = useState({

@@ -18,7 +18,10 @@ interface IProps {
 
 const Video: NextPage<IProps> = ({ page }) => {
   const router = useRouter();
-  const { data } = useSWR('videoList', () => boardApi.getVideoList(page));
+  const { locale } = router;
+  const { data } = useSWR(`${locale}/videoList`, () =>
+    boardApi.getVideoList(locale, page)
+  );
 
   useEffect(() => {
     AOS.init({ once: true });

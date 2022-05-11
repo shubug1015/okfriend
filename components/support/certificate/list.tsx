@@ -1,6 +1,6 @@
 import { useLocale } from '@libs/client/useLocale';
 
-export const list = () => {
+export const useList = () => {
   const { text } = useLocale();
   return [
     // 문항 3

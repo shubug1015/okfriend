@@ -40,6 +40,8 @@ export default function Popup() {
   const { data } = useSWR<IUser>('/api/user');
   const [loading, setLoading] = useState(false);
 
+  console.log(data);
+
   const downloadPdf = async () => {
     setLoading(true);
     try {
@@ -62,13 +64,13 @@ export default function Popup() {
 
         pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight, '', 'FAST');
 
-        const blob = pdf.output('blob');
-        const formData = new FormData();
-        formData.append('certificate', blob);
+        // const blob = pdf.output('blob');
+        // const formData = new FormData();
+        // formData.append('certificate', blob);
 
-        await surveyApi.sendCertificate(formData, data?.token as string);
-        // pdf.output('dataurlnewwindow');
-        // pdf.save('download.pdf');
+        // await surveyApi.sendCertificate(formData, data?.token as string);
+        // // pdf.output('dataurlnewwindow');
+        pdf.save('download.pdf');
       });
     } catch {
       alert('Error');
@@ -164,12 +166,12 @@ export default function Popup() {
         </div>
       </motion.div>
 
-      <div id='pdfFile' className='relative hidden h-[120rem] w-full bg-white'>
+      <div id='pdfFile' className='relative h-[297mm] w-[210mm] bg-white'>
         <img src='/pdf.png' alt='PDF Image' className='object-contain' />
 
         <div
           id='pdfName'
-          className='font-sans absolute left-1/2 top-0 translate-y-[41.35rem] -translate-x-1/2 text-[2.75rem] font-bold text-[#292E31]'
+          className='absolute left-1/2 top-0 translate-y-[100.5mm] -translate-x-1/2 font-montserrat text-2xl font-bold text-[#292E31]'
         >
           Dong Hyun Lee
         </div>

@@ -18,9 +18,10 @@ interface IProps {
 
 const Cardnews: NextPage<IProps> = ({ page }) => {
   const router = useRouter();
+  const { locale } = router;
   const [currentTab, setCurrentTab] = useState('전체');
-  const { data } = useSWR(`cardNews/${currentTab}`, () =>
-    boardApi.getCardNewsList('1', currentTab)
+  const { data } = useSWR(`${locale}/cardNews/${currentTab}`, () =>
+    boardApi.getCardNewsList(locale, '1', currentTab)
   );
   const toggleTab = (tab: string) => {
     setCurrentTab(tab);

@@ -6,6 +6,7 @@ import NoticeList from '@components/support/noticeList';
 import Layout from '@layouts/sectionLayout';
 import { boardApi } from '@libs/api';
 import type { GetServerSidePropsContext, NextPage } from 'next';
+import { useRouter } from 'next/router';
 import useSWR from 'swr';
 
 interface IProps {
@@ -13,10 +14,13 @@ interface IProps {
 }
 
 const Notice: NextPage<IProps> = ({ slug }) => {
+  const router = useRouter();
+  const { locale } = router;
   const [searchType, orderType, page, searchTerm] = slug;
   const { data } = useSWR(
-    `noticeList/${searchType}/${orderType}/${page}/${searchTerm}`,
-    () => boardApi.getNoticeList(searchType, orderType, page, searchTerm)
+    `${locale}/noticeList/${searchType}/${orderType}/${page}/${searchTerm}`,
+    () =>
+      boardApi.getNoticeList(locale, searchType, orderType, page, searchTerm)
   );
   return (
     <>

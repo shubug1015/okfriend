@@ -16,7 +16,10 @@ interface IProps {
 
 const Newsletter: NextPage<IProps> = ({ page }) => {
   const router = useRouter();
-  const { data } = useSWR('newsLetter', () => boardApi.getNewsLetterList(page));
+  const { locale } = router;
+  const { data } = useSWR(`${locale}/newsLetter`, () =>
+    boardApi.getNewsLetterList(locale, page)
+  );
   return (
     <>
       <SEO title='연수이야기' />

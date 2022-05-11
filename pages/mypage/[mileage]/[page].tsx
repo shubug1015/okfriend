@@ -21,8 +21,6 @@ const Mileage: NextPage<IProps> = ({ page }) => {
   );
   const router = useRouter();
 
-  console.log(data);
-
   return (
     <>
       <SEO title='마일리지 내역' />
