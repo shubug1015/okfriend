@@ -20,9 +20,9 @@ const TrainingSchedule: NextPage = () => {
 
       <Layout>
         <div className='pt-[4.089rem] pb-[10.375rem] md:pt-6 md:pb-11'>
-          {/* 온라인연수 15과정 */}
+          {/* 온라인연수 과정 */}
           <div className='font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#01111e] md:text-xl'>
-            <span className='text-[#2fb6bc]'>온라인연수</span> 15과정
+            <span className='text-[#2fb6bc]'>온라인연수</span> 과정
           </div>
           <div className='relative mt-[1.375rem] h-[961px] w-full md:hidden'>
             <Image
@@ -45,9 +45,9 @@ const TrainingSchedule: NextPage = () => {
             />
           </div>
 
-          {/* 사전온라인연수 8과정 */}
+          {/* 사전온라인연수 과정 */}
           <div className='mt-16 font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#01111e] md:mt-10 md:text-xl'>
-            <span className='text-[#2fb6bc]'>사전온라인연수</span> 8과정
+            <span className='text-[#2fb6bc]'>사전온라인연수</span> 과정
           </div>
           <div className='relative mt-[1.375rem] h-[541px] w-full md:hidden'>
             <Image

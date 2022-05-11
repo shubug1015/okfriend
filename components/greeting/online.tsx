@@ -84,9 +84,9 @@ export default function Online() {
       </div>
 
       {/* 영상1 */}
-      <div className='flex justify-center'>
+      {/* <div className='flex justify-center'>
         <div className='mt-[-331px] h-[35.875rem] w-[61.25rem] bg-slate-400 md:mx-[1.563rem] md:mt-[-36px] md:h-[12.044rem] md:w-screen md:rounded' />
-      </div>
+      </div> */}
 
       {/* 2022 - 환영합니다.  */}
       <div className='flex flex-col items-center pb-20 md:w-screen md:pb-[3.625rem]'>
@@ -202,9 +202,9 @@ export default function Online() {
       </div>
 
       {/* 영상2 */}
-      <div className='flex justify-center'>
+      {/* <div className='flex justify-center'>
         <div className='mt-[-269px] h-[35.875rem] w-[61.25rem] bg-slate-400 md:mx-[1.563rem] md:mt-[-36px] md:h-[12.044rem] md:w-screen md:rounded' />
-      </div>
+      </div> */}
 
       {/* 재외동포 - 반갑습니다. */}
       <div className='flex flex-col items-center pb-[4.796rem]'>
