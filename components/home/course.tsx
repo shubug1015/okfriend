@@ -2,10 +2,12 @@ import Layout from '@layouts/sectionLayout';
 import Image from 'next/image';
 import Link from 'next/link';
 import BgImg from '@public/home/lecture-bg.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { cls } from '@libs/client/utils';
 import { courseApi } from '@libs/api';
 import useSWR from 'swr';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default function Course() {
   const [category, setCategory] = useState('라이브 차시');
@@ -19,6 +21,9 @@ export default function Course() {
     courseApi.getCourseList(request, '1')
   );
 
+  useEffect(() => {
+    AOS.init({ once: true });
+  }, []);
   return (
     <div className='relative py-20 md:py-10'>
       <div className='absolute top-0 left-0 -z-[1] h-full w-full'>
@@ -33,7 +38,11 @@ export default function Course() {
 
       <Layout>
         <div className='flex w-full items-center space-x-7 md:justify-between'>
-          <div className='font-nexonBold text-3xl font-bold text-white transition-all md:text-[1.375rem]'>
+          <div
+            data-aos='flip-down'
+            data-aos-duration='1500'
+            className='font-nexonBold text-3xl font-bold text-white transition-all md:text-[1.375rem]'
+          >
             온라인 연수
           </div>
           {/* <div className='h-6 w-[0.18rem] bg-[#d6d6d6] text-3xl' />
@@ -60,6 +69,9 @@ export default function Course() {
         <div className='mt-8 flex w-full items-center justify-between text-white md:mt-5'>
           <div className='flex space-x-[3.625rem] text-[1.375rem] font-bold md:space-x-8 md:text-base'>
             <div
+              data-aos='fade-up'
+              data-aos-duration='1500'
+              data-aos-delay='300'
               onClick={() => setCategory('라이브 차시')}
               className={cls(
                 category === '라이브 차시'
@@ -71,6 +83,9 @@ export default function Course() {
               라이브 차시
             </div>
             <div
+              data-aos='fade-up'
+              data-aos-duration='1500'
+              data-aos-delay='600'
               onClick={() => setCategory('필수 차시')}
               className={cls(
                 category === '필수 차시'
@@ -82,6 +97,9 @@ export default function Course() {
               필수 차시
             </div>
             <div
+              data-aos='fade-up'
+              data-aos-duration='1500'
+              data-aos-delay='900'
               onClick={() => setCategory('선택 차시')}
               className={cls(
                 category === '선택 차시'
@@ -95,13 +113,23 @@ export default function Course() {
           </div>
 
           <Link href='/course/list/online/live/1'>
-            <a className='rounded-full bg-[#2fb6bc] py-2 px-[1.375rem] text-lg font-bold md:hidden'>
+            <a
+              data-aos='fade-up'
+              data-aos-duration='1500'
+              data-aos-delay='1000'
+              className='rounded-full bg-[#2fb6bc] py-2 px-[1.375rem] text-lg font-bold md:hidden'
+            >
               전체보기
             </a>
           </Link>
         </div>
 
-        <div className='mt-8 grid grid-cols-3 gap-x-5 gap-y-9 md:grid-cols-1 md:gap-x-0 md:gap-y-5'>
+        <div
+          data-aos='fade-up'
+          data-aos-duration='1500'
+          data-aos-delay='1000'
+          className='mt-8 grid grid-cols-3 gap-x-5 gap-y-9 md:grid-cols-1 md:gap-x-0 md:gap-y-5'
+        >
           {data?.results.slice(0, 6).map((i: { [key: string]: any }) => (
             <div key={i.id}>
               <div className='group relative h-[15.625rem] md:h-48'>

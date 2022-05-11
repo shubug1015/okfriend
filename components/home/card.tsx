@@ -2,12 +2,14 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Image from 'next/image';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import useInterval from '@libs/client/useInterval';
 import Layout from '@layouts/sectionLayout';
 import Link from 'next/link';
 import useSWR from 'swr';
 import { boardApi } from '@libs/api';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default function Card() {
   const { data } = useSWR('cardNews/전체', () =>
@@ -59,10 +61,18 @@ export default function Card() {
   const nextSlide = () => {
     slider.current?.slickNext();
   };
+
+  useEffect(() => {
+    AOS.init({ once: true });
+  }, []);
   return (
     <Layout bgColor='bg-[#01111e]' padding='py-20 md:py-10'>
       <div className='md:flex md:items-center md:justify-between'>
-        <div className='font-quicksand text-4xl font-bold text-white md:text-2xl'>
+        <div
+          data-aos='flip-down'
+          data-aos-duration='1500'
+          className='font-quicksand text-4xl font-bold text-white md:text-2xl'
+        >
           Card News
         </div>
 
@@ -118,32 +128,39 @@ export default function Card() {
           </svg>
         </div>
 
-        <Link href='/'>
-          <a className='rounded-full border border-white py-2 px-[1.375rem] text-lg font-bold md:hidden'>
+        <Link href='/course-story/cardnews/1'>
+          <a
+            data-aos='fade-up'
+            data-aos-duration='1500'
+            data-aos-delay='300'
+            className='rounded-full border border-white py-2 px-[1.375rem] text-lg font-bold md:hidden'
+          >
             전체보기
           </a>
         </Link>
       </div>
 
-      <Slider
-        ref={slider}
-        className='mt-12 overflow-hidden md:mt-8'
-        {...settings}
-      >
-        {data?.results.map((i: { [key: string]: any }) => (
-          <div key={i.id} className='!flex justify-center'>
-            <div className='relative aspect-square w-80 md:w-40'>
-              <Image
-                src={i.thumbnail}
-                alt='Card News Thumbnail'
-                layout='fill'
-                objectFit='cover'
-                className='rounded-lg'
-              />
+      <div data-aos='fade-up' data-aos-duration='1500' data-aos-delay='300'>
+        <Slider
+          ref={slider}
+          className='mt-12 overflow-hidden md:mt-8'
+          {...settings}
+        >
+          {data?.results.map((i: { [key: string]: any }) => (
+            <div key={i.id} className='!flex justify-center'>
+              <div className='relative aspect-square w-80 md:w-40'>
+                <Image
+                  src={i.thumbnail}
+                  alt='Card News Thumbnail'
+                  layout='fill'
+                  objectFit='cover'
+                  className='rounded-lg'
+                />
+              </div>
             </div>
-          </div>
-        ))}
-      </Slider>
+          ))}
+        </Slider>
+      </div>
     </Layout>
   );
 }
