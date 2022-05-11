@@ -11,7 +11,7 @@ export default function Online() {
     <div>
       {/* 이사장 김성곤입니다. */}
       <div className='relative'>
-        <div className='absolute top-0 left-0 z-[-1] h-full w-full md:hidden'>
+        <div className='absolute top-0 left-0 z-[-1] h-[50vw] w-full md:hidden'>
           <Image
             src={Bg1}
             alt='Background Image1'
