@@ -6,6 +6,27 @@ import { AnimatePresence, motion } from 'framer-motion';
 import type { NextPage } from 'next';
 import { Fragment, useState } from 'react';
 
+// const faqVar = {
+//   invisible: {
+//     opacity: 0,
+//     height: 0,
+//   },
+//   visible: {
+//     opacity: 1,
+//     height: '5rem',
+//     transition: {
+//       duration: 0.2,
+//     },
+//   },
+//   exit: {
+//     opacity: 0,
+//     height: 0,
+//     transition: {
+//       duration: 0.2,
+//     },
+//   },
+// };
+
 const Faq: NextPage = () => {
   const faqList = [
     {
@@ -103,27 +124,6 @@ const Faq: NextPage = () => {
 
   const [openedFaq, setOpenedFaq] = useState(0);
   const toggleQna = (id: number) => setOpenedFaq(id);
-
-  // const faqVar = {
-  //   invisible: {
-  //     opacity: 0,
-  //     height: 0,
-  //   },
-  //   visible: {
-  //     opacity: 1,
-  //     height: '5rem',
-  //     transition: {
-  //       duration: 0.2,
-  //     },
-  //   },
-  //   exit: {
-  //     opacity: 0,
-  //     height: 0,
-  //     transition: {
-  //       duration: 0.2,
-  //     },
-  //   },
-  // };
   return (
     <>
       <SEO title='지원센터' />

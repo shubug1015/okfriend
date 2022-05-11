@@ -2,9 +2,10 @@ import { surveyApi } from '@libs/api';
 import { IUser } from '@libs/client/useUser';
 import { cls } from '@libs/client/utils';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { useEffect } from 'react';
 import { FieldErrors, useForm } from 'react-hook-form';
 import useSWR from 'swr';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 interface IForm {
   Q1: string;
@@ -20,6 +21,27 @@ interface IProps {
   id: string;
   closePopup: () => void;
 }
+
+const popupVar = {
+  invisible: {
+    opacity: 0,
+    scale: 0,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.3,
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0,
+    transition: {
+      duration: 0.3,
+    },
+  },
+};
 
 export default function Popup({ id, closePopup }: IProps) {
   const { data: myData } = useSWR<IUser>('/api/user');
@@ -46,26 +68,12 @@ export default function Popup({ id, closePopup }: IProps) {
     console.log(errors);
   };
 
-  const popupVar = {
-    invisible: {
-      opacity: 0,
-      scale: 0,
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.3,
-      },
-    },
-    exit: {
-      opacity: 0,
-      scale: 0,
-      transition: {
-        duration: 0.3,
-      },
-    },
-  };
+  useEffect(() => {
+    disableBodyScroll(document.body);
+    return () => {
+      enableBodyScroll(document.body);
+    };
+  }, []);
   return (
     <div
       onClick={closePopup}

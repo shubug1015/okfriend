@@ -57,14 +57,6 @@ export default function Detail({
     }
   };
 
-  useEffect(() => {
-    if (popup) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'visible';
-    }
-  }, [popup]);
-
   // useEffect(() => {
   //   const setProgress = () => {
   //     courseApi.sendProgress(id, progressPer, myData?.token as string);

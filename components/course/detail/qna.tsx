@@ -2,34 +2,31 @@ import Layout from '@layouts/sectionLayout';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Fragment, useState } from 'react';
 
-interface IProps {
-  data: any[];
-}
+const qnaVar = {
+  invisible: {
+    opacity: 0,
+    height: 0,
+  },
+  visible: {
+    opacity: 1,
+    height: '5rem',
+    transition: {
+      duration: 0.2,
+    },
+  },
+  exit: {
+    opacity: 0,
+    height: 0,
+    transition: {
+      duration: 0.2,
+    },
+  },
+};
 
 export default function Qna() {
   const [openedQna, setOpenedQna] = useState(0);
   const toggleQna = (id: number) => setOpenedQna(id);
 
-  const qnaVar = {
-    invisible: {
-      opacity: 0,
-      height: 0,
-    },
-    visible: {
-      opacity: 1,
-      height: '5rem',
-      transition: {
-        duration: 0.2,
-      },
-    },
-    exit: {
-      opacity: 0,
-      height: 0,
-      transition: {
-        duration: 0.2,
-      },
-    },
-  };
   return (
     <Layout padding='pt-20 pb-24 md:pt-12 md:pb-14'>
       <div className='text-2xl font-bold md:text-xl'>Q&A</div>

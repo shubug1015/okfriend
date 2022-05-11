@@ -8,9 +8,8 @@ import { boardApi } from '@libs/api';
 import { cls } from '@libs/client/utils';
 import type { GetServerSidePropsContext, NextPage } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import useSWR from 'swr';
 
 interface IProps {
@@ -37,14 +36,6 @@ const Gallery: NextPage<IProps> = ({ page }) => {
     setPopup((prev) => ({ ...prev, index: prev.index - 1 }));
   const nextPopup = () =>
     setPopup((prev) => ({ ...prev, index: prev.index + 1 }));
-
-  useEffect(() => {
-    if (popup.open) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'visible';
-    }
-  }, [popup]);
   return (
     <>
       <SEO title='연수이야기' />

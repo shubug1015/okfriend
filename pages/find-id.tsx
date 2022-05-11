@@ -1,15 +1,13 @@
 import Popup from '@components/user/idPopup';
 import Input from '@components/input';
 import SEO from '@components/seo';
-// import { usersApi } from '@libs/api';
 import { cls } from '@libs/client/utils';
 import type { NextPage } from 'next';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { FieldErrors, useForm } from 'react-hook-form';
 import { usersApi } from '@libs/api';
 import { useUser } from '@libs/client/useUser';
-// import { useAuth } from '@libs/client/useAuth';
 
 interface IForm {
   email: string;
@@ -62,14 +60,6 @@ const FindId: NextPage = () => {
       setCode((prev) => ({ ...prev, loading: false }));
     }
   };
-
-  useEffect(() => {
-    if (popup) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'visible';
-    }
-  }, [popup]);
   return (
     <>
       <SEO title='아이디 찾기' />

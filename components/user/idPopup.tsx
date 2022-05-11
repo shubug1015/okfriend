@@ -1,34 +1,41 @@
-import { cls } from '@libs/client/utils';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 interface IProps {
   username: string;
   closePopup: () => void;
 }
 
+const popupVar = {
+  invisible: {
+    opacity: 0,
+    scale: 0,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.3,
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0,
+    transition: {
+      duration: 0.3,
+    },
+  },
+};
+
 export default function Popup({ username, closePopup }: IProps) {
-  const popupVar = {
-    invisible: {
-      opacity: 0,
-      scale: 0,
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.3,
-      },
-    },
-    exit: {
-      opacity: 0,
-      scale: 0,
-      transition: {
-        duration: 0.3,
-      },
-    },
-  };
+  useEffect(() => {
+    disableBodyScroll(document.body);
+    return () => {
+      enableBodyScroll(document.body);
+    };
+  }, []);
   return (
     <div
       onClick={closePopup}

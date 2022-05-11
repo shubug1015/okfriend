@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 interface IProps {
   data: { [key: string]: any }[];
@@ -10,6 +11,27 @@ interface IProps {
   nextPopup: () => void;
 }
 
+const popupVar = {
+  invisible: {
+    opacity: 0,
+    scale: 0,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.3,
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0,
+    transition: {
+      duration: 0.3,
+    },
+  },
+};
+
 export default function Popup({
   data,
   index,
@@ -17,27 +39,12 @@ export default function Popup({
   prevPopup,
   nextPopup,
 }: IProps) {
-  console.log(data, index);
-  const popupVar = {
-    invisible: {
-      opacity: 0,
-      scale: 0,
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.3,
-      },
-    },
-    exit: {
-      opacity: 0,
-      scale: 0,
-      transition: {
-        duration: 0.3,
-      },
-    },
-  };
+  useEffect(() => {
+    disableBodyScroll(document.body);
+    return () => {
+      enableBodyScroll(document.body);
+    };
+  }, []);
   return (
     <div
       onClick={closePopup}

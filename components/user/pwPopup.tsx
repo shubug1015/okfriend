@@ -1,10 +1,10 @@
 import Input from '@components/input';
 import { usersApi } from '@libs/api';
-// import { usersApi } from '@libs/api';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
 import { FieldErrors, useForm } from 'react-hook-form';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { useEffect } from 'react';
 
 interface IProps {
   username: string;
@@ -15,6 +15,27 @@ interface IForm {
   password: string;
   passwordCheck: string;
 }
+
+const popupVar = {
+  invisible: {
+    opacity: 0,
+    scale: 0,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.3,
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0,
+    transition: {
+      duration: 0.3,
+    },
+  },
+};
 
 export default function Popup({ username, closePopup }: IProps) {
   const router = useRouter();
@@ -39,26 +60,12 @@ export default function Popup({ username, closePopup }: IProps) {
     console.log(errors);
   };
 
-  const popupVar = {
-    invisible: {
-      opacity: 0,
-      scale: 0,
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.3,
-      },
-    },
-    exit: {
-      opacity: 0,
-      scale: 0,
-      transition: {
-        duration: 0.3,
-      },
-    },
-  };
+  useEffect(() => {
+    disableBodyScroll(document.body);
+    return () => {
+      enableBodyScroll(document.body);
+    };
+  }, []);
   return (
     <div
       onClick={closePopup}
