@@ -16,8 +16,13 @@ export default function Checkbox({
   children,
 }: IProps) {
   return (
-    <div className='flex h-20 items-center justify-between border-b border-dotted border-[#d6d6d6] md:h-[14rem] md:flex-col md:justify-center md:space-y-6'>
-      <div className='flex items-center space-x-4 md:w-full'>
+    <div
+      className={cls(
+        question === '5. 기타' ? 'md:h-[17rem]' : 'md:h-56',
+        'flex h-20 items-center justify-between border-b border-dotted border-[#d6d6d6] md:flex-col md:justify-center md:space-y-6'
+      )}
+    >
+      <div className='flex items-center space-x-4 md:w-full md:flex-col md:space-x-0 md:space-y-3'>
         <div className='whitespace-pre-wrap pl-1 text-lg md:w-full md:text-sm md:tracking-tighter'>
           {question}
         </div>

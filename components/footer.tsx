@@ -10,9 +10,9 @@ export default function Footer() {
           <FooterLogo />
         </div>
 
-        <div className='w-1/3 md:flex md:w-full md:justify-center'>
+        <div className='-mt-1.5 w-1/3 md:mt-0 md:flex md:w-full md:justify-center'>
           <div className='text-[#777777] md:mt-3.5 md:text-center md:text-[0.688rem]'>
-            2021 재외동포 대학생 온라인연수 운영사무국
+            2022 재외동포대학생모국연수(온라인) 운영사무국
             <br />
             +82-51-440-3353 / +82-51-714-3119
             <br />
@@ -20,7 +20,7 @@ export default function Footer() {
           </div>
 
           <div className='mt-10 text-sm text-[#9e9e9e] md:hidden'>
-            COPYRIGHT 2021. 재외동포 대학생 온라인연수 ALL RIGHTS RESERVED.
+            COPYRIGHT 2022. 재외동포 대학생 온라인연수 ALL RIGHTS RESERVED.
           </div>
         </div>
 

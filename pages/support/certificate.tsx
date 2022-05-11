@@ -61,7 +61,7 @@ interface IForm {
 }
 
 const Certificate: NextPage = () => {
-  // const { token } = useUser({ isPrivate: true });
+  const { token } = useUser({ isPrivate: true });
   const [popup, setPopup] = useState(false);
 
   const {
@@ -74,20 +74,20 @@ const Certificate: NextPage = () => {
   });
 
   const onValid = async ({ Q1_etc, Q8_5_etc, ...data }: IForm) => {
-    // try {
-    //   await surveyApi.certificateSurvey(
-    //     {
-    //       ...data,
-    //       Q1: data.Q1 === '기타' ? Q1_etc : data.Q1,
-    //       Q8_5: `${Q8_5_etc} ${data.Q8_5}`,
-    //     },
-    //     token as string
-    //   );
-    //   alert('제출이 완료되었습니다');
-    //   closePopup();
-    // } catch {
-    //   alert('Error');
-    // }
+    try {
+      await surveyApi.certificateSurvey(
+        {
+          ...data,
+          Q1: data.Q1 === '기타' ? Q1_etc : data.Q1,
+          Q8_5: `${Q8_5_etc} ${data.Q8_5}`,
+        },
+        token as string
+      );
+      alert('제출이 완료되었습니다');
+      closePopup();
+    } catch {
+      alert('Error');
+    }
   };
   const onInvalid = (errors: FieldErrors) => {
     console.log(errors);
@@ -157,11 +157,11 @@ const Certificate: NextPage = () => {
                         errors?.Q1?.message
                           ? 'bg-[url("/icons/checked-error.png")]'
                           : 'bg-[url("/icons/unchecked.png")] checked:bg-[url("/icons/checked.png")]',
-                        'h-2.5 w-3.5 cursor-pointer appearance-none bg-cover bg-no-repeat outline-none md:bg-contain'
+                        'h-2.5 w-3.5 cursor-pointer appearance-none bg-cover bg-no-repeat outline-none md:flex-none md:bg-contain'
                       )}
                     />
 
-                    <div className='text-lg md:w-[18rem] md:text-sm'>{i}</div>
+                    <div className='text-lg md:grow md:text-sm'>{i}</div>
 
                     {i === '기타' && (
                       <input
@@ -256,7 +256,7 @@ const Certificate: NextPage = () => {
                       <input
                         type='text'
                         {...register('Q8_5_etc')}
-                        className='h-10 w-[28rem] rounded-lg border border-[#d6d6d6] px-2.5 outline-none'
+                        className='h-10 w-[28rem] rounded-lg border border-[#d6d6d6] px-2.5 outline-none md:w-full md:text-sm'
                       />
                     )}
                   </Checkbox>

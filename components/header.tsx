@@ -15,15 +15,23 @@ import { useRouter } from 'next/router';
 import { IUser } from '@libs/client/useUser';
 import useSWR from 'swr';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Fragment } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { Menu, Transition } from '@headlessui/react';
 
 export default function Header() {
   const { data, mutate } = useSWR<IUser>('/api/user');
   const { y } = useScroll();
+  const router = useRouter();
+  const [language, setLanguage] = useState(
+    router.pathname.includes('/en')
+      ? '영어'
+      : router.pathname.includes('ru')
+      ? '러시아어'
+      : '한국어'
+  );
   const [openedTab, setOpenedTab] = useState(-1);
   const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
-  const router = useRouter();
 
   const navList = [
     {
@@ -69,11 +77,31 @@ export default function Header() {
     {
       id: 2,
       title: '도서관',
-      isActivated: router.pathname.includes('/library/123'),
+      isActivated: router.pathname === '/library/[id]',
       subUrls: [
         {
-          label: '도서관',
-          url: '/',
+          label: '대한민국 역사자료',
+          url: '/library/1',
+        },
+        {
+          label: '대한민국 구석 구석',
+          url: '/library/2',
+        },
+        {
+          label: '한반도 평화와 통일이해',
+          url: '/library/3',
+        },
+        {
+          label: '코리안 디아스포라 & 글로벌 코리안',
+          url: '/library/4',
+        },
+        {
+          label: '세계시민 & 세계시민교육',
+          url: '/library/5',
+        },
+        {
+          label: 'UN지속가능발전목표(SDGs)',
+          url: '/library/6',
         },
       ],
     },
@@ -110,15 +138,19 @@ export default function Header() {
           url: '/support/notice/title/created/1',
         },
         {
-          label: '연수 갤러리',
+          label: 'FAQ',
           url: '/support/faq',
         },
         {
-          label: '카드뉴스',
+          label: '1:1 문의하기',
+          url: '/support/contact',
+        },
+        {
+          label: '자료실',
           url: '/support/library/title/created/1',
         },
         {
-          label: '뉴스레터',
+          label: '이수증 발급',
           url: '/support/certificate',
         },
       ],
@@ -215,29 +247,75 @@ export default function Header() {
           </div>
 
           <div className='flex items-center space-x-6'>
+            {/* SNS 버튼 */}
             <div className='flex items-center space-x-6 md:hidden'>
               <Instagram />
               <Facebook />
               <Youtube />
             </div>
+            {/* SNS 버튼 */}
 
-            <div className='flex items-center space-x-4 rounded-md border border-[#6b6b6b] py-1.5 pl-4 pr-2 text-xs font-bold text-[#6b6b6b] md:space-x-2 md:pl-2.5'>
-              <div>한국어</div>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                className='w-3'
-                fill='none'
-                viewBox='0 0 24 24'
-                stroke='currentColor'
-                strokeWidth={2}
+            {/* 언어 선택 */}
+            <Menu as='div' className='relative inline-block text-left'>
+              <div>
+                <Menu.Button className='flex items-center space-x-4 rounded-md border border-[#6b6b6b] py-1.5 pl-4 pr-2 text-xs font-bold text-[#6b6b6b] md:space-x-2 md:pl-2.5'>
+                  <div>{language}</div>
+
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    className='w-3'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    stroke='currentColor'
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      d='M19 9l-7 7-7-7'
+                    />
+                  </svg>
+                </Menu.Button>
+              </div>
+
+              <Transition
+                as={Fragment}
+                enter='transition ease-out duration-100'
+                enterFrom='transform opacity-0 scale-95'
+                enterTo='transform opacity-100 scale-100'
+                leave='transition ease-in duration-75'
+                leaveFrom='transform opacity-100 scale-100'
+                leaveTo='transform opacity-0 scale-95'
               >
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  d='M19 9l-7 7-7-7'
-                />
-              </svg>
-            </div>
+                <Menu.Items className='absolute right-0 mt-1 w-full rounded-md bg-white shadow-lg focus:outline-none'>
+                  <div className='flex flex-col divide-y divide-[#e8e8e8]'>
+                    {['한국어', '영어', '러시아어'].map((i, index) => (
+                      <Menu.Item key={index}>
+                        <div
+                          onClick={() => {
+                            router.push(
+                              i === '한국어'
+                                ? '/'
+                                : i === '영어'
+                                ? '/en'
+                                : '/ru'
+                            );
+                            setLanguage(i);
+                          }}
+                          className={cls(
+                            i === language ? 'hidden' : 'block',
+                            'cursor-pointer py-3 pl-4 text-xs text-[#6b6b6b] transition-colors hover:text-[#2fb6bc] md:pl-2.5'
+                          )}
+                        >
+                          {i}
+                        </div>
+                      </Menu.Item>
+                    ))}
+                  </div>
+                </Menu.Items>
+              </Transition>
+            </Menu>
+            {/* 언어 선택 */}
           </div>
         </div>
       </div>
@@ -288,11 +366,17 @@ export default function Header() {
                       initial='invisible'
                       animate='visible'
                       exit='exit'
-                      className='absolute top-20 flex w-40 flex-col divide-y divide-[#e8e8e8] rounded-lg bg-white shadow'
+                      className={cls(
+                        i.id === 2 ? 'w-72' : 'w-44',
+                        'absolute top-20 flex flex-col divide-y divide-[#e8e8e8] rounded-lg bg-white shadow'
+                      )}
                     >
                       {i.subUrls.map((j, index) => (
                         <Link key={index} href={j.url}>
-                          <a className='px-4 py-3 text-[#6b6b6b] transition-colors hover:text-[#2fb6bc]'>
+                          <a
+                            onClick={() => setOpenedTab(-1)}
+                            className='py-4 pl-4 text-[#6b6b6b] transition-colors hover:text-[#2fb6bc]'
+                          >
                             {j.label}
                           </a>
                         </Link>
@@ -336,7 +420,7 @@ export default function Header() {
             onClick={() => setMobileMenuOpened(true)}
             className='hidden md:block'
           >
-            <MenuBar />
+            <MenuBar isWhiteBg={isWhiteBg} />
           </div>
         </div>
       </div>
@@ -363,7 +447,10 @@ export default function Header() {
                   {data?.token && data?.profile ? (
                     <div className='flex items-center space-x-2.5'>
                       <Link href='/mypage/course/1'>
-                        <a className='text-sm font-bold text-[#2fb6bc]'>
+                        <a
+                          onClick={() => setMobileMenuOpened(false)}
+                          className='text-sm font-bold text-[#2fb6bc]'
+                        >
                           마이페이지
                         </a>
                       </Link>
@@ -380,7 +467,10 @@ export default function Header() {
                   ) : (
                     <div className='flex items-center space-x-2.5'>
                       <Link href='/login'>
-                        <a className='text-sm font-bold text-[#2fb6bc]'>
+                        <a
+                          onClick={() => setMobileMenuOpened(false)}
+                          className='text-sm font-bold text-[#2fb6bc]'
+                        >
                           로그인
                         </a>
                       </Link>
@@ -388,7 +478,10 @@ export default function Header() {
                       <div className='text-xs text-[#9e9e9e]'>|</div>
 
                       <Link href='signup'>
-                        <a className='text-sm font-bold text-[#6b6b6b]'>
+                        <a
+                          onClick={() => setMobileMenuOpened(false)}
+                          className='text-sm font-bold text-[#6b6b6b]'
+                        >
                           회원가입
                         </a>
                       </Link>

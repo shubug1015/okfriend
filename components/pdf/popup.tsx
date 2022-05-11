@@ -96,7 +96,7 @@ export default function Popup({ closePopup }: IProps) {
         initial='invisible'
         animate='visible'
         exit='exit'
-        className='top-1/2 left-1/2 w-[21.875rem] rounded-xl bg-white py-10 shadow-sm'
+        className='top-1/2 left-1/2 w-[21.875rem] rounded-xl bg-white py-10 shadow-sm md:w-[330px] md:py-8'
       >
         <div className='text-center font-nexonBold text-[1.375rem] font-bold'>
           이수증 발급
