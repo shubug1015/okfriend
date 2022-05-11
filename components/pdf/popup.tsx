@@ -79,7 +79,6 @@ export default function Popup() {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
   } = useForm<IForm>({
     mode: 'onChange',
   });
