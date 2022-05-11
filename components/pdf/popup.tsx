@@ -4,13 +4,35 @@ import { cls } from '@libs/client/utils';
 import { motion } from 'framer-motion';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FieldErrors, useForm } from 'react-hook-form';
 import useSWR from 'swr';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 interface IForm {
   type: string;
 }
+
+const popupVar = {
+  invisible: {
+    opacity: 0,
+    scale: 0,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.3,
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0,
+    transition: {
+      duration: 0.3,
+    },
+  },
+};
 
 export default function Popup() {
   const { data } = useSWR<IUser>('/api/user');
@@ -69,28 +91,14 @@ export default function Popup() {
     console.log(errors);
   };
 
-  const popupVar = {
-    invisible: {
-      opacity: 0,
-      scale: 0,
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.3,
-      },
-    },
-    exit: {
-      opacity: 0,
-      scale: 0,
-      transition: {
-        duration: 0.3,
-      },
-    },
-  };
+  useEffect(() => {
+    disableBodyScroll(document.body);
+    return () => {
+      enableBodyScroll(document.body);
+    };
+  }, []);
   return (
-    <div className='fixed top-0 left-0 z-[9999] flex h-screen w-screen items-center justify-center overflow-y-scroll bg-[rgba(0,0,0,0.2)]'>
+    <div className='fixed top-0 left-0 z-[50] flex h-screen w-screen items-center justify-center overflow-y-scroll bg-[rgba(0,0,0,0.2)]'>
       <motion.div
         variants={popupVar}
         initial='invisible'

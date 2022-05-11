@@ -100,14 +100,6 @@ const Certificate: NextPage = () => {
   };
 
   useEffect(() => {
-    if (popup) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'visible';
-    }
-  }, [popup]);
-
-  useEffect(() => {
     setPopup(true);
   }, [profile?.survey]);
 

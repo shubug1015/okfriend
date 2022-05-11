@@ -113,12 +113,7 @@ export default function Course() {
           </div>
 
           <Link href='/course/list/online/live/1'>
-            <a
-              data-aos='fade-up'
-              data-aos-duration='1500'
-              data-aos-delay='1000'
-              className='rounded-full bg-[#2fb6bc] py-2 px-[1.375rem] text-lg font-bold md:hidden'
-            >
+            <a className='rounded-full bg-[#2fb6bc] py-2 px-[1.375rem] text-lg font-bold md:hidden'>
               전체보기
             </a>
           </Link>

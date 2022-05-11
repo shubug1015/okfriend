@@ -24,11 +24,7 @@ export default function Contact() {
 
       <Layout>
         <div className='text-white'>
-          <div
-            data-aos='fade-down'
-            data-aos-duration='1500'
-            className='flex h-9 w-[5.875rem] items-center justify-center rounded-md border border-white font-bold md:h-[1.85rem] md:w-[4.75rem] md:text-[0.81rem]'
-          >
+          <div className='flex h-9 w-[5.875rem] items-center justify-center rounded-md border border-white font-bold md:h-[1.85rem] md:w-[4.75rem] md:text-[0.81rem]'>
             지원센터
           </div>
           <div
@@ -52,7 +48,7 @@ export default function Contact() {
               <div
                 data-aos='fade-up'
                 data-aos-duration='1500'
-                data-aos-delay='600'
+                data-aos-delay='300'
                 className='mt-11 flex h-10 w-32 items-center justify-center rounded-full bg-white font-bold text-[#01111e] md:mt-6 md:w-28 md:text-[0.94rem]'
               >
                 1:1 문의하기

@@ -18,6 +18,65 @@ import axios from 'axios';
 import { useEffect, useState, Fragment } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, Transition } from '@headlessui/react';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+
+const tabVar = {
+  invisible: {
+    opacity: 0,
+    y: 10,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.2,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: 10,
+    transition: {
+      duration: 0.2,
+    },
+  },
+};
+const mobileMenuVar = {
+  invisible: {
+    right: '-100vw',
+  },
+  visible: {
+    right: 0,
+    transition: {
+      duration: 0.4,
+    },
+  },
+  exit: {
+    right: '-100vw',
+    transition: {
+      duration: 0.4,
+    },
+  },
+};
+const mobileTabVar = {
+  invisible: {
+    opacity: 0,
+    height: 0,
+  },
+  visible: {
+    opacity: 1,
+    height: 'auto',
+    transition: {
+      duration: 0.4,
+    },
+  },
+  exit: {
+    opacity: 0,
+    height: 0,
+    transition: {
+      duration: 0.4,
+    },
+  },
+};
 
 export default function Header() {
   const { data, mutate } = useSWR<IUser>('/api/user');
@@ -178,69 +237,12 @@ export default function Header() {
 
   useEffect(() => {
     if (mobileMenuOpened) {
-      document.body.style.overflow = 'hidden';
+      disableBodyScroll(document.body);
     } else {
-      document.body.style.overflow = 'visible';
+      enableBodyScroll(document.body);
     }
   }, [mobileMenuOpened]);
 
-  const tabVar = {
-    invisible: {
-      opacity: 0,
-      y: 10,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.2,
-      },
-    },
-    exit: {
-      opacity: 0,
-      y: 10,
-      transition: {
-        duration: 0.2,
-      },
-    },
-  };
-  const mobileMenuVar = {
-    invisible: {
-      right: '-100vw',
-    },
-    visible: {
-      right: 0,
-      transition: {
-        duration: 0.4,
-      },
-    },
-    exit: {
-      right: '-100vw',
-      transition: {
-        duration: 0.4,
-      },
-    },
-  };
-  const mobileTabVar = {
-    invisible: {
-      opacity: 0,
-      height: 0,
-    },
-    visible: {
-      opacity: 1,
-      height: 'auto',
-      transition: {
-        duration: 0.4,
-      },
-    },
-    exit: {
-      opacity: 0,
-      height: 0,
-      transition: {
-        duration: 0.4,
-      },
-    },
-  };
   return (
     <header className='fixed top-0 left-0 z-[9999] w-screen'>
       {/* 상단 헤더 */}
