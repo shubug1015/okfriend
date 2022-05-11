@@ -1,4 +1,4 @@
-export const ko = {
+export const en = {
   header: {
     '1': '온라인연수 소개',
     '2': '연수실',
@@ -11,9 +11,9 @@ export const ko = {
     '9': '회원가입',
   },
   main: {
-    '1': '재외동포 대학생 온라인 모국연수',
-    '2': '재외동포 대학생과 국내교류참가자가 함께 실시간으로 소통하고 교류하는 공간으로',
-    '3': '새로운 변화의 미래를 체감하는 온라인 플랫폼입니다.',
+    '1': 'Online home country training for overseas Korean college students',
+    '2': 'It is a space where overseas Korean university students and domestic exchange participants can communicate and exchange\nin real time. It is an online platform\nwhere you can experience the future of new changes.',
+    '3': '',
     '4': 'NOTICE',
     '5': '더보기',
     '6': '공 지',
@@ -230,7 +230,7 @@ export const ko = {
     '88': '영문',
     '89': '국문',
     '90': '영문/국문',
-    '91': '제출 완료',
+    '91': '발급하기',
   },
   login: {
     '1': '로그인',
