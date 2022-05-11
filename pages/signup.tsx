@@ -532,7 +532,6 @@ const SignUp: NextPage = () => {
                     },
                   })}
                   error={errors?.phoneNum?.message}
-                  readOnly={code.sended}
                 />
                 {/* 휴대폰 번호 */}
               </div>

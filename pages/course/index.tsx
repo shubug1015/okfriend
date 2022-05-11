@@ -65,7 +65,7 @@ const Course: NextPage = () => {
               <div className='text-[1.625rem] font-bold text-white'>
                 온라인연수
               </div>
-              <Link href='/course/list/online/live/1'>
+              <Link href='/course/list/online/required/1'>
                 <a>
                   <div className='flex h-[3.75rem] w-44 cursor-pointer items-center justify-center rounded-lg border border-white bg-[rgba(0,0,0,0.5)] text-xl font-bold text-white md:h-14 md:w-36 md:text-lg'>
                     바로가기

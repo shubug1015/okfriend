@@ -10,7 +10,7 @@ export default function Navigator({ courseType, courseCategory }: IProps) {
   return (
     <div className='border-b border-[#e8e8e8]'>
       <div className='flex items-center justify-center md:mx-auto md:max-w-[330px] md:justify-between'>
-        {courseType === 'online' && (
+        {/* {courseType === 'online' && (
           <Link href={`/course/list/${courseType}/live/1`}>
             <a>
               <div
@@ -25,7 +25,7 @@ export default function Navigator({ courseType, courseCategory }: IProps) {
               </div>
             </a>
           </Link>
-        )}
+        )} */}
 
         <Link href={`/course/list/${courseType}/required/1`}>
           <a>

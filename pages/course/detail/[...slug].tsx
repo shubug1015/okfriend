@@ -53,6 +53,7 @@ const CourseDetail: NextPage<IProps> = ({ slug }) => {
           progress={data?.total_progress}
           isRegistered={data?.lecture ? true : false}
           completed={data?.completed}
+          survey={data?.survey}
           mutate={mutate}
         />
 

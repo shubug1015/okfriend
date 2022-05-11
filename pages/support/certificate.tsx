@@ -10,8 +10,10 @@ import { surveyApi } from '@libs/api';
 import { useUser } from '@libs/client/useUser';
 import { cls } from '@libs/client/utils';
 import type { NextPage } from 'next';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { FieldErrors, useForm } from 'react-hook-form';
+import useSWR from 'swr';
 
 interface IForm {
   Q1: string;
@@ -61,8 +63,12 @@ interface IForm {
 }
 
 const Certificate: NextPage = () => {
-  const { token } = useUser({ isPrivate: true });
-  const [popup, setPopup] = useState(false);
+  const { token, profile } = useUser({ isPrivate: true });
+  const router = useRouter();
+  const { data } = useSWR(token ? 'checkCertificate' : null, () =>
+    surveyApi.checkCertificate(token as string)
+  );
+  const [popup, setPopup] = useState(true);
 
   const {
     register,
@@ -84,7 +90,7 @@ const Certificate: NextPage = () => {
         token as string
       );
       alert('제출이 완료되었습니다');
-      closePopup();
+      setPopup(true);
     } catch {
       alert('Error');
     }
@@ -93,7 +99,6 @@ const Certificate: NextPage = () => {
     console.log(errors);
   };
 
-  const closePopup = () => setPopup(false);
   useEffect(() => {
     if (popup) {
       document.body.style.overflow = 'hidden';
@@ -101,12 +106,22 @@ const Certificate: NextPage = () => {
       document.body.style.overflow = 'visible';
     }
   }, [popup]);
+
+  useEffect(() => {
+    setPopup(true);
+  }, [profile?.survey]);
+
+  // if (data === 'there are uncompleted lectures') {
+  //   console.log('mount');
+  //   alert('미완료된 강의가 있습니다.');
+  //   router.back();
+  // }
   return (
     <>
       <SEO title='지원센터' />
       <Banner
-        title='지원센터 1:1 문의하기'
-        navList={['지원센터', '1:1 문의하기']}
+        title='지원센터 이수증 발급'
+        navList={['지원센터', '이수증 발급']}
       />
       <Navigator supportCategory='certificate' />
 
@@ -196,11 +211,11 @@ const Certificate: NextPage = () => {
                   '3) 보통이다',
                   '4) 그렇지 않다',
                   '5) 전혀 그렇지 않다',
-                ].map((i) => (
+                ].map((i, index) => (
                   <div key={i} className='flex items-center space-x-4'>
                     <input
                       type='radio'
-                      value={i}
+                      value={index + 1}
                       {...register('Q2', {
                         required: '항목을 선택해주세요',
                       })}
@@ -277,11 +292,11 @@ const Certificate: NextPage = () => {
                   '1) 더욱 확대 되어야 한다.',
                   '2) 금년과 같은 수준으로 유지',
                   '3) 금년보다 축소되어야 한다.',
-                ].map((i) => (
+                ].map((i, index) => (
                   <div key={i} className='flex items-center space-x-4'>
                     <input
                       type='radio'
-                      value={i}
+                      value={index + 1}
                       {...register('Q10', {
                         required: '항목을 선택해주세요',
                       })}
@@ -308,25 +323,27 @@ const Certificate: NextPage = () => {
               </div>
 
               <div className='space-y-5 md:w-full md:justify-between'>
-                {['1) 권유 하겠습니다.', '2) 권유하지 않겠습니다.'].map((i) => (
-                  <div key={i} className='flex items-center space-x-4'>
-                    <input
-                      type='radio'
-                      value={i}
-                      {...register('Q11', {
-                        required: '항목을 선택해주세요',
-                      })}
-                      className={cls(
-                        errors?.Q11?.message
-                          ? 'bg-[url("/icons/checked-error.png")]'
-                          : 'bg-[url("/icons/unchecked.png")] checked:bg-[url("/icons/checked.png")]',
-                        'h-2.5 w-3.5 cursor-pointer appearance-none bg-cover bg-no-repeat outline-none md:bg-contain'
-                      )}
-                    />
+                {['1) 권유 하겠습니다.', '2) 권유하지 않겠습니다.'].map(
+                  (i, index) => (
+                    <div key={i} className='flex items-center space-x-4'>
+                      <input
+                        type='radio'
+                        value={index + 1}
+                        {...register('Q11', {
+                          required: '항목을 선택해주세요',
+                        })}
+                        className={cls(
+                          errors?.Q11?.message
+                            ? 'bg-[url("/icons/checked-error.png")]'
+                            : 'bg-[url("/icons/unchecked.png")] checked:bg-[url("/icons/checked.png")]',
+                          'h-2.5 w-3.5 cursor-pointer appearance-none bg-cover bg-no-repeat outline-none md:bg-contain'
+                        )}
+                      />
 
-                    <div className='text-lg md:text-sm'>{i}</div>
-                  </div>
-                ))}
+                      <div className='text-lg md:text-sm'>{i}</div>
+                    </div>
+                  )
+                )}
               </div>
             </div>
             {/* 문항 11 */}
@@ -344,7 +361,7 @@ const Certificate: NextPage = () => {
           </div>
         </div>
 
-        {popup && <Popup closePopup={closePopup} />}
+        {popup && <Popup />}
       </Layout>
     </>
   );

@@ -7,7 +7,6 @@ interface IProps {
 }
 
 const Library: NextPage<IProps> = ({ id }) => {
-  console.log(id);
   return (
     <>
       <SEO title='도서관' />

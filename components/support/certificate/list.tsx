@@ -46,7 +46,7 @@ export const list = [
       {
         id: 7,
         question: '8. 지금 현재 모국에 있는 청소년/대학생과 소통하고 있나요?',
-        num: 'Q3_7' as 'Q3_7',
+        num: 'Q3_8' as 'Q3_8',
       },
     ],
   },
@@ -138,7 +138,7 @@ export const list = [
       {
         id: 4,
         question: '5. 운영 사무국의 서비스 수준',
-        num: 'Q6_4' as 'Q6_4',
+        num: 'Q6_5' as 'Q6_5',
       },
     ],
   },
@@ -199,7 +199,7 @@ export const list = [
       {
         id: 4,
         question: '5. 기타',
-        num: 'Q8_4' as 'Q8_4',
+        num: 'Q8_5' as 'Q8_5',
       },
     ],
   },
@@ -233,17 +233,17 @@ export const list = [
       {
         id: 4,
         question: '5. 한국어 교육의 의미와 중요성에 대해 알게 되었다.',
-        num: 'Q9_4' as 'Q9_4',
+        num: 'Q9_5' as 'Q9_5',
       },
       {
         id: 5,
         question: '6. 한국 역사와 전통문화에 대해 알게 되었다.',
-        num: 'Q9_4' as 'Q9_4',
+        num: 'Q9_6' as 'Q9_6',
       },
       {
         id: 6,
         question: '7. 평화와 더불어 살아가는 것에 대해 이해하게 되었다.',
-        num: 'Q9_4' as 'Q9_4',
+        num: 'Q9_7' as 'Q9_7',
       },
     ],
   },

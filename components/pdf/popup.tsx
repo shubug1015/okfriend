@@ -1,20 +1,19 @@
+import { surveyApi } from '@libs/api';
+import { IUser } from '@libs/client/useUser';
 import { cls } from '@libs/client/utils';
 import { motion } from 'framer-motion';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { useState } from 'react';
 import { FieldErrors, useForm } from 'react-hook-form';
-import PdfKo from './ko';
+import useSWR from 'swr';
 
 interface IForm {
   type: string;
 }
 
-interface IProps {
-  closePopup: () => void;
-}
-
-export default function Popup({ closePopup }: IProps) {
+export default function Popup() {
+  const { data } = useSWR<IUser>('/api/user');
   const [loading, setLoading] = useState(false);
 
   const downloadPdf = async () => {
@@ -29,15 +28,23 @@ export default function Popup({ closePopup }: IProps) {
           ) as HTMLElement;
           clonedPdfEl.style.display = 'block';
         },
-      }).then((canvas) => {
+      }).then(async (canvas) => {
         const imgData = canvas.toDataURL('image/png');
 
         const pdf = new jsPDF();
         const pdfWidth = 210;
         const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
         pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight, '', 'FAST');
+
+        const blob = pdf.output();
+        console.log(pdf.output());
+        const formData = new FormData();
+        formData.append('certificate', pdf.output());
+
+        await surveyApi.sendCertificate(formData, data?.token as string);
         // pdf.output('dataurlnewwindow');
-        pdf.save('download.pdf');
+        // pdf.save('download.pdf');
       });
     } catch {
       alert('Error');
@@ -83,15 +90,8 @@ export default function Popup({ closePopup }: IProps) {
     },
   };
   return (
-    <div
-      onClick={closePopup}
-      className='fixed top-0 left-0 z-[9999] flex h-screen w-screen items-center justify-center overflow-y-scroll bg-[rgba(0,0,0,0.2)]'
-    >
+    <div className='fixed top-0 left-0 z-[9999] flex h-screen w-screen items-center justify-center overflow-y-scroll bg-[rgba(0,0,0,0.2)]'>
       <motion.div
-        onClick={(e) => {
-          e.stopPropagation();
-          return;
-        }}
         variants={popupVar}
         initial='invisible'
         animate='visible'

@@ -22,7 +22,7 @@ export const useUser = ({ isPrivate = false }: IProps) => {
 
   useEffect(() => {
     if (data && data.token && data.profile && !isPrivate) {
-      router.replace('/');
+      router.back();
     }
 
     if (data && !data.token && !data.profile && isPrivate) {

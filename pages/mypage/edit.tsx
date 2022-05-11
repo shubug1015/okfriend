@@ -109,7 +109,8 @@ const Edit: NextPage = () => {
                       },
                     },
                   })}
-                  className='h-[3.75rem] w-full rounded border border-[#d6d6d6] pl-5 text-lg font-medium outline-none placeholder:text-[#d6d6d6] md:h-[2.813rem] md:pl-2.5 md:text-[0.938rem]'
+                  readOnly
+                  className='h-[3.75rem] w-full rounded border border-[#d6d6d6] bg-[#f8f8f8] pl-5 text-lg font-medium text-[#d6d6d6] outline-none placeholder:text-[#d6d6d6] md:h-[2.813rem] md:pl-2.5 md:text-[0.938rem]'
                 />
               </div>
 

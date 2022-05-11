@@ -259,8 +259,7 @@ export const usersApi = {
   logoutNextApi: () => axios.post('/api/logout'),
 
   // 아이디 찾기
-  findId: (phoneNum: string) =>
-    api.get(`/users/find_username/?phone_number=${phoneNum}`),
+  findId: (email: string) => api.get(`/users/find_username/?email=${email}`),
 
   // 비밀번호 재설정
   resetPw: (username: string, password: string) =>
@@ -358,6 +357,16 @@ export const surveyApi = {
       },
     }),
 
+  checkCertificate: (token: string) =>
+    api
+      .get(`/survey/certificate/check/`, {
+        headers: {
+          Authorization: token,
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((res) => res.data),
+
   certificateSurvey: (questions: { [key: string]: string }, token: string) =>
     api.post(`/survey/certificate/`, questions, {
       headers: {
@@ -365,4 +374,14 @@ export const surveyApi = {
         'Content-Type': 'application/json',
       },
     }),
+
+  sendCertificate: (certificate: any, token: string) =>
+    api
+      .post(`/survey/certificate/send/`, certificate, {
+        headers: {
+          Authorization: token,
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((res) => res.data),
 };

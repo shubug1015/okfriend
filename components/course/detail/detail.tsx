@@ -15,6 +15,7 @@ interface IProps {
   progress: number;
   isRegistered: boolean;
   completed: boolean;
+  survey: boolean;
   mutate: (args: { [key: string]: any }) => void;
 }
 
@@ -23,12 +24,15 @@ export default function Detail({
   progress,
   isRegistered,
   completed,
+  survey,
   mutate,
 }: IProps) {
   const { data: myData } = useSWR<IUser>('/api/user');
   const router = useRouter();
   const [, category, id] = router.query.slug as string[];
 
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [progressPercent, setProgressPercent] = useState(0);
   const [popup, setPopup] = useState(false);
   const closePopup = () => setPopup(false);
 
@@ -61,22 +65,36 @@ export default function Detail({
     }
   }, [popup]);
 
-  let progressPercent = 0;
-  useEffect(() => {
-    const setProgress = () => {
-      courseApi.sendProgress(
+  // useEffect(() => {
+  //   const setProgress = () => {
+  //     courseApi.sendProgress(id, progressPer, myData?.token as string);
+  //   };
+  //   router.events.on('routeChangeStart', setProgress);
+  //   window.addEventListener('beforeunload', setProgress);
+  //   return () => {
+  //     router.events.off('routeChangeStart', setProgress);
+  //     window.removeEventListener('beforeunload', setProgress);
+  //   };
+  // }, [myData, progressPer]);
+
+  const setProgress = async () => {
+    try {
+      await courseApi.sendProgress(
         id,
-        progressPercent * 100,
+        progressPercent,
         myData?.token as string
       );
-    };
-    router.events.on('routeChangeStart', setProgress);
-    window.addEventListener('beforeunload', setProgress);
-    return () => {
-      router.events.off('routeChangeStart', setProgress);
-      window.removeEventListener('beforeunload', setProgress);
-    };
-  }, [myData, progressPercent]);
+    } catch {
+      alert('Error');
+    }
+  };
+
+  useEffect(() => {
+    if (isPlaying) {
+      let timer = setInterval(setProgress, 10000);
+      return () => clearInterval(timer);
+    }
+  }, [isPlaying]);
   return (
     <>
       <div>
@@ -87,9 +105,9 @@ export default function Detail({
               <Vimeo
                 video={data?.url}
                 className='h-full w-full'
-                onTimeUpdate={(e) => {
-                  progressPercent = e.percent;
-                }}
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+                onTimeUpdate={(e) => setProgressPercent(e.percent * 100)}
               />
             ) : (
               data?.thumbnail && (
@@ -201,13 +219,18 @@ export default function Detail({
                 ) : (
                   <>
                     <div
-                      onClick={() => (completed ? setPopup(true) : null)}
-                      className={cls(
-                        completed
-                          ? 'cursor-pointer transition-all hover:opacity-70'
-                          : '',
-                        'flex h-[3.625rem] items-center justify-center rounded-lg border border-[#9e9e9e] text-[#6b6b6b]'
-                      )}
+                      onClick={() => {
+                        if (completed) {
+                          if (survey) {
+                            alert('이미 설문조사를 완료하였습니다.');
+                          } else {
+                            setPopup(true);
+                          }
+                        } else {
+                          alert('강의 수강 완료 시 가능합니다.');
+                        }
+                      }}
+                      className='flex h-[3.625rem] cursor-pointer items-center justify-center rounded-lg border border-[#9e9e9e] text-[#6b6b6b] transition-all hover:opacity-70'
                     >
                       필수 설문조사
                     </div>
@@ -215,6 +238,7 @@ export default function Detail({
                     <a
                       href={data?.syllabus}
                       download
+                      target='_blank'
                       className='flex h-[3.625rem] cursor-pointer items-center justify-center rounded-lg border border-[#9e9e9e] text-[#6b6b6b] transition-all hover:opacity-70'
                     >
                       강의 계획서

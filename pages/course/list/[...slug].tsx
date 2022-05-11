@@ -49,7 +49,7 @@ const Course: NextPage<IProps> = ({ params }) => {
       <Banner title='재외동포 대학생 연수실' navList={navList} />
       <Navigator courseType={courseType} courseCategory={courseCategory} />
       <Layout padding='pt-16 pb-32 md:pt-6 md:pb-14'>
-        {courseCategory === 'live' && <LiveNotice />}
+        {/* {courseCategory === 'live' && <LiveNotice />} */}
         {courseCategory === 'required' && <RequiredNotice />}
         {courseCategory === 'elective' && <ElectiveNotice />}
 
