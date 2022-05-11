@@ -4,8 +4,10 @@ import 'slick-carousel/slick/slick-theme.css';
 import Image from 'next/image';
 import SlideBg1 from '@public/home/slide-bg-1.png';
 import SlideBg2 from '@public/home/slide-bg-2.png';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import useInterval from '@libs/client/useInterval';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default function Slide() {
   const slide = [
@@ -60,6 +62,9 @@ export default function Slide() {
     slider.current?.slickNext();
   };
 
+  useEffect(() => {
+    AOS.init({ once: true });
+  }, []);
   return (
     <div className='relative h-[57rem] w-screen md:h-[25.125rem]'>
       <Slider ref={slider} className='h-full overflow-hidden' {...settings}>
@@ -80,11 +85,19 @@ export default function Slide() {
               </div>
             </div>
 
-            <div className='whitespace-pre-wrap text-center font-quicksand text-[5rem] font-bold leading-none drop-shadow-md md:text-[2.5rem]'>
+            <div
+              data-aos='fade-up'
+              data-aos-duration='1500'
+              className='whitespace-pre-wrap text-center font-quicksand text-[5rem] font-bold leading-none drop-shadow-md md:text-[2.5rem]'
+            >
               {i.title}
             </div>
 
-            <div className='mt-6 text-2xl font-bold drop-shadow-md md:text-xl'>
+            <div
+              data-aos='fade-up'
+              data-aos-duration='1500'
+              className='mt-6 text-2xl font-bold drop-shadow-md md:text-xl'
+            >
               {i.text}
             </div>
           </div>

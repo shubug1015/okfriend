@@ -1,8 +1,14 @@
 import Image from 'next/image';
 import BgImg from '@public/home/about-bg.png';
 import Layout from '@layouts/sectionLayout';
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default function About() {
+  useEffect(() => {
+    AOS.init({ once: true });
+  }, []);
   return (
     <div className='relative flex w-screen justify-center py-[5.812rem] md:py-12'>
       <div className='absolute top-0 left-0 -z-[1] h-full w-full'>
@@ -17,11 +23,20 @@ export default function About() {
 
       <Layout>
         <div className='flex flex-col items-center text-white'>
-          <div className='font-quicksand text-4xl font-bold md:text-2xl'>
+          <div
+            data-aos='flip-down'
+            data-aos-duration='1500'
+            className='font-quicksand text-4xl font-bold md:text-2xl'
+          >
             About Us
           </div>
 
-          <div className='mt-5 flex flex-col items-center text-[1.625rem] md:hidden'>
+          <div
+            data-aos='fade-up'
+            data-aos-duration='1500'
+            data-aos-delay='300'
+            className='mt-5 flex flex-col items-center text-[1.625rem] md:hidden'
+          >
             <div>
               재외동포 대학생과 국내교류참가자가 함께 실시간으로 소통하고
               교류하는 공간으로

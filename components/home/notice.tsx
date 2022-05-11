@@ -2,19 +2,29 @@ import Layout from '@layouts/sectionLayout';
 import { boardApi } from '@libs/api';
 import { trimDate } from '@libs/client/utils';
 import Link from 'next/link';
+import { useEffect } from 'react';
 import useSWR from 'swr';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default function Notice() {
   const { data } = useSWR('noticeList/title/created/1/', () =>
     boardApi.getNoticeList('title', 'created', '1', '')
   );
 
+  useEffect(() => {
+    AOS.init({ once: true });
+  }, []);
   return (
     <Layout padding='pt-[4.625rem] pb-[5.688rem] md:py-10'>
       <div className='flex space-x-20 md:flex-col md:space-x-0'>
         <div className='w-1/2 md:w-full'>
           <div className='flex w-full justify-between'>
-            <div className='font-quicksand text-4xl font-bold md:text-2xl'>
+            <div
+              data-aos='flip-down'
+              data-aos-duration='1500'
+              className='font-quicksand text-4xl font-bold md:text-2xl'
+            >
               NOTICE
             </div>
 
@@ -39,7 +49,12 @@ export default function Notice() {
             </Link>
           </div>
 
-          <div className='mt-8 grid grid-flow-col grid-rows-5 md:mt-5'>
+          <div
+            data-aos='fade-up'
+            data-aos-duration='1500'
+            data-aos-delay='300'
+            className='mt-8 grid grid-flow-col grid-rows-5 md:mt-5'
+          >
             {data?.fixed.slice(0, 5).map((i: { [key: string]: any }) => (
               <Link href={`/support/notice/detail/${i.id}`} key={i.id}>
                 <a className='flex h-20 items-center justify-between border-b border-[#d6d6d6] transition-all hover:opacity-70 md:h-24'>
@@ -88,11 +103,20 @@ export default function Notice() {
         </div>
 
         <div className='w-1/2 md:mt-10 md:w-full'>
-          <div className='font-quicksand text-4xl font-bold md:text-2xl'>
+          <div
+            data-aos='flip-down'
+            data-aos-duration='1500'
+            className='font-quicksand text-4xl font-bold md:text-2xl'
+          >
             Video
           </div>
 
-          <div className='mt-8 h-[25.625rem] w-full rounded-lg bg-slate-300 md:mt-5 md:h-48'></div>
+          <div
+            data-aos='fade-up'
+            data-aos-duration='1500'
+            data-aos-delay='300'
+            className='mt-8 h-[25.625rem] w-full rounded-lg bg-slate-300 md:mt-5 md:h-48'
+          ></div>
         </div>
       </div>
     </Layout>
