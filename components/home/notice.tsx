@@ -9,9 +9,9 @@ import 'aos/dist/aos.css';
 import { useLocale } from '@libs/client/useLocale';
 
 export default function Notice() {
-  const { text } = useLocale();
-  const { data } = useSWR('noticeList/title/created/1/', () =>
-    boardApi.getNoticeList('title', 'created', '1', '')
+  const { locale, text } = useLocale();
+  const { data } = useSWR(`${locale}/noticeList/title/created/1/`, () =>
+    boardApi.getNoticeList(locale, 'title', 'created', '1', '')
   );
 
   useEffect(() => {

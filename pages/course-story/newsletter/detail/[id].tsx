@@ -21,10 +21,13 @@ interface IForm {
 
 const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
   const router = useRouter();
+  const { locale } = router;
   const { data: myData } = useSWR<IUser>('/api/user');
   const { data, mutate } = useSWR(
-    myData?.token ? 'newsLetterDetail/logged' : 'newsLetterDetail/unlogged',
-    () => boardApi.getNewsLetterDetail(id, myData?.token)
+    myData?.token
+      ? `${locale}/newsLetterDetail/logged`
+      : `${locale}/newsLetterDetail/unlogged`,
+    () => boardApi.getNewsLetterDetail(locale, id, myData?.token)
   );
   const {
     register,
@@ -37,7 +40,12 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
   const onValid = async ({ reply }: IForm) => {
     if (myData?.token) {
       try {
-        await boardApi.writeNewsLetterReply(data?.id, reply, myData?.token);
+        await boardApi.writeNewsLetterReply(
+          locale,
+          data?.id,
+          reply,
+          myData?.token
+        );
         setValue('reply', '');
         mutate({
           ...data,
@@ -65,7 +73,7 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
   };
   const toggleLike = () => {
     try {
-      boardApi.likeNewsLetter(id, myData?.token as string);
+      boardApi.likeNewsLetter(locale, id, myData?.token as string);
       mutate({
         ...data,
         view_num: data?.liked ? data?.view_num - 1 : data?.view_num + 1,

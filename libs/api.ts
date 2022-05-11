@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { useRouter } from 'next/router';
 
-export const API_URL = 'http://127.0.0.1:8000';
+const API_URL = 'http://127.0.0.1:8000';
 
 const api = axios.create({
   baseURL: API_URL,
@@ -12,6 +13,7 @@ interface IProps {
 
 export const boardApi = {
   getNoticeList: (
+    locale: string | undefined,
     searchType: string,
     orderType: string,
     page: string,
@@ -19,16 +21,21 @@ export const boardApi = {
   ) =>
     api
       .get(
-        `/board/notice?search_keyword=${searchType}&filter_keyword=${orderType}&page=${page}&search=${
+        `${
+          locale === 'ko' ? '' : `/${locale}`
+        }/board/notice?search_keyword=${searchType}&filter_keyword=${orderType}&page=${page}&search=${
           searchTerm || ''
         }`
       )
       .then((res) => res.data),
 
-  getNoticeDetail: (id: string) =>
-    api.get(`/board/notice/${id}`).then((res) => res.data),
+  getNoticeDetail: (locale: string | undefined, id: string) =>
+    api
+      .get(`${locale === 'ko' ? '' : `/${locale}`}/board/notice/${id}`)
+      .then((res) => res.data),
 
   getLibraryeList: (
+    locale: string | undefined,
     searchType: string,
     orderType: string,
     page: string,
@@ -36,45 +43,73 @@ export const boardApi = {
   ) =>
     api
       .get(
-        `/board/resource?search_keyword=${searchType}&filter_keyword=${orderType}&page=${page}&search=${
+        `${
+          locale === 'ko' ? '' : `/${locale}`
+        }/board/resource?search_keyword=${searchType}&filter_keyword=${orderType}&page=${page}&search=${
           searchTerm || ''
         }`
       )
       .then((res) => res.data),
 
-  getLibraryDetail: (id: string) =>
-    api.get(`/board/resource/${id}`).then((res) => res.data),
+  getLibraryDetail: (locale: string | undefined, id: string) =>
+    api
+      .get(`${locale === 'ko' ? '' : `/${locale}`}/board/resource/${id}`)
+      .then((res) => res.data),
 
-  getVideoList: (page: string) =>
-    api.get(`/board/promotion_video?page=${page}`).then((res) => res.data),
-
-  getGalleryList: (category: string, page: string) =>
+  getVideoList: (locale: string | undefined, page: string) =>
     api
       .get(
-        `/board/gallery?page=${page}&${
+        `${
+          locale === 'ko' ? '' : `/${locale}`
+        }/board/promotion_video?page=${page}`
+      )
+      .then((res) => res.data),
+
+  getGalleryList: (
+    locale: string | undefined,
+    category: string,
+    page: string
+  ) =>
+    api
+      .get(
+        `${locale === 'ko' ? '' : `/${locale}`}/board/gallery?page=${page}&${
           category === '전체' ? '' : `category=${category}`
         }`
       )
       .then((res) => res.data),
 
-  getCardNewsList: (page: string, category: string) =>
+  getCardNewsList: (
+    locale: string | undefined,
+    page: string,
+    category: string
+  ) =>
     api
       .get(
-        `/board/card_news?page=${page}&${
+        `${locale === 'ko' ? '' : `/${locale}`}/board/card_news?page=${page}&${
           category === '전체' ? '' : `category=${category}`
         }`
       )
       .then((res) => res.data),
 
-  getCardNewsDetail: (id: string) =>
-    api.get(`/board/card_news/${id}`).then((res) => res.data),
-
-  getNewsLetterList: (page: string) =>
-    api.get(`/board/news_letter?page=${page}`).then((res) => res.data),
-
-  getNewsLetterDetail: (id: string, token?: string | null) =>
+  getCardNewsDetail: (locale: string | undefined, id: string) =>
     api
-      .get(`/board/news_letter/${id}`, {
+      .get(`${locale === 'ko' ? '' : `/${locale}`}/board/card_news/${id}`)
+      .then((res) => res.data),
+
+  getNewsLetterList: (locale: string | undefined, page: string) =>
+    api
+      .get(
+        `${locale === 'ko' ? '' : `/${locale}`}/board/news_letter?page=${page}`
+      )
+      .then((res) => res.data),
+
+  getNewsLetterDetail: (
+    locale: string | undefined,
+    id: string,
+    token?: string | null
+  ) =>
+    api
+      .get(`${locale === 'ko' ? '' : `/${locale}`}/board/news_letter/${id}`, {
         ...(token && {
           headers: {
             Authorization: token,
@@ -84,10 +119,10 @@ export const boardApi = {
       })
       .then((res) => res.data),
 
-  likeNewsLetter: (id: string, token: string) =>
+  likeNewsLetter: (locale: string | undefined, id: string, token: string) =>
     api
       .post(
-        '/board/news_letter/like/',
+        `${locale === 'ko' ? '' : `/${locale}`}/board/news_letter/like/`,
         { type: 'news_letter', news_letter_pk: id },
         {
           headers: {
@@ -99,9 +134,14 @@ export const boardApi = {
       .then((res) => res.data),
 
   // 강의 상세 리뷰 작성
-  writeNewsLetterReply: (id: string, text: string, token: string) =>
+  writeNewsLetterReply: (
+    locale: string | undefined,
+    id: string,
+    text: string,
+    token: string
+  ) =>
     api.post(
-      '/board/news_letter/reply/',
+      `${locale === 'ko' ? '' : `/${locale}`}/board/news_letter/reply/`,
       {
         type: 'news_letter',
         news_letter_pk: id,
@@ -117,14 +157,18 @@ export const boardApi = {
 };
 
 export const courseApi = {
-  getCourseList: (category: string, page: string) =>
+  getCourseList: (locale: string | undefined, category: string, page: string) =>
     api
-      .get(`/lectures?category=${category}&page=${page}`)
+      .get(
+        `${
+          locale === 'ko' ? '' : `/${locale}`
+        }/lectures?category=${category}&page=${page}`
+      )
       .then((res) => res.data),
 
-  detail: (id: string, token?: string | null) =>
+  detail: (locale: string | undefined, id: string, token?: string | null) =>
     api
-      .get(`/lectures/${id}/`, {
+      .get(`${locale === 'ko' ? '' : `/${locale}`}/lectures/${id}/`, {
         ...(token && {
           headers: {
             Authorization: token,
@@ -134,9 +178,9 @@ export const courseApi = {
       })
       .then((res) => res.data),
 
-  registerCourse: (id: string, token: string) =>
+  registerCourse: (locale: string | undefined, id: string, token: string) =>
     api.post(
-      `/lectures/${id}/register/`,
+      `${locale === 'ko' ? '' : `/${locale}`}/lectures/${id}/register/`,
       {},
       {
         headers: {
@@ -146,33 +190,36 @@ export const courseApi = {
       }
     ),
 
-  // sendProgress: (id: string, progress: number, token: string) =>
-  //   api.post(
-  //     `/lectures/${id}/progress/`,
-  //     { progress },
-  //     {
-  //       headers: {
-  //         Authorization: token,
-  //         'Content-Type': 'application/json',
-  //       },
-  //     }
-  //   ),
-
-  sendProgress: (id: string, progress: number, token: string) =>
-    fetch(`${API_URL}/lectures/${id}/progress/`, {
-      method: 'POST',
-      keepalive: true,
-      headers: {
-        Authorization: token,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ progress }),
-    }),
+  sendProgress: (
+    locale: string | undefined,
+    id: string,
+    progress: number,
+    token: string
+  ) =>
+    fetch(
+      `${API_URL}${
+        locale === 'ko' ? '' : `/${locale}`
+      }/lectures/${id}/progress/`,
+      {
+        method: 'POST',
+        keepalive: true,
+        headers: {
+          Authorization: token,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ progress }),
+      }
+    ),
 
   // 강의 상세 리뷰 작성
-  writeReview: (id: string, text: string, token: string) =>
+  writeReview: (
+    locale: string | undefined,
+    id: string,
+    text: string,
+    token: string
+  ) =>
     api.post(
-      '/lectures/review/',
+      `${locale === 'ko' ? '' : `/${locale}`}/lectures/review/`,
       {
         lecture_pk: id,
         text,

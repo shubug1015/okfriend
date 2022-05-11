@@ -6,6 +6,7 @@ import { boardApi } from '@libs/api';
 import { trimDate } from '@libs/client/utils';
 import type { GetServerSidePropsContext, NextPage } from 'next';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import useSWR from 'swr';
 
 interface IProps {
@@ -13,7 +14,11 @@ interface IProps {
 }
 
 const NoticeDetail: NextPage<IProps> = ({ id }) => {
-  const { data } = useSWR(`noticeDetail`, () => boardApi.getNoticeDetail(id));
+  const router = useRouter();
+  const { locale } = router;
+  const { data } = useSWR(`${locale}/noticeDetail`, () =>
+    boardApi.getNoticeDetail(locale, id)
+  );
   return (
     <>
       <SEO title='공지사항' />

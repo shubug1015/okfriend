@@ -29,6 +29,7 @@ export default function Detail({
 }: IProps) {
   const { data: myData } = useSWR<IUser>('/api/user');
   const router = useRouter();
+  const { locale } = router;
   const [, category, id] = router.query.slug as string[];
 
   const [isPlaying, setIsPlaying] = useState(false);
@@ -47,7 +48,7 @@ export default function Detail({
   const registerCourse = () => {
     if (myData?.token) {
       try {
-        courseApi.registerCourse(id, myData?.token as string);
+        courseApi.registerCourse(locale, id, myData?.token as string);
         mutate({ ...data });
       } catch {
         alert('Error');
@@ -72,6 +73,7 @@ export default function Detail({
   const setProgress = async () => {
     try {
       await courseApi.sendProgress(
+        locale,
         id,
         progressPercent,
         myData?.token as string

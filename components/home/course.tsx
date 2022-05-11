@@ -11,7 +11,7 @@ import 'aos/dist/aos.css';
 import { useLocale } from '@libs/client/useLocale';
 
 export default function Course() {
-  const { text } = useLocale();
+  const { locale, text } = useLocale();
   const [category, setCategory] = useState('라이브 차시');
   const request =
     category === '라이브 차시'
@@ -19,8 +19,8 @@ export default function Course() {
       : category === '필수 차시'
       ? '온라인 연수 - 필수차시'
       : '온라인 연수 - 선택차시';
-  const { data } = useSWR(`onlineCourseList/${request}`, () =>
-    courseApi.getCourseList(request, '1')
+  const { data } = useSWR(`${locale}/onlineCourseList/${request}`, () =>
+    courseApi.getCourseList(locale, request, '1')
   );
 
   useEffect(() => {

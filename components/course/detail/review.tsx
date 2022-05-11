@@ -18,6 +18,7 @@ interface IForm {
 export default function Review({ data, mutate }: IProps) {
   const { data: myData } = useSWR<IUser>('/api/user');
   const router = useRouter();
+  const { locale } = router;
 
   const {
     register,
@@ -32,6 +33,7 @@ export default function Review({ data, mutate }: IProps) {
     if (myData?.token) {
       try {
         const { data: message } = await courseApi.writeReview(
+          locale,
           data?.id,
           review,
           myData?.token
