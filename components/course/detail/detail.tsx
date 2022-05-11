@@ -239,6 +239,7 @@ export default function Detail({
                       href={data?.syllabus}
                       download
                       target='_blank'
+                      rel='noreferrer'
                       className='flex h-[3.625rem] cursor-pointer items-center justify-center rounded-lg border border-[#9e9e9e] text-[#6b6b6b] transition-all hover:opacity-70'
                     >
                       강의 계획서
