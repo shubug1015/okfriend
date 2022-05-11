@@ -5,8 +5,10 @@ import Bg2 from '@public/course-introduction/bg2.png';
 import Sign2 from '@public/course-introduction/sign2.png';
 import Bg1m from '@public/course-introduction/bg1-m.png';
 import Bg2m from '@public/course-introduction/bg2-m.png';
+import { useLocale } from '@libs/client/useLocale';
 
 export default function Online() {
+  const { text } = useLocale();
   return (
     <div>
       {/* 이사장 김성곤입니다. */}
@@ -26,10 +28,10 @@ export default function Online() {
           <div className='flex w-[61.25rem] justify-end'>
             <div className='w-[32rem] pt-[4.214rem] pb-[29.25rem] md:w-screen md:pb-[15.438rem] md:pt-[1.875rem]'>
               <div className='font-nexon text-[2.5rem] leading-[3.438rem] text-[#01111e] md:mx-[1.563rem] md:text-xl'>
-                온라인연수에 참여한 여러분,
+                {text.greeting['7']}
                 <br />
                 <span className='font-nexonBold font-bold text-[#2fb6bc]'>
-                  진심으로 환영합니다.
+                  {text.greeting['8']}
                 </span>
               </div>
               <div className='relative mt-[1.313rem] hidden md:block'>
@@ -56,13 +58,13 @@ export default function Online() {
               </svg>
               <div className='ml-[1.625rem] md:hidden'>
                 <div className='text-xl font-bold text-white'>
-                  2022 재외동포 대학생 온라인연수
+                  {text.greeting['9']}
                 </div>
                 <div className='mt-[15px] font-nexon text-[2.5rem] leading-[55px] text-white'>
-                  재외동포재단 이사장
+                  {text.greeting['10']}
                   <br />
                   <span className='font-nexonBold font-bold text-[#2fb6bc]'>
-                    김성곤입니다.
+                    {text.greeting['11']}
                   </span>
                 </div>
               </div>
@@ -91,27 +93,10 @@ export default function Online() {
       {/* 2022 - 환영합니다.  */}
       <div className='flex flex-col items-center pb-20 md:w-screen md:pb-[3.625rem]'>
         <div className='md: mt-10 w-[61.25rem] font-nexonBold text-[1.875rem] font-bold leading-6 text-[#01111e] md:w-screen md:px-[1.563rem] md:text-[1.25rem] md:leading-[1.875rem]'>
-          2022 재외동포 대학생 온라인연수에 참여한 여러분, 진심으로 환영합니다.
+          {text.greeting['12']}
         </div>
-        <div className='mt-[1.813rem] w-[61.25rem] text-[1.125rem] font-normal leading-[1.856rem] text-[#6b6b6b] md:w-screen md:px-[1.563rem] md:text-[0.875rem] md:leading-[1.444rem]'>
-          2022 재외동포 대학생 온라인연수 방문을 진심으로 환영합니다.
-          <br />
-          <br />
-          재외동포 대학생 온라인연수는 시공간을 넘어 모국 대한민국의 전통과
-          현대를 아우르는 다양한 콘텐츠를 통해 한민족 공동체성을 지닌
-          세계한인으로 성장할 수 있도록 마련한 축제의 장입니다.
-          <br />
-          <br />
-          재외동포 대학생 여러분!
-          <br />
-          세계가 하나로 연결된 {"'글로벌 시대'"}속 재외동포 대학생 여러분들은
-          한민족 정체성을 지닌 {"'세계 한인'"}이자 널리 인간세계를 이롭게 하는
-          홍익인간의 가치를 실현할 수 있는 {"'세계시민'"}입니다. 이번 온라인
-          모국연수 참여를 통해 좋은 친구들 많이 만나시고 앞으로 세계 무대에서
-          활약할 여러분들의 모습도 마음껏 그려보시기를 바랍니다.
-          <br />
-          <br />
-          감사합니다.
+        <div className='mt-[1.813rem] w-[61.25rem] whitespace-pre-wrap text-[1.125rem] font-normal leading-[1.856rem] text-[#6b6b6b] md:w-screen md:px-[1.563rem] md:text-[0.875rem] md:leading-[1.444rem]'>
+          {text.greeting['13']}
           <div className='flex justify-end'>
             <div className='mt-[0.813rem] md:h-[2.625rem] md:w-[8.438rem]'>
               <Image
@@ -145,10 +130,10 @@ export default function Online() {
           <div className='flex w-[61.25rem] justify-end'>
             <div className='w-[450px] pt-[5.691rem] pb-[24.938rem] md:w-screen md:pb-[15.313rem] md:pt-0'>
               <div className='font-nexon text-[2.5rem] leading-[3.438rem] text-[#01111e] md:px-[1.563rem] md:text-xl md:leading-[1.875rem]'>
-                재외동포 대학생 여러분,
+                {text.greeting['14']}
                 <br />
                 <span className='font-nexonBold font-bold text-[#2fb6bc]'>
-                  진심으로 반갑습니다.
+                  {text.greeting['15']}
                 </span>
               </div>
               <svg
@@ -164,12 +149,12 @@ export default function Online() {
 
               <div className='ml-[1.625rem] md:hidden'>
                 <div className='text-xl font-bold text-white'>
-                  2022 재외동포 대학생 온라인연수
+                  {text.greeting['16']}
                 </div>
                 <div className='mt-[15px] font-nexon text-[2.5rem] leading-[55px] text-white'>
-                  사업단장&nbsp;
+                  {text.greeting['17']}{' '}
                   <span className='font-nexonBold font-bold text-[#2fb6bc]'>
-                    오문범입니다.
+                    {text.greeting['18']}
                   </span>
                 </div>
               </div>
@@ -209,37 +194,10 @@ export default function Online() {
       {/* 재외동포 - 반갑습니다. */}
       <div className='flex flex-col items-center pb-[4.796rem]'>
         <div className='mt-10 w-[61.25rem] font-nexonBold text-[1.875rem] font-bold leading-[2.813rem] text-[#01111e] md:w-screen md:px-[1.563rem] md:text-xl'>
-          재외동포 대학생 온라인연수에 참여한 재외동포 대학생 여러분,
-          반갑습니다.
+          {text.greeting['19']}
         </div>
-        <div className='mt-[2.188rem] w-[61.25rem] text-[1.125rem] font-normal leading-[1.856rem] text-[#9e9e9e] md:w-screen md:px-[1.563rem] md:text-[0.875rem] md:leading-[1.444rem]'>
-          세계한인 청년대학생 여러분 반갑습니다
-          <br />
-          <br />
-          우리가 살아가는 공간은 달라도 코리안이라는 이름 하나로 한민족 공동체의
-          일원임을 경험했던 재외동포대학생모국연수가 2022년 여름 대한민국
-          서울에서 개최됩니다
-          <br />
-          <br />
-          코로나19 팬데믹으로 지난 2년간 우리의 만남은 제한된 상황에 멈추고
-          말았습니다. 물론 코로나19의 여파가 완전히 사라지진 않았지만, 2022년
-          올해는 온라인과 오프라인을 겸해 모국연수사업이 다시 시작됩니다.
-          <br />
-          <br />
-          3년만에 재개되는 이번 연수는 같은 시대를 살아가는 글로벌코리안
-          청년들이 모국 대한민국을 방문해 서울과 부산 등 전국 6개 도시에서
-          우리의 문화와 역사, 그리고 세계의 보편적 가치에 대해 함께 체험하고
-          토론하는 의미있는 시간이 될 것입니다.
-          <br />
-          <br />
-          또한 지난해에 이어 온라인 컨텐츠를 대폭 보완한 2022
-          재외동포대학생사이버캠프 역시 온라인 웹페이지를 통해 진행됩니다.
-          <br />
-          시간과 공간을 넘어 어디서든 세계한인 청년들의 교류의 기회가 될 이번
-          온/오프라인 연수에 여러분의 열정적인 참여를 기대합니다.
-          <br />
-          <br />
-          감사합니다
+        <div className='mt-[2.188rem] w-[61.25rem] whitespace-pre-wrap text-[1.125rem] font-normal leading-[1.856rem] text-[#9e9e9e] md:w-screen md:px-[1.563rem] md:text-[0.875rem] md:leading-[1.444rem]'>
+          {text.greeting['20']}
           <div className='flex justify-end'>
             <div className='mt-[0.813rem] md:h-[2.625rem] md:w-[8.438rem]'>
               <Image

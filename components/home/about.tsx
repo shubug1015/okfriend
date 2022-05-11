@@ -4,8 +4,10 @@ import Layout from '@layouts/sectionLayout';
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useLocale } from '@libs/client/useLocale';
 
 export default function About() {
+  const { text } = useLocale();
   useEffect(() => {
     AOS.init({ once: true });
   }, []);
@@ -37,21 +39,13 @@ export default function About() {
             data-aos-delay='300'
             className='mt-5 flex flex-col items-center text-[1.625rem] md:hidden'
           >
-            <div>
-              재외동포 대학생과 국내교류참가자가 함께 실시간으로 소통하고
-              교류하는 공간으로
-            </div>
-            <div className='font-bold text-[#31b7bc]'>
-              새로운 변화의 미래를 체감하는 온라인 플랫폼입니다.
-            </div>
+            <div>{text.main['2']}</div>
+            <div className='font-bold text-[#31b7bc]'>{text.main['3']}</div>
           </div>
 
           <div className='mt-4 hidden text-center text-base md:block'>
-            재외동포 대학생과 국내교류참가자가 함께 실시간으로 소통하고 교류하는
-            공간으로{' '}
-            <span className='font-bold text-[#31b7bc]'>
-              새로운 변화의 미래를 체감하는 온라인 플랫폼입니다.
-            </span>
+            {text.main['1']}{' '}
+            <span className='font-bold text-[#31b7bc]'>{text.main['2']}</span>
           </div>
         </div>
       </Layout>

@@ -8,20 +8,22 @@ import { useEffect, useRef, useState } from 'react';
 import useInterval from '@libs/client/useInterval';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useLocale } from '@libs/client/useLocale';
 
 export default function Slide() {
+  const { text } = useLocale();
   const slide = [
     {
       id: 0,
       bgImg: SlideBg1,
       title: '2022 OKFriends\nCyberCamp',
-      text: '재외동포 대학생 온라인 모국연수',
+      text: text.main['1'],
     },
     {
       id: 1,
       bgImg: SlideBg2,
       title: '2022 OKFriends\nCyberCamp',
-      text: '재외동포 대학생 온라인 모국연수',
+      text: text.main['1'],
     },
   ];
   const slider = useRef<Slider | null>(null);

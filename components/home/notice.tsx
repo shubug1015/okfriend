@@ -6,8 +6,10 @@ import { useEffect } from 'react';
 import useSWR from 'swr';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useLocale } from '@libs/client/useLocale';
 
 export default function Notice() {
+  const { text } = useLocale();
   const { data } = useSWR('noticeList/title/created/1/', () =>
     boardApi.getNoticeList('title', 'created', '1', '')
   );
@@ -25,12 +27,14 @@ export default function Notice() {
               data-aos-duration='1500'
               className='font-quicksand text-4xl font-bold md:text-2xl'
             >
-              NOTICE
+              {text.main['4']}
             </div>
 
             <Link href='/support/notice/title/created/1'>
               <a className='flex items-center'>
-                <span className='text-lg font-medium md:text-sm'>더보기</span>
+                <span className='text-lg font-medium md:text-sm'>
+                  {text.main['5']}
+                </span>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   className='ml-2 w-3 md:ml-1'
@@ -61,7 +65,7 @@ export default function Notice() {
                   <div className='flex items-center space-x-3 md:flex-col md:items-start md:space-x-0 md:space-y-2.5'>
                     <div className='flex md:items-center md:space-x-1.5'>
                       <div className='rounded bg-[#d60a51] py-[0.312rem] px-[0.812rem] text-[0.812rem] font-bold text-white md:px-1.5 md:text-xs'>
-                        공 지
+                        {text.main['6']}
                       </div>
 
                       <div className='hidden text-xs md:block'>
@@ -108,7 +112,7 @@ export default function Notice() {
             data-aos-duration='1500'
             className='font-quicksand text-4xl font-bold md:text-2xl'
           >
-            Video
+            {text.main['7']}
           </div>
 
           <div

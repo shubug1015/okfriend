@@ -9,12 +9,14 @@ import { useState } from 'react';
 import useSWR from 'swr';
 import { useUser } from '@libs/client/useUser';
 import { mypageApi } from '@libs/api';
+import { useLocale } from '@libs/client/useLocale';
 
 interface IProps {
   page: string;
 }
 
 const MyCourse: NextPage<IProps> = ({ page }) => {
+  const { text } = useLocale();
   const { token } = useUser({ isPrivate: true });
   const { data } = useSWR(token ? `myCourseList` : null, () =>
     mypageApi.myCourseList(page, token as string)
@@ -32,7 +34,7 @@ const MyCourse: NextPage<IProps> = ({ page }) => {
 
           <div className='grow space-y-6 md:space-y-5'>
             <div className='text-2xl font-bold md:text-[1.375rem]'>
-              내 강의실
+              {text.mypageCourse['1']}
             </div>
 
             <div className='flex space-x-5 text-lg font-medium md:text-base'>
@@ -43,7 +45,7 @@ const MyCourse: NextPage<IProps> = ({ page }) => {
                   'transition-all'
                 )}
               >
-                수강중인 강의
+                {text.mypageCourse['2']}
               </div>
               <div
                 onClick={() => setCategory('수강완료')}
@@ -54,7 +56,7 @@ const MyCourse: NextPage<IProps> = ({ page }) => {
                   'transition-all'
                 )}
               >
-                수강완료
+                {text.mypageCourse['3']}
               </div>
             </div>
 

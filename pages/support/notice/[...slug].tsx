@@ -24,7 +24,7 @@ const Notice: NextPage<IProps> = ({ slug }) => {
       <Banner title='지원센터 공지사항' navList={['지원센터', '공지사항']} />
       <Navigator supportCategory='notice' />
       <Layout padding='pt-20 pb-24 md:pt-12 md:pb-16'>
-        <Search />
+        <Search url='notice' />
         <NoticeList data={data} totalItems={data?.count} />
       </Layout>
     </>

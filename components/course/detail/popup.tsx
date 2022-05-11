@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { FieldErrors, useForm } from 'react-hook-form';
 import useSWR from 'swr';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { useLocale } from '@libs/client/useLocale';
 
 interface IForm {
   Q1: string;
@@ -44,14 +45,12 @@ const popupVar = {
 };
 
 export default function Popup({ id, closePopup }: IProps) {
+  const { text } = useLocale();
   const { data: myData } = useSWR<IUser>('/api/user');
   const {
     register,
     handleSubmit,
     formState: { errors },
-    setError,
-    watch,
-    getValues,
   } = useForm<IForm>({
     mode: 'onChange',
   });
@@ -109,24 +108,21 @@ export default function Popup({ id, closePopup }: IProps) {
         </div>
 
         <div className='text-center font-nexonBold text-3xl font-bold leading-[1.5] md:text-[1.375rem]'>
-          2022 재외동포대학생모국연수 강의별{' '}
-          <span className='text-[#2fb6bc]'>설문조사</span>
+          {text.courseSurvey['1']}{' '}
+          <span className='text-[#2fb6bc]'>{text.courseSurvey['2']}</span>
         </div>
 
         <div className='mt-2.5 text-center text-lg font-medium md:mt-5 md:tracking-tight'>
           2022 OKFriends CyberCamp -Youth-
         </div>
 
-        <div className='mt-6 border-t-2 border-dotted border-[#9e9e9e] pt-6 text-center text-lg font-medium text-[#6b6b6b] md:text-sm'>
-          이 설문은 수강생 여러분들의 의견을 수렴하여 강의의 질적 수준을
-          제고하기 위해 마련된 것입니다.
-          <br />
-          여러분의 성실한 응답을 부탁합니다.
+        <div className='mt-6 whitespace-pre-wrap border-t-2 border-dotted border-[#9e9e9e] pt-6 text-center text-lg font-medium text-[#6b6b6b] md:text-sm'>
+          {text.courseSurvey['3']}
         </div>
 
         <div className='mt-12 flex justify-between border-b border-[#d6d6d6] pb-3 md:mt-7'>
           <div className='text-sm font-medium text-[#2fb6bc] md:text-xs'>
-            매우 그렇지 못하다 1 / 매우 그렇다 5
+            {text.courseSurvey['4']}
           </div>
 
           <div className='flex space-x-5 md:hidden'>
@@ -151,9 +147,8 @@ export default function Popup({ id, closePopup }: IProps) {
         {/* 문항 1 */}
         <div className='flex h-20 items-center justify-between border-b border-dotted border-[#d6d6d6] md:h-40 md:flex-col md:justify-center md:space-y-6'>
           <div className='pl-1 text-lg md:text-sm'>
-            교육내용, 강사, 수업 환경 등을 고려해 보았을 때, 참여한 프로그램이{' '}
-            <br className='md:hidden' />
-            대체적으로 만족스러웠습니까?
+            {text.courseSurvey['5']} <br className='md:hidden' />
+            {text.courseSurvey['6']}
           </div>
 
           <div className='flex space-x-5 md:w-full md:justify-between'>
@@ -185,9 +180,8 @@ export default function Popup({ id, closePopup }: IProps) {
         {/* 문항 2 */}
         <div className='flex h-20 items-center justify-between border-b border-dotted border-[#d6d6d6] md:h-40 md:flex-col md:justify-center md:space-y-6'>
           <div className='pl-1 text-lg md:text-sm'>
-            담당강사의 강의계획서 및 강의자료는 강의전반을 이해하는데{' '}
-            <br className='md:hidden' />
-            도움이 되었다.
+            {text.courseSurvey['7']} <br className='md:hidden' />
+            {text.courseSurvey['8']}
           </div>
 
           <div className='flex space-x-5 md:w-full md:justify-between'>
@@ -219,9 +213,8 @@ export default function Popup({ id, closePopup }: IProps) {
         {/* 문항 3 */}
         <div className='flex h-20 items-center justify-between border-b border-dotted border-[#d6d6d6] md:h-40 md:flex-col md:justify-center md:space-y-6'>
           <div className='pl-1 text-lg md:text-sm'>
-            담당강사의 수업안내와 진행은 이해하기 쉽고, 학습활동의 유도와 참여에{' '}
-            <br className='md:hidden' />
-            효과적이었다.
+            {text.courseSurvey['9']} <br className='md:hidden' />
+            {text.courseSurvey['10']}
           </div>
 
           <div className='flex space-x-5 md:w-full md:justify-between'>
@@ -253,8 +246,7 @@ export default function Popup({ id, closePopup }: IProps) {
         {/* 문항 4 */}
         <div className='flex h-20 items-center justify-between border-b border-dotted border-[#d6d6d6] md:h-40 md:flex-col md:justify-center md:space-y-6'>
           <div className='pl-1 text-lg md:text-sm'>
-            이 강좌를 수강함으로써 핵심내용과 관련지식을 충분히 습득할 수
-            있었다.
+            {text.courseSurvey['11']}
           </div>
 
           <div className='flex space-x-5 md:w-full md:justify-between'>
@@ -286,8 +278,7 @@ export default function Popup({ id, closePopup }: IProps) {
         {/* 문항 5 */}
         <div className='flex h-20 items-center justify-between border-b border-dotted border-[#d6d6d6] md:h-40 md:flex-col md:justify-center md:space-y-6'>
           <div className='pl-1 text-lg md:text-sm'>
-            이 강좌를 수강함으로써 나의 잠재력 개발이나 진로설계에 도움이
-            되었다.
+            {text.courseSurvey['12']}
           </div>
 
           <div className='flex space-x-5 md:w-full md:justify-between'>
@@ -319,7 +310,7 @@ export default function Popup({ id, closePopup }: IProps) {
         {/* 문항 6 */}
         <div className='flex h-20 items-center justify-between border-b border-dotted border-[#d6d6d6] md:h-40 md:flex-col md:justify-center md:space-y-6'>
           <div className='pl-1 text-lg md:text-sm'>
-            이 강좌를 수강한 것에 만족하며, 다른 학생에게도 추천하고 싶다.
+            {text.courseSurvey['13']}
           </div>
 
           <div className='flex space-x-5 md:w-full md:justify-between'>
@@ -350,13 +341,10 @@ export default function Popup({ id, closePopup }: IProps) {
 
         {/* 문항 7 */}
         <div className='mt-8 space-y-3 md:space-y-2'>
-          <div className='font-medium'>
-            본 강좌를 수강함으로써 유익했던 점과 건의하고 싶은 사항을 자유롭게
-            기재하여 주십시오.
-          </div>
+          <div className='font-medium'>{text.courseSurvey['14']}</div>
 
           <textarea
-            placeholder='자유롭게 작성해보세요.'
+            placeholder={text.courseSurvey['15']}
             {...register('Q7', {
               required: '항목 입력해주세요',
             })}
@@ -371,7 +359,7 @@ export default function Popup({ id, closePopup }: IProps) {
             onClick={handleSubmit(onValid, onInvalid)}
             className='mt-12 flex w-96 cursor-pointer justify-center rounded-lg bg-[#2fb6bc] py-4 text-lg font-medium text-white transition-all hover:opacity-90 md:py-3 md:text-base'
           >
-            제출하기
+            {text.courseSurvey['16']}
           </div>
         </div>
         {/* 제출하기 */}

@@ -8,8 +8,10 @@ import { courseApi } from '@libs/api';
 import useSWR from 'swr';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useLocale } from '@libs/client/useLocale';
 
 export default function Course() {
+  const { text } = useLocale();
   const [category, setCategory] = useState('라이브 차시');
   const request =
     category === '라이브 차시'
@@ -43,7 +45,7 @@ export default function Course() {
             data-aos-duration='1500'
             className='font-nexonBold text-3xl font-bold text-white transition-all md:text-[1.375rem]'
           >
-            온라인 연수
+            {text.main['8']}
           </div>
           {/* <div className='h-6 w-[0.18rem] bg-[#d6d6d6] text-3xl' />
           <div
@@ -61,7 +63,7 @@ export default function Course() {
 
           <Link href='/course/online/live/1'>
             <a className='hidden rounded-full bg-[#2fb6bc] py-[0.35rem] px-[0.7rem] text-[0.75rem] font-bold text-white md:block'>
-              전체보기
+              {text.main['12']}
             </a>
           </Link>
         </div>
@@ -80,7 +82,7 @@ export default function Course() {
                 'cursor-pointer transition-colors'
               )}
             >
-              라이브 차시
+              {text.main['9']}
             </div>
             <div
               data-aos='fade-up'
@@ -94,7 +96,7 @@ export default function Course() {
                 'cursor-pointer transition-colors'
               )}
             >
-              필수 차시
+              {text.main['10']}
             </div>
             <div
               data-aos='fade-up'
@@ -108,13 +110,13 @@ export default function Course() {
                 'cursor-pointer transition-colors'
               )}
             >
-              선택 차시
+              {text.main['11']}
             </div>
           </div>
 
           <Link href='/course/list/online/live/1'>
             <a className='rounded-full bg-[#2fb6bc] py-2 px-[1.375rem] text-lg font-bold md:hidden'>
-              전체보기
+              {text.main['12']}
             </a>
           </Link>
         </div>
@@ -150,7 +152,7 @@ export default function Course() {
                   >
                     <a>
                       <div className='translate-y-4 rounded-md border border-white bg-[rgba(0,0,0,0.5)] py-2.5 px-7 text-xl font-bold text-white transition-all group-hover:translate-y-0'>
-                        바로가기
+                        {text.main['16']}
                       </div>
                     </a>
                   </Link>
@@ -178,7 +180,7 @@ export default function Course() {
                 </div>
               </div>
               <div className='mt-1 text-[#d6d6d6] md:mt-0 md:text-sm'>
-                {i.tutor.name} 강사
+                {i.tutor.name} {text.main['17']}
               </div>
             </div>
           ))}

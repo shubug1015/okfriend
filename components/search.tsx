@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import Select from './select';
 import { useRouter } from 'next/router';
 
-export default function Search() {
+interface IProps {
+  url: string;
+}
+
+export default function Search({ url }: IProps) {
   const router = useRouter();
   const slugs = router.query.slug as string[];
 
@@ -32,7 +36,7 @@ export default function Search() {
   return (
     <div className='flex justify-between md:mb-8'>
       <div className='flex space-x-4 md:space-x-2'>
-        <Select
+        {/* <Select
           select={searchType}
           option={[
             {
@@ -47,7 +51,11 @@ export default function Search() {
             },
           ]}
           setSelect={setSearchType}
-        />
+        /> */}
+
+        <div className='flex h-12 w-36 items-center justify-between rounded-lg border border-[#d6d6d6] px-5 text-lg md:h-[2.188rem] md:w-20 md:px-2.5 md:text-[0.813rem]'>
+          제목
+        </div>
 
         <div className='flex space-x-4 md:space-x-2'>
           <input
@@ -63,7 +71,7 @@ export default function Search() {
               searchTerm &&
               searchTerm.length > 0 &&
               router.push(
-                `/support/notice/${searchType.value}/${orderType.value}/1/${searchTerm}`
+                `/support/${url}/${searchType.value}/${orderType.value}/1/${searchTerm}`
               )
             }
             className='flex h-12 w-24 cursor-pointer items-center justify-center rounded-lg bg-[#2fb6bc] text-lg font-medium text-white md:h-[2.188rem] md:w-[3.312rem] md:text-[0.813rem]'
@@ -94,7 +102,7 @@ export default function Search() {
         ]}
         url={(orderType: string) =>
           router.push(
-            `/support/notice/${searchType.value}/${orderType}/1/${searchTerm}`
+            `/support/${url}/${searchType.value}/${orderType}/1/${searchTerm}`
           )
         }
         setSelect={setOrderType}

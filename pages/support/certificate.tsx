@@ -7,6 +7,7 @@ import { list } from '@components/support/certificate/list';
 import Navigator from '@components/support/navigator';
 import Layout from '@layouts/sectionLayout';
 import { surveyApi } from '@libs/api';
+import { useLocale } from '@libs/client/useLocale';
 import { useUser } from '@libs/client/useUser';
 import { cls } from '@libs/client/utils';
 import type { NextPage } from 'next';
@@ -63,12 +64,13 @@ interface IForm {
 }
 
 const Certificate: NextPage = () => {
+  const { text } = useLocale();
   const { token, profile } = useUser({ isPrivate: true });
   const router = useRouter();
   const { data } = useSWR(token ? 'checkCertificate' : null, () =>
     surveyApi.checkCertificate(token as string)
   );
-  const [popup, setPopup] = useState(true);
+  const [popup, setPopup] = useState(false);
 
   const {
     register,
@@ -84,7 +86,7 @@ const Certificate: NextPage = () => {
       await surveyApi.certificateSurvey(
         {
           ...data,
-          Q1: data.Q1 === '기타' ? Q1_etc : data.Q1,
+          Q1: data.Q1 === text.certificate['20'] ? Q1_etc : data.Q1,
           Q8_5: `${Q8_5_etc} ${data.Q8_5}`,
         },
         token as string
@@ -103,55 +105,54 @@ const Certificate: NextPage = () => {
     setPopup(true);
   }, [profile?.survey]);
 
-  // if (data === 'there are uncompleted lectures') {
-  //   console.log('mount');
-  //   alert('미완료된 강의가 있습니다.');
-  //   router.back();
-  // }
+  if (data === 'there are uncompleted lectures') {
+    console.log('mount');
+    alert('미완료된 강의가 있습니다.');
+    router.back();
+  }
   return (
     <>
       <SEO title='지원센터' />
       <Banner
-        title='지원센터 이수증 발급'
-        navList={['지원센터', '이수증 발급']}
+        title={text.certificate['1']}
+        navList={[text.certificate['2'], text.certificate['3']]}
       />
       <Navigator supportCategory='certificate' />
 
       <Layout bgColor='bg-[#f4f9fb]' padding='pt-16 pb-24 md:pt-8'>
         <div>
           <div className='font-nexonBold text-4xl font-bold md:text-center md:text-2xl'>
-            <span className='text-[#2fb6bc]'>이수증</span> 발급 안내
+            <span className='text-[#2fb6bc]'>{text.certificate['8']}</span>{' '}
+            {text.certificate['9']}
           </div>
 
           <div className='mt-4 text-lg md:mt-[0.563rem] md:text-center md:text-[0.813rem]'>
-            아래 설문조사를 모두 마칠 경우, 이수증 발급이 가능합니다.
+            {text.certificate['10']}
           </div>
 
           <div className='mt-14 rounded bg-white p-10 pb-16 md:mt-[1.313rem] md:px-[1.313rem]'>
             <div className='border-b border-[#9e9e9e] pb-10 text-2xl font-bold md:pb-4 md:text-base md:tracking-tighter'>
-              <span className='text-[#2fb6bc]'>2022</span> 재외동포대학생
-              온라인연수 만족도 조사
-              <div className='mt-2 hidden text-center text-sm font-medium text-[#2fb6bc] md:block'>
-                이해하고 알게 된 정도에 따라
-                <br />
-                10점에 가깝게 표시해주세요.
+              <span className='text-[#2fb6bc]'>{text.certificate['11']}</span>{' '}
+              {text.certificate['12']}
+              <div className='mt-2 hidden whitespace-pre-wrap text-center text-sm font-medium text-[#2fb6bc] md:block'>
+                {text.certificate['13']}
               </div>
             </div>
 
             {/* 문항 1 */}
             <div className='space-y-7 border-b border-dotted border-[#d6d6d6] py-12 md:h-[21rem] md:flex-col md:justify-center md:space-y-6 md:py-4'>
               <div className='text-xl font-medium md:text-sm md:font-bold md:tracking-tighter'>
-                1. 귀하께서 개인적으로 이 프로그램에 참가한 목적은 무엇입니까?{' '}
-                <span className='text-[#2fb6bc]'>* 필수</span>
+                {text.certificate['14']}{' '}
+                <span className='text-[#2fb6bc]'>{text.certificate['15']}</span>
               </div>
 
               <div className='space-y-5 md:w-full md:justify-between'>
                 {[
-                  '다른 국가와 문화권 재외동포 대학생들과의 온라인 만남의 기회',
-                  '한국에 대한 이해 증진',
-                  '재외동포에 대한 이해 증진',
-                  '한국어 능력 향상',
-                  '기타',
+                  text.certificate['16'],
+                  text.certificate['17'],
+                  text.certificate['18'],
+                  text.certificate['19'],
+                  text.certificate['20'],
                 ].map((i) => (
                   <div key={i} className='flex items-center space-x-4'>
                     <input
@@ -170,13 +171,13 @@ const Certificate: NextPage = () => {
 
                     <div className='text-lg md:grow md:text-sm'>{i}</div>
 
-                    {i === '기타' && (
+                    {i === text.certificate['20'] && (
                       <input
                         type='text'
                         {...register('Q1_etc')}
-                        readOnly={watch('Q1') !== '기타'}
+                        readOnly={watch('Q1') !== text.certificate['20']}
                         className={cls(
-                          watch('Q1') !== '기타'
+                          watch('Q1') !== text.certificate['20']
                             ? 'cursor-default opacity-50'
                             : '',
                           'h-10 w-[12rem] rounded-lg border border-[#d6d6d6] px-2.5 outline-none'
@@ -192,17 +193,17 @@ const Certificate: NextPage = () => {
             {/* 문항 2 */}
             <div className='space-y-7 border-b border-dotted border-[#d6d6d6] py-12 md:h-[19rem] md:flex-col md:justify-center md:space-y-6 md:py-4'>
               <div className='text-xl font-medium md:text-sm md:font-bold md:leading-6 md:tracking-tighter'>
-                2. 위에서 답한 ‘개인적인 참가 목적’이 달성되었다고 생각하십니까?{' '}
+                {text.certificate['21']}{' '}
                 <span className='text-[#2fb6bc]'>*</span>
               </div>
 
               <div className='space-y-5 md:w-full md:justify-between'>
                 {[
-                  '1) 매우 그렇다',
-                  '2) 그렇다',
-                  '3) 보통이다',
-                  '4) 그렇지 않다',
-                  '5) 전혀 그렇지 않다',
+                  text.certificate['22'],
+                  text.certificate['23'],
+                  text.certificate['24'],
+                  text.certificate['25'],
+                  text.certificate['26'],
                 ].map((i, index) => (
                   <div key={i} className='flex items-center space-x-4'>
                     <input
@@ -227,7 +228,7 @@ const Certificate: NextPage = () => {
             {/* 문항 2 */}
 
             {/* 문항 3~9 */}
-            {list.map((i) => (
+            {list().map((i) => (
               <div key={i.id} className='mt-14 md:mt-4'>
                 <div className='text-xl font-medium md:text-sm md:font-bold md:tracking-tighter'>
                   {i.title} <span className='text-[#2fb6bc]'>*</span>
@@ -235,7 +236,7 @@ const Certificate: NextPage = () => {
 
                 <div className='mt-6 flex justify-between md:mt-2'>
                   <div className='text-sm font-medium text-[#2fb6bc] md:hidden md:text-xs'>
-                    · 이해하고 알게 된 정도에 따라 10점에 가깝게 표시해주세요.
+                    {text.certificate['28']}
                   </div>
 
                   <div className='flex space-x-5 md:hidden'>
@@ -259,7 +260,7 @@ const Certificate: NextPage = () => {
                     })}
                     error={errors[j.num]?.message}
                   >
-                    {j.question === '5. 기타' && (
+                    {j.question === text.certificate['69'] && (
                       <input
                         type='text'
                         {...register('Q8_5_etc')}
@@ -275,15 +276,15 @@ const Certificate: NextPage = () => {
             {/* 문항 10 */}
             <div className='space-y-7 border-b border-dotted border-[#d6d6d6] py-12 md:h-[12rem] md:flex-col md:justify-center md:space-y-6 md:py-4'>
               <div className='text-xl font-medium md:text-sm md:font-bold md:tracking-tighter'>
-                10. 연수 프로그램에 대해 어떻게 생각하시나요?{' '}
+                {text.certificate['79']}{' '}
                 <span className='text-[#2fb6bc]'>*</span>
               </div>
 
               <div className='space-y-5 md:w-full md:justify-between'>
                 {[
-                  '1) 더욱 확대 되어야 한다.',
-                  '2) 금년과 같은 수준으로 유지',
-                  '3) 금년보다 축소되어야 한다.',
+                  text.certificate['80'],
+                  text.certificate['81'],
+                  text.certificate['82'],
                 ].map((i, index) => (
                   <div key={i} className='flex items-center space-x-4'>
                     <input
@@ -310,12 +311,12 @@ const Certificate: NextPage = () => {
             {/* 문항 11 */}
             <div className='space-y-7 py-12 md:h-[12rem] md:flex-col md:justify-center md:space-y-6 md:py-4'>
               <div className='text-xl font-medium md:text-sm md:tracking-tighter'>
-                11. 연수 프로그램을 친척이나 다른 친구들에게 권유하시겠습니까?{' '}
+                {text.certificate['83']}{' '}
                 <span className='text-[#2fb6bc]'>*</span>
               </div>
 
               <div className='space-y-5 md:w-full md:justify-between'>
-                {['1) 권유 하겠습니다.', '2) 권유하지 않겠습니다.'].map(
+                {[text.certificate['84'], text.certificate['85']].map(
                   (i, index) => (
                     <div key={i} className='flex items-center space-x-4'>
                       <input
@@ -346,7 +347,7 @@ const Certificate: NextPage = () => {
                 onClick={handleSubmit(onValid, onInvalid)}
                 className='mt-2 flex w-96 cursor-pointer justify-center rounded-lg bg-[#2fb6bc] py-4 text-lg font-medium text-white transition-all hover:opacity-90 md:py-3 md:text-base'
               >
-                제출하기
+                {text.certificate['86']}
               </div>
             </div>
             {/* 제출하기 */}

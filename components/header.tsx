@@ -19,6 +19,7 @@ import { useEffect, useState, Fragment } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, Transition } from '@headlessui/react';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { useLocale } from '@libs/client/useLocale';
 
 const tabVar = {
   invisible: {
@@ -82,20 +83,16 @@ export default function Header() {
   const { data, mutate } = useSWR<IUser>('/api/user');
   const { y } = useScroll();
   const router = useRouter();
-  const [language, setLanguage] = useState(
-    router.pathname.includes('/en')
-      ? '영어'
-      : router.pathname.includes('ru')
-      ? '러시아어'
-      : '한국어'
-  );
+  const { locale, text } = useLocale();
+  const language =
+    locale === 'ko' ? '한국어' : locale === 'en' ? '영어' : '러시아어';
   const [openedTab, setOpenedTab] = useState(-1);
   const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
 
   const navList = [
     {
       id: 0,
-      title: '온라인연수 소개',
+      title: text.header['1'],
       url: '/course-introduction/greeting',
       isActivated: router.pathname.includes('/course-introduction'),
       subUrls: [
@@ -115,7 +112,7 @@ export default function Header() {
     },
     {
       id: 1,
-      title: '연수실',
+      title: text.header['2'],
       url: '/course',
       isActivated:
         router.pathname === '/course' ||
@@ -137,7 +134,7 @@ export default function Header() {
     },
     {
       id: 2,
-      title: '도서관',
+      title: text.header['3'],
       url: '/library/1',
       isActivated: router.pathname === '/library/[id]',
       subUrls: [
@@ -169,7 +166,7 @@ export default function Header() {
     },
     {
       id: 3,
-      title: '연수이야기',
+      title: text.header['4'],
       url: '/course-story/video/1',
       isActivated: router.pathname.includes('/course-story'),
       subUrls: [
@@ -193,7 +190,7 @@ export default function Header() {
     },
     {
       id: 4,
-      title: '지원센터',
+      title: text.header['5'],
       url: '/support/notice/title/created/1',
       isActivated: router.pathname.includes('/support'),
       subUrls: [
@@ -300,14 +297,17 @@ export default function Header() {
                       <Menu.Item key={index}>
                         <div
                           onClick={() => {
-                            router.push(
-                              i === '한국어'
-                                ? '/'
-                                : i === '영어'
-                                ? '/en'
-                                : '/ru'
-                            );
-                            setLanguage(i);
+                            i === '한국어'
+                              ? router.push(router.pathname, router.asPath, {
+                                  locale: 'ko',
+                                })
+                              : i === '영어'
+                              ? router.push(router.pathname, router.asPath, {
+                                  locale: 'en',
+                                })
+                              : router.push(router.pathname, router.asPath, {
+                                  locale: 'ru',
+                                });
                           }}
                           className={cls(
                             i === language ? 'hidden' : 'block',
@@ -405,7 +405,7 @@ export default function Header() {
               <>
                 <Link href='/mypage/course/1'>
                   <a className='rounded-full border border-[#2fb6bc] px-10 py-3 font-bold text-[#2fb6bc]'>
-                    마이페이지
+                    {text.header['7']}
                   </a>
                 </Link>
 
@@ -413,13 +413,13 @@ export default function Header() {
                   onClick={handleLogout}
                   className='cursor-pointer rounded-full bg-[#2fb6bc] px-10 py-3 font-bold text-white'
                 >
-                  로그아웃
+                  {text.header['8']}
                 </div>
               </>
             ) : (
               <Link href='/login'>
                 <a className='rounded-full bg-[#2fb6bc] px-10 py-3 font-bold text-white'>
-                  로그인
+                  {text.header['6']}
                 </a>
               </Link>
             )}
@@ -461,7 +461,7 @@ export default function Header() {
                           onClick={() => setMobileMenuOpened(false)}
                           className='text-sm font-bold text-[#2fb6bc]'
                         >
-                          마이페이지
+                          {text.header['7']}
                         </a>
                       </Link>
 
@@ -471,7 +471,7 @@ export default function Header() {
                         onClick={handleLogout}
                         className='text-sm font-bold text-[#6b6b6b]'
                       >
-                        로그아웃
+                        {text.header['8']}
                       </div>
                     </div>
                   ) : (
@@ -481,7 +481,7 @@ export default function Header() {
                           onClick={() => setMobileMenuOpened(false)}
                           className='text-sm font-bold text-[#2fb6bc]'
                         >
-                          로그인
+                          {text.header['6']}
                         </a>
                       </Link>
 
@@ -492,7 +492,7 @@ export default function Header() {
                           onClick={() => setMobileMenuOpened(false)}
                           className='text-sm font-bold text-[#6b6b6b]'
                         >
-                          회원가입
+                          {text.header['9']}
                         </a>
                       </Link>
                     </div>

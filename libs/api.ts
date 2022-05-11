@@ -289,7 +289,6 @@ export const mypageApi = {
 
   // 마이페이지 회원 정보 수정
   editInfos: ({
-    email,
     phoneNum,
     year,
     month,
@@ -301,7 +300,6 @@ export const mypageApi = {
     api.post(
       '/mypage/',
       {
-        ...(email && { email }),
         ...(phoneNum && { phone_number: phoneNum }),
         ...(year && month && day && { birth: `${year}-${month}-${day}` }),
         ...(introduce && { introduce }),

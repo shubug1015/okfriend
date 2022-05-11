@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { FieldErrors, useForm } from 'react-hook-form';
 import useSWR from 'swr';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { useLocale } from '@libs/client/useLocale';
 
 interface IForm {
   type: string;
@@ -35,6 +36,7 @@ const popupVar = {
 };
 
 export default function Popup() {
+  const { text } = useLocale();
   const { data } = useSWR<IUser>('/api/user');
   const [loading, setLoading] = useState(false);
 
@@ -51,6 +53,7 @@ export default function Popup() {
           clonedPdfEl.style.display = 'block';
         },
       }).then(async (canvas) => {
+        setLoading(false);
         const imgData = canvas.toDataURL('image/png');
 
         const pdf = new jsPDF();
@@ -105,12 +108,16 @@ export default function Popup() {
         className='top-1/2 left-1/2 w-[21.875rem] rounded-xl bg-white py-10 shadow-sm md:w-[330px] md:py-8'
       >
         <div className='text-center font-nexonBold text-[1.375rem] font-bold'>
-          이수증 발급
+          {text.certificate['87']}
         </div>
 
-        <div className='mt-8 flex justify-center space-x-24'>
-          {['영문', '국문'].map((i) => (
-            <div key={i} className=''>
+        <div className='mt-8 flex justify-center'>
+          {[
+            text.certificate['88'],
+            text.certificate['89'],
+            text.certificate['90'],
+          ].map((i) => (
+            <div key={i} className='flex w-1/4 flex-col items-center space-y-2'>
               <input
                 type='radio'
                 value={i}
@@ -151,7 +158,7 @@ export default function Popup() {
                 />
               </svg>
             ) : (
-              '발급하기'
+              text.certificate['91']
             )}
           </div>
         </div>

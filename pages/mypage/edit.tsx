@@ -8,6 +8,8 @@ import type { NextPage } from 'next';
 import { FieldErrors, useForm } from 'react-hook-form';
 import { useUser } from '@libs/client/useUser';
 import { mypageApi } from '@libs/api';
+import { useEffect } from 'react';
+import { useLocale } from '@libs/client/useLocale';
 
 interface IForm {
   email: string;
@@ -19,19 +21,20 @@ interface IForm {
 }
 
 const Edit: NextPage = () => {
+  const { text } = useLocale();
   const { token, profile } = useUser({ isPrivate: true });
   const [editMyInfos] = useMutation(mypageApi.editInfos);
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm<IForm>({
     mode: 'onChange',
   });
-  const onValid = ({ email, phoneNum, year, month, day, introduce }: IForm) => {
+  const onValid = ({ phoneNum, year, month, day, introduce }: IForm) => {
     try {
       const req = {
-        ...(email && { email }),
         ...(phoneNum && { phoneNum }),
         ...(year && { year }),
         ...(month && { month }),
@@ -48,6 +51,11 @@ const Edit: NextPage = () => {
   const onInvalid = (errors: FieldErrors) => {
     console.log(errors);
   };
+
+  useEffect(() => {
+    setValue('phoneNum', profile?.phone_number);
+    setValue('introduce', profile?.introduce);
+  }, [profile]);
   return (
     <>
       <SEO title='마이페이지' />
@@ -60,38 +68,56 @@ const Edit: NextPage = () => {
 
           <div className='grow space-y-8'>
             <div className='text-2xl font-bold md:text-[1.375rem]'>
-              회원 정보 수정
+              {text.mypageEdit['1']}
             </div>
 
             <div className='space-y-[1.875rem] md:space-y-[1.375rem]'>
+              {/* 이름 */}
               <div className='h-20 items-center space-y-3 md:space-y-2'>
-                <div className='font-medium md:text-[0.938rem]'>이름</div>
+                <div className='font-medium md:text-[0.938rem]'>
+                  {text.mypageEdit['2']}
+                </div>
 
                 <div className='flex h-[3.75rem] items-center rounded border border-[#d6d6d6] bg-[#f8f8f8] pl-5 text-lg font-medium text-[#d6d6d6] md:h-[2.813rem] md:pl-2.5 md:text-[0.938rem]'>
                   {profile?.name}
                 </div>
               </div>
+              {/* 이름 */}
 
+              {/* 아이디 */}
               <div className='h-20 items-center space-y-3 md:space-y-2'>
-                <div className='font-medium md:text-[0.938rem]'>아이디</div>
+                <div className='font-medium md:text-[0.938rem]'>
+                  {text.mypageEdit['3']}
+                </div>
 
                 <div className='flex h-[3.75rem] items-center rounded border border-[#d6d6d6] bg-[#f8f8f8] pl-5 text-lg font-medium text-[#d6d6d6] md:h-[2.813rem] md:pl-2.5 md:text-[0.938rem]'>
                   {profile?.username}
                 </div>
               </div>
+              {/* 아이디 */}
 
+              {/* 국가 */}
               <div className='space-y-3 md:space-y-2'>
-                <div className='font-medium md:text-[0.938rem]'>국가</div>
+                <div className='font-medium md:text-[0.938rem]'>
+                  {text.mypageEdit['4']}
+                </div>
 
                 <div className='flex h-[3.75rem] items-center rounded border border-[#d6d6d6] bg-[#f8f8f8] pl-5 text-lg font-medium text-[#d6d6d6] md:h-[2.813rem] md:pl-2.5 md:text-[0.938rem]'>
                   {profile?.country}
                 </div>
               </div>
+              {/* 국가 */}
 
+              {/* 이메일 */}
               <div className='space-y-3 md:space-y-2'>
-                <div className='font-medium md:text-[0.938rem]'>이메일</div>
+                <div className='font-medium md:text-[0.938rem]'>
+                  {text.mypageEdit['5']}
+                </div>
 
-                <input
+                <div className='flex h-[3.75rem] items-center rounded border border-[#d6d6d6] bg-[#f8f8f8] pl-5 text-lg font-medium text-[#d6d6d6] md:h-[2.813rem] md:pl-2.5 md:text-[0.938rem]'>
+                  {profile?.email}
+                </div>
+                {/* <input
                   type='text'
                   placeholder='이메일'
                   {...register('email', {
@@ -108,14 +134,17 @@ const Edit: NextPage = () => {
                         }
                       },
                     },
-                  })}
-                  readOnly
+                  })}                  
                   className='h-[3.75rem] w-full rounded border border-[#d6d6d6] bg-[#f8f8f8] pl-5 text-lg font-medium text-[#d6d6d6] outline-none placeholder:text-[#d6d6d6] md:h-[2.813rem] md:pl-2.5 md:text-[0.938rem]'
-                />
+                /> */}
               </div>
+              {/* 이메일 */}
 
+              {/* 휴대폰 번호 */}
               <div className='space-y-3 md:space-y-2'>
-                <div className='font-medium md:text-[0.938rem]'>휴대폰번호</div>
+                <div className='font-medium md:text-[0.938rem]'>
+                  {text.mypageEdit['6']}
+                </div>
 
                 <input
                   type='text'
@@ -138,11 +167,13 @@ const Edit: NextPage = () => {
                   className='h-[3.75rem] w-full rounded border border-[#d6d6d6] pl-5 text-lg font-medium outline-none placeholder:text-[#d6d6d6] md:h-[2.813rem] md:pl-2.5 md:text-[0.938rem]'
                 />
               </div>
+              {/* 휴대폰 번호 */}
 
+              {/* 생년월일 */}
               {profile && (
                 <div className='flex w-full flex-col'>
                   <label className='font-medium md:text-[0.938rem]'>
-                    생년월일
+                    {text.mypageEdit['7']}
                   </label>
 
                   {/* 년도 */}
@@ -239,12 +270,14 @@ const Edit: NextPage = () => {
                   </div>
                 </div>
               )}
+              {/* 생년월일 */}
 
+              {/* 자기소개 */}
               <div className='space-y-3 md:space-y-2'>
-                <div className='font-medium'>자기소개</div>
+                <div className='font-medium'>{text.mypageEdit['8']}</div>
 
                 <textarea
-                  placeholder='자유롭게 작성해보세요.'
+                  placeholder={text.mypageEdit['9']}
                   {...register('introduce', {
                     value: profile?.introduce,
                     required: '자기소개를 입력해주세요',
@@ -252,6 +285,7 @@ const Edit: NextPage = () => {
                   className='h-44 w-full rounded border border-[#d6d6d6] px-5 pt-4 text-lg font-medium outline-none placeholder:text-[#d6d6d6] md:h-52 md:px-2.5 md:pt-[0.8rem] md:text-[0.938rem]'
                 />
               </div>
+              {/* 자기소개 */}
             </div>
 
             <div className='flex justify-end'>
@@ -259,7 +293,7 @@ const Edit: NextPage = () => {
                 onClick={handleSubmit(onValid, onInvalid)}
                 className='cursor-pointer rounded bg-[#2fb6bc] py-4 px-14 font-bold text-white transition-all hover:opacity-90 md:flex md:w-full md:justify-center md:px-0 md:py-3'
               >
-                변경하기
+                {text.mypageEdit['10']}
               </div>
             </div>
           </div>

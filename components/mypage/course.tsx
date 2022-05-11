@@ -1,3 +1,4 @@
+import { useLocale } from '@libs/client/useLocale';
 import { cls, trimDate } from '@libs/client/utils';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -21,6 +22,7 @@ export default function Course({
   courseCategory,
   category,
 }: IProps) {
+  const { text } = useLocale();
   const router = useRouter();
   const setDetailUrl = () => {
     if (courseCategory === '사전 온라인 연수 - 필수차시')
@@ -62,14 +64,14 @@ export default function Course({
 
         <div className='space-y-1.5 md:mt-5'>
           <div className='flex space-x-4 font-medium'>
-            <div className='font-medium'>강의 시작</div>
+            <div className='font-medium'>{text.mypageCourse['4']}</div>
             <div className='font-medium text-[#9e9e9e]'>
               {trimDate(created, 0, 10)}
             </div>
           </div>
 
           <div className='flex items-center font-medium'>
-            <div className='font-medium'>진도율</div>
+            <div className='font-medium'>{text.mypageCourse['5']}</div>
             <div className='ml-9 h-1 w-72 rounded-full bg-[rgba(0,231,255,0.24)] md:w-52'>
               <div
                 className={cls(
@@ -83,14 +85,14 @@ export default function Course({
           </div>
 
           <div className='flex space-x-4 font-medium'>
-            <div className='font-medium'>강의 기간</div>
+            <div className='font-medium'>{text.mypageCourse['6']}</div>
             <div className='font-medium text-[#9e9e9e]'>
               {trimDate(created, 0, 10)} ~
             </div>
           </div>
 
           <div className='flex items-center space-x-4 font-medium'>
-            <div className='font-medium'>강의 현황</div>
+            <div className='font-medium'>{text.mypageCourse['7']}</div>
             <div
               className={cls(
                 category === '진행중'
@@ -99,7 +101,9 @@ export default function Course({
                 'font-medium'
               )}
             >
-              {category}
+              {category === '진행중'
+                ? text.mypageCourse['8']
+                : text.mypageCourse['9']}
             </div>
           </div>
         </div>

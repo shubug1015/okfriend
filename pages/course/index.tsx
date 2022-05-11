@@ -5,8 +5,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import PreOnlieBgImg from '@public/course/pre-online-bg.png';
 import OnlieBgImg from '@public/course/online-bg.png';
+import { useLocale } from '@libs/client/useLocale';
 
 const Course: NextPage = () => {
+  const { text } = useLocale();
   return (
     <>
       <SEO title='연수실' />
@@ -14,10 +16,10 @@ const Course: NextPage = () => {
         <div className='mx-auto w-full max-w-[1180px] md:max-w-[330px]'>
           {/* <Layout padding='pt-44 pb-24'> */}
           <div className='flex justify-center font-nexonBold text-4xl font-bold md:text-3xl'>
-            재외동포 대학생 연수실
+            {text.course['1']}
           </div>
           <div className='mt-4 flex justify-center font-nexonBold font-bold md:mt-2'>
-            사전온라인연수 / 온라인연수 바로가기
+            {text.course['2']}
           </div>
 
           {/* 사전 온라인연수 */}
@@ -36,13 +38,13 @@ const Course: NextPage = () => {
               </div>
 
               <div className='text-[1.625rem] font-bold text-white md:text-2xl'>
-                사전 온라인연수
+                {text.course['3']}
               </div>
 
               <Link href='/course/list/pre-online/required/1'>
                 <a>
                   <div className='flex h-[3.75rem] w-44 cursor-pointer items-center justify-center rounded-lg border border-white bg-[rgba(0,0,0,0.5)] text-xl font-bold text-white md:h-14 md:w-36 md:text-lg'>
-                    바로가기
+                    {text.course['4']}
                   </div>
                 </a>
               </Link>
@@ -63,12 +65,12 @@ const Course: NextPage = () => {
                 />
               </div>
               <div className='text-[1.625rem] font-bold text-white'>
-                온라인연수
+                {text.course['5']}
               </div>
               <Link href='/course/list/online/required/1'>
                 <a>
                   <div className='flex h-[3.75rem] w-44 cursor-pointer items-center justify-center rounded-lg border border-white bg-[rgba(0,0,0,0.5)] text-xl font-bold text-white md:h-14 md:w-36 md:text-lg'>
-                    바로가기
+                    {text.course['6']}
                   </div>
                 </a>
               </Link>

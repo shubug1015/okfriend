@@ -10,8 +10,10 @@ import useSWR from 'swr';
 import { boardApi } from '@libs/api';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useLocale } from '@libs/client/useLocale';
 
 export default function Card() {
+  const { text } = useLocale();
   const { data } = useSWR('cardNews/전체', () =>
     boardApi.getCardNewsList('1', '전체')
   );
@@ -73,12 +75,12 @@ export default function Card() {
           data-aos-duration='1500'
           className='font-quicksand text-4xl font-bold text-white md:text-2xl'
         >
-          Card News
+          {text.main['13']}
         </div>
 
         <Link href='/'>
           <a className='hidden rounded-full border border-white py-[0.35rem] px-[0.7rem] text-[0.75rem] font-bold text-white md:block'>
-            전체보기
+            {text.main['12']}
           </a>
         </Link>
       </div>
@@ -129,13 +131,8 @@ export default function Card() {
         </div>
 
         <Link href='/course-story/cardnews/1'>
-          <a
-            data-aos='fade-up'
-            data-aos-duration='1500'
-            data-aos-delay='300'
-            className='rounded-full border border-white py-2 px-[1.375rem] text-lg font-bold md:hidden'
-          >
-            전체보기
+          <a className='rounded-full border border-white py-2 px-[1.375rem] text-lg font-bold md:hidden'>
+            {text.main['12']}
           </a>
         </Link>
       </div>

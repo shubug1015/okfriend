@@ -24,7 +24,7 @@ const Library: NextPage<IProps> = ({ slug }) => {
       <Banner title='지원센터 자료실' navList={['지원센터', '자료실']} />
       <Navigator supportCategory='library' />
       <Layout padding='pt-20 pb-24'>
-        <Search />
+        <Search url='library' />
         <LibraryList data={data} totalItems={data?.count} />
       </Layout>
     </>

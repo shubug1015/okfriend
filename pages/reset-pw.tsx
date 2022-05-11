@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { FieldErrors, useForm } from 'react-hook-form';
 import { usersApi } from '@libs/api';
 import { useUser } from '@libs/client/useUser';
+import { useLocale } from '@libs/client/useLocale';
 
 interface IForm {
   username: string;
@@ -16,6 +17,7 @@ interface IForm {
 }
 
 const ResetPw: NextPage = () => {
+  const { text } = useLocale();
   useUser({});
   const [popup, setPopup] = useState(false);
   const closePopup = () => setPopup(false);
@@ -78,10 +80,10 @@ const ResetPw: NextPage = () => {
       <div className='bg-[#f4f9fb] pt-48 pb-28 md:pt-28 md:pb-12'>
         <div className='mx-auto flex max-w-[43.75rem] flex-col items-center rounded-lg bg-white p-[3.75rem] md:max-w-[330px] md:py-9 md:px-3.5'>
           <h1 className='font-nexonBold text-3xl font-bold md:text-2xl'>
-            비밀번호 찾기
+            {text.resetPw['1']}
           </h1>
           <h2 className='mt-3 text-lg font-medium text-[#6b6b6b] md:text-center md:text-base'>
-            회원 가입 시 등록한 정보로 비밀번호를 찾을 수 있습니다.
+            {text.resetPw['2']}
           </h2>
 
           <form onSubmit={handleSubmit(onValid, onInvalid)} className='w-full'>
@@ -89,7 +91,7 @@ const ResetPw: NextPage = () => {
             <div className='mt-12 w-full space-y-8 md:mt-7 md:space-y-5'>
               <Input
                 type='text'
-                label='아이디'
+                label={text.resetPw['3']}
                 register={register('username', {
                   required: '아이디를 입력해주세요',
                 })}
@@ -98,7 +100,7 @@ const ResetPw: NextPage = () => {
 
               <Input
                 type='text'
-                label='이메일'
+                label={text.resetPw['5']}
                 register={register('email', {
                   required: '이메일을 입력해주세요',
                   validate: {
@@ -155,14 +157,14 @@ const ResetPw: NextPage = () => {
                       />
                     </svg>
                   ) : (
-                    '인증번호 전송'
+                    text.resetPw['7']
                   )}
                 </div>
               </Input>
 
               <Input
                 type='tel'
-                label='인증번호'
+                label={text.resetPw['8']}
                 register={register('code', {
                   required: '인증번호를 입력해주세요',
                   validate: {
@@ -193,14 +195,14 @@ const ResetPw: NextPage = () => {
               type='submit'
               className='mt-8 flex h-[3.688rem] w-full cursor-pointer items-center justify-center rounded bg-[#2fb6bc] text-lg font-medium text-white transition-all hover:opacity-90 md:h-[2.813rem] md:text-base'
             >
-              패스워드 재설정
+              {text.resetPw['10']}
             </button>
             {/* 비밀번호 찾기 버튼 */}
           </form>
 
           <div className='mt-10 flex items-center font-medium text-[#6b6b6b] md:mt-8 md:text-sm'>
             <Link href='/find-id'>
-              <a>아이디 찾기</a>
+              <a>{text.resetPw['11']}</a>
             </Link>
           </div>
         </div>

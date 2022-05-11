@@ -7,6 +7,7 @@ import type { NextPage } from 'next';
 import { FieldErrors, useForm } from 'react-hook-form';
 import { useUser } from '@libs/client/useUser';
 import { mypageApi } from '@libs/api';
+import { useLocale } from '@libs/client/useLocale';
 
 interface IForm {
   password: string;
@@ -14,6 +15,7 @@ interface IForm {
 }
 
 const ResetPw: NextPage = () => {
+  const { text } = useLocale();
   const { token } = useUser({ isPrivate: true });
   const [editMyInfos] = useMutation(mypageApi.editInfos);
   const {
@@ -51,29 +53,32 @@ const ResetPw: NextPage = () => {
 
           <div className='grow space-y-6'>
             <div className='text-2xl font-bold md:text-[1.375rem]'>
-              비밀번호 변경
+              {text.mypageResetPw['1']}
             </div>
 
             <div className='divide-y-[#eeeeee] divide-y rounded border border-[#d6d6d6] p-10 md:divide-transparent md:border-transparent md:p-0'>
+              {/* 현재 비밀번호 */}
               <div className='flex h-20 items-center md:h-auto md:flex-col md:items-start md:justify-between'>
                 <div className='w-48 font-medium text-[#6b6b6b] md:mt-3 md:flex md:h-12 md:w-full md:items-center md:text-[0.938rem]'>
-                  현재 비밀번호
+                  {text.mypageResetPw['2']}
                 </div>
 
                 <div className='md:flex md:h-12 md:w-full md:items-center md:border-b md:border-[#d6d6d6] md:pl-2.5 md:text-[0.938rem]'>
                   **********
                 </div>
               </div>
+              {/* 현재 비밀번호 */}
 
+              {/* 새 비밀번호 */}
               <div className='flex h-20 items-center md:h-auto md:flex-col md:items-start md:justify-between'>
                 <div className='w-48 font-medium text-[#6b6b6b] md:mt-3 md:flex md:h-12 md:w-full md:items-center md:pb-1 md:text-[0.938rem]'>
-                  새 비밀번호
+                  {text.mypageResetPw['3']}
                 </div>
 
                 <div className='md:w-full'>
                   <input
                     type='password'
-                    placeholder='새 비밀번호'
+                    placeholder={text.mypageResetPw['4']}
                     {...register('password', {
                       value: '',
                       required: '비밀번호를 입력해주세요',
@@ -97,16 +102,18 @@ const ResetPw: NextPage = () => {
                   </div>
                 </div>
               </div>
+              {/* 새 비밀번호 */}
 
+              {/* 새 비밀번호 확인 */}
               <div className='flex h-20 items-center md:h-auto md:flex-col md:items-start md:justify-between'>
                 <div className='w-48 font-medium text-[#6b6b6b] md:mt-3 md:flex md:h-12 md:w-full md:items-center md:text-[0.938rem]'>
-                  새 비밀번호 확인
+                  {text.mypageResetPw['5']}
                 </div>
 
                 <div className='md:w-full'>
                   <input
                     type='password'
-                    placeholder='새 비밀번호 확인'
+                    placeholder={text.mypageResetPw['6']}
                     {...register('passwordCheck', {
                       value: '',
                       required: '비밀번호를 입력해주세요',
@@ -124,6 +131,7 @@ const ResetPw: NextPage = () => {
                   {errors?.passwordCheck?.message}
                 </div>
               </div>
+              {/* 새 비밀번호 확인 */}
             </div>
 
             <div className='flex justify-end'>
@@ -131,7 +139,7 @@ const ResetPw: NextPage = () => {
                 onClick={handleSubmit(onValid, onInvalid)}
                 className='cursor-pointer rounded bg-[#2fb6bc] py-4 px-14 font-bold text-white transition-all hover:opacity-90 md:flex md:w-full md:justify-center md:px-0 md:py-3'
               >
-                변경하기
+                {text.mypageResetPw['7']}
               </div>
             </div>
           </div>

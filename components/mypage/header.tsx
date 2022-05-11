@@ -1,4 +1,5 @@
 import Layout from '@layouts/sectionLayout';
+import { useLocale } from '@libs/client/useLocale';
 import Link from 'next/link';
 import useSWR from 'swr';
 
@@ -13,11 +14,12 @@ interface IUser {
 }
 
 export default function Header() {
+  const { text } = useLocale();
   const { data } = useSWR<IUser>('/api/user');
   return (
     <Layout bgColor='bg-[#f4f9fb]' padding='pt-40 md:pt-32 md:pb-5'>
       <div className='flex justify-center font-nexonBold text-4xl font-bold md:text-2xl'>
-        마이페이지
+        {text.mypageHeader['1']}
       </div>
 
       <div className='flex translate-y-[4.5rem] space-x-5 md:mt-8 md:translate-y-0 md:flex-col md:space-x-0 md:space-y-2.5'>
@@ -29,7 +31,7 @@ export default function Header() {
           <Link href='/mypage/edit'>
             <a className='flex'>
               <span className='text-[#6b6b6b] md:text-[0.938rem]'>
-                내 정보 수정
+                {text.mypageHeader['2']}
               </span>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -52,12 +54,14 @@ export default function Header() {
         <div className='flex h-36 grow items-center justify-between rounded bg-white shadow-md md:h-[6.313rem] md:w-full'>
           <div className='flex w-full flex-col justify-between px-7'>
             <div className='flex justify-between'>
-              <div className='font-bold md:text-[0.938rem]'>현재 마일리지</div>
+              <div className='font-bold md:text-[0.938rem]'>
+                {text.mypageHeader['3']}
+              </div>
 
               <Link href='/mypage/mileage/1'>
                 <a className='flex'>
                   <span className='text-sm text-[#9e9e9e] md:text-[0.938rem]'>
-                    마일리지 내역
+                    {text.mypageHeader['4']}
                   </span>
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
