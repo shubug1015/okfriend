@@ -8,6 +8,9 @@ import type { GetServerSidePropsContext, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
 import Vimeo from '@u-wave/react-vimeo';
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 interface IProps {
   page: string;
@@ -17,6 +20,9 @@ const Video: NextPage<IProps> = ({ page }) => {
   const router = useRouter();
   const { data } = useSWR('videoList', () => boardApi.getVideoList(page));
 
+  useEffect(() => {
+    AOS.init({ once: true });
+  }, []);
   return (
     <>
       <SEO title='연수이야기' />
@@ -29,7 +35,12 @@ const Video: NextPage<IProps> = ({ page }) => {
           <span className='text-[#2fb6bc]'> 홍보영상</span>
         </div>
 
-        <div className='mt-10 grid grid-cols-2 gap-x-5 gap-y-10 md:mt-5 md:grid-cols-1 md:gap-y-5'>
+        <div
+          data-aos='fade-up'
+          data-aos-duration='1500'
+          data-aos-delay='1000'
+          className='mt-10 grid grid-cols-2 gap-x-5 gap-y-10 md:mt-5 md:grid-cols-1 md:gap-y-5'
+        >
           {data?.results.map((i: { [key: string]: any }) => (
             <div key={i.id} className='h-80 w-full md:h-[11.5rem]'>
               <Vimeo video={i.url} className='h-full w-full' />
