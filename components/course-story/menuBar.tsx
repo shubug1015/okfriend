@@ -7,7 +7,7 @@ interface IProps {
 
 export default function MenuBar({ pageName }: IProps) {
   return (
-    <div className='flex items-center justify-center border-b border-[#ebebeb] bg-white text-[1.375rem] text-[#9e9e9e]'>
+    <div className='flex items-center justify-center border-b border-[#ebebeb] bg-white text-[1.375rem] text-[#9e9e9e] md:space-x-[26px] md:border-none'>
       <Link href='/course-story/video/1'>
         <a>
           <div
@@ -15,7 +15,7 @@ export default function MenuBar({ pageName }: IProps) {
               pageName === '홍보 영상'
                 ? 'border-[#2fb6bc]  text-[#01111e]'
                 : 'border-transparent',
-              'flex h-[4.188rem] w-[12.5rem] items-center justify-center border-b-4 font-bold'
+              'flex h-[4.188rem] w-[12.5rem] items-center justify-center border-b-4 font-bold md:h-12 md:w-16 md:border-b-2 md:text-base'
             )}
           >
             홍보 영상
@@ -30,7 +30,7 @@ export default function MenuBar({ pageName }: IProps) {
               pageName === '연수 갤러리'
                 ? 'border-[#2fb6bc] font-bold text-[#01111e]'
                 : 'border-transparent',
-              'flex h-[4.188rem] w-[12.5rem] items-center justify-center border-b-4 font-bold'
+              'md flex h-[4.188rem] w-[12.5rem] items-center justify-center border-b-4 font-bold md:h-12 md:w-20 md:border-b-2 md:text-base'
             )}
           >
             연수 갤러리
@@ -45,7 +45,7 @@ export default function MenuBar({ pageName }: IProps) {
               pageName === '카드뉴스'
                 ? 'border-[#2fb6bc] font-bold text-[#01111e]'
                 : 'border-transparent',
-              'flex h-[4.188rem] w-[12.5rem] items-center justify-center border-b-4 font-bold'
+              'flex h-[4.188rem] w-[12.5rem] items-center justify-center border-b-4 font-bold md:h-12 md:w-16 md:border-b-2 md:text-base'
             )}
           >
             카드뉴스
@@ -60,7 +60,7 @@ export default function MenuBar({ pageName }: IProps) {
               pageName === '뉴스레터'
                 ? 'border-[#2fb6bc] font-bold text-[#01111e]'
                 : 'border-transparent',
-              'flex h-[4.188rem] w-[12.5rem] items-center justify-center border-b-4 font-bold'
+              'flex h-[4.188rem] w-[12.5rem] items-center justify-center border-b-4 font-bold md:h-12 md:w-16 md:border-b-2 md:text-base'
             )}
           >
             뉴스레터

@@ -30,20 +30,20 @@ const Cardnews: NextPage<IProps> = ({ page }) => {
       <SEO title='연수이야기' />
       <Banner title='연수이야기' navList={['연수이야기', '카드뉴스']} />
       <MenuBar pageName='카드뉴스' />
-      <Layout padding='pt-16 pb-20'>
-        <div className='border-b border-[#9e9e9e] pt-[4.214rem] pb-[1.281rem] font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#01111e]'>
+      <Layout padding='pt-16 pb-20 md:pt-8 md:pb-15'>
+        <div className='border-b border-[#9e9e9e] pt-[4.214rem] pb-[1.281rem] font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#01111e] md:pb-6 md:pt-0 md:text-center md:text-2xl'>
           카드뉴스
         </div>
 
         {/* 서브메뉴 탭 */}
-        <div className='mt-[2.531rem] flex space-x-4 text-center text-[1.375rem] font-bold leading-[2.2rem] text-[#9e9e9e]'>
+        <div className='mt-[2.531rem] flex space-x-4 text-center text-[1.375rem] font-bold leading-[2.2rem] text-[#9e9e9e] md:mt-4 md:text-base'>
           <div
             onClick={() => toggleTab('전체')}
             className={cls(
               currentTab === '전체'
                 ? 'cursor-default border-[#01111e] text-[#01111e]'
                 : 'cursor-pointer border-transparent',
-              'w-[6.5rem] border-b-4 pb-[0.653rem]'
+              'w-[6.5rem] border-b-4 pb-[0.653rem] md:border-b-2'
             )}
           >
             전체
@@ -73,10 +73,10 @@ const Cardnews: NextPage<IProps> = ({ page }) => {
         </div>
 
         {/* 갤러리 이미지 */}
-        <div className='mt-[1.875rem] grid grid-cols-4 gap-y-10 gap-x-[1.187rem]'>
+        <div className='mt-[1.875rem] grid grid-cols-4 gap-y-10 gap-x-[1.187rem] md:mt-8 md:grid-cols-2 md:gap-y-[3.3rem] md:gap-x-[0.675rem]'>
           {data?.results.map((i: { [key: string]: any }) => (
             <Link key={i.id} href={`/course-story/cardnews/detail/${i.id}`}>
-              <a className='relative h-[17.5rem] w-[17.5rem] transition-opacity hover:opacity-70'>
+              <a className='relative h-[17.5rem] w-[17.5rem] transition-opacity hover:opacity-70 md:h-40 md:w-40'>
                 <Image
                   src={i.thumbnail}
                   alt='Card News Thumbnail'
@@ -89,7 +89,7 @@ const Cardnews: NextPage<IProps> = ({ page }) => {
           ))}
         </div>
 
-        <div className='mt-24 flex justify-center'>
+        <div className='mt-24 flex justify-center md:mt-12'>
           <Pagebar
             totalItems={data?.count}
             itemsPerPage={16}

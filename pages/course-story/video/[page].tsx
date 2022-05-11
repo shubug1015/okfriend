@@ -22,21 +22,22 @@ const Video: NextPage<IProps> = ({ page }) => {
       <SEO title='연수이야기' />
       <Banner title='연수이야기' navList={['연수이야기', '홍보 영상']} />
       <MenuBar pageName='홍보 영상' />
-      <Layout padding='pt-16 pb-56'>
-        <div className='font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#01111e]'>
+      <Layout padding='pt-16 pb-56 md:pt-6 md:pb-16'>
+        <div className='font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#01111e] md:text-center md:text-xl'>
           재외동포 대학생 온라인연수
+          <br className='hidden md:block' />
           <span className='text-[#2fb6bc]'> 홍보영상</span>
         </div>
 
-        <div className='mt-10 grid grid-cols-2 gap-x-5 gap-y-10'>
+        <div className='mt-10 grid grid-cols-2 gap-x-5 gap-y-10 md:mt-5 md:grid-cols-1 md:gap-y-5'>
           {data?.results.map((i: { [key: string]: any }) => (
-            <div key={i.id} className='h-80 w-full'>
+            <div key={i.id} className='h-80 w-full md:h-[11.5rem]'>
               <Vimeo video={i.url} className='h-full w-full' />
             </div>
           ))}
         </div>
 
-        <div className='mt-24 flex justify-center'>
+        <div className='mt-24 flex justify-center md:mt-10'>
           <Pagebar
             totalItems={data?.count}
             itemsPerPage={8}

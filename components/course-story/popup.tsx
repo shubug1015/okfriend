@@ -41,7 +41,7 @@ export default function Popup({
   return (
     <div
       onClick={closePopup}
-      className='fixed top-0 left-0 z-[9999] flex h-screen w-screen items-center justify-between overflow-y-scroll bg-[rgba(0,0,0,0.8)] px-12'
+      className='fixed top-0 left-0 z-[9999] flex h-screen w-screen items-center justify-between overflow-y-scroll bg-[rgba(0,0,0,0.8)] px-12 md:px-4'
     >
       {index !== 0 ? (
         <div
@@ -49,7 +49,7 @@ export default function Popup({
             e.stopPropagation();
             prevPopup();
           }}
-          className='flex aspect-square w-9 cursor-pointer items-center justify-center rounded-full border border-white'
+          className='flex aspect-square w-9 cursor-pointer items-center justify-center rounded-full border border-white md:mr-4'
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -81,11 +81,11 @@ export default function Popup({
         exit='exit'
         className='relative w-[1180px]'
       >
-        <div className='mb-10 text-center text-[1.875rem] font-bold text-white'>
+        <div className='mb-10 text-center text-[1.875rem] font-bold text-white md:mb-6 md:text-xl md:font-medium'>
           {data[index]?.name}
         </div>
 
-        <div className='relative h-[41.5rem] w-full'>
+        <div className='relative h-[41.5rem] w-full md:h-[11.625rem]'>
           <Image
             src={data[index]?.image}
             alt='Gallery Image'
@@ -102,7 +102,7 @@ export default function Popup({
             e.stopPropagation();
             nextPopup();
           }}
-          className='flex aspect-square w-9 cursor-pointer items-center justify-center rounded-full border border-white'
+          className='flex aspect-square w-9 cursor-pointer items-center justify-center rounded-full border border-white md:ml-4'
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'

@@ -50,13 +50,13 @@ const Gallery: NextPage<IProps> = ({ page }) => {
       <SEO title='연수이야기' />
       <Banner title='연수이야기' navList={['연수이야기', '연수 갤러리']} />
       <MenuBar pageName='연수 갤러리' />
-      <Layout padding='pt-16 pb-20'>
-        <div className='border-b border-[#9e9e9e] pb-[1.281rem] font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#01111e]'>
+      <Layout padding='pt-16 pb-20 md:pt-8 md:pb-10'>
+        <div className='border-b border-[#9e9e9e] pb-[1.281rem] font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#01111e] md:pb-7 md:text-center md:text-xl'>
           연수 갤러리
         </div>
 
         {/* 서브메뉴 탭 */}
-        <div className='mt-[2.531rem] flex space-x-4 text-center text-[1.375rem] font-bold leading-[2.2rem] text-[#9e9e9e]'>
+        <div className='mt-[2.531rem] flex space-x-4 text-center text-[1.375rem] font-bold leading-[2.2rem] text-[#9e9e9e] md:mt-4 md:text-base'>
           {['전체', '2021', '2020', '2019'].map((i) => (
             <div
               key={i}
@@ -65,7 +65,7 @@ const Gallery: NextPage<IProps> = ({ page }) => {
                 currentTab === i
                   ? 'cursor-default border-[#01111e] text-[#01111e]'
                   : 'cursor-pointer border-transparent',
-                'w-[6.5rem] border-b-4 pb-[0.653rem]'
+                'w-[6.5rem] border-b-4 pb-[0.653rem] md:border-b-2'
               )}
             >
               {i}
@@ -75,16 +75,16 @@ const Gallery: NextPage<IProps> = ({ page }) => {
 
         {/* 갤러리 이미지 */}
         <div>
-          <div className='mt-[1.847rem] h-[41.393rem] w-[73.813rem] rounded bg-slate-300' />
+          <div className='mt-[1.847rem] h-[41.393rem] w-[73.813rem] rounded bg-slate-300 md:mt-8 md:h-[11.5rem] md:w-full' />
         </div>
-        <div className='mt-20 grid grid-cols-4 gap-y-6 gap-x-5 pb-20'>
+        <div className='mt-20 grid grid-cols-4 gap-y-6 gap-x-5 pb-20 md:mt-12 md:grid-cols-2 md:gap-x-2 md:gap-y-5 md:pb-0'>
           {data?.results.map((i: { [key: string]: any }, index: number) => (
             <div
               key={i.id}
               onClick={() => setPopup({ open: true, index })}
               className='cursor-pointer transition-opacity hover:opacity-70'
             >
-              <div className='relative h-[17.5rem] w-[17.5rem]'>
+              <div className='relative h-[17.5rem] w-[17.5rem] md:h-40 md:w-40'>
                 <Image
                   src={i.image}
                   alt='Gallery Image'
@@ -93,14 +93,14 @@ const Gallery: NextPage<IProps> = ({ page }) => {
                   className='rounded'
                 />
               </div>
-              <div className='mt-4 text-[1.125rem] font-medium leading-[1.8rem]'>
+              <div className='mt-4 text-[1.125rem] font-medium leading-[1.8rem] md:mt-2 md:text-[0.8rem]'>
                 {i.name}
               </div>
             </div>
           ))}
         </div>
 
-        <div className='mt-24 flex justify-center'>
+        <div className='mt-24 flex justify-center md:mt-16'>
           <Pagebar
             totalItems={data?.count}
             itemsPerPage={16}

@@ -22,31 +22,39 @@ const Newsletter: NextPage<IProps> = ({ page }) => {
       <SEO title='연수이야기' />
       <Banner title='연수이야기' navList={['연수이야기', '뉴스레터']} />
       <MenuBar pageName='뉴스레터' />
-      <Layout padding='pt-16 pb-20'>
-        <div className='font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#01111e]'>
+      <Layout padding='pt-16 pb-20 md:pt-8 md:pb-15'>
+        <div className='font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#01111e] md:border-b-2 md:border-[#9e9e9e] md:pb-6 md:text-center md:text-2xl'>
           뉴스레터
         </div>
 
         {/* 게시판 */}
-        <div className='mt-[1.281rem] flex h-[3.75rem] w-full items-center border-b border-t border-b-[#9e9e9e] border-t-[#9e9e9e] text-center text-[1.125rem] leading-[1.688rem] text-[#231815]'>
+        <div className='mt-[1.281rem] flex h-[3.75rem] w-full items-center border-b border-t border-b-[#9e9e9e] border-t-[#9e9e9e] text-center text-[1.125rem] leading-[1.688rem] text-[#231815] md:hidden'>
           <div className='w-[9%]'>번호</div>
           <div className='grow'>제목</div>
           <div className='w-[11%]'>작성자</div>
           <div className='w-[11%]'>작성일</div>
-          <div className='w-[11%]'>조회순</div>
+          <div className='w-[11%]'>조회수</div>
         </div>
 
         <div>
           {data?.results.map((i: { [key: string]: any }, index: number) => (
             <Link key={i.id} href={`/course-story/newsletter/detail/${i.id}`}>
-              <a className='flex h-[3.75rem] w-full items-center border-b-2 border-b-[#ebebeb] text-center text-[1.125rem] leading-[1.688rem] text-[#01111e] transition-opacity hover:opacity-70'>
-                <div className='w-[9%] text-[#9e9e9e]'>
+              <a className='flex h-[3.75rem] w-full items-center border-b-2 border-b-[#ebebeb] text-center text-[1.125rem] leading-[1.688rem] text-[#01111e] transition-opacity hover:opacity-70 md:block md:h-[4.7rem] md:pt-[0.656rem]'>
+                <div className='w-[9%] text-[#9e9e9e] md:hidden'>
                   {(+page - 1) * 15 + index + 1}
                 </div>
-                <div className='grow text-left'>{i.title}</div>
-                <div className='w-[11%]'>관리자</div>
-                <div className='w-[11%]'>{trimDate(i.created, 0, 10)}</div>
-                <div className='w-[11%]'>{i.view_num}</div>
+                <div className='grow text-left md:text-[0.875rem]'>
+                  {i.title}
+                </div>
+                <div className='w-[11%] md:hidden'>관리자</div>
+                <div className='w-[11%] md:hidden'>
+                  {trimDate(i.created, 0, 10)}
+                </div>
+                <div className='hidden md:flex md:justify-between md:text-[0.7rem]'>
+                  <div className=''>{trimDate(i.created, 0, 10)}</div>
+                  <div className=''>관리자</div>
+                </div>
+                <div className='w-[11%] md:hidden'>{i.view_num}</div>
               </a>
             </Link>
           ))}
@@ -58,7 +66,7 @@ const Newsletter: NextPage<IProps> = ({ page }) => {
           </div>
         </div> */}
 
-        <div className='mt-24 flex justify-center'>
+        <div className='mt-24 flex justify-center md:mt-7'>
           <Pagebar
             totalItems={data?.count}
             itemsPerPage={15}
