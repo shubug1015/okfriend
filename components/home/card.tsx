@@ -104,7 +104,7 @@ export default function Card() {
             </svg>
 
             <div className='ml-1 text-sm font-bold md:ml-1.5 md:text-xs'>
-              0{activeSlide + 1}
+              {(activeSlide + 1 + '').padStart(2, '0')}
             </div>
 
             <div className='mx-3 h-[0.188rem] w-[13.125rem] rounded-full bg-[rgba(255,255,255,0.4)] md:w-28'>
@@ -115,7 +115,7 @@ export default function Card() {
             </div>
 
             <div className='mr-1 text-sm font-bold md:mr-1.5 md:text-xs'>
-              0{data?.results.length}
+              {(data?.results.length + '').padStart(2, '0')}
             </div>
 
             <svg
