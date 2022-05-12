@@ -2,6 +2,7 @@ import Image from 'next/image';
 import BgImg from '@public/course/header-bg.png';
 import Layout from '@layouts/sectionLayout';
 import { Fragment } from 'react';
+import { cls } from '@libs/client/utils';
 
 interface IProps {
   title: string;
@@ -23,7 +24,14 @@ export default function Banner({ title, navList }: IProps) {
 
       <Layout>
         <div className='flex items-end justify-between md:flex-col md:items-center md:justify-center md:space-y-4'>
-          <div className='font-nexonBold text-4xl font-bold text-white md:text-2xl'>
+          <div
+            className={cls(
+              title === '재외동포 대학생 온라인연수 소개'
+                ? 'md:text-[1.375rem]'
+                : 'md:text-2xl',
+              'font-nexonBold text-4xl font-bold text-white'
+            )}
+          >
             {title}
           </div>
 
