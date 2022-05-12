@@ -57,7 +57,7 @@ export default function Search({ url }: IProps) {
           제목
         </div>
 
-        <div className='flex space-x-4 md:space-x-2'>
+        <div className='md:w-grow flex space-x-4 md:space-x-2'>
           <input
             type='text'
             placeholder=''
