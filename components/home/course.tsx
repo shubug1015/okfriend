@@ -1,7 +1,7 @@
 import Layout from '@layouts/sectionLayout';
 import Image from 'next/image';
 import Link from 'next/link';
-import BgImg from '@public/home/lecture-bg.png';
+// import BgImg from '@public/home/lecture-bg.png';
 import { useEffect, useState } from 'react';
 import { cls } from '@libs/client/utils';
 import { courseApi } from '@libs/api';
@@ -27,8 +27,8 @@ export default function Course() {
     AOS.init({ once: true });
   }, []);
   return (
-    <div className='relative py-20 md:py-10'>
-      <div className='absolute top-0 left-0 -z-[1] h-full w-full'>
+    <div className='relative bg-[url("/home/course-bg.png")] bg-cover bg-fixed bg-no-repeat pt-24 pb-36 md:py-10'>
+      {/* <div className='absolute top-0 left-0 -z-[1] h-full w-full'>
         <Image
           src={BgImg}
           alt='Lecture Background'
@@ -36,7 +36,7 @@ export default function Course() {
           objectFit='cover'
           placeholder='blur'
         />
-      </div>
+      </div> */}
 
       <Layout>
         <div className='flex w-full items-center space-x-7 md:justify-between'>
