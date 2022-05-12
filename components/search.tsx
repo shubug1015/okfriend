@@ -57,13 +57,13 @@ export default function Search({ url }: IProps) {
           제목
         </div>
 
-        <div className='md:w-grow flex space-x-4 md:space-x-2'>
+        <div className='flex space-x-4 md:w-[calc(100%-5.5rem)] md:space-x-2'>
           <input
             type='text'
             placeholder=''
             value={searchTerm}
             onChange={handleSearchTerm}
-            className='h-12 w-80 rounded-lg border border-[#d6d6d6] pl-3 outline-none md:h-[2.188rem] md:w-auto md:grow'
+            className='h-12 w-80 rounded-lg border border-[#d6d6d6] pl-3 outline-none md:h-[2.188rem] md:w-[calc(100%-3.812rem)]'
           />
 
           <div
