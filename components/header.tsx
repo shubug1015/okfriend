@@ -444,7 +444,7 @@ export default function Header() {
             initial='invisible'
             animate='visible'
             exit='exit'
-            className='absolute top-12 h-screen w-screen bg-white pt-2.5'
+            className='absolute top-12 h-screen w-screen overflow-y-scroll bg-white pt-2.5'
           >
             <div className='mx-auto max-w-[330px]'>
               <div className='flex items-center justify-between'>

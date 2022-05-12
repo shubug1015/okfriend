@@ -1,5 +1,4 @@
 import Banner from '@components/banner';
-import PdfKo from '@components/pdf/ko';
 import Popup from '@components/pdf/popup';
 import SEO from '@components/seo';
 import Checkbox from '@components/support/certificate/checkbox';

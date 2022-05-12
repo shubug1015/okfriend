@@ -26,9 +26,10 @@ export default function Contact() {
 
       <Layout>
         <div className='text-white'>
-          <div className='flex h-9 w-[5.875rem] items-center justify-center rounded-md border border-white font-bold md:h-[1.85rem] md:w-[4.75rem] md:text-[0.81rem]'>
+          <div className='inline rounded-md border border-white px-5 py-1.5 font-bold md:h-[1.85rem] md:w-[4.75rem] md:text-[0.81rem]'>
             {text.main['18']}
           </div>
+
           <div
             data-aos='flip-down'
             data-aos-duration='1500'
@@ -36,6 +37,7 @@ export default function Contact() {
           >
             {text.main['14']}
           </div>
+
           <div
             data-aos='fade-up'
             data-aos-duration='1500'
