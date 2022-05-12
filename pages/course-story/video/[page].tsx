@@ -33,7 +33,7 @@ const Video: NextPage<IProps> = ({ page }) => {
       <MenuBar pageName='홍보 영상' />
       <Layout padding='pt-16 pb-56 md:pt-6 md:pb-16'>
         <div className='font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#01111e] md:text-center md:text-xl'>
-          재외동포 대학생 온라인연수
+          2022 재외동포대학생모국연수(온라인)
           <br className='hidden md:block' />
           <span className='text-[#2fb6bc]'> 홍보영상</span>
         </div>

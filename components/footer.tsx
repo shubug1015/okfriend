@@ -14,13 +14,13 @@ export default function Footer() {
           <div className='text-[#777777] md:mt-3.5 md:text-center md:text-[0.688rem]'>
             2022 재외동포대학생모국연수(온라인) 운영사무국
             <br />
-            +82-51-440-3353 / +82-51-714-3119
+            +82-51-714-3119 / +82-51-440-3353
             <br />
-            okfyouthcamp@gmail.com
+            okfyouthcamp@vncom.kr
           </div>
 
           <div className='mt-10 text-sm text-[#9e9e9e] md:hidden'>
-            COPYRIGHT 2022. 재외동포 대학생 온라인연수 ALL RIGHTS RESERVED.
+            COPYRIGHT 2022 재외동포대학생모국연수(온라인) ALL RIGHTS RESERVED.
           </div>
         </div>
 
