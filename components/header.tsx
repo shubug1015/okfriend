@@ -235,10 +235,10 @@ export default function Header() {
   useEffect(() => {
     if (mobileMenuOpened) {
       // document.body.style.overflow = 'hidden';
-      disableBodyScroll(document.body);
+      // disableBodyScroll(document.body);
     } else {
       // document.body.style.overflow = 'visible';
-      enableBodyScroll(document.body);
+      // enableBodyScroll(document.body);
     }
   }, [mobileMenuOpened]);
 
