@@ -235,10 +235,10 @@ export default function Header() {
   useEffect(() => {
     if (mobileMenuOpened) {
       // document.body.style.overflow = 'hidden';
-      // disableBodyScroll(document.body);
+      disableBodyScroll(document.body);
     } else {
       // document.body.style.overflow = 'visible';
-      // enableBodyScroll(document.body);
+      enableBodyScroll(document.body);
     }
   }, [mobileMenuOpened]);
 
@@ -447,6 +447,7 @@ export default function Header() {
             animate='visible'
             exit='exit'
             className='absolute top-12 h-screen w-screen bg-white pt-2.5'
+            // style={{ overflowY: 'scroll', WebkitOverflowScrolling: 'touch' }}
           >
             <div className='mx-auto max-w-[330px]'>
               <div className='flex items-center justify-between'>
