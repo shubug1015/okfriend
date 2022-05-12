@@ -55,7 +55,7 @@ const Cardnews: NextPage<IProps> = ({ page }) => {
               currentTab === 'KOR'
                 ? 'cursor-default border-[#01111e] text-[#01111e]'
                 : 'cursor-pointer border-transparent',
-              'w-[6.5rem] border-b-4 pb-[0.653rem]'
+              'w-[6.5rem] border-b-4 pb-[0.653rem] md:border-b-2'
             )}
           >
             KOR
@@ -66,7 +66,7 @@ const Cardnews: NextPage<IProps> = ({ page }) => {
               currentTab === 'ENG'
                 ? 'cursor-default border-[#01111e] text-[#01111e]'
                 : 'cursor-pointer border-transparent',
-              'w-[6.5rem] border-b-4 pb-[0.653rem]'
+              'w-[6.5rem] border-b-4 pb-[0.653rem] md:border-b-2'
             )}
           >
             ENG
