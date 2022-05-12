@@ -79,7 +79,7 @@ export default function Card() {
             {text.main['13']}
           </div>
 
-          <Link href='/'>
+          <Link href='/course-story/cardnews/1'>
             <a className='hidden rounded-full border border-white py-[0.35rem] px-[0.7rem] text-[0.75rem] font-bold text-white md:block'>
               {text.main['12']}
             </a>
@@ -145,17 +145,20 @@ export default function Card() {
             {...settings}
           >
             {data?.results.map((i: { [key: string]: any }) => (
-              <div key={i.id} className='!flex justify-center'>
-                <div className='relative aspect-square w-80 md:w-40'>
-                  <Image
-                    src={i.thumbnail}
-                    alt='Card News Thumbnail'
-                    layout='fill'
-                    objectFit='cover'
-                    className='rounded-lg'
-                  />
-                </div>
-              </div>
+              <Link key={i.id} href={`/course-story/cardnews/detail/${i.id}`}>
+                <a className='!flex justify-center'>
+                  <div className='relative aspect-square w-80 md:w-40'>
+                    <Image
+                      src={i.thumbnail}
+                      alt='Card News Thumbnail'
+                      layout='fill'
+                      objectFit='cover'
+                      priority
+                      className='rounded-lg'
+                    />
+                  </div>
+                </a>
+              </Link>
             ))}
           </Slider>
         </div>
