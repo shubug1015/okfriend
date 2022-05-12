@@ -157,6 +157,9 @@ const Contact: NextPage = () => {
                       )}
                     >
                       <option value='default'>계정문의</option>
+                      <option>강의 문의</option>
+                      <option>마일리지 문의</option>
+                      <option>오류 제보</option>
                       <option>기타</option>
                     </select>
                   </div>

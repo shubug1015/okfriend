@@ -1,8 +1,8 @@
 import Layout from '@layouts/sectionLayout';
 import Image from 'next/image';
 import Link from 'next/link';
-import BgImg from '@public/home/lecture-bg.png';
-import { useEffect, useState } from 'react';
+// import BgImg from '@public/home/lecture-bg.png';
+import { useEffect, useRef, useState } from 'react';
 import { cls } from '@libs/client/utils';
 import { courseApi } from '@libs/api';
 import useSWR from 'swr';
@@ -12,7 +12,7 @@ import { useLocale } from '@libs/client/useLocale';
 
 export default function Course() {
   const { locale, text } = useLocale();
-  const [category, setCategory] = useState('라이브 차시');
+  const [category, setCategory] = useState('필수 차시');
   const request =
     category === '라이브 차시'
       ? '온라인 연수 - LIVE 차시'
@@ -27,8 +27,8 @@ export default function Course() {
     AOS.init({ once: true });
   }, []);
   return (
-    <div className='relative py-20 md:py-10'>
-      <div className='absolute top-0 left-0 -z-[1] h-full w-full'>
+    <div className='relative bg-[url("/home/course-bg.png")] bg-cover bg-fixed bg-no-repeat pt-24 pb-36 md:py-10'>
+      {/* <div className='absolute top-0 left-0 -z-[1] h-full w-full'>
         <Image
           src={BgImg}
           alt='Lecture Background'
@@ -36,13 +36,14 @@ export default function Course() {
           objectFit='cover'
           placeholder='blur'
         />
-      </div>
+      </div> */}
 
       <Layout>
         <div className='flex w-full items-center space-x-7 md:justify-between'>
           <div
             data-aos='flip-down'
             data-aos-duration='1500'
+            onClick={() => setCategory('필수 차시')}
             className='font-nexonBold text-3xl font-bold text-white transition-all md:text-[1.375rem]'
           >
             {text.main['8']}
@@ -69,8 +70,13 @@ export default function Course() {
         </div>
 
         <div className='mt-8 flex w-full items-center justify-between text-white md:mt-5'>
-          <div className='flex space-x-[3.625rem] text-[1.375rem] font-bold md:space-x-8 md:text-base'>
-            <div
+          <div
+            data-aos='fade-up'
+            data-aos-duration='1500'
+            data-aos-delay='300'
+            className='flex space-x-[3.625rem] text-[1.375rem] font-bold md:space-x-8 md:text-base'
+          >
+            {/* <div
               data-aos='fade-up'
               data-aos-duration='1500'
               data-aos-delay='300'
@@ -83,11 +89,9 @@ export default function Course() {
               )}
             >
               {text.main['9']}
-            </div>
+            </div> */}
+
             <div
-              data-aos='fade-up'
-              data-aos-duration='1500'
-              data-aos-delay='600'
               onClick={() => setCategory('필수 차시')}
               className={cls(
                 category === '필수 차시'
@@ -98,10 +102,8 @@ export default function Course() {
             >
               {text.main['10']}
             </div>
+
             <div
-              data-aos='fade-up'
-              data-aos-duration='1500'
-              data-aos-delay='900'
               onClick={() => setCategory('선택 차시')}
               className={cls(
                 category === '선택 차시'

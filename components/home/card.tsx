@@ -68,96 +68,98 @@ export default function Card() {
     AOS.init({ once: true });
   }, []);
   return (
-    <Layout bgColor='bg-[#01111e]' padding='py-20 md:py-10'>
-      <div className='md:flex md:items-center md:justify-between'>
-        <div
-          data-aos='flip-down'
-          data-aos-duration='1500'
-          className='font-quicksand text-4xl font-bold text-white md:text-2xl'
-        >
-          {text.main['13']}
+    <div className='bg-[url("/home/card-news-bg.png")] bg-cover bg-fixed bg-no-repeat py-72 md:py-10'>
+      <Layout>
+        <div className='md:flex md:items-center md:justify-between'>
+          <div
+            data-aos='flip-down'
+            data-aos-duration='1500'
+            className='font-quicksand text-4xl font-bold text-white md:text-2xl'
+          >
+            {text.main['13']}
+          </div>
+
+          <Link href='/'>
+            <a className='hidden rounded-full border border-white py-[0.35rem] px-[0.7rem] text-[0.75rem] font-bold text-white md:block'>
+              {text.main['12']}
+            </a>
+          </Link>
         </div>
 
-        <Link href='/'>
-          <a className='hidden rounded-full border border-white py-[0.35rem] px-[0.7rem] text-[0.75rem] font-bold text-white md:block'>
-            {text.main['12']}
-          </a>
-        </Link>
-      </div>
+        <div className='mt-11 flex justify-between text-white md:mt-5'>
+          <div className='flex items-center justify-between'>
+            <svg
+              width='7'
+              height='9'
+              viewBox='0 0 7 9'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+              onClick={prevSlide}
+              className='cursor-pointer'
+            >
+              <path
+                d='M-1.96701e-07 4.5L6.75 0.602886L6.75 8.39711L-1.96701e-07 4.5Z'
+                fill='white'
+              />
+            </svg>
 
-      <div className='mt-11 flex justify-between text-white md:mt-5'>
-        <div className='flex items-center justify-between'>
-          <svg
-            width='7'
-            height='9'
-            viewBox='0 0 7 9'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'
-            onClick={prevSlide}
-            className='cursor-pointer'
-          >
-            <path
-              d='M-1.96701e-07 4.5L6.75 0.602886L6.75 8.39711L-1.96701e-07 4.5Z'
-              fill='white'
-            />
-          </svg>
-
-          <div className='ml-1 text-sm font-bold md:ml-1.5 md:text-xs'>
-            0{activeSlide + 1}
-          </div>
-
-          <div className='mx-3 h-[0.188rem] w-[13.125rem] rounded-full bg-[rgba(255,255,255,0.4)] md:w-28'>
-            <div
-              className='h-full rounded-full bg-white'
-              style={{ width: `${progressBar}%` }}
-            ></div>
-          </div>
-
-          <div className='mr-1 text-sm font-bold md:mr-1.5 md:text-xs'>
-            0{data?.results.length}
-          </div>
-
-          <svg
-            width='7'
-            height='9'
-            viewBox='0 0 7 9'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'
-            onClick={nextSlide}
-            className='cursor-pointer'
-          >
-            <path d='M7 4.5L0.25 8.39711L0.25 0.602885L7 4.5Z' fill='white' />
-          </svg>
-        </div>
-
-        <Link href='/course-story/cardnews/1'>
-          <a className='rounded-full border border-white py-2 px-[1.375rem] text-lg font-bold md:hidden'>
-            {text.main['12']}
-          </a>
-        </Link>
-      </div>
-
-      <div data-aos='fade-up' data-aos-duration='1500' data-aos-delay='300'>
-        <Slider
-          ref={slider}
-          className='mt-12 overflow-hidden md:mt-8'
-          {...settings}
-        >
-          {data?.results.map((i: { [key: string]: any }) => (
-            <div key={i.id} className='!flex justify-center'>
-              <div className='relative aspect-square w-80 md:w-40'>
-                <Image
-                  src={i.thumbnail}
-                  alt='Card News Thumbnail'
-                  layout='fill'
-                  objectFit='cover'
-                  className='rounded-lg'
-                />
-              </div>
+            <div className='ml-1 text-sm font-bold md:ml-1.5 md:text-xs'>
+              0{activeSlide + 1}
             </div>
-          ))}
-        </Slider>
-      </div>
-    </Layout>
+
+            <div className='mx-3 h-[0.188rem] w-[13.125rem] rounded-full bg-[rgba(255,255,255,0.4)] md:w-28'>
+              <div
+                className='h-full rounded-full bg-white'
+                style={{ width: `${progressBar}%` }}
+              ></div>
+            </div>
+
+            <div className='mr-1 text-sm font-bold md:mr-1.5 md:text-xs'>
+              0{data?.results.length}
+            </div>
+
+            <svg
+              width='7'
+              height='9'
+              viewBox='0 0 7 9'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+              onClick={nextSlide}
+              className='cursor-pointer'
+            >
+              <path d='M7 4.5L0.25 8.39711L0.25 0.602885L7 4.5Z' fill='white' />
+            </svg>
+          </div>
+
+          <Link href='/course-story/cardnews/1'>
+            <a className='rounded-full border border-white py-2 px-[1.375rem] text-lg font-bold md:hidden'>
+              {text.main['12']}
+            </a>
+          </Link>
+        </div>
+
+        <div data-aos='fade-up' data-aos-duration='1500' data-aos-delay='300'>
+          <Slider
+            ref={slider}
+            className='mt-12 overflow-hidden md:mt-8'
+            {...settings}
+          >
+            {data?.results.map((i: { [key: string]: any }) => (
+              <div key={i.id} className='!flex justify-center'>
+                <div className='relative aspect-square w-80 md:w-40'>
+                  <Image
+                    src={i.thumbnail}
+                    alt='Card News Thumbnail'
+                    layout='fill'
+                    objectFit='cover'
+                    className='rounded-lg'
+                  />
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </div>
+      </Layout>
+    </div>
   );
 }

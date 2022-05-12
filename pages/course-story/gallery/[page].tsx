@@ -49,7 +49,7 @@ const Gallery: NextPage<IProps> = ({ page }) => {
 
         {/* 서브메뉴 탭 */}
         <div className='mt-[2.531rem] flex space-x-4 text-center text-[1.375rem] font-bold leading-[2.2rem] text-[#9e9e9e] md:mt-4 md:text-base'>
-          {['전체', '2021', '2020', '2019'].map((i) => (
+          {['전체', '2022', '2021', '2019'].map((i) => (
             <div
               key={i}
               onClick={() => toggleTab(i)}

@@ -104,7 +104,7 @@ const FindId: NextPage = () => {
                     watch('email') && !errors?.email?.message
                       ? 'cursor-pointer transition-all hover:opacity-70'
                       : '',
-                    'ml-4 flex h-full w-[7.5rem] items-center justify-center rounded border border-[#2fb6bc] text-sm font-medium text-[#2fb6bc] md:ml-2 md:w-24'
+                    'ml-4 flex h-full w-[7.5rem] items-center justify-center rounded border border-[#2fb6bc] text-sm font-medium text-[#2fb6bc] md:ml-2 md:w-32 md:text-xs'
                   )}
                 >
                   {code.loading ? (

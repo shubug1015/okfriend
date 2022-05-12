@@ -61,7 +61,7 @@ export default function Library({
                 type === 'notice'
                   ? 'rounded bg-[#d60a51] px-3.5 py-0.5 text-white'
                   : '',
-                ' text-lg font-medium'
+                ' text-xs font-medium'
               )}
             >
               {subject}
