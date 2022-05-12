@@ -62,7 +62,7 @@ export default function Course() {
             사전 온라인 연수
           </div> */}
 
-          <Link href='/course/online/live/1'>
+          <Link href='/course/list/online/required/1'>
             <a className='hidden rounded-full bg-[#2fb6bc] py-[0.35rem] px-[0.7rem] text-[0.75rem] font-bold text-white md:block'>
               {text.main['12']}
             </a>
@@ -116,7 +116,7 @@ export default function Course() {
             </div>
           </div>
 
-          <Link href='/course/list/online/live/1'>
+          <Link href='/course/list/online/required/1'>
             <a className='rounded-full bg-[#2fb6bc] py-2 px-[1.375rem] text-lg font-bold md:hidden'>
               {text.main['12']}
             </a>

@@ -35,7 +35,7 @@ export default function Library({
             'flex h-[3.75rem] items-center transition-all hover:opacity-70 md:hidden'
           )}
         >
-          <div className='flex w-[8.5%] justify-center text-lg text-[#9e9e9e]'>
+          <div className='flex w-[10%] justify-center text-lg text-[#9e9e9e]'>
             {type === 'notice' ? (
               <svg
                 width='24'
@@ -55,7 +55,7 @@ export default function Library({
             )}
           </div>
 
-          <div className='flex w-[8.5%] justify-center'>
+          {/* <div className='flex w-[8.5%] justify-center'>
             <span
               className={cls(
                 type === 'notice'
@@ -66,7 +66,7 @@ export default function Library({
             >
               {subject}
             </span>
-          </div>
+          </div> */}
 
           <div
             className={cls(

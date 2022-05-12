@@ -79,7 +79,7 @@ export default function Card() {
             {text.main['13']}
           </div>
 
-          <Link href='/'>
+          <Link href='/course-story/cardnews/1'>
             <a className='hidden rounded-full border border-white py-[0.35rem] px-[0.7rem] text-[0.75rem] font-bold text-white md:block'>
               {text.main['12']}
             </a>
@@ -104,7 +104,7 @@ export default function Card() {
             </svg>
 
             <div className='ml-1 text-sm font-bold md:ml-1.5 md:text-xs'>
-              0{activeSlide + 1}
+              {(activeSlide + 1 + '').padStart(2, '0')}
             </div>
 
             <div className='mx-3 h-[0.188rem] w-[13.125rem] rounded-full bg-[rgba(255,255,255,0.4)] md:w-28'>
@@ -115,7 +115,7 @@ export default function Card() {
             </div>
 
             <div className='mr-1 text-sm font-bold md:mr-1.5 md:text-xs'>
-              0{data?.results.length}
+              {(data?.results.length + '').padStart(2, '0')}
             </div>
 
             <svg
@@ -145,17 +145,20 @@ export default function Card() {
             {...settings}
           >
             {data?.results.map((i: { [key: string]: any }) => (
-              <div key={i.id} className='!flex justify-center'>
-                <div className='relative aspect-square w-80 md:w-40'>
-                  <Image
-                    src={i.thumbnail}
-                    alt='Card News Thumbnail'
-                    layout='fill'
-                    objectFit='cover'
-                    className='rounded-lg'
-                  />
-                </div>
-              </div>
+              <Link key={i.id} href={`/course-story/cardnews/detail/${i.id}`}>
+                <a className='!flex justify-center'>
+                  <div className='relative aspect-square w-80 md:w-40'>
+                    <Image
+                      src={i.thumbnail}
+                      alt='Card News Thumbnail'
+                      layout='fill'
+                      objectFit='cover'
+                      priority
+                      className='rounded-lg'
+                    />
+                  </div>
+                </a>
+              </Link>
             ))}
           </Slider>
         </div>
