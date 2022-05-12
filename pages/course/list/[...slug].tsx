@@ -43,7 +43,7 @@ const Course: NextPage<IProps> = ({ params }) => {
       ? '필수 차시'
       : courseCategory === 'elective'
       ? '선택 차시'
-      : '지난 연수 자료 강의',
+      : '지난 연수 자료',
   ];
   return (
     <>
