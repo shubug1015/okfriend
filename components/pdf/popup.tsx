@@ -117,7 +117,7 @@ export default function Popup() {
           {[
             text.certificate['88'],
             text.certificate['89'],
-            text.certificate['90'],
+            // text.certificate['90'],
           ].map((i) => (
             <div key={i} className='flex w-1/4 flex-col items-center space-y-2'>
               <input
@@ -166,14 +166,30 @@ export default function Popup() {
         </div>
       </motion.div>
 
-      <div id='pdfFile' className='relative h-[297mm] w-[210mm] bg-white'>
+      <div
+        id='pdfFile'
+        className='relative hidden h-[297mm] w-[210mm] bg-white'
+      >
         <img src='/pdf.png' alt='PDF Image' className='object-contain' />
 
-        <div
-          id='pdfName'
-          className='absolute left-1/2 top-0 translate-y-[100.5mm] -translate-x-1/2 font-montserrat text-2xl font-bold text-[#292E31]'
-        >
-          Dong Hyun Lee
+        <div className='absolute left-1/2 top-0 translate-y-[100.5mm] -translate-x-1/2 font-montserrat text-2xl font-bold text-[#292E31]'>
+          {data?.profile?.en_name}
+        </div>
+
+        <div className='absolute left-1/2 top-0 translate-y-[156.5mm] -translate-x-1/2 font-montserrat text-[1.75rem] font-bold text-[#292E31]'>
+          {data?.profile?.stage === 1
+            ? 'July 1st-31th, 2022'
+            : data?.profile?.stage === 2
+            ? 'August 1st-30th, 2022'
+            : data?.profile?.stage === 3
+            ? 'September 1st-30th, 2022'
+            : 'October 1st-30th, 2022'}
+        </div>
+
+        <div className='absolute left-1/2 top-0 translate-y-[195mm] -translate-x-1/2 font-montserrat text-2xl text-[#292E31]'>
+          {new Date().getFullYear()}.
+          {(new Date().getMonth() + 1 + '').padStart(2, '0')}.
+          {(new Date().getDate() + '').padStart(2, '0')}
         </div>
       </div>
     </div>
