@@ -18,7 +18,7 @@ interface IProps {
 const MyCourse: NextPage<IProps> = ({ page }) => {
   const { text } = useLocale();
   const { token } = useUser({ isPrivate: true });
-  const { data } = useSWR(token ? `myCourseList` : null, () =>
+  const { data } = useSWR(token ? `myCourseList/${page}` : null, () =>
     mypageApi.myCourseList(page, token as string)
   );
   const [category, setCategory] = useState('진행중');

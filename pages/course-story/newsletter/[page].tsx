@@ -17,7 +17,7 @@ interface IProps {
 const Newsletter: NextPage<IProps> = ({ page }) => {
   const router = useRouter();
   const { locale } = router;
-  const { data } = useSWR(`${locale}/newsLetter`, () =>
+  const { data } = useSWR(`${locale}/newsLetter/${page}`, () =>
     boardApi.getNewsLetterList(locale, page)
   );
   return (

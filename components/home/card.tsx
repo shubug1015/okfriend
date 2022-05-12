@@ -68,7 +68,7 @@ export default function Card() {
     AOS.init({ once: true });
   }, []);
   return (
-    <div className='bg-[url("/home/card-news-bg.png")] bg-cover bg-fixed bg-no-repeat py-72 md:py-10'>
+    <div className='bg-[url("/home/card-news-bg.png")] bg-cover bg-fixed bg-no-repeat py-40 md:py-10'>
       <Layout>
         <div className='md:flex md:items-center md:justify-between'>
           <div

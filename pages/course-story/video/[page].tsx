@@ -19,7 +19,7 @@ interface IProps {
 const Video: NextPage<IProps> = ({ page }) => {
   const router = useRouter();
   const { locale } = router;
-  const { data } = useSWR(`${locale}/videoList`, () =>
+  const { data } = useSWR(`${locale}/videoList/${page}`, () =>
     boardApi.getVideoList(locale, page)
   );
 
