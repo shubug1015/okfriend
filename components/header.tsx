@@ -234,9 +234,11 @@ export default function Header() {
 
   useEffect(() => {
     if (mobileMenuOpened) {
-      disableBodyScroll(document.body);
+      // document.body.style.overflow = 'hidden';
+      // disableBodyScroll(document.body);
     } else {
-      enableBodyScroll(document.body);
+      // document.body.style.overflow = 'visible';
+      // enableBodyScroll(document.body);
     }
   }, [mobileMenuOpened]);
 
@@ -519,7 +521,7 @@ export default function Header() {
               </div>
             </div>
 
-            <div className='mt-8'>
+            <div className='mt-8 h-[calc(100vh-8rem)] overflow-y-scroll'>
               {navList.map((i) => (
                 <div key={i.id}>
                   <div

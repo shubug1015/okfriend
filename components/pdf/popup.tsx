@@ -40,18 +40,15 @@ export default function Popup() {
   const { data } = useSWR<IUser>('/api/user');
   const [loading, setLoading] = useState(false);
 
-  console.log(data);
-
-  const downloadPdf = async () => {
+  const downloadPdf = async (type: string) => {
     setLoading(true);
     try {
-      const pdfEl = document.querySelector('#pdfFile') as HTMLElement;
+      const pdfElId = type === '영문' ? '#pdfEn' : '#pdfKo';
+      const pdfEl = document.querySelector(pdfElId) as HTMLElement;
 
       await html2canvas(pdfEl, {
         onclone: (clonedDoc) => {
-          const clonedPdfEl = clonedDoc.querySelector(
-            '#pdfFile'
-          ) as HTMLElement;
+          const clonedPdfEl = clonedDoc.querySelector(pdfElId) as HTMLElement;
           clonedPdfEl.style.display = 'block';
         },
       }).then(async (canvas) => {
@@ -87,8 +84,8 @@ export default function Popup() {
     mode: 'onChange',
   });
 
-  const onValid = async (data: IForm) => {
-    downloadPdf();
+  const onValid = async ({ type }: IForm) => {
+    downloadPdf(type);
   };
   const onInvalid = (errors: FieldErrors) => {
     console.log(errors);
@@ -166,11 +163,13 @@ export default function Popup() {
         </div>
       </motion.div>
 
-      <div
-        id='pdfFile'
-        className='relative hidden h-[297mm] w-[210mm] bg-white'
-      >
-        <img src='/pdf.png' alt='PDF Image' className='object-contain' />
+      {/* 영문 이수증 */}
+      <div id='pdfEn' className='relative hidden h-[297mm] w-[210mm] bg-white'>
+        <img src='/pdf/en.png' alt='PDF Image' className='object-contain' />
+
+        <div className='absolute right-[4.5rem] top-0 translate-y-[18mm] font-montserrat text-[0.938rem] font-bold text-[#292E31]'>
+          22OKF-A{(data?.profile?.id + '').padStart(4, '000')}
+        </div>
 
         <div className='absolute left-1/2 top-0 translate-y-[100.5mm] -translate-x-1/2 font-montserrat text-2xl font-bold text-[#292E31]'>
           {data?.profile?.en_name}
@@ -192,6 +191,42 @@ export default function Popup() {
           {(new Date().getDate() + '').padStart(2, '0')}
         </div>
       </div>
+      {/* 영문 이수증 */}
+
+      {/* 국문 이수증 */}
+      <div id='pdfKo' className='relative hidden h-[297mm] w-[210mm] bg-white'>
+        <img src='/pdf/ko.png' alt='PDF Image' className='object-contain' />
+
+        <div className='absolute right-[4.5rem] top-0 translate-y-[18mm] font-montserrat text-[0.938rem] font-bold text-[#292E31]'>
+          22OKF-A{(data?.profile?.id + '').padStart(4, '000')}
+        </div>
+
+        <div className='absolute right-12 top-0 w-40 translate-y-[86.9mm] text-lg font-bold'>
+          {data?.profile?.name}
+        </div>
+
+        <div className='absolute right-12 top-0 w-40 translate-y-[95.7mm] text-lg font-bold'>
+          {data?.profile?.birth.split('-')[0]}.
+          {data?.profile?.birth.split('-')[1].padStart(2, '0')}.
+          {data?.profile?.birth.split('-')[2].padStart(2, '0')}
+        </div>
+
+        <div className='absolute right-[12.3rem] top-0 translate-y-[143.7mm] text-2xl font-bold'>
+          {data?.profile?.stage === 1
+            ? '(2022.07.01~07.31)'
+            : data?.profile?.stage === 2
+            ? '(2022.08.01~08.30)'
+            : data?.profile?.stage === 3
+            ? '(2022.09.01~09.30)'
+            : '(2022.10.01~10.31)'}
+        </div>
+
+        <div className='absolute left-1/2 top-0 translate-y-[200mm] -translate-x-1/2 text-xl font-bold'>
+          {new Date().getFullYear()}년 {new Date().getMonth() + 1}월{' '}
+          {new Date().getDate()}일
+        </div>
+      </div>
+      {/* 국문 이수증 */}
     </div>
   );
 }
