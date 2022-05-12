@@ -57,15 +57,16 @@ const Contact: NextPage = () => {
       <Navigator supportCategory='contact' />
 
       <div className='bg-[#f4f9fb]'>
-        <Layout padding='pt-16 pb-24'>
-          <div className='font-nexonBold text-4xl font-bold leading-[3.375rem]'>
+        <Layout padding='pt-16 pb-24 md:pt-8'>
+          <div className='font-nexonBold text-4xl font-bold leading-[3.375rem] md:text-center md:text-2xl'>
             궁금한 사항에 대해
+            <br className='hidden md:block' />
             <span className='text-[#2fb6bc]'> 신속히 답변드리겠습니다.</span>
           </div>
 
-          <div className='mt-12 w-[73.688rem] rounded bg-white py-14 px-[3.75rem]'>
-            <div className='flex space-x-8'>
-              <div className='w-1/2'>
+          <div className='mt-12 w-[73.688rem] rounded bg-white py-14 px-[3.75rem] md:mt-5 md:w-full md:px-[0.813rem] md:py-8 md:text-base'>
+            <div className='flex space-x-8 md:block md:space-x-0'>
+              <div className='w-1/2 md:w-full'>
                 {/* 이름 */}
                 <div>
                   <Input
@@ -87,7 +88,7 @@ const Contact: NextPage = () => {
                 </div>
 
                 {/* 전화번호  */}
-                <div className='mt-7'>
+                <div className='mt-7 md:mt-2'>
                   <Input
                     type='tel'
                     label='휴대폰 번호'
@@ -110,7 +111,7 @@ const Contact: NextPage = () => {
                 </div>
 
                 {/* 이메일 */}
-                <div className='mt-7'>
+                <div className='mt-7 md:mt-2'>
                   <Input
                     type='text'
                     label='이메일'
@@ -133,8 +134,8 @@ const Contact: NextPage = () => {
                 </div>
 
                 {/* 카테고리 */}
-                <div className='mt-7 flex w-full flex-col'>
-                  <label className='text-base font-medium text-[#01111e] '>
+                <div className='mt-7 flex w-full flex-col md:mt-2'>
+                  <label className='text-base font-medium text-[#01111e] md:text-[0.938rem]'>
                     카테고리
                   </label>
 
@@ -152,7 +153,7 @@ const Contact: NextPage = () => {
                         errors?.category?.message
                           ? 'border-red-500'
                           : 'border-[#d6d6d6]',
-                        'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm'
+                        'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm md:h-[45px] md:pl-1 md:text-[0.938rem]'
                       )}
                     >
                       <option value='default'>계정문의</option>
@@ -167,8 +168,8 @@ const Contact: NextPage = () => {
               </div>
 
               {/* 내용 */}
-              <div className='w-1/2 space-y-2'>
-                <div className='font-medium'>내용</div>
+              <div className='w-1/2 space-y-2 md:w-full'>
+                <div className='font-medium md:text-[0.938rem]'>내용</div>
 
                 <textarea
                   placeholder='내용 입력'
@@ -187,7 +188,7 @@ const Contact: NextPage = () => {
                     errors?.content?.message
                       ? 'border-red-500'
                       : 'border-[#d6d6d6]',
-                    'h-[28rem] w-full rounded border pt-4 pl-5 text-lg font-medium outline-none placeholder:text-[#d6d6d6]'
+                    'h-[28rem] w-full rounded border pt-4 pl-5 text-lg font-medium outline-none placeholder:text-[#d6d6d6] md:text-[0.938rem]'
                   )}
                 />
 
@@ -200,7 +201,7 @@ const Contact: NextPage = () => {
             <div className='flex justify-center'>
               <div
                 onClick={handleSubmit(onValid, onInValid)}
-                className='mt-12 h-[3.75rem] w-[23.75rem] cursor-pointer rounded bg-[#2fb6bc] pt-4 text-center text-[1.125rem] font-medium text-white'
+                className='mt-12 h-[3.75rem] w-[23.75rem] cursor-pointer rounded bg-[#2fb6bc] pt-4 text-center text-[1.125rem] font-medium text-white md:mt-4 md:h-[2.813rem] md:w-[17.5rem] md:pt-[0.6rem] md:text-base'
               >
                 문의하기
               </div>

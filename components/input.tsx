@@ -31,7 +31,7 @@ export default function Input({
           className={cls(
             error ? 'border-red-500' : 'border-[#d6d6d6]',
             readOnly ? 'opacity-50' : '',
-            'h-full grow rounded border bg-transparent pl-4 outline-none placeholder:text-sm md:pl-2.5 md:text-[0.938rem]'
+            'h-full grow rounded border bg-transparent pl-4 outline-none placeholder:text-sm md:w-full md:pl-2.5 md:text-[0.938rem]'
           )}
         />
         {children}
