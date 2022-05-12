@@ -234,8 +234,10 @@ export default function Header() {
 
   useEffect(() => {
     if (mobileMenuOpened) {
+      // document.body.style.overflow = 'hidden';
       disableBodyScroll(document.body);
     } else {
+      // document.body.style.overflow = 'visible';
       enableBodyScroll(document.body);
     }
   }, [mobileMenuOpened]);
@@ -444,7 +446,7 @@ export default function Header() {
             initial='invisible'
             animate='visible'
             exit='exit'
-            className='absolute top-12 h-screen w-screen overflow-y-scroll bg-white pt-2.5'
+            className='absolute top-12 h-screen w-screen bg-white pt-2.5'
           >
             <div className='mx-auto max-w-[330px]'>
               <div className='flex items-center justify-between'>
@@ -519,7 +521,7 @@ export default function Header() {
               </div>
             </div>
 
-            <div className='mt-8'>
+            <div className='mt-8 h-[calc(100vh-8rem)] overflow-y-scroll'>
               {navList.map((i) => (
                 <div key={i.id}>
                   <div
