@@ -235,10 +235,10 @@ export default function Header() {
   useEffect(() => {
     if (mobileMenuOpened) {
       // document.body.style.overflow = 'hidden';
-      disableBodyScroll(document.body);
+      // disableBodyScroll(document.body);
     } else {
       // document.body.style.overflow = 'visible';
-      enableBodyScroll(document.body);
+      // enableBodyScroll(document.body);
     }
   }, [mobileMenuOpened]);
 
@@ -446,7 +446,7 @@ export default function Header() {
             initial='invisible'
             animate='visible'
             exit='exit'
-            className='absolute top-12 h-screen w-screen bg-white pt-2.5'
+            className='absolute top-12 h-screen w-screen overflow-y-scroll bg-white pt-2.5'
             // style={{ overflowY: 'scroll', WebkitOverflowScrolling: 'touch' }}
           >
             <div className='mx-auto max-w-[330px]'>
@@ -490,7 +490,7 @@ export default function Header() {
 
                       <div className='text-xs text-[#9e9e9e]'>|</div>
 
-                      <Link href='signup'>
+                      <Link href='/signup'>
                         <a
                           onClick={() => setMobileMenuOpened(false)}
                           className='text-sm font-bold text-[#6b6b6b]'
