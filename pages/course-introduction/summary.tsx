@@ -157,7 +157,7 @@ const Greeting: NextPage = () => {
           </div>
         </div>
 
-        {/* 2022 재외동포대학생(온라인) 연수 기간 */}
+        {/* 2022 재외동포대학생모국연수(온라인) */}
         <div className='border-b border-[#e8e8e8] pt-[2.906rem] pb-[2.531rem] text-2xl text-[#01111e] md:pt-[1.906rem] md:text-xl'>
           <div className='font-nexonBold font-bold leading-[2.25rem] md:hidden md:leading-[1.875rem]'>
             {text.summary['23']}
