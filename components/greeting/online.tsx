@@ -11,9 +11,24 @@ export default function Online() {
   const { text } = useLocale();
   return (
     <div>
-      {/* 이사장 김성곤입니다. */}
-      <div className='relative'>
-        <div className='absolute top-0 left-0 z-[-1] h-[50vw] w-full md:hidden'>
+      {/* 온라인연수에 - 환영합니다. */}
+      <div className='flex justify-center'>
+        <div className='flex w-[61.25rem] justify-end'>
+          <div className='w-[32rem] pt-[4.214rem] md:w-screen md:pb-[15.438rem] md:pt-[1.875rem]'>
+            <div className='font-nexon text-[2.5rem] leading-[3.438rem] text-[#01111e] md:mx-[1.563rem] md:text-xl'>
+              {text.greeting['7']}
+              <br />
+              <span className='font-nexonBold font-bold text-[#2fb6bc]'>
+                {text.greeting['8']}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 김성곤입니다. */}
+      <div className='relative bg-pink-500'>
+        <div className='absolute top-0 left-0 z-[10] mt-[83px] h-[630px] w-full md:hidden'>
           <Image
             src={Bg1}
             alt='Background Image1'
@@ -23,17 +38,9 @@ export default function Online() {
             quality={100}
           />
         </div>
-
         <div className='flex justify-center'>
           <div className='flex w-[61.25rem] justify-end'>
-            <div className='w-[32rem] pt-[4.214rem] pb-[29.25rem] md:w-screen md:pb-[15.438rem] md:pt-[1.875rem]'>
-              <div className='font-nexon text-[2.5rem] leading-[3.438rem] text-[#01111e] md:mx-[1.563rem] md:text-xl'>
-                {text.greeting['7']}
-                <br />
-                <span className='font-nexonBold font-bold text-[#2fb6bc]'>
-                  {text.greeting['8']}
-                </span>
-              </div>
+            <div className='w-[32rem] pt-[4.214rem] md:w-screen md:pb-[15.438rem] md:pt-[1.875rem]'>
               <div className='relative mt-[1.313rem] hidden md:block'>
                 <div className='absolute top-0 left-0 z-[-1] h-[15.375rem] w-full'>
                   <Image
@@ -91,8 +98,8 @@ export default function Online() {
       </div> */}
 
       {/* 2022 - 환영합니다.  */}
-      <div className='flex flex-col items-center pb-20 md:w-screen md:pb-[3.625rem]'>
-        <div className='md: mt-10 w-[61.25rem] font-nexonBold text-[1.875rem] font-bold leading-6 text-[#01111e] md:w-screen md:px-[1.563rem] md:text-[1.25rem] md:leading-[1.875rem]'>
+      <div className='mt-20 flex flex-col items-center bg-indigo-500 pb-20 md:w-screen md:pb-[3.625rem]'>
+        <div className='mt-10 w-[61.25rem] font-nexonBold text-[1.875rem] font-bold leading-6 text-[#01111e] md:w-screen md:px-[1.563rem] md:text-[1.25rem] md:leading-[1.875rem]'>
           {text.greeting['12']}
         </div>
         <div className='mt-[1.813rem] w-[61.25rem] whitespace-pre-wrap text-[1.125rem] font-normal leading-[1.856rem] text-[#6b6b6b] md:w-screen md:px-[1.563rem] md:text-[0.875rem] md:leading-[1.444rem]'>
