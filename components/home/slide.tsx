@@ -147,7 +147,7 @@ export default function Slide() {
         </svg>
       </div>
 
-      <div className='relative mx-auto w-full max-w-[1400px]'>
+      {/* <div className='relative mx-auto w-full max-w-[1400px]'>
         <div className='absolute left-0 bottom-0 flex h-[3.813rem] w-[21.5rem] items-center justify-center bg-[#231916] md:left-1/2 md:h-9 md:w-48 md:-translate-x-1/2'>
           <svg
             width='7'
@@ -191,7 +191,7 @@ export default function Slide() {
             <path d='M7 4.5L0.25 8.39711L0.25 0.602885L7 4.5Z' fill='white' />
           </svg>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

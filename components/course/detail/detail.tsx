@@ -2,7 +2,7 @@ import Layout from '@layouts/sectionLayout';
 import { cls } from '@libs/client/utils';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Popup from '@components/course/detail/popup';
 import { courseApi } from '@libs/api';
 import { useRouter } from 'next/router';
@@ -89,6 +89,23 @@ export default function Detail({
       return () => clearInterval(timer);
     }
   }, [isPlaying]);
+
+  // Update progress percent.
+  const videoPlayerRef = useRef<any>();
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const videoElem: any = videoPlayerRef.current as any;
+
+      if (videoElem == null) {
+        return;
+      }
+
+      const newPercent = (videoElem.currentTime / videoElem.duration) * 100;
+      setProgressPercent(newPercent);
+    }, 1000); // Update progress percent in every sec.
+
+    return () => clearInterval(intervalId);
+  }, [setProgressPercent]);
   return (
     <>
       <div>
@@ -96,13 +113,16 @@ export default function Detail({
           {/* 썸네일 */}
           <div className='relative h-[26.125rem] w-[44.688rem] md:h-48 md:w-full'>
             {isRegistered ? (
-              <Vimeo
-                video={data?.url}
+              <video
+                ref={videoPlayerRef}
+                playsInline
+                controls
                 className='h-full w-full'
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
-                onTimeUpdate={(e) => setProgressPercent(e.percent * 100)}
-              />
+              >
+                <source src={data?.url} />
+              </video>
             ) : (
               data?.thumbnail && (
                 <Image

@@ -13,6 +13,9 @@ export default function Notice() {
   const { data } = useSWR(`${locale}/noticeList/title/created/1/`, () =>
     boardApi.getNoticeList(locale, 'title', 'created', '1', '')
   );
+  const { data: videoData } = useSWR(`${locale}/videoList/1`, () =>
+    boardApi.getVideoList(locale, '1')
+  );
 
   useEffect(() => {
     AOS.init({ once: true });
@@ -119,8 +122,14 @@ export default function Notice() {
             data-aos='fade-up'
             data-aos-duration='1500'
             data-aos-delay='300'
-            className='mt-8 h-[25.625rem] w-full rounded-lg bg-slate-300 md:mt-5 md:h-48'
-          ></div>
+            className='mt-8 h-[25.625rem] w-full rounded-lg md:mt-5 md:h-48'
+          >
+            {videoData && (
+              <video playsInline controls className='h-full w-full'>
+                <source src={videoData?.results[0]?.url} type='video/mp4' />
+              </video>
+            )}
+          </div>
         </div>
       </div>
     </Layout>

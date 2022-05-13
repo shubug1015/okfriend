@@ -46,7 +46,9 @@ const Video: NextPage<IProps> = ({ page }) => {
         >
           {data?.results.map((i: { [key: string]: any }) => (
             <div key={i.id} className='h-80 w-full md:h-[11.5rem]'>
-              <Vimeo video={i.url} className='h-full w-full' />
+              <video playsInline controls className='h-full w-full'>
+                <source src={i.url} type='video/mp4' />
+              </video>
             </div>
           ))}
         </div>

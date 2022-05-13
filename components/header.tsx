@@ -262,7 +262,7 @@ export default function Header() {
             {/* SNS 버튼 */}
 
             {/* 언어 선택 */}
-            <Menu as='div' className='relative inline-block text-left'>
+            {/* <Menu as='div' className='relative inline-block text-left'>
               <div>
                 <Menu.Button className='flex items-center space-x-4 rounded-md border border-[#6b6b6b] py-1.5 pl-4 pr-2 text-xs font-bold text-[#6b6b6b] md:space-x-2 md:pl-2.5'>
                   <div>{language}</div>
@@ -323,7 +323,7 @@ export default function Header() {
                   </div>
                 </Menu.Items>
               </Transition>
-            </Menu>
+            </Menu> */}
             {/* 언어 선택 */}
           </div>
         </div>
