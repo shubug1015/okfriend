@@ -223,7 +223,7 @@ export const en = {
   },
 
   //   연수이야기 - 헤더 및 메뉴바
-  CourseStoryHeader: {
+  courseStoryHeader: {
     '1': 'Training Story',
     '2': 'Training Story',
     '3': 'Video',
@@ -233,25 +233,25 @@ export const en = {
   },
 
   //   연수이야기 - 홍보 영상
-  Video: {
+  video: {
     '1': '2022 Overseas Korean University Student Home Training(Online)',
     '2': 'Video',
   },
 
   //   연수이야기 - 연수 갤러리
-  Gallery: {
+  gallery: {
     '1': 'Gallery',
     '2': 'All',
   },
 
   //   연수이야기 - 카드뉴스
-  Cardnews: {
+  cardnews: {
     '1': 'Cardnews',
     '2': 'All',
   },
 
   //   연수이야기 - 뉴스레터
-  Newsletter: {
+  newsletter: {
     '1': 'Newsletter',
     '2': 'No.',
     '3': 'Title',
@@ -261,7 +261,7 @@ export const en = {
   },
 
   //   지원센터 - 헤더 및 메뉴바
-  SupportStoryHeader: {
+  supportStoryHeader: {
     '1': 'Support Center',
     '2': 'Support Center',
     '3': 'Announcement',
@@ -272,7 +272,7 @@ export const en = {
   },
 
   //   지원센터 - 공지사항
-  Notice: {
+  notice: {
     '1': 'Title',
     '2': 'Search',
     '3': 'Latest order',
@@ -285,7 +285,7 @@ export const en = {
   },
 
   //   지원센터 - 공지사항
-  FAQ: {
+  faq: {
     '1': 'How do I participate in the 2022 OKFriends Home Coming Youth Camp?',
     '2': 'You can participate by accessing the online camp website (www.okfyouthcamp.com) and registering as a member.\n\n[Period of application for the camp]\n2022. 05. 12 (Thu) ~ 2022. 06. 30 (Thu) (based on KST) * May close early depending on circumstances',
     '3': 'Is the online camp free of charge?',
@@ -317,7 +317,7 @@ export const en = {
   },
 
   //   지원센터 - 1:1 문의하기
-  Contact: {
+  contact: {
     '1': 'We will answer your questions quickly.',
     '2': '',
     '3': 'Name',
@@ -338,7 +338,7 @@ export const en = {
   },
 
   //   지원센터 - 자료실
-  Library: {
+  library: {
     '1': 'Title',
     '2': 'Search',
     '3': 'Latest order',
