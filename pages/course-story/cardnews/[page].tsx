@@ -32,7 +32,7 @@ const Cardnews: NextPage<IProps> = ({ page }) => {
       <Banner title='연수이야기' navList={['연수이야기', '카드뉴스']} />
       <MenuBar pageName='카드뉴스' />
       <Layout padding='pt-16 pb-20 md:pt-8 md:pb-15'>
-        <div className='border-b border-[#9e9e9e] pt-[4.214rem] pb-[1.281rem] font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#01111e] md:pb-6 md:pt-0 md:text-center md:text-2xl'>
+        <div className='border-b border-[#9e9e9e] pb-[1.281rem] font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#01111e] md:pb-6 md:pt-0 md:text-center md:text-2xl'>
           카드뉴스
         </div>
 
