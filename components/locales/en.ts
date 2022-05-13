@@ -1,15 +1,36 @@
 export const en = {
+  // 헤더
   header: {
-    '1': '온라인연수 소개',
-    '2': '연수실',
-    '3': '도서관',
-    '4': '연수이야기',
-    '5': '지원센터',
-    '6': '로그인',
-    '7': '마이페이지',
-    '8': '로그아웃',
-    '9': '회원가입',
+    '1': 'About the online camp',
+    '1-1': 'Greetings',
+    '1-2': 'About',
+    '1-3': 'Program',
+    '2': 'Training Room',
+    '3': 'Library',
+    '3-1': 'History of Korea',
+    '3-2': 'Every nook and cranny',
+    '3-3': 'Peace and Unification on the Korean Peninsula',
+    '3-4': 'Korean Diaspora & Global Korean',
+    '3-5': 'Global Citizenship & Global Citizenship Education',
+    '3-6': 'UN Sustainable Development Goals(SDGs)',
+    '4': 'Training Story',
+    '4-1': 'Video',
+    '4-2': 'Gallery',
+    '4-3': 'Cardnews',
+    '4-4': 'Newsletter',
+    '5': 'Support center',
+    '5-1': 'Announcement',
+    '5-2': 'FAQ',
+    '5-3': '1:1 Contact',
+    '5-4': 'Data',
+    '5-5': 'Issuance of a certificate of completion',
+    '6': 'Login',
+    '7': 'Mypage',
+    '8': 'Logout',
+    '9': 'Signin',
   },
+
+  //   메인페이지
   main: {
     '1': 'Online home country training for overseas Korean college students',
     '2': 'It is a space where overseas Korean university students and domestic exchange participants can communicate and exchange\nin real time. It is an online platform\nwhere you can experience the future of new changes.',
@@ -31,6 +52,8 @@ export const en = {
     '18': 'Support Center',
     '19': '1:1 Contact',
   },
+
+  //   온라인연수 소개 - 인사말
   greeting: {
     '1': 'About the online camp for oversea\nKorean university student',
     '2': 'About OKF',
@@ -53,13 +76,15 @@ export const en = {
     '19': 'Dear oversea Korean university students joining the 2022 OKFriends Home Coming Youth Camp, nice to meet you.',
     '20': 'Korean students from all over the world, nice to meet you\nIn the summer of 2022 in Seoul, South Korea, the 2022 OKFriends Home Coming Youth Camp where students experienced being a member of the Korean community under the identity of Korean will be held\nBecause of the COVID-19 pandemic, our meeting has stopped for the past two years. Of course, the aftermath of COVID-19 has not completely ended, but the camp will start again both online and offline this year.\n\nThe camp, which will resume for the first time in three years, will be visited by global Korean students. It will be a meaningful time for them to experience and discuss our culture, history, and universal values of the world in six cities across the country, including Seoul and Busan.\n\nIn addition, the 2022 Overseas Korean University Cyber Camp, which has greatly supplemented online content following last year, will also be held through an online web page. We look forward to your enthusiastic participation in this online/offline camp, which will be an opportunity for Korean youth to exchange anywhere, beyond time and space.',
   },
+
+  //   온라인연수 소개 - 개요
   summary: {
-    '1': '재외동포 대학생 온라인연수 소개',
-    '2': '온라인연수 소개',
-    '3': '개요',
-    '4': '인사말',
-    '5': '개요',
-    '6': '연수 편성표',
+    '1': 'About the online camp for oversea\nKorean university student',
+    '2': 'About OKF',
+    '3': 'About',
+    '4': 'Greetings',
+    '5': 'About',
+    '6': 'Program',
     '7': '2022',
     '8': 'The 2022 OKFriends Home Coming Youth Camp',
     '9': 'Purpose of the camp',
@@ -101,10 +126,12 @@ export const en = {
     '45': '• For overseas Korean university students',
     '46': '• For international students',
   },
+
+  //   온라인연수 소개 - 연수 편성표
   schedule: {
     '1': '재외동포 대학생 온라인연수 소개',
     '2': '온라인연수 소개',
-    '3': '연수 편성표',
+    '3': 'Program',
     '4': '인사말',
     '5': '개요',
     '6': '연수 편성표',
@@ -113,6 +140,8 @@ export const en = {
     '9': 'Online training in advance',
     '10': 'Course',
   },
+
+  // 연수실
   course: {
     '1': 'Training Room of Overseas Koreans University Student',
     '2': 'Online training in advance / Online training Click',
@@ -121,6 +150,59 @@ export const en = {
     '5': 'Online training',
     '6': 'Click',
   },
+
+  //   연수실 - 사전 온라인연수 - 헤더 및 메뉴바
+  preCourseHeader: {
+    '1': 'CyberCamp',
+    '2': 'CyberCamp',
+    '3': 'Pre-online training',
+    '4': 'Required session',
+    '5': 'Optional session',
+    '6': 'Previous Course\nMaterials',
+  },
+
+  //   연수실 - 사전 온라인연수 - 필수 차시
+  preCourseRequired: {
+    '1': '',
+    '2': 'Precautions to consider when watching lectures during required session',
+    '3': 'All programs must be completed in order to issue a certificate of completion.',
+    '4': '',
+  },
+
+  //   연수실 - 사전 온라인연수 - 선택 차시
+  preCourseElective: {
+    '1': '',
+    '2': 'Precautions to consider when watching lectures during Optional Session',
+    '3': 'All programs are open\ntemporarily so that participants\ncan select and learn on their own',
+    '4': 'Automatically payment of pre-\nset mileage per respective\nprogram',
+  },
+
+  //   연수실 - 온라인연수 - 헤더 및 메뉴바
+  courseHeader: {
+    '1': 'CyberCamp',
+    '2': 'CyberCamp',
+    '3': 'Online training',
+    '4': 'Required session',
+    '5': 'Optional session',
+    '6': 'Previous Course\nMaterials',
+  },
+
+  //   연수실 - 온라인연수 - 필수 차시
+  courseRequired: {
+    '1': '',
+    '2': 'Precautions to consider when watching lectures during required session',
+    '3': 'All programs must be completed in order to issue a certificate of completion.',
+    '4': '',
+  },
+
+  //   연수실 - 온라인연수 - 선택 차시
+  courseElective: {
+    '1': '',
+    '2': 'Precautions to consider when watching lectures during Optional Session',
+    '3': 'All programs are open\ntemporarily so that participants\ncan select and learn on their own',
+    '4': 'Automatically payment of pre-\nset mileage per respective\nprogram',
+  },
+
   courseSurvey: {
     '1': 'Survey on lectures from the 2022 oversea\nKorean student home country training',
     '2': '',
@@ -135,20 +217,150 @@ export const en = {
     '11': 'By taking this course, I was able to fully learn core content and related knowledge',
     '12': 'Taking this course helped me develop my potential or career design',
     '13': 'I am satisfied with taking this course and would like to recommend it to other students',
-    '14': '본 강좌를 수강함으로써 유익했던 점과 건의하고 싶은 사항을 자유롭게 기재하여 주십시오.',
+    '14': 'Please feel free to write down any benefits and suggestions you have taken this course.',
     '15': 'Enter Content',
     '16': 'Submit',
   },
+
+  //   연수이야기 - 헤더 및 메뉴바
+  CourseStoryHeader: {
+    '1': 'Training Story',
+    '2': 'Training Story',
+    '3': 'Video',
+    '4': 'Gallery',
+    '5': 'CardNews',
+    '6': 'Newsletter',
+  },
+
+  //   연수이야기 - 홍보 영상
+  Video: {
+    '1': '2022 Overseas Korean University Student Home Training(Online)',
+    '2': 'Video',
+  },
+
+  //   연수이야기 - 연수 갤러리
+  Gallery: {
+    '1': 'Gallery',
+    '2': 'All',
+  },
+
+  //   연수이야기 - 카드뉴스
+  Cardnews: {
+    '1': 'Cardnews',
+    '2': 'All',
+  },
+
+  //   연수이야기 - 뉴스레터
+  Newsletter: {
+    '1': 'Newsletter',
+    '2': 'No.',
+    '3': 'Title',
+    '4': 'Writer',
+    '5': 'Date',
+    '6': 'View',
+  },
+
+  //   지원센터 - 헤더 및 메뉴바
+  SupportStoryHeader: {
+    '1': 'Support Center',
+    '2': 'Support Center',
+    '3': 'Announcement',
+    '4': 'FAQ',
+    '5': '1:1 Contact',
+    '6': 'Data',
+    '7': 'Issuance of a certificate of completion',
+  },
+
+  //   지원센터 - 공지사항
+  Notice: {
+    '1': 'Title',
+    '2': 'Search',
+    '3': 'Latest order',
+    '4': 'View order',
+    '5': 'No.',
+    '6': 'Title',
+    '7': 'Writer',
+    '8': 'Date',
+    '9': 'View',
+  },
+
+  //   지원센터 - 공지사항
+  FAQ: {
+    '1': 'How do I participate in the 2022 OKFriends Home Coming Youth Camp?',
+    '2': 'You can participate by accessing the online camp website (www.okfyouthcamp.com) and registering as a member.\n\n[Period of application for the camp]\n2022. 05. 12 (Thu) ~ 2022. 06. 30 (Thu) (based on KST) * May close early depending on circumstances',
+    '3': 'Is the online camp free of charge?',
+    '4': 'Yes! This online camp is free for all participants, and there is no additional charge.',
+    '5': 'I am an 18-year-old prospective college student. Is it possible to participate in the 2022 OKFriends Home Coming Youth Camp?',
+    '6': 'Considering the different academic system by country, 18-year-old prospective college students can apply for the camp and decide the kind of camp (youth, college students).',
+    '7': 'I have participated in the previous OKFriends Home Coming Youth Camp. Can I still participate in the 2022 OKFriends Home Coming Youth Camp?',
+    '8': 'Yes! Even if you have previously participated in the OKFriends Home Coming Youth Camp, you can still participate in the 2022 OKFriends Home Coming Youth Camp.',
+    '9': 'What is the schedule of the 2022 OKFriends Home Coming Youth Camp?',
+    '10': 'The 2022 OKFriends Home Coming Youth Camp is divided into 4 sessions, and it will run for 4 months. \n– 1st term: 2022.7.1.(Fri)~7.31(Sun).\n– 2nd term: 2022.8.1.(Mon)~8.31.(Wed)\n– 3rd term: 2022.9.1.(Thu) ~ 9.30.(Fri)\n- 4th term : 2022.10.1.(Sat) ~ 10.31.(Mon)\n*(based on KST)',
+    '11': 'If I cannot participate in the live program (Next-generation leader talk show, Hello. Closing ceremony) in real time due to personal circumstances, will I not be able to complete the program?',
+    '12': 'You can still pass. Even if you do not participate in real time, you can complete the course by watching the recorded version of the content.\n**However, there is a difference in mileage saving (10 points for live completion, 5 points for recorded content)',
+    '13': 'What are the essential things to check when watching the online camp contents?',
+    '14': '[Required course] All contents are temporarily open, and you must watch all contents within the required course to enable us to issue a certificate of the course completion.\n[Optional class] All contents are temporarily open, so participants can choose and study the contents by themselves.\n[Satisfaction Survey] After you finish watching the lecture, you must complete the lecture satisfaction survey for the course to be successfully completed.',
+    '15': 'I want to check the list of courses I have taken so far. How can I check?',
+    '16': 'On My Page, you can check the list of courses you have completed and are in progress.',
+    '17': 'I want to check the mileage saving status. How can I check?',
+    '18': 'You can check the mileage saving history on My Page.',
+    '19': 'How can I use my mileage?',
+    '20': 'We provide various benefits by selecting excellent participants for each session based on the mileage points saving during the camp.\n\n[For overseas Korean university students]\nWhen participating in offline camp in 2023\n1) Top 5% of graduates: Additional 5% of airfare is provided for offline participation in the next year, and priority selection is given for offline participation in the next year\n2) Top 30% of graduates: Priority selection is given for offline participation in the next year\n3) All those who completed the course: Additional points are given for offline participation in the next year\n\n[For domestic university students]\n1) Top 50 graduates: Opportunity to participate in Unification Public Diplomacy Camp at the end of the camp\n2) Other recipients: Gift vouchers or e-vouchers are provided through events',
+    '21': 'Can I participate in the online camp only with a PC?',
+    '22': 'You can participate in the 2022 OKFriends Home Coming Youth Camp by using various electronic devices such as PCs, mobiles, and tablets!',
+    '23': 'Which browser should I use to participate in the online camp?',
+    '24': 'Wired internet is recommended for a stable internet environment when participating in the online camp. Network communication may not be smooth when participating in the camp by connecting Wi-Fi and a hotspot.\n\n*If you cannot connect to Firefox, please use Chrome or the latest browser. If you cannot connect to Chrome, please use Firefox or another latest browser.',
+    '25': 'How can I get a certificate of completion?',
+    '26': 'Certificate of completion can be issued through the ‘Support Center → Issuance of Certificate of Completion’ page after completing all contents within the required course. However, please note that the certificate can only be issued within the specified period.\n※The period of certificate issuance will be announced through a notice later.',
+    '27': 'I have a question about the 2022 OKFriends Home Coming Youth Camp! Where should I ask?',
+    '28': 'If you contact us through the ‘one-to-one inquiry’ of the support center on the homepage, we will kindly answer your questions.',
+  },
+
+  //   지원센터 - 1:1 문의하기
+  Contact: {
+    '1': 'We will answer your questions quickly.',
+    '2': '',
+    '3': 'Name',
+    '4': 'Name',
+    '5': 'Phone Number',
+    '6': 'Phone Number',
+    '7': 'Email',
+    '8': 'Email',
+    '9': 'Category',
+    '10': 'Account',
+    '11': 'Lecture',
+    '12': 'Mileage',
+    '13': 'Error report',
+    '14': 'Others',
+    '15': 'Content',
+    '16': 'Enter Content',
+    '17': 'Contact',
+  },
+
+  //   지원센터 - 자료실
+  Library: {
+    '1': 'Title',
+    '2': 'Search',
+    '3': 'Latest order',
+    '4': 'View order',
+    '5': 'No.',
+    '6': 'Title',
+    '7': 'Writer',
+    '8': 'Date',
+    '9': 'View',
+  },
+
+  //   지원센터 - 이수증 발급
   certificate: {
-    '1': '지원센터 이수증 발급',
-    '2': '지원센터',
-    '3': '이수증 발급',
-    '4': '공지사항',
-    '5': '1:1 문의하기',
-    '6': '자료실',
-    '7': '이수증 발급',
-    '8': '이수증',
-    '9': '발급 안내',
+    '1': 'Support Center',
+    '2': 'Support Center',
+    '3': 'Issuance of a certificate of completion',
+    '4': 'Announcement',
+    '5': '1:1 Contact',
+    '6': 'Data',
+    '7': 'Issuance of a certificate of completion',
+    '8': 'Guide on Issuance of a certificate of completion',
+    '9': '',
     '10': 'Once you have completed all the survey below, you will receive a certificate of completion via email.',
     '11': '',
     '12': 'Satisfaction survey on the 2022 online training for oversea Korean university student',
@@ -191,47 +403,49 @@ export const en = {
     '49': '4. Administration service for information in advance',
     '50': '6. Are you satisfied with the following programs of OKFriends Cyber Camp?',
     '51': '· It reached the degree out of 10.',
-    '52': '1. OKFriends CyberCamp 플랫폼 편의성',
-    '53': '2. OKFriends CyberCamp 콘텐츠 내용',
-    '54': '3. OKFriends CyberCamp 콘텐츠의 다양성',
-    '55': '4. OKFriends CyberCamp 마일리지 인센티브 제도',
-    '56': '5. 운영 사무국의 서비스 수준',
-    '57': '7. 온라인플랫폼을 활용한 소그룹 활동에 대해 다음의 사항들에 대해 참가자로서 만족하나요?',
+    '52': '1. Platform Convenience of OKFriends Cyber Camp',
+    '53': '2.	Contents of OKFriends Cyber Camp',
+    '54': '3.	Contents Diversity of OKFriends Cyber Camp',
+    '55': '4.	Mileage Incentive System of OKFriends Cyber Camp',
+    '56': '5.	Service level of the Operations Department',
+    '57': '7. Are you satisfied with the following small group activities using the online platform?',
     '58': '· It reached the degree out of 10.',
-    '59': '1. 새로운 친구사귀기',
-    '60': '2. 다른 문화/언어에 대한 이해와 존중',
-    '61': '3. 적극적인 프로그램 참여',
-    '62': '4. 팀워크와 서로 돕는 생활',
-    '63': '8. 이번 모국연수사업의 프로그램 진행과정에서 가장 불편함을 느꼈던 점은?',
+    '59': '1. Make new friends',
+    '60': '2. Understand and respect other cultures/languages',
+    '61': '3. Active participation in the program',
+    '62': '4. Help each other through teamwork',
+    '63': '8. What made you feel most uncomfortable about the program process of OKFriends Cyber Camp?',
     '64': '· It reached the degree out of 10.',
-    '65': '1. 언어와 의사소통',
-    '66': '2. 다른 문화적 배경의 차이',
-    '67': '3. 온라인 소통공간의 제한',
-    '68': '4. 리더의 지도력 부족',
-    '69': '5. 기타',
-    '70': '9. 이번 모국연수 프로그램이 참여자의 생각과 생활에 어떤 긍정적인 영향을 끼쳤나요?',
+    '65': '1. Language and communication',
+    '66': '2. Differences in cultural backgrounds',
+    '67': '3. Limits on Online Communication Space',
+    '68': '4. A lack of leadership',
+    '69': '5. Others',
+    '70': '9. How did this camp positively affect your thoughts and life?',
     '71': '· It reached the degree out of 10.',
-    '72': '1. 의사소통과 상호이해의 중요성에 대해 알게 되었다.',
-    '73': '2. 재외동포의 삶과 역사에 대해 이해하게 되었다.',
-    '74': '3. 다른 문화와 다문화사회에 대한 이해와 존중하는 방법에 대해 알게 되었다.',
-    '75': '4. 다양성과 차이에 대해 이해하고 존중하게 되었다.',
-    '76': '5. 한국어 교육의 의미와 중요성에 대해 알게 되었다.',
-    '77': '6. 한국 역사와 전통문화에 대해 알게 되었다.',
-    '78': '7. 평화와 더불어 살아가는 것에 대해 이해하게 되었다.',
-    '79': '10. 연수 프로그램에 대해 어떻게 생각하시나요?',
-    '80': '1) 더욱 확대 되어야 한다.',
-    '81': '2) 금년과 같은 수준으로 유지',
-    '82': '3) 금년보다 축소되어야 한다.',
-    '83': '11. 연수 프로그램을 친척이나 다른 친구들에게 권유하시겠습니까?',
-    '84': '1) 권유 하겠습니다.',
-    '85': '2) 권유하지 않겠습니다.',
-    '86': '제출하기',
+    '72': '1. I learned about the importance of communication and mutual understanding',
+    '73': '2. I came to understand the life and history of overseas Koreans',
+    '74': '3. I learned how to understand and respect other cultures and multicultural societies',
+    '75': '4. I have come to understand and respect diversity and differences',
+    '76': '5. I learned about the meaning and importance of Korean language education',
+    '77': '6. I learned about Korean history and traditional culture',
+    '78': '7. I have come to understand living with peace',
+    '79': '10. What do you think about the camp?',
+    '80': '1) It needs to be expanded further',
+    '81': '2) Keep it at the same level as this year',
+    '82': '3) It should be reduced than this year',
+    '83': '11. Would you recommend the camp to your relatives or other friends?',
+    '84': '1) I recommend it',
+    '85': '2) I will not recommend it',
+    '86': 'Submit',
     '87': 'Issuance of Certificate of Completion',
     '88': 'English',
     '89': 'Korean',
     '90': 'English/Korean',
     '91': 'Complete Submission',
   },
+
+  // 로그인
   login: {
     '1': 'Sign In',
     '2': 'Email',
@@ -243,6 +457,8 @@ export const en = {
     '8': 'Find ID',
     '9': 'Forgot Password',
   },
+
+  // 아이디 찾기
   findId: {
     '1': 'Find ID',
     '2': 'Email',
@@ -253,9 +469,11 @@ export const en = {
     '7': 'Find ID',
     '8': 'Forgot Password',
   },
+
+  // 비밀번호 찾기
   resetPw: {
     '1': 'Forgot Password',
-    '2': '회원 가입 시 등록한 정보로 비밀번호를 찾을 수 있습니다.',
+    '2': 'You can find the password with the information you registered when you joined.',
     '3': 'ID',
     '4': 'ID',
     '5': 'Email',
@@ -266,6 +484,8 @@ export const en = {
     '10': 'Forgot Password',
     '11': 'Find ID',
   },
+
+  // 회원가입
   signup: {
     '1': 'Sign Up',
     '2': 'Select the grade',
@@ -302,18 +522,24 @@ export const en = {
     '33': '',
     '34': 'Sign up',
   },
+
+  // 마이페이지 - 헤더
   mypageHeader: {
     '1': 'My Page',
     '2': 'Edit My Information',
     '3': 'Current Mileage',
     '4': 'Mileage History',
   },
+
+  // 마이페이지 - 좌측 메뉴바
   mypageNav: {
     '1': 'My classroom',
     '2': 'Edit member information',
     '3': 'Change Password',
     '4': 'Log out',
   },
+
+  // 마이페이지 - 내강의실
   mypageCourse: {
     '1': 'My classroom',
     '2': 'Course in progress',
@@ -325,6 +551,8 @@ export const en = {
     '8': 'In progress',
     '9': 'Completed',
   },
+
+  // 마이페이지 - 회원정보수정
   mypageEdit: {
     '1': 'Edit member information',
     '2': 'Name',
@@ -337,6 +565,8 @@ export const en = {
     '9': 'Feel free to write anything',
     '10': 'Change',
   },
+
+  // 마이페이지 - 비밀번호 변경
   mypageResetPw: {
     '1': 'Change Password',
     '2': 'Current Password',
@@ -346,6 +576,8 @@ export const en = {
     '6': 'New Password Confirmation',
     '7': 'Change',
   },
+
+  // 마이페이지 - 마일리지 내역
   mypageMileage: {
     '1': 'Mileage History',
     '2': 'Date',

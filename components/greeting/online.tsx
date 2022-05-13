@@ -120,7 +120,7 @@ export default function Online() {
       </div>
 
       {/* 사업단장 오문범입니다. */}
-      <div className='relative h-[33vw]'>
+      <div className='relative h-[34vw]'>
         <div className='absolute top-0 left-0 -z-[1] mt-[83px] h-full w-full md:hidden'>
           <Image
             src={Bg2}
