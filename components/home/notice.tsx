@@ -23,6 +23,7 @@ export default function Notice() {
   return (
     <Layout padding='pt-[4.625rem] pb-[5.688rem] md:py-10'>
       <div className='flex space-x-20 md:flex-col md:space-x-0'>
+        {/* Notice */}
         <div className='w-1/2 md:w-full'>
           <div className='flex w-full justify-between'>
             <div
@@ -60,7 +61,7 @@ export default function Notice() {
             data-aos='fade-up'
             data-aos-duration='1500'
             data-aos-delay='300'
-            className='mt-8 grid grid-flow-col grid-rows-5 md:mt-5'
+            className='mt-8 grid grid-cols-1 md:mt-5'
           >
             {data?.fixed.slice(0, 5).map((i: { [key: string]: any }) => (
               <Link href={`/support/notice/detail/${i.id}`} key={i.id}>
@@ -108,7 +109,9 @@ export default function Notice() {
               ))}
           </div>
         </div>
+        {/* Notice */}
 
+        {/* Video */}
         <div className='w-1/2 md:mt-10 md:w-full'>
           <div
             data-aos='flip-down'
@@ -131,6 +134,7 @@ export default function Notice() {
             )}
           </div>
         </div>
+        {/* Video */}
       </div>
     </Layout>
   );
