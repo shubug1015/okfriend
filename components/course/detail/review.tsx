@@ -1,5 +1,6 @@
 import Layout from '@layouts/sectionLayout';
 import { courseApi } from '@libs/api';
+import { useLocale } from '@libs/client/useLocale';
 import { IUser } from '@libs/client/useUser';
 import { trimDate } from '@libs/client/utils';
 import { useRouter } from 'next/router';
@@ -16,6 +17,7 @@ interface IForm {
 }
 
 export default function Review({ data, mutate }: IProps) {
+  const { text } = useLocale();
   const { data: myData } = useSWR<IUser>('/api/user');
   const router = useRouter();
   const { locale } = router;
@@ -73,7 +75,9 @@ export default function Review({ data, mutate }: IProps) {
     <Layout padding='pt-20 pb-24 md:pt-12 md:pb-14'>
       <div className='flex justify-between'>
         <div className='flex items-center space-x-3'>
-          <div className='text-2xl font-bold md:text-xl'>강의리뷰</div>
+          <div className='text-2xl font-bold md:text-xl'>
+            {text.courseDetail['18']}
+          </div>
           <div className='mt-0.5 rounded-full bg-[#2fb6bc] px-3 font-medium text-white md:px-2.5'>
             {data?.review.length}
           </div>
@@ -83,7 +87,7 @@ export default function Review({ data, mutate }: IProps) {
           onClick={handleSubmit(onValid, onInvalid)}
           className='flex h-12 w-40 cursor-pointer items-center justify-center rounded-lg bg-[#2fb6bc] font-medium text-white transition-all hover:opacity-90 md:h-10 md:w-24 md:text-sm'
         >
-          작성하기
+          {text.courseDetail['19']}
         </div>
       </div>
 
@@ -95,7 +99,7 @@ export default function Review({ data, mutate }: IProps) {
             value: 10,
           },
         })}
-        placeholder='강의리뷰를 작성해 주세요.'
+        placeholder={text.courseDetail['20']}
         className='mt-6 h-36 w-full border border-t-2 border-[#dadada] border-t-[#9e9e9e] py-6 px-7 outline-none md:mt-4 md:h-24 md:px-3 md:py-3.5'
       />
       <div className='mt-2 text-sm text-red-500'>{errors?.review?.message}</div>

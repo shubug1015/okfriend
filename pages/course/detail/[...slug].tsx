@@ -6,6 +6,7 @@ import Tutor from '@components/course/detail/tutor';
 import SEO from '@components/seo';
 import Layout from '@layouts/sectionLayout';
 import { courseApi } from '@libs/api';
+import { useLocale } from '@libs/client/useLocale';
 import { IUser } from '@libs/client/useUser';
 import { cls } from '@libs/client/utils';
 import type { GetServerSidePropsContext, NextPage } from 'next';
@@ -18,6 +19,7 @@ interface IProps {
 }
 
 const CourseDetail: NextPage<IProps> = ({ slug }) => {
+  const { text } = useLocale();
   const { data: myData } = useSWR<IUser>('/api/user');
   const router = useRouter();
   const { locale } = router;
@@ -34,11 +36,11 @@ const CourseDetail: NextPage<IProps> = ({ slug }) => {
   const sectionList = [
     {
       id: 0,
-      label: '강의소개',
+      label: text.courseDetail['11'],
     },
     {
       id: 1,
-      label: '강사소개',
+      label: text.courseDetail['12'],
     },
     // {
     //   id: 2,
@@ -46,7 +48,7 @@ const CourseDetail: NextPage<IProps> = ({ slug }) => {
     // },
     {
       id: 3,
-      label: '강의리뷰',
+      label: text.courseDetail['13'],
     },
   ];
   return (
@@ -80,10 +82,16 @@ const CourseDetail: NextPage<IProps> = ({ slug }) => {
         </div>
       </Layout>
 
-      {section === '강의소개' && <Info info={courseData?.detail} />}
-      {section === '강사소개' && <Tutor tutor={courseData?.tutor} />}
+      {section === text.courseDetail['11'] && (
+        <Info info={courseData?.detail} />
+      )}
+      {section === text.courseDetail['12'] && (
+        <Tutor tutor={courseData?.tutor} />
+      )}
       {/* {section === 'Q&A' && <Qna />} */}
-      {section === '강의리뷰' && <Review data={courseData} mutate={mutate} />}
+      {section === text.courseDetail['13'] && (
+        <Review data={courseData} mutate={mutate} />
+      )}
     </>
   );
 };

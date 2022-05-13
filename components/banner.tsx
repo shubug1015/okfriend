@@ -29,7 +29,7 @@ export default function Banner({ title, navList }: IProps) {
               title === '재외동포 대학생 온라인연수 소개'
                 ? 'md:text-[1.375rem]'
                 : 'md:text-2xl',
-              'font-nexonBold text-4xl font-bold text-white'
+              'whitespace-pre-wrap font-nexonBold text-4xl font-bold text-white'
             )}
           >
             {title}

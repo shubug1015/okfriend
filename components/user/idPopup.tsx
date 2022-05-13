@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import React, { useEffect } from 'react';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { useLocale } from '@libs/client/useLocale';
 
 interface IProps {
   username: string;
@@ -30,6 +31,7 @@ const popupVar = {
 };
 
 export default function Popup({ username, closePopup }: IProps) {
+  const { text } = useLocale();
   useEffect(() => {
     disableBodyScroll(document.body);
     return () => {
@@ -53,12 +55,10 @@ export default function Popup({ username, closePopup }: IProps) {
         className='w-[43.75rem] rounded bg-white p-12 md:w-[330px] md:py-9 md:px-3.5'
       >
         <div className='flex justify-center font-nexonBold text-3xl font-bold md:text-2xl'>
-          아이디 찾기
+          {text.findIdPopup['1']}
         </div>
 
-        <div className='mt-3 flex justify-center'>
-          아이디 찾기가 완료되었습니다.
-        </div>
+        <div className='mt-3 flex justify-center'>{text.findIdPopup['2']}</div>
 
         <div className='mt-12 flex h-20 items-center justify-center bg-[#f4f9fb] text-lg font-medium md:mt-8 md:h-[2.813rem] md:text-base'>
           {username}
@@ -67,7 +67,7 @@ export default function Popup({ username, closePopup }: IProps) {
         <Link href='/login'>
           <a>
             <div className='mt-6 flex cursor-pointer justify-center rounded bg-[#2fb6bc] py-4 text-lg font-medium text-white transition-all hover:opacity-90 md:py-2.5 md:text-base'>
-              로그인
+              {text.findIdPopup['3']}
             </div>
           </a>
         </Link>
@@ -77,7 +77,7 @@ export default function Popup({ username, closePopup }: IProps) {
         <Link href='/reset-pw'>
           <a>
             <div className='flex justify-center font-medium text-[#6b6b6b] md:text-sm'>
-              비밀번호 찾기
+              {text.findIdPopup['4']}
             </div>
           </a>
         </Link>

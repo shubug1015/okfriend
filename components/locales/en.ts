@@ -203,6 +203,30 @@ export const en = {
     '4': 'Automatically payment of pre-\nset mileage per respective\nprogram',
   },
 
+  //   연수실 - 상세페이지
+  courseDetail: {
+    '1': 'LIVE Session',
+    '2': 'Required Session',
+    '3': 'Optional Session',
+    '4': 'Previous Course',
+    '5': 'In Progress',
+    '6': 'Play',
+    '7': 'Share',
+    '8': 'Required Survey',
+    '9': 'Syllabus',
+    '10': 'Progress',
+    '11': 'Lecture',
+    '12': 'Instructor',
+    '13': 'Review',
+    '14': 'Lecture',
+    '15': 'Instructor',
+    '16': 'Career',
+    '17': 'Career',
+    '18': 'Review',
+    '19': 'Write',
+    '20': 'Please write a lecture review.',
+  },
+
   courseSurvey: {
     '1': 'Survey on lectures from the 2022 oversea\nKorean student home country training',
     '2': '',
@@ -468,6 +492,14 @@ export const en = {
     '6': 'Verification code',
     '7': 'Find ID',
     '8': 'Forgot Password',
+  },
+
+  //   아이디 찾기 - 팝업
+  findIdPopup: {
+    '1': 'Find ID',
+    '2': 'Finding ID is complete.',
+    '3': 'Log In',
+    '4': 'Forgot Password',
   },
 
   // 비밀번호 찾기

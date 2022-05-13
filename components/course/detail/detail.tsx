@@ -9,6 +9,7 @@ import { useRouter } from 'next/router';
 import { IUser } from '@libs/client/useUser';
 import useSWR from 'swr';
 import Vimeo from '@u-wave/react-vimeo';
+import { useLocale } from '@libs/client/useLocale';
 
 interface IProps {
   [key: string]: any;
@@ -27,6 +28,7 @@ export default function Detail({
   survey,
   mutate,
 }: IProps) {
+  const { text } = useLocale();
   const { data: myData } = useSWR<IUser>('/api/user');
   const router = useRouter();
   const { locale } = router;
@@ -147,12 +149,12 @@ export default function Detail({
               )}
             >
               {category === 'live'
-                ? 'LIVE 차시'
+                ? text.courseDetail['1']
                 : category === 'required'
-                ? '필수 차시'
+                ? text.courseDetail['2']
                 : category === 'elective'
-                ? '선택 차시'
-                : '지난 강의'}
+                ? text.courseDetail['3']
+                : text.courseDetail['4']}
             </div>
             {/* 카테고리 */}
 
@@ -176,14 +178,14 @@ export default function Detail({
             <div className='mt-8 space-y-3 md:mt-6'>
               {isRegistered ? (
                 <div className='flex h-[3.625rem] items-center justify-center rounded-lg bg-[#01111e] font-bold text-white'>
-                  수강중인 강의
+                  {text.courseDetail['5']}
                 </div>
               ) : (
                 <div
                   onClick={registerCourse}
                   className='flex h-[3.625rem] cursor-pointer items-center justify-center rounded-lg bg-[#01111e] font-bold text-white transition-all hover:opacity-90'
                 >
-                  강의 듣기
+                  {text.courseDetail['6']}
                 </div>
               )}
 
@@ -227,7 +229,7 @@ export default function Detail({
                         />
                       </svg>
 
-                      <div>공유</div>
+                      <div>{text.courseDetail['7']}</div>
                     </div>
                   </>
                 ) : (
@@ -246,7 +248,7 @@ export default function Detail({
                       }}
                       className='flex h-[3.625rem] cursor-pointer items-center justify-center rounded-lg border border-[#9e9e9e] text-[#6b6b6b] transition-all hover:opacity-70'
                     >
-                      필수 설문조사
+                      {text.courseDetail['8']}
                     </div>
 
                     <a
@@ -256,7 +258,7 @@ export default function Detail({
                       rel='noreferrer'
                       className='flex h-[3.625rem] cursor-pointer items-center justify-center rounded-lg border border-[#9e9e9e] text-[#6b6b6b] transition-all hover:opacity-70'
                     >
-                      강의 계획서
+                      {text.courseDetail['9']}
                     </a>
                   </>
                 )}
@@ -271,7 +273,7 @@ export default function Detail({
         {isRegistered && (
           <div className='mt-5 flex w-[44.688rem] items-center space-x-4 md:mt-8 md:w-full md:flex-col md:items-start md:space-x-0 md:space-y-4'>
             <div className='flex h-9 w-24 items-center justify-center rounded-lg border border-[#d60a51] text-lg font-bold text-[#d60a51]'>
-              진행률
+              {text.courseDetail['10']}
             </div>
 
             <div className='h-3 grow rounded-full bg-[#d6d6d6] md:h-2 md:w-full'>

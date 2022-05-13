@@ -97,15 +97,15 @@ export default function Header() {
       isActivated: router.pathname.includes('/course-introduction'),
       subUrls: [
         {
-          label: '인사말',
+          label: text.header['1-1'],
           url: '/course-introduction/greeting',
         },
         {
-          label: '개요',
+          label: text.header['1-2'],
           url: '/course-introduction/summary',
         },
         {
-          label: '연수 편성표',
+          label: text.header['1-3'],
           url: '/course-introduction/schedule',
         },
       ],
@@ -139,27 +139,27 @@ export default function Header() {
       isActivated: router.pathname === '/library/[id]',
       subUrls: [
         {
-          label: '대한민국 역사자료',
+          label: text.header['3-1'],
           url: '/library/1',
         },
         {
-          label: '대한민국 구석 구석',
+          label: text.header['3-2'],
           url: '/library/2',
         },
         {
-          label: '한반도 평화와 통일이해',
+          label: text.header['3-3'],
           url: '/library/3',
         },
         {
-          label: '코리안 디아스포라 & 글로벌 코리안',
+          label: text.header['3-4'],
           url: '/library/4',
         },
         {
-          label: '세계시민 & 세계시민교육',
+          label: text.header['3-5'],
           url: '/library/5',
         },
         {
-          label: 'UN지속가능발전목표(SDGs)',
+          label: text.header['3-6'],
           url: '/library/6',
         },
       ],
@@ -171,19 +171,19 @@ export default function Header() {
       isActivated: router.pathname.includes('/course-story'),
       subUrls: [
         {
-          label: '홍보 영상',
+          label: text.header['4-1'],
           url: '/course-story/video/1',
         },
         {
-          label: '연수 갤러리',
+          label: text.header['4-2'],
           url: '/course-story/gallery/1',
         },
         {
-          label: '카드뉴스',
+          label: text.header['4-3'],
           url: '/course-story/cardnews/1',
         },
         {
-          label: '뉴스레터',
+          label: text.header['4-4'],
           url: '/course-story/newsletter/1',
         },
       ],
@@ -195,23 +195,23 @@ export default function Header() {
       isActivated: router.pathname.includes('/support'),
       subUrls: [
         {
-          label: '공지사항',
+          label: text.header['5-1'],
           url: '/support/notice/title/created/1',
         },
         {
-          label: 'FAQ',
+          label: text.header['5-2'],
           url: '/support/faq',
         },
         {
-          label: '1:1 문의하기',
+          label: text.header['5-3'],
           url: '/support/contact',
         },
         {
-          label: '자료실',
+          label: text.header['5-4'],
           url: '/support/library/title/created/1',
         },
         {
-          label: '이수증 발급',
+          label: text.header['5-5'],
           url: '/support/certificate',
         },
       ],
@@ -262,7 +262,7 @@ export default function Header() {
             {/* SNS 버튼 */}
 
             {/* 언어 선택 */}
-            {/* <Menu as='div' className='relative inline-block text-left'>
+            <Menu as='div' className='relative inline-block text-left'>
               <div>
                 <Menu.Button className='flex items-center space-x-4 rounded-md border border-[#6b6b6b] py-1.5 pl-4 pr-2 text-xs font-bold text-[#6b6b6b] md:space-x-2 md:pl-2.5'>
                   <div>{language}</div>
@@ -323,7 +323,7 @@ export default function Header() {
                   </div>
                 </Menu.Items>
               </Transition>
-            </Menu> */}
+            </Menu>
             {/* 언어 선택 */}
           </div>
         </div>

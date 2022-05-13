@@ -1,4 +1,5 @@
 import Layout from '@layouts/sectionLayout';
+import { useLocale } from '@libs/client/useLocale';
 import Image from 'next/image';
 
 interface IProps {
@@ -6,11 +7,14 @@ interface IProps {
 }
 
 export default function Tutor({ tutor }: IProps) {
+  const { text } = useLocale();
   console.log(tutor);
   return (
     <>
       <Layout padding='pt-20 pb-24 md:py-12'>
-        <div className='text-2xl font-bold md:text-xl'>강사소개</div>
+        <div className='text-2xl font-bold md:text-xl'>
+          {text.courseDetail['15']}
+        </div>
       </Layout>
 
       <Layout bgColor='bg-[#f8f8f8] md:bg-transparent'>
@@ -56,7 +60,7 @@ export default function Tutor({ tutor }: IProps) {
           </div>
 
           <div className='mt-6 ml-[1.625rem] md:hidden'>
-            <div className='text-xl font-bold'>상세 이력</div>
+            <div className='text-xl font-bold'>{text.courseDetail['16']}</div>
 
             <div className='mt-2.5 text-[#626262]'>
               {tutor?.career?.map((i: { [key: string]: any }) => (
@@ -77,7 +81,9 @@ export default function Tutor({ tutor }: IProps) {
           </div>
 
           <div className='mt-8 ml-[1.625rem] hidden md:block md:w-full'>
-            <div className='text-xl font-bold md:text-base'>상세 이력</div>
+            <div className='text-xl font-bold md:text-base'>
+              {text.courseDetail['17']}
+            </div>
 
             <div className='mt-2.5 text-[#626262] md:text-sm'>
               {tutor?.career?.map((i: { [key: string]: any }) => (
