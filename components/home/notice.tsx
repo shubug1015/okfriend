@@ -124,9 +124,11 @@ export default function Notice() {
             data-aos-delay='300'
             className='mt-8 h-[25.625rem] w-full rounded-lg md:mt-5 md:h-48'
           >
-            <video playsInline controls className='h-full w-full'>
-              <source src={videoData?.results[0]?.url} type='video/mp4' />
-            </video>
+            {videoData && (
+              <video playsInline controls className='h-full w-full'>
+                <source src={videoData?.results[0]?.url} type='video/mp4' />
+              </video>
+            )}
           </div>
         </div>
       </div>
