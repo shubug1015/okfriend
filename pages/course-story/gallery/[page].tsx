@@ -5,6 +5,7 @@ import Pagebar from '@components/pagebar';
 import SEO from '@components/seo';
 import Layout from '@layouts/sectionLayout';
 import { boardApi } from '@libs/api';
+import { useLocale } from '@libs/client/useLocale';
 import { cls } from '@libs/client/utils';
 import type { GetServerSidePropsContext, NextPage } from 'next';
 import Image from 'next/image';
@@ -17,6 +18,7 @@ interface IProps {
 }
 
 const Gallery: NextPage<IProps> = ({ page }) => {
+  const { text } = useLocale();
   const router = useRouter();
   const { locale } = router;
   const [currentTab, setCurrentTab] = useState('전체');
@@ -40,16 +42,19 @@ const Gallery: NextPage<IProps> = ({ page }) => {
   return (
     <>
       <SEO title='연수이야기' />
-      <Banner title='연수이야기' navList={['연수이야기', '연수 갤러리']} />
+      <Banner
+        title={text.courseStoryHeader['1']}
+        navList={[text.courseStoryHeader['2'], text.courseStoryHeader['4']]}
+      />
       <MenuBar pageName='연수 갤러리' />
       <Layout padding='pt-16 pb-20 md:pt-8 md:pb-10'>
         <div className='border-b border-[#9e9e9e] pb-[1.281rem] font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#01111e] md:pb-7 md:text-center md:text-xl'>
-          연수 갤러리
+          {text.courseStoryHeader['4']}
         </div>
 
         {/* 서브메뉴 탭 */}
         <div className='mt-[2.531rem] flex space-x-4 text-center text-[1.375rem] font-bold leading-[2.2rem] text-[#9e9e9e] md:mt-4 md:text-base'>
-          {['전체', '2022', '2021', '2019'].map((i) => (
+          {[text.gallery['2'], '2022', '2021', '2019'].map((i) => (
             <div
               key={i}
               onClick={() => toggleTab(i)}

@@ -11,12 +11,14 @@ import Vimeo from '@u-wave/react-vimeo';
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useLocale } from '@libs/client/useLocale';
 
 interface IProps {
   page: string;
 }
 
 const Video: NextPage<IProps> = ({ page }) => {
+  const { text } = useLocale();
   const router = useRouter();
   const { locale } = router;
   const { data } = useSWR(`${locale}/videoList/${page}`, () =>
@@ -29,13 +31,16 @@ const Video: NextPage<IProps> = ({ page }) => {
   return (
     <>
       <SEO title='연수이야기' />
-      <Banner title='연수이야기' navList={['연수이야기', '홍보 영상']} />
+      <Banner
+        title={text.courseStoryHeader['1']}
+        navList={[text.courseStoryHeader['2'], text.courseStoryHeader['3']]}
+      />
       <MenuBar pageName='홍보 영상' />
       <Layout padding='pt-16 pb-56 md:pt-6 md:pb-16'>
         <div className='font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#01111e] md:text-center md:text-xl'>
-          2022 재외동포대학생모국연수(온라인)
+          {text.video['1']}
           <br className='hidden md:block' />
-          <span className='text-[#2fb6bc]'> 홍보영상</span>
+          <span className='text-[#2fb6bc]'> {text.video['2']}</span>
         </div>
 
         <div

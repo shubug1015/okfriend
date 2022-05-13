@@ -11,12 +11,14 @@ import Banner from '@components/banner';
 import useSWR from 'swr';
 import { courseApi } from '@libs/api';
 import { useRouter } from 'next/router';
+import { useLocale } from '@libs/client/useLocale';
 
 interface IProps {
   params: string[];
 }
 
 const Course: NextPage<IProps> = ({ params }) => {
+  const { text } = useLocale();
   const router = useRouter();
   const { locale } = router;
   const [courseType, courseCategory, page] = params;
@@ -35,21 +37,23 @@ const Course: NextPage<IProps> = ({ params }) => {
     courseApi.getCourseList(locale, request, page)
   );
   const navList = [
-    '연수실',
-    courseType === 'pre-online' ? '사전온라인연수' : '온라인연수',
+    text.preCourseHeader['2'],
+    courseType === 'pre-online'
+      ? text.preCourseHeader['3']
+      : text.courseHeader['3'],
     courseCategory === 'live'
       ? 'LIVE 차시'
       : courseCategory === 'required'
-      ? '필수 차시'
+      ? text.preCourseHeader['4']
       : courseCategory === 'elective'
-      ? '선택 차시'
-      : '지난 연수 자료',
+      ? text.preCourseHeader['5']
+      : text.preCourseHeader['6'],
   ];
   return (
     <>
       <SEO title='연수실' />
 
-      <Banner title='재외동포 대학생 연수실' navList={navList} />
+      <Banner title={text.preCourseHeader['1']} navList={navList} />
       <Navigator courseType={courseType} courseCategory={courseCategory} />
       <Layout padding='pt-16 pb-32 md:pt-6 md:pb-14'>
         {/* {courseCategory === 'live' && <LiveNotice />} */}

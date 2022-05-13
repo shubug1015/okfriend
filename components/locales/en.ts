@@ -447,12 +447,12 @@ export const en = {
 
   // 로그인
   login: {
-    '1': 'Sign In',
+    '1': 'Log In',
     '2': 'Email',
     '3': 'Email',
     '4': 'Password',
     '5': 'Password',
-    '6': 'Sign In',
+    '6': 'Log In',
     '7': 'Create an account',
     '8': 'Find ID',
     '9': 'Forgot Password',
@@ -521,6 +521,11 @@ export const en = {
     '32': 'I agree to the consent to receive advertising information (Optional)',
     '33': '',
     '34': 'Sign up',
+    // 회원가입 첫화면
+    '35': 'Sign up',
+    '36': 'Please select a subscription type.',
+    '37': 'a domestic university student',
+    '38': 'a Korean-American student abroad',
   },
 
   // 마이페이지 - 헤더

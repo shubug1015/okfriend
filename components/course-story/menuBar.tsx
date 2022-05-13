@@ -1,3 +1,4 @@
+import { useLocale } from '@libs/client/useLocale';
 import { cls } from '@libs/client/utils';
 import Link from 'next/link';
 
@@ -6,6 +7,7 @@ interface IProps {
 }
 
 export default function MenuBar({ pageName }: IProps) {
+  const { text } = useLocale();
   return (
     <div className='flex items-center justify-center border-b border-[#ebebeb] bg-white text-[1.375rem] text-[#9e9e9e] md:space-x-[26px] md:border-none'>
       <Link href='/course-story/video/1'>
@@ -18,7 +20,7 @@ export default function MenuBar({ pageName }: IProps) {
               'flex h-[4.188rem] w-[12.5rem] items-center justify-center border-b-4 font-bold md:h-12 md:w-16 md:border-b-2 md:text-base'
             )}
           >
-            홍보 영상
+            {text.courseStoryHeader['3']}
           </div>
         </a>
       </Link>
@@ -33,7 +35,7 @@ export default function MenuBar({ pageName }: IProps) {
               'md flex h-[4.188rem] w-[12.5rem] items-center justify-center border-b-4 font-bold md:h-12 md:w-20 md:border-b-2 md:text-base'
             )}
           >
-            연수 갤러리
+            {text.courseStoryHeader['4']}
           </div>
         </a>
       </Link>
@@ -48,7 +50,7 @@ export default function MenuBar({ pageName }: IProps) {
               'flex h-[4.188rem] w-[12.5rem] items-center justify-center border-b-4 font-bold md:h-12 md:w-16 md:border-b-2 md:text-base'
             )}
           >
-            카드뉴스
+            {text.courseStoryHeader['5']}
           </div>
         </a>
       </Link>
@@ -63,7 +65,7 @@ export default function MenuBar({ pageName }: IProps) {
               'flex h-[4.188rem] w-[12.5rem] items-center justify-center border-b-4 font-bold md:h-12 md:w-16 md:border-b-2 md:text-base'
             )}
           >
-            뉴스레터
+            {text.courseStoryHeader['6']}
           </div>
         </a>
       </Link>

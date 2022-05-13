@@ -1,3 +1,4 @@
+import { useLocale } from '@libs/client/useLocale';
 import { cls } from '@libs/client/utils';
 import Link from 'next/link';
 
@@ -7,6 +8,7 @@ interface IProps {
 }
 
 export default function Navigator({ courseType, courseCategory }: IProps) {
+  const { text } = useLocale();
   return (
     <div className='border-b border-[#e8e8e8]'>
       <div className='flex items-center justify-center md:mx-auto md:max-w-[330px] md:justify-between'>
@@ -37,7 +39,7 @@ export default function Navigator({ courseType, courseCategory }: IProps) {
                 'flex h-16 w-48 items-center justify-center border-b-4 text-[1.375rem] font-bold md:h-14 md:w-auto md:border-b-2 md:text-base'
               )}
             >
-              필수 차시
+              {text.preCourseHeader['4']}
             </div>
           </a>
         </Link>
@@ -52,7 +54,7 @@ export default function Navigator({ courseType, courseCategory }: IProps) {
                 'flex h-16 w-48 items-center justify-center border-b-4 text-[1.375rem] font-bold md:h-14 md:w-auto md:border-b-2 md:text-base'
               )}
             >
-              선택 차시
+              {text.preCourseHeader['5']}
             </div>
           </a>
         </Link>
@@ -67,7 +69,7 @@ export default function Navigator({ courseType, courseCategory }: IProps) {
                 'flex h-16 w-48 items-center justify-center border-b-4 text-[1.375rem] font-bold md:h-14 md:w-auto md:border-b-2 md:text-base'
               )}
             >
-              지난 연수 자료
+              {text.preCourseHeader['6']}
             </div>
           </a>
         </Link>

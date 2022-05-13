@@ -11,6 +11,7 @@ import { useUser } from '@libs/client/useUser';
 import { usersApi } from '@libs/api';
 import { Local, NotLocal } from '@components/svg';
 import axios from 'axios';
+import { useLocale } from '@libs/client/useLocale';
 // import axios from 'axios';
 // import { useAuth } from '@libs/client/useAuth';
 
@@ -35,6 +36,7 @@ interface IForm {
 }
 
 const SignUp: NextPage = () => {
+  const { text } = useLocale();
   const { mutate } = useUser({});
   const [signup, { loading }] = useMutation(usersApi.signupNextApi);
   const [local, setLocal] = useState<boolean | null>(null);
@@ -114,14 +116,14 @@ const SignUp: NextPage = () => {
       <div className='bg-[#f4f9fb] pt-48 pb-28 md:pt-28 md:pb-12'>
         <div className='mx-auto flex max-w-[43.75rem] flex-col items-center rounded-lg bg-white p-[3.75rem] md:max-w-[330px] md:py-9 md:px-3.5'>
           <h1 className='font-nexonBold text-3xl font-bold md:text-2xl'>
-            회원가입
+            {text.signup['35']}
           </h1>
 
           {local === null ? (
             <div>
               {/* 가입유형 */}
               <div className='mt-4 text-center text-lg font-medium text-[#6b6b6b] md:text-base'>
-                가입유형을 선택해주세요.
+                {text.signup['36']}
               </div>
 
               <div className='mt-10 flex space-x-5 md:mt-8 md:flex-col md:space-x-0 md:space-y-5'>
@@ -131,7 +133,7 @@ const SignUp: NextPage = () => {
                 >
                   <Local />
                   <div className='text-lg font-medium text-[#2fb6bc]'>
-                    국내 대학생
+                    {text.signup['37']}
                   </div>
                 </div>
                 <div
@@ -140,7 +142,7 @@ const SignUp: NextPage = () => {
                 >
                   <NotLocal />
                   <div className='text-lg font-medium text-[#2fb6bc]'>
-                    재외동포대학생
+                    {text.signup['38']}
                   </div>
                 </div>
               </div>
@@ -153,7 +155,7 @@ const SignUp: NextPage = () => {
                 {/* 가입유형 */}
                 <div className='flex w-full flex-col'>
                   <label className='font-medium md:text-[0.938rem]'>
-                    기수 선택
+                    {text.signup['2']}
                   </label>
 
                   <div className='mt-5 flex w-full space-x-16 md:mt-4 md:space-x-6'>
@@ -173,7 +175,10 @@ const SignUp: NextPage = () => {
                           )}
                         />
 
-                        <div className='text-lg md:text-[0.938rem]'>{i}기</div>
+                        <div className='text-lg md:text-[0.938rem]'>
+                          {i}
+                          {text.signup['3']}
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -187,7 +192,7 @@ const SignUp: NextPage = () => {
                 {/* 아이디 */}
                 <Input
                   type='text'
-                  label='아이디'
+                  label={text.signup['4']}
                   register={register('username', {
                     required: '아이디를 입력해주세요',
                     minLength: {
@@ -216,7 +221,7 @@ const SignUp: NextPage = () => {
                 {/* 비밀번호 */}
                 <Input
                   type='password'
-                  label='비밀번호'
+                  label={text.signup['7']}
                   register={register('password', {
                     required: '비밀번호를 입력해주세요',
                     validate: {
@@ -238,7 +243,7 @@ const SignUp: NextPage = () => {
                 {/* 비밀번호 확인 */}
                 <Input
                   type='password'
-                  label='비밀번호 확인'
+                  label={text.signup['9']}
                   register={register('passwordCheck', {
                     required: '비밀번호를 입력해주세요',
                     validate: {
@@ -253,14 +258,16 @@ const SignUp: NextPage = () => {
 
                 {/* 이름 */}
                 <div className='flex w-full flex-col'>
-                  <label className='font-medium md:text-[0.938rem]'>이름</label>
+                  <label className='font-medium md:text-[0.938rem]'>
+                    {text.signup['11']}
+                  </label>
 
                   {/* 국문 이름 */}
                   <div className='mt-2 flex h-[3.75rem] w-full space-x-3.5'>
                     <div className='w-1/2'>
                       <input
                         type='text'
-                        placeholder='국문 이름 입력'
+                        placeholder={text.signup['12']}
                         {...register('korName', {
                           required: '이름을 입력해주세요',
                           minLength: {
@@ -268,7 +275,7 @@ const SignUp: NextPage = () => {
                             value: 2,
                           },
                           maxLength: {
-                            message: '이름은 5글자 이하여야 합니다',
+                            message: '이름은 5글자 이하이어야 합니다',
                             value: 5,
                           },
                         })}
@@ -286,7 +293,7 @@ const SignUp: NextPage = () => {
                     <div className='w-1/2'>
                       <input
                         type='text'
-                        placeholder='영문 이름 입력'
+                        placeholder={text.signup['13']}
                         {...register('engName', {
                           required: '이름을 입력해주세요',
                           minLength: {
@@ -294,7 +301,7 @@ const SignUp: NextPage = () => {
                             value: 2,
                           },
                           maxLength: {
-                            message: '이름은 5글자 이하여야 합니다',
+                            message: '이름은 5글자 이하이어야 합니다',
                             value: 20,
                           },
                         })}
@@ -319,7 +326,7 @@ const SignUp: NextPage = () => {
                 {/* 생년월일 */}
                 <div className='flex w-full flex-col'>
                   <label className='font-medium md:text-[0.938rem]'>
-                    생년월일
+                    {text.signup['14']}
                   </label>
 
                   {/* 년도 */}
@@ -342,7 +349,7 @@ const SignUp: NextPage = () => {
                         )}
                       >
                         <option value='default' disabled hidden>
-                          년(4자)
+                          {text.signup['15']}
                         </option>
                         {[...Array(123)].map((_, index) => (
                           <option key={index}>{index + 1900}</option>
@@ -370,7 +377,7 @@ const SignUp: NextPage = () => {
                         )}
                       >
                         <option value='default' disabled hidden>
-                          월
+                          {text.signup['16']}
                         </option>
                         {[...Array(12)].map((_, index) => (
                           <option key={index}>{index + 1}</option>
@@ -398,7 +405,7 @@ const SignUp: NextPage = () => {
                         )}
                       >
                         <option value='default' disabled hidden>
-                          일
+                          {text.signup['17']}
                         </option>
                         {[...Array(31)].map((_, index) => (
                           <option key={index}>{index + 1}</option>
@@ -420,9 +427,9 @@ const SignUp: NextPage = () => {
                 {/* 국가 */}
                 <Input
                   type='text'
-                  label='국가'
+                  label={text.signup['18']}
                   register={register('country', {
-                    required: '국가 입력해주세요',
+                    required: '국가를 입력해주세요',
                   })}
                   error={errors?.country?.message}
                 />
@@ -431,7 +438,7 @@ const SignUp: NextPage = () => {
                 {/* 이메일 */}
                 <Input
                   type='text'
-                  label='이메일'
+                  label={text.signup['20']}
                   register={register('email', {
                     required: '이메일을 입력해주세요',
                     validate: {
@@ -481,7 +488,7 @@ const SignUp: NextPage = () => {
                         />
                       </svg>
                     ) : (
-                      '인증번호 받기'
+                      text.signup['22']
                     )}
                   </div>
                   {/* 인증번호 받기 버튼 */}
@@ -491,7 +498,7 @@ const SignUp: NextPage = () => {
                 {/* 인증번호 */}
                 <Input
                   type='tel'
-                  label='인증번호'
+                  label={text.signup['23']}
                   register={register('code', {
                     required: '인증번호를 입력해주세요',
                     validate: {
@@ -516,7 +523,7 @@ const SignUp: NextPage = () => {
                 {/* 휴대폰 번호 */}
                 <Input
                   type='tel'
-                  label='휴대폰 번호'
+                  label={text.signup['25']}
                   register={register('phoneNum', {
                     required: '휴대폰 번호를 입력해주세요',
                     validate: {
@@ -547,9 +554,9 @@ const SignUp: NextPage = () => {
                 >
                   <div className='md:text-sm md:tracking-tight'>
                     <span className='font-medium underline '>
-                      서비스이용약관
+                      {text.signup['27']}
                     </span>
-                    에 동의합니다. (필수)
+                    {text.signup['28']}
                   </div>
                 </Checkbox>
 
@@ -561,9 +568,9 @@ const SignUp: NextPage = () => {
                 >
                   <div className='md:text-sm md:tracking-tight'>
                     <span className='font-medium underline '>
-                      개인정보 수집 및 이용동의
+                      {text.signup['29']}
                     </span>
-                    에 동의합니다. (필수)
+                    {text.signup['30']}
                   </div>
                 </Checkbox>
 
@@ -575,16 +582,16 @@ const SignUp: NextPage = () => {
                   error={errors?.ageOver?.message}
                 >
                   <div className='md:text-sm md:tracking-tight'>
-                    만 14세 이상 입니다. (필수)
+                    {text.signup['31']}
                   </div>
                 </Checkbox>
 
                 <Checkbox register={register('adAgree')}>
                   <div className='md:text-sm md:tracking-tight'>
                     <span className='font-medium underline'>
-                      광고성 정보 수신동의
+                      {text.signup['32']}
                     </span>
-                    에 동의합니다. (선택)
+                    {text.signup['33']}
                   </div>
                 </Checkbox>
               </div>
@@ -613,7 +620,7 @@ const SignUp: NextPage = () => {
                     />
                   </svg>
                 ) : (
-                  '회원가입 완료'
+                  text.signup['34']
                 )}
               </div>
               {/* 회원가입 버튼 */}

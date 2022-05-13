@@ -4,6 +4,7 @@ import SEO from '@components/seo';
 import Navigator from '@components/support/navigator';
 import Layout from '@layouts/sectionLayout';
 import { contactApi } from '@libs/api';
+import { useLocale } from '@libs/client/useLocale';
 import { cls } from '@libs/client/utils';
 import type { NextPage } from 'next';
 import { FieldErrors, useForm } from 'react-hook-form';
@@ -17,6 +18,7 @@ interface IForm {
 }
 
 const Contact: NextPage = () => {
+  const { text } = useLocale();
   const {
     register,
     handleSubmit,
@@ -51,17 +53,17 @@ const Contact: NextPage = () => {
     <>
       <SEO title='지원센터' />
       <Banner
-        title='지원센터 1:1 문의하기'
-        navList={['지원센터', '1:1 문의하기']}
+        title={text.supportStoryHeader['1']}
+        navList={[text.supportStoryHeader['2'], text.supportStoryHeader['5']]}
       />
       <Navigator supportCategory='contact' />
 
       <div className='bg-[#f4f9fb]'>
         <Layout padding='pt-16 pb-24 md:pt-8'>
           <div className='font-nexonBold text-4xl font-bold leading-[3.375rem] md:text-center md:text-2xl'>
-            궁금한 사항에 대해
+            {text.contact['1']}
             <br className='hidden md:block' />
-            <span className='text-[#2fb6bc]'> 신속히 답변드리겠습니다.</span>
+            <span className='text-[#2fb6bc]'> {text.contact['2']}</span>
           </div>
 
           <div className='mt-12 w-[73.688rem] rounded bg-white py-14 px-[3.75rem] md:mt-5 md:w-full md:px-[0.813rem] md:py-8 md:text-base'>
@@ -71,7 +73,7 @@ const Contact: NextPage = () => {
                 <div>
                   <Input
                     type='text'
-                    label='이름'
+                    label={text.contact['3']}
                     register={register('name', {
                       required: '이름을 입력해주세요',
                       minLength: {
@@ -91,7 +93,7 @@ const Contact: NextPage = () => {
                 <div className='mt-7 md:mt-2'>
                   <Input
                     type='tel'
-                    label='휴대폰 번호'
+                    label={text.contact['5']}
                     register={register('phoneNum', {
                       required: '전화번호를 입력해주세요',
                       validate: {
@@ -114,7 +116,7 @@ const Contact: NextPage = () => {
                 <div className='mt-7 md:mt-2'>
                   <Input
                     type='text'
-                    label='이메일'
+                    label={text.contact['7']}
                     register={register('email', {
                       required: '이메일을 입력해주세요',
                       validate: {
@@ -136,7 +138,7 @@ const Contact: NextPage = () => {
                 {/* 카테고리 */}
                 <div className='mt-7 flex w-full flex-col md:mt-2'>
                   <label className='text-base font-medium text-[#01111e] md:text-[0.938rem]'>
-                    카테고리
+                    {text.contact['9']}
                   </label>
 
                   <div className='mt-3 flex h-[3.75rem] w-full'>
@@ -156,11 +158,11 @@ const Contact: NextPage = () => {
                         'h-full w-full rounded border bg-transparent pl-4 outline-none placeholder:text-sm md:h-[45px] md:pl-1 md:text-[0.938rem]'
                       )}
                     >
-                      <option value='default'>계정문의</option>
-                      <option>강의 문의</option>
-                      <option>마일리지 문의</option>
-                      <option>오류 제보</option>
-                      <option>기타</option>
+                      <option value='default'>{text.contact['10']}</option>
+                      <option>{text.contact['11']}</option>
+                      <option>{text.contact['12']}</option>
+                      <option>{text.contact['13']}</option>
+                      <option>{text.contact['14']}</option>
                     </select>
                   </div>
 
@@ -172,10 +174,12 @@ const Contact: NextPage = () => {
 
               {/* 내용 */}
               <div className='w-1/2 space-y-2 md:w-full'>
-                <div className='font-medium md:text-[0.938rem]'>내용</div>
+                <div className='font-medium md:text-[0.938rem]'>
+                  {text.contact['15']}
+                </div>
 
                 <textarea
-                  placeholder='내용 입력'
+                  placeholder={text.contact['16']}
                   {...register('content', {
                     required: '내용을 입력해주세요',
                     validate: {
@@ -206,7 +210,7 @@ const Contact: NextPage = () => {
                 onClick={handleSubmit(onValid, onInValid)}
                 className='mt-12 h-[3.75rem] w-[23.75rem] cursor-pointer rounded bg-[#2fb6bc] pt-4 text-center text-[1.125rem] font-medium text-white md:mt-4 md:h-[2.813rem] md:w-[17.5rem] md:pt-[0.6rem] md:text-base'
               >
-                문의하기
+                {text.contact['17']}
               </div>
             </div>
           </div>

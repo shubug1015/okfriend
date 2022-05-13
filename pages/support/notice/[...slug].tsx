@@ -5,6 +5,7 @@ import Navigator from '@components/support/navigator';
 import NoticeList from '@components/support/noticeList';
 import Layout from '@layouts/sectionLayout';
 import { boardApi } from '@libs/api';
+import { useLocale } from '@libs/client/useLocale';
 import type { GetServerSidePropsContext, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
@@ -14,6 +15,7 @@ interface IProps {
 }
 
 const Notice: NextPage<IProps> = ({ slug }) => {
+  const { text } = useLocale();
   const router = useRouter();
   const { locale } = router;
   const [searchType, orderType, page, searchTerm] = slug;
@@ -25,7 +27,10 @@ const Notice: NextPage<IProps> = ({ slug }) => {
   return (
     <>
       <SEO title='지원센터' />
-      <Banner title='지원센터 공지사항' navList={['지원센터', '공지사항']} />
+      <Banner
+        title={text.supportStoryHeader['1']}
+        navList={[text.supportStoryHeader['2'], text.supportStoryHeader['3']]}
+      />
       <Navigator supportCategory='notice' />
       <Layout padding='pt-20 pb-24 md:pt-12 md:pb-16'>
         <Search url='notice' />

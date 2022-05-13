@@ -1,4 +1,5 @@
 import Pagebar from '@components/pagebar';
+import { useLocale } from '@libs/client/useLocale';
 import { useRouter } from 'next/router';
 import Notice from './notice';
 
@@ -8,18 +9,19 @@ interface IProps {
 }
 
 export default function NoticeList({ data, totalItems }: IProps) {
+  const { text } = useLocale();
   const router = useRouter();
   const [searchType, orderType, currentPage, searchTerm] = router.query
     .slug as string[];
   return (
     <>
       <div className='mt-8 flex h-[3.75rem] items-center border-y border-[rgba(0,0,0,0.16)] md:hidden'>
-        <div className='flex w-[10%] justify-center'>번호</div>
+        <div className='flex w-[10%] justify-center'>{text.notice['5']}</div>
         {/* <div className='flex w-[8.5%] justify-center'></div> */}
-        <div className='flex grow justify-center'>제목</div>
-        <div className='flex w-[10%] justify-center'>작성자</div>
-        <div className='flex w-[10%] justify-center'>작성일</div>
-        <div className='flex w-[10%] justify-center'>조회수</div>
+        <div className='flex grow justify-center'>{text.notice['6']}</div>
+        <div className='flex w-[10%] justify-center'>{text.notice['7']}</div>
+        <div className='flex w-[10%] justify-center'>{text.notice['8']}</div>
+        <div className='flex w-[10%] justify-center'>{text.notice['9']}</div>
       </div>
 
       {data?.fixed.map((i: { [key: string]: any }) => (

@@ -5,6 +5,7 @@ import LibraryList from '@components/support/libraryList';
 import Navigator from '@components/support/navigator';
 import Layout from '@layouts/sectionLayout';
 import { boardApi } from '@libs/api';
+import { useLocale } from '@libs/client/useLocale';
 import type { GetServerSidePropsContext, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
@@ -14,6 +15,7 @@ interface IProps {
 }
 
 const Library: NextPage<IProps> = ({ slug }) => {
+  const { text } = useLocale();
   const router = useRouter();
   const { locale } = router;
   const [searchType, orderType, page, searchTerm] = slug;
@@ -25,7 +27,10 @@ const Library: NextPage<IProps> = ({ slug }) => {
   return (
     <>
       <SEO title='지원센터' />
-      <Banner title='지원센터 자료실' navList={['지원센터', '자료실']} />
+      <Banner
+        title={text.supportStoryHeader['1']}
+        navList={[text.supportStoryHeader['2'], text.supportStoryHeader['6']]}
+      />
       <Navigator supportCategory='library' />
       <Layout padding='pt-20 pb-24'>
         <Search url='library' />

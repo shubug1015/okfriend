@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import Select from './select';
 import { useRouter } from 'next/router';
+import { useLocale } from '@libs/client/useLocale';
 
 interface IProps {
   url: string;
 }
 
 export default function Search({ url }: IProps) {
+  const { text } = useLocale();
   const router = useRouter();
   const slugs = router.query.slug as string[];
 
@@ -17,9 +19,9 @@ export default function Search({ url }: IProps) {
   const [orderType, setOrderType] = useState({
     label:
       slugs[1] === 'created'
-        ? '최신순'
+        ? text.notice['3']
         : slugs[1] === 'view_num'
-        ? '조회순'
+        ? text.notice['4']
         : '댓글 많은 순',
     value: slugs[1],
   });
@@ -54,7 +56,7 @@ export default function Search({ url }: IProps) {
         /> */}
 
         <div className='flex h-12 w-36 items-center justify-between rounded-lg border border-[#d6d6d6] px-5 text-lg md:h-[2.188rem] md:w-20 md:px-2.5 md:text-[0.813rem]'>
-          제목
+          {text.notice['1']}
         </div>
 
         <div className='flex space-x-4 md:w-[calc(100%-5.5rem)] md:space-x-2'>
@@ -76,7 +78,7 @@ export default function Search({ url }: IProps) {
             }
             className='flex h-12 w-24 cursor-pointer items-center justify-center rounded-lg bg-[#2fb6bc] text-lg font-medium text-white md:h-[2.188rem] md:w-[3.312rem] md:text-[0.813rem]'
           >
-            검 색
+            {text.notice['2']}
           </div>
         </div>
       </div>
@@ -86,12 +88,12 @@ export default function Search({ url }: IProps) {
         option={[
           {
             id: 0,
-            label: '최신순',
+            label: text.notice['3'],
             value: 'created',
           },
           {
             id: 1,
-            label: '조회순',
+            label: text.notice['4'],
             value: 'view_num',
           },
           // {

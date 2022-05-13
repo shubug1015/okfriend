@@ -1,8 +1,12 @@
+import { useLocale } from '@libs/client/useLocale';
+
 export default function ElectiveNotice() {
+  const { text } = useLocale();
   return (
     <>
       <div className='flex justify-center whitespace-pre-wrap font-nexonBold text-4xl font-bold md:justify-start md:text-xl'>
-        <span className='text-[#2fb6bc]'>선택 </span>차시 강의 시청 시 유의사항
+        <span className='text-[#2fb6bc]'>{text.preCourseElective['1']} </span>
+        {text.preCourseElective['2']}
       </div>
 
       <div className='mt-9 grid grid-cols-2 gap-x-5 md:mt-6 md:grid-cols-1 md:gap-x-0 md:gap-y-5'>
@@ -59,12 +63,8 @@ export default function ElectiveNotice() {
             />
           </svg>
 
-          <div className='ml-5 md:ml-3.5 md:text-[0.9rem]'>
-            모든 프로그램은 일시 개방되어
-            <br />
-            참가자 스스로 선택하여 프로그램을
-            <br />
-            학습 할 수 있습니다.
+          <div className='ml-5 whitespace-pre-wrap md:ml-3.5 md:text-[0.9rem]'>
+            {text.preCourseElective['3']}
           </div>
         </div>
 
@@ -117,10 +117,8 @@ export default function ElectiveNotice() {
             />
           </svg>
 
-          <div className='ml-5 md:ml-3.5 md:text-[0.9rem]'>
-            프로그램 이수 시 이수 마일리지는
-            <br />
-            자동 적립 됩니다.
+          <div className='ml-5 whitespace-pre-wrap md:ml-3.5 md:text-[0.9rem]'>
+            {text.preCourseElective['4']}
           </div>
         </div>
 

@@ -1,8 +1,12 @@
+import { useLocale } from '@libs/client/useLocale';
+
 export default function RequiredNotice() {
+  const { text } = useLocale();
   return (
     <>
       <div className='flex justify-center whitespace-pre-wrap font-nexonBold text-4xl font-bold md:justify-start md:text-xl'>
-        <span className='text-[#d60a51]'>필수 </span>차시 강의 시청 시 유의사항
+        <span className='text-[#d60a51]'>{text.preCourseRequired['1']} </span>
+        {text.preCourseRequired['2']}
       </div>
 
       <div className='mt-9 md:mt-6'>
@@ -60,8 +64,8 @@ export default function RequiredNotice() {
           </svg>
 
           <div className='ml-5 md:ml-3.5 md:text-[0.9rem]'>
-            반드시 모든 프로그램을 이수하여야
-            <div className='font-medium'>이수증 발급이 됩니다.</div>
+            {text.preCourseRequired['3']}
+            <div className='font-medium'>{text.preCourseRequired['4']}</div>
           </div>
         </div>
 

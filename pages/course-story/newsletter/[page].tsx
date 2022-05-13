@@ -4,6 +4,7 @@ import Pagebar from '@components/pagebar';
 import SEO from '@components/seo';
 import Layout from '@layouts/sectionLayout';
 import { boardApi } from '@libs/api';
+import { useLocale } from '@libs/client/useLocale';
 import { trimDate } from '@libs/client/utils';
 import type { GetServerSidePropsContext, NextPage } from 'next';
 import Link from 'next/link';
@@ -15,6 +16,7 @@ interface IProps {
 }
 
 const Newsletter: NextPage<IProps> = ({ page }) => {
+  const { text } = useLocale();
   const router = useRouter();
   const { locale } = router;
   const { data } = useSWR(`${locale}/newsLetter/${page}`, () =>
@@ -23,20 +25,23 @@ const Newsletter: NextPage<IProps> = ({ page }) => {
   return (
     <>
       <SEO title='연수이야기' />
-      <Banner title='연수이야기' navList={['연수이야기', '뉴스레터']} />
+      <Banner
+        title={text.courseStoryHeader['1']}
+        navList={[text.courseStoryHeader['2'], text.courseStoryHeader['6']]}
+      />
       <MenuBar pageName='뉴스레터' />
       <Layout padding='pt-16 pb-20 md:pt-8 md:pb-15'>
         <div className='font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#01111e] md:border-b-2 md:border-[#9e9e9e] md:pb-6 md:text-center md:text-2xl'>
-          뉴스레터
+          {text.newsletter['1']}
         </div>
 
         {/* 게시판 */}
         <div className='mt-[1.281rem] flex h-[3.75rem] w-full items-center border-b border-t border-b-[#9e9e9e] border-t-[#9e9e9e] text-center text-[1.125rem] leading-[1.688rem] text-[#231815] md:hidden'>
-          <div className='w-[9%]'>번호</div>
-          <div className='grow'>제목</div>
-          <div className='w-[11%]'>작성자</div>
-          <div className='w-[11%]'>작성일</div>
-          <div className='w-[11%]'>조회수</div>
+          <div className='w-[9%]'>{text.newsletter['2']}</div>
+          <div className='grow'>{text.newsletter['3']}</div>
+          <div className='w-[11%]'>{text.newsletter['4']}</div>
+          <div className='w-[11%]'>{text.newsletter['5']}</div>
+          <div className='w-[11%]'>{text.newsletter['6']}</div>
         </div>
 
         <div>

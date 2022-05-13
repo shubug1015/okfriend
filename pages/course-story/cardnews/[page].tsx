@@ -4,6 +4,7 @@ import Pagebar from '@components/pagebar';
 import SEO from '@components/seo';
 import Layout from '@layouts/sectionLayout';
 import { boardApi } from '@libs/api';
+import { useLocale } from '@libs/client/useLocale';
 import { cls } from '@libs/client/utils';
 import type { GetServerSidePropsContext, NextPage } from 'next';
 import Image from 'next/image';
@@ -17,6 +18,7 @@ interface IProps {
 }
 
 const Cardnews: NextPage<IProps> = ({ page }) => {
+  const { text } = useLocale();
   const router = useRouter();
   const { locale } = router;
   const [currentTab, setCurrentTab] = useState('전체');
@@ -29,11 +31,14 @@ const Cardnews: NextPage<IProps> = ({ page }) => {
   return (
     <>
       <SEO title='연수이야기' />
-      <Banner title='연수이야기' navList={['연수이야기', '카드뉴스']} />
+      <Banner
+        title={text.courseStoryHeader['1']}
+        navList={[text.courseStoryHeader['2'], text.courseStoryHeader['5']]}
+      />
       <MenuBar pageName='카드뉴스' />
       <Layout padding='pt-16 pb-20 md:pt-8 md:pb-15'>
         <div className='border-b border-[#9e9e9e] pb-[1.281rem] font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#01111e] md:pb-6 md:pt-0 md:text-center md:text-2xl'>
-          카드뉴스
+          {text.courseStoryHeader['5']}
         </div>
 
         {/* 서브메뉴 탭 */}
@@ -47,7 +52,7 @@ const Cardnews: NextPage<IProps> = ({ page }) => {
               'w-[6.5rem] border-b-4 pb-[0.653rem] md:border-b-2'
             )}
           >
-            전체
+            {text.cardnews['2']}
           </div>
           <div
             onClick={() => toggleTab('KOR')}

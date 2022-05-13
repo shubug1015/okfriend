@@ -132,7 +132,7 @@ const FindId: NextPage = () => {
 
               <Input
                 type='tel'
-                label='인증번호'
+                label={text.findId['5']}
                 register={register('code', {
                   required: '인증번호를 입력해주세요',
                   validate: {

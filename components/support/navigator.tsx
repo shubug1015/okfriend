@@ -1,3 +1,4 @@
+import { useLocale } from '@libs/client/useLocale';
 import { cls } from '@libs/client/utils';
 import Link from 'next/link';
 
@@ -6,6 +7,7 @@ interface IProps {
 }
 
 export default function Navigator({ supportCategory }: IProps) {
+  const { text } = useLocale();
   return (
     <div className='border-b border-[#e8e8e8]'>
       <div className='flex items-center justify-center md:mx-auto md:max-w-[330px] md:justify-start md:overflow-x-scroll'>
@@ -19,7 +21,7 @@ export default function Navigator({ supportCategory }: IProps) {
                 'flex h-16 w-48 items-center justify-center border-b-4 text-[1.375rem] font-bold md:w-24 md:border-b-2 md:text-base'
               )}
             >
-              공지사항
+              {text.supportStoryHeader['3']}
             </div>
           </a>
         </Link>
@@ -34,7 +36,7 @@ export default function Navigator({ supportCategory }: IProps) {
                 'flex h-16 w-48 items-center justify-center border-b-4 text-[1.375rem] font-bold md:w-24 md:border-b-2 md:text-base'
               )}
             >
-              FAQ
+              {text.supportStoryHeader['4']}
             </div>
           </a>
         </Link>
@@ -49,7 +51,7 @@ export default function Navigator({ supportCategory }: IProps) {
                 'flex h-16 w-48 items-center justify-center border-b-4 text-[1.375rem] font-bold md:w-24 md:border-b-2 md:text-base'
               )}
             >
-              1:1 문의하기
+              {text.supportStoryHeader['5']}
             </div>
           </a>
         </Link>
@@ -64,7 +66,7 @@ export default function Navigator({ supportCategory }: IProps) {
                 'flex h-16 w-48 items-center justify-center border-b-4 text-[1.375rem] font-bold md:w-24 md:border-b-2 md:text-base'
               )}
             >
-              자료실
+              {text.supportStoryHeader['6']}
             </div>
           </a>
         </Link>
@@ -79,7 +81,7 @@ export default function Navigator({ supportCategory }: IProps) {
                 'flex h-16 w-48 items-center justify-center border-b-4 text-[1.375rem] font-bold md:w-24 md:border-b-2 md:text-base'
               )}
             >
-              이수증 발급
+              {text.supportStoryHeader['7']}
             </div>
           </a>
         </Link>
