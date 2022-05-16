@@ -26,6 +26,24 @@ export const imgFilter = (
   return koImg;
 };
 
+export const clsFilter = (
+  locale: string | undefined,
+  ko: string,
+  en: string,
+  ru: string
+) => {
+  if (locale === 'ko') {
+    return ko;
+  }
+  if (locale === 'en') {
+    return en;
+  }
+  if (locale === 'ru') {
+    return ru;
+  }
+  return ko;
+};
+
 // 로그인, 회원가입 시 쿠키에 저장할 토큰 설정
 export const tokenSettings: CookieSerializeOptions = {
   path: '/', // 쿠키 저장 경로

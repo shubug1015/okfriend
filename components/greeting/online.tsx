@@ -10,7 +10,7 @@ import Bg2mRu from '@public/course-introduction/bg2-ru-m.png';
 import Sign1 from '@public/course-introduction/sign1.png';
 import Sign2 from '@public/course-introduction/sign2.png';
 import { useLocale } from '@libs/client/useLocale';
-import { imgFilter } from '@libs/client/utils';
+import { cls, clsFilter, imgFilter } from '@libs/client/utils';
 
 export default function Online() {
   const { locale, text } = useLocale();
@@ -32,7 +32,12 @@ export default function Online() {
         <div className='flex justify-center'>
           <div className='flex w-[61.25rem] justify-end'>
             <div className='w-[32rem] pt-[4.214rem] md:w-screen md:pt-[1.875rem]'>
-              <div className='font-nexon text-[2.5rem] leading-[3.438rem] text-[#01111e] md:mx-[1.563rem] md:text-xl'>
+              <div
+                className={cls(
+                  clsFilter(locale, 'text-[2.5rem]', 'text-xs', 'text-5xl'),
+                  'font-nexon text-[#01111e] md:mx-[1.563rem] md:text-xl'
+                )}
+              >
                 {text.greeting['7']}
                 <br />
                 <span className='font-nexonBold font-bold text-[#2fb6bc]'>
