@@ -15,10 +15,9 @@ import { useRouter } from 'next/router';
 import { IUser } from '@libs/client/useUser';
 import useSWR from 'swr';
 import axios from 'axios';
-import React, { useEffect, useState, Fragment, useRef } from 'react';
+import React, { useState, Fragment } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, Transition } from '@headlessui/react';
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { useLocale } from '@libs/client/useLocale';
 
 const tabVar = {
@@ -225,7 +224,10 @@ export default function Header() {
     router.pathname === '/reset-pw' ||
     router.pathname === '/course' ||
     router.pathname.includes('/course/detail') ||
-    router.pathname.includes('/mypage');
+    router.pathname.includes('/mypage') ||
+    router.pathname === '/privacy-policy' ||
+    router.pathname === '/service-policy' ||
+    router.pathname === '/email-policy';
 
   const handleLogout = async () => {
     await axios.post('/api/logout');

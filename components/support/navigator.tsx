@@ -18,7 +18,8 @@ export default function Navigator({ supportCategory }: IProps) {
                 supportCategory === 'notice'
                   ? 'border-[#2fb6bc]'
                   : 'border-transparent text-[#9e9e9e]',
-                'flex h-16 w-48 items-center justify-center border-b-4 text-[1.375rem] font-bold md:w-24 md:border-b-2 md:text-base'
+                clsFilter(locale, 'md:w-24', 'md:w-[7.8rem]', 'md:w-[7rem]'),
+                'flex h-16 w-48 items-center justify-center border-b-4 text-[1.375rem] font-bold md:border-b-2 md:text-base'
               )}
             >
               {text.supportStoryHeader['3']}
@@ -48,7 +49,7 @@ export default function Navigator({ supportCategory }: IProps) {
                 supportCategory === 'contact'
                   ? 'border-[#2fb6bc]'
                   : 'border-transparent text-[#9e9e9e]',
-                'flex h-16 w-48 items-center justify-center border-b-4 text-[1.375rem] font-bold md:w-24 md:border-b-2 md:text-base'
+                'flex h-16 w-48 items-center justify-center border-b-4 text-center text-[1.375rem] font-bold md:w-24 md:border-b-2 md:text-base'
               )}
             >
               {text.supportStoryHeader['5']}
@@ -63,6 +64,7 @@ export default function Navigator({ supportCategory }: IProps) {
                 supportCategory === 'library'
                   ? 'border-[#2fb6bc]'
                   : 'border-transparent text-[#9e9e9e]',
+                clsFilter(locale, 'md:w-24', 'md:w-24', 'md:w-[7rem]'),
                 'flex h-16 w-48 items-center justify-center border-b-4 text-[1.375rem] font-bold md:w-24 md:border-b-2 md:text-base'
               )}
             >
@@ -80,11 +82,11 @@ export default function Navigator({ supportCategory }: IProps) {
                   : 'border-transparent text-[#9e9e9e]',
                 clsFilter(
                   locale,
-                  'w-48',
-                  'w-72 text-center leading-tight',
-                  'text-center leading-tight'
+                  'w-48 md:w-24 md:text-base',
+                  'w-72 text-center leading-tight md:w-24 md:text-xs',
+                  'text-center leading-tight md:w-[8.5rem] md:text-base'
                 ),
-                'flex h-16 w-48 items-center justify-center border-b-4 text-[1.375rem] font-bold md:w-24 md:border-b-2 md:text-base'
+                'flex h-16 w-48 items-center justify-center border-b-4 text-[1.375rem] font-bold md:border-b-2'
               )}
             >
               {text.supportStoryHeader['7']}

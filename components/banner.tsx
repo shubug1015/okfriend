@@ -44,8 +44,8 @@ export default function Banner({ title, navList }: IProps) {
               clsFilter(
                 locale,
                 'font-nexonBold',
-                'font-notoSans',
-                'font-notoSans'
+                'font-notoSans md:text-base',
+                'font-notoSans md:text-base'
               ),
               'whitespace-pre-wrap font-nexonBold text-4xl font-bold text-white'
             )}
@@ -55,8 +55,13 @@ export default function Banner({ title, navList }: IProps) {
 
           <div
             className={cls(
-              clsFilter(locale, '', '', 'justify-end'),
-              'flex items-center space-x-2.5 text-white md:text-sm'
+              clsFilter(
+                locale,
+                'md:text-sm',
+                'md:text-sm',
+                'justify-end md:text-xs'
+              ),
+              'flex items-center space-x-2.5 text-white'
             )}
           >
             <svg

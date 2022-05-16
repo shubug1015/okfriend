@@ -35,7 +35,7 @@ export default function Footer() {
           </div>
 
           <div className='mt-8 flex items-center space-x-4 md:mt-5 md:space-x-2.5 md:text-[0.8rem]'>
-            <Link href='/'>
+            <Link href='/service-policy'>
               <a>
                 <div
                   className={cls(
@@ -43,7 +43,7 @@ export default function Footer() {
                       locale,
                       'font-nexonBold text-sm',
                       'font-notoSans text-sm',
-                      'font-notoSans text-xs'
+                      'font-notoSans text-xs md:text-[0.5rem]'
                     ),
                     'text-[#d6d6d6]'
                   )}
@@ -54,7 +54,7 @@ export default function Footer() {
             </Link>
 
             <div className='text-sm text-[#9e9e9e]'>|</div>
-            <Link href='/'>
+            <Link href='/email-policy'>
               <a>
                 <div
                   className={cls(
@@ -62,7 +62,7 @@ export default function Footer() {
                       locale,
                       'font-nexonBold text-sm',
                       'font-notoSans text-sm',
-                      'font-notoSans text-xs'
+                      'font-notoSans text-xs md:text-[0.5rem]'
                     ),
                     'text-[#d6d6d6]'
                   )}
@@ -73,7 +73,7 @@ export default function Footer() {
             </Link>
 
             <div className='text-sm text-[#9e9e9e]'>|</div>
-            <Link href='/'>
+            <Link href='/privacy-policy'>
               <a>
                 <div
                   className={cls(
@@ -81,7 +81,7 @@ export default function Footer() {
                       locale,
                       'font-nexonBold text-sm',
                       'font-notoSans text-sm',
-                      'font-notoSans text-xs'
+                      'font-notoSans text-xs md:text-[0.5rem]'
                     ),
                     'text-[#d6d6d6]'
                   )}

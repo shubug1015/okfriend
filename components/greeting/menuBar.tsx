@@ -1,5 +1,5 @@
 import { useLocale } from '@libs/client/useLocale';
-import { cls } from '@libs/client/utils';
+import { cls, clsFilter } from '@libs/client/utils';
 import Link from 'next/link';
 
 interface IProps {
@@ -7,7 +7,7 @@ interface IProps {
 }
 
 export default function MenuBar({ pageName }: IProps) {
-  const { text } = useLocale();
+  const { locale, text } = useLocale();
   return (
     <div className='flex items-center justify-center border-b border-[#ebebeb] bg-white text-[1.375rem] text-[#9e9e9e] md:border-transparent md:text-base'>
       <Link href='/course-introduction/greeting'>
@@ -15,8 +15,9 @@ export default function MenuBar({ pageName }: IProps) {
           <div
             className={cls(
               pageName === text.greeting['4']
-                ? 'border-[#2fb6bc]  text-[#2fb6bc]'
+                ? 'border-[#2fb6bc] font-bold text-[#2fb6bc]'
                 : 'border-transparent',
+              clsFilter(locale, '', '', 'md:text-xs'),
               'flex h-[4.188rem] w-[12.5rem] items-center justify-center border-b-4 font-bold md:h-[3.125rem] md:w-[5.75rem] md:border-b-2'
             )}
           >
@@ -32,6 +33,7 @@ export default function MenuBar({ pageName }: IProps) {
               pageName === text.summary['5']
                 ? 'border-[#2fb6bc] font-bold text-[#2fb6bc]'
                 : 'border-transparent',
+              clsFilter(locale, '', '', 'md:text-xs'),
               'flex h-[4.188rem] w-[12.5rem] items-center justify-center border-b-4 font-bold md:h-[3.125rem] md:w-[5.75rem] md:border-b-2'
             )}
           >
@@ -47,6 +49,7 @@ export default function MenuBar({ pageName }: IProps) {
               pageName === text.schedule['6']
                 ? 'border-[#2fb6bc] font-bold text-[#2fb6bc]'
                 : 'border-transparent',
+              clsFilter(locale, '', '', 'md:text-xs'),
               'flex h-[4.188rem] w-[12.5rem] items-center justify-center border-b-4 text-center font-bold md:h-[3.125rem] md:w-[5.75rem] md:border-b-2'
             )}
           >

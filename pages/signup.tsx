@@ -142,7 +142,7 @@ const SignUp: NextPage = () => {
                   className='flex h-[12.7rem] w-[17.5rem] cursor-pointer flex-col items-center justify-center space-y-4 rounded-lg border border-[#2fb6bc] transition-all hover:opacity-70'
                 >
                   <Local />
-                  <div className='text-lg font-medium text-[#2fb6bc]'>
+                  <div className='text-center text-lg font-medium text-[#2fb6bc]'>
                     {text.signup['37']}
                   </div>
                 </div>
@@ -151,7 +151,7 @@ const SignUp: NextPage = () => {
                   className='flex h-[12.7rem] w-[17.5rem] cursor-pointer flex-col items-center justify-center space-y-2.5 rounded-lg border border-[#2fb6bc] transition-all hover:opacity-70'
                 >
                   <NotLocal />
-                  <div className='text-lg font-medium text-[#2fb6bc]'>
+                  <div className='text-center text-lg font-medium text-[#2fb6bc]'>
                     {text.signup['38']}
                   </div>
                 </div>
@@ -185,7 +185,7 @@ const SignUp: NextPage = () => {
                           )}
                         />
 
-                        <div className='text-lg md:text-[0.938rem]'>
+                        <div className='text-lg md:text-[0.8rem]'>
                           {i}
                           {text.signup['3']}
                         </div>

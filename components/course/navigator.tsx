@@ -41,11 +41,11 @@ export default function Navigator({ courseType, courseCategory }: IProps) {
                   : 'border-transparent text-[#9e9e9e]',
                 clsFilter(
                   locale,
-                  'w-48 text-[1.375rem]',
-                  'w-60 text-center text-xl leading-tight',
-                  'w-80 text-center text-xl leading-tight'
+                  'w-48 text-[1.375rem] md:text-base',
+                  'w-60 text-center text-xl leading-tight md:text-base',
+                  'w-80 text-center text-xl leading-tight md:text-[0.5rem]'
                 ),
-                'flex h-16 items-center justify-center border-b-4 font-bold md:h-14 md:w-auto md:border-b-2 md:text-base'
+                'flex h-16 items-center justify-center border-b-4 font-bold md:h-14 md:w-auto md:border-b-2'
               )}
             >
               {text.preCourseHeader['4']}
@@ -64,11 +64,11 @@ export default function Navigator({ courseType, courseCategory }: IProps) {
                   : 'border-transparent text-[#9e9e9e]',
                 clsFilter(
                   locale,
-                  'w-48 text-[1.375rem]',
-                  'w-60 text-center text-xl leading-tight',
-                  'w-80 text-center text-xl leading-tight'
+                  'w-48 text-[1.375rem] md:text-base',
+                  'w-60 text-center text-xl leading-tight md:text-base',
+                  'w-80 text-center text-xl leading-tight md:text-[0.5rem]'
                 ),
-                'flex h-16 items-center justify-center border-b-4 font-bold md:h-14 md:w-auto md:border-b-2 md:text-base'
+                'flex h-16 items-center justify-center border-b-4 font-bold md:h-14 md:w-auto md:border-b-2'
               )}
             >
               {text.preCourseHeader['5']}
@@ -87,11 +87,11 @@ export default function Navigator({ courseType, courseCategory }: IProps) {
                   : 'border-transparent text-[#9e9e9e]',
                 clsFilter(
                   locale,
-                  'w-48 text-[1.375rem]',
-                  'w-60 text-center text-xl leading-tight',
-                  'w-80 text-center text-xl leading-tight'
+                  'w-48 text-[1.375rem] md:text-base',
+                  'w-60 text-center text-xl leading-tight md:text-base',
+                  'w-80 text-center text-xl leading-tight md:text-[0.5rem]'
                 ),
-                'flex h-16 items-center justify-center border-b-4 font-bold md:h-14 md:w-auto md:border-b-2 md:text-base'
+                'flex h-16 items-center justify-center border-b-4 font-bold md:h-14 md:w-auto md:border-b-2'
               )}
             >
               {text.preCourseHeader['6']}

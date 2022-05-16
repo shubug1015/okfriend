@@ -39,7 +39,7 @@ const Newsletter: NextPage<IProps> = ({ page }) => {
               'font-notoSans text-3xl',
               'font-notoSans text-4xl'
             ),
-            'font-bold leading-[3.15rem] text-[#01111e] md:border-b-2 md:border-[#9e9e9e] md:pb-6 md:text-center md:text-2xl'
+            'font-bold leading-[3.15rem] text-[#01111e] md:border-b-2 md:border-[#9e9e9e] md:pb-6 md:text-center md:text-xl'
           )}
         >
           {text.newsletter['1']}

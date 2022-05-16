@@ -100,7 +100,7 @@ export default function Slide() {
               data-aos='fade-up'
               data-aos-duration='1500'
               data-aos-delay='300'
-              className='mt-6 text-2xl font-bold drop-shadow-md md:text-xl'
+              className='mt-6 text-center text-2xl font-bold drop-shadow-md md:text-xl'
             >
               {i.text}
             </div>

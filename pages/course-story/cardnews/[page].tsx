@@ -45,7 +45,7 @@ const Cardnews: NextPage<IProps> = ({ page }) => {
               'font-notoSans text-3xl',
               'font-notoSans text-4xl'
             ),
-            'border-b border-[#9e9e9e] pb-[1.281rem] font-bold leading-[3.15rem] text-[#01111e] md:pb-6 md:pt-0 md:text-center md:text-2xl'
+            'border-b border-[#9e9e9e] pb-[1.281rem] font-bold leading-[3.15rem] text-[#01111e] md:pb-6 md:pt-0 md:text-center md:text-xl'
           )}
         >
           {text.courseStoryHeader['5']}
