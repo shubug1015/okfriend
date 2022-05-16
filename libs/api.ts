@@ -294,23 +294,8 @@ export const usersApi = {
     email,
     phoneNum,
     adAgree,
-  }: IProps) => {
-    console.log(
-      local,
-      stage,
-      username,
-      password,
-      korName,
-      engName,
-      year,
-      month,
-      day,
-      country,
-      email,
-      phoneNum,
-      adAgree
-    );
-    return api.post('/users/signup/', {
+  }: IProps) =>
+    api.post('/users/signup/', {
       local,
       stage,
       username,
@@ -322,8 +307,7 @@ export const usersApi = {
       email,
       phone_number: phoneNum,
       ad_agree: adAgree,
-    });
-  },
+    }),
 
   // 로그인(NextJS api)
   loginNextApi: (req: IProps) => axios.post('/api/login', req),

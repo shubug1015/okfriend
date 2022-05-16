@@ -8,7 +8,6 @@ interface IProps {
 
 export default function Tutor({ tutor }: IProps) {
   const { text } = useLocale();
-  console.log(tutor);
   return (
     <>
       <Layout padding='pt-20 pb-24 md:py-12'>

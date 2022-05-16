@@ -111,7 +111,6 @@ export default function Detail({
 
     return () => clearInterval(intervalId);
   }, [setProgressPercent]);
-  console.log(data);
   return (
     <>
       <div>

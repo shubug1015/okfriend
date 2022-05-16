@@ -13,7 +13,7 @@ const Library: NextPage<IProps> = ({ id }) => {
       <Banner title='도서관' navList={['도서관']} />
 
       <iframe
-        src={`https://68.183.229.67/tmp-${id}`}
+        src={`https://old.okfyouthcamp.com/tmp-${id}`}
         className='h-[78rem] w-full md:h-[100rem]'
       ></iframe>
     </>
