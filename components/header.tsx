@@ -232,7 +232,17 @@ export default function Header() {
     mutate({ ok: false, token: null, profile: null });
   };
   return (
-    <header className='fixed top-0 left-0 z-[9999] w-screen'>
+    <header
+      className={cls(
+        clsFilter(
+          locale,
+          'font-["Noto_Sans_KR"]',
+          'font-["Noto_Sans"]',
+          'font-["Noto_Sans"]'
+        ),
+        'fixed top-0 left-0 z-[9999] w-screen'
+      )}
+    >
       {/* 상단 헤더 */}
       <div className='bg-[#f8f8f8] md:bg-white'>
         <div className='mx-auto flex h-12 max-w-[1400px] items-center justify-between md:max-w-[330px]'>

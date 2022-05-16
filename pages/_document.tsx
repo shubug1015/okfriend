@@ -1,7 +1,5 @@
-import { useLocale } from '@libs/client/useLocale';
-import { clsFilter } from '@libs/client/utils';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
-import { NextRouter, withRouter } from 'next/router';
+import { NextRouter } from 'next/router';
 
 interface WithRouterProps {
   router: NextRouter;
