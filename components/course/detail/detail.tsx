@@ -83,6 +83,8 @@ export default function Detail({
         progressPercent,
         myData?.token as string
       );
+      const data = await courseApi.detail(locale, id, myData?.token);
+      mutate(data);
     } catch {
       alert('Error');
     }
