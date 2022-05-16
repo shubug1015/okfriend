@@ -23,7 +23,7 @@ const Course: NextPage<IProps> = ({ params }) => {
   const { locale } = router;
   const [courseType, courseCategory, page] = params;
   const request = `${
-    courseType === 'pre-online' ? '사전 온라인 연수' : '온라인 연수'
+    courseType === 'pre-online' ? '사전 연수' : '온라인 연수'
   } - ${
     courseCategory === 'live'
       ? 'LIVE 차시'

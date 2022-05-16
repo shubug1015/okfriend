@@ -51,15 +51,15 @@ export default function Course() {
           {/* <div className='h-6 w-[0.18rem] bg-[#d6d6d6] text-3xl' />
           <div
             onClick={() => {
-              setType('사전 온라인 연수');
+              setType('사전 연수');
               setCategory('라이브 차시');
             }}
             className={cls(
-              type === '사전 온라인 연수' ? 'text-white' : 'text-[#9e9e9e]',
+              type === '사전 연수' ? 'text-white' : 'text-[#9e9e9e]',
               'cursor-pointer text-3xl font-bold transition-all'
             )}
           >
-            사전 온라인 연수
+            사전 연수
           </div> */}
 
           <Link href='/course/list/online/required/1'>

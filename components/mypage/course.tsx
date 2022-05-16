@@ -25,11 +25,9 @@ export default function Course({
   const { text } = useLocale();
   const router = useRouter();
   const setDetailUrl = () => {
-    if (courseCategory === '사전 온라인 연수 - 필수차시')
-      return 'pre-online/required';
-    if (courseCategory === '사전 온라인 연수 - 선택차시')
-      return 'pre-online/elective';
-    if (courseCategory === '사전 온라인 연수 - 지난 연수 자료')
+    if (courseCategory === '사전 연수 - 필수차시') return 'pre-online/required';
+    if (courseCategory === '사전 연수 - 선택차시') return 'pre-online/elective';
+    if (courseCategory === '사전 연수 - 지난 연수 자료')
       return 'pre-online/past';
     if (courseCategory === '온라인 연수 - 필수차시 - 공통')
       return 'online/required';
