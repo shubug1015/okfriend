@@ -1,25 +1,46 @@
 import type { NextPage } from 'next';
 import Banner from '@components/banner';
-import Online from '@components/greeting/online';
 import Layout from '@layouts/sectionLayout';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import SummaryMain from '@public/course-introduction/summary-main.png';
 import SummaryGoal1 from '@public/course-introduction/summary-goal-1.png';
 import SummaryGoal2 from '@public/course-introduction/summary-goal-2.png';
 import SummaryGoal3 from '@public/course-introduction/summary-goal-3.png';
 import SummaryGoal4 from '@public/course-introduction/summary-goal-4.png';
-import SummaryBenefit1 from '@public/course-introduction/summary-benefit-1.png';
+import SummaryGoalEn1 from '@public/course-introduction/summary-goal-en-1.png';
+import SummaryGoalEn2 from '@public/course-introduction/summary-goal-en-2.png';
+import SummaryGoalEn3 from '@public/course-introduction/summary-goal-en-3.png';
+import SummaryGoalEn4 from '@public/course-introduction/summary-goal-en-4.png';
+import SummaryGoalRu1 from '@public/course-introduction/summary-goal-ru-1.png';
+import SummaryGoalRu2 from '@public/course-introduction/summary-goal-ru-2.png';
+import SummaryGoalRu3 from '@public/course-introduction/summary-goal-ru-3.png';
+import SummaryGoalRu4 from '@public/course-introduction/summary-goal-ru-4.png';
 import SummaryMileage1 from '@public/course-introduction/summary-mileage-1.png';
+import SummaryMileageEn1 from '@public/course-introduction/summary-mileage-en-1.png';
+import SummaryMileageRu1 from '@public/course-introduction/summary-mileage-ru-1.png';
+import SummaryMileage1m from '@public/course-introduction/summary-mileage-1-m.png';
+import SummaryMileageEn1m from '@public/course-introduction/summary-mileage-en-1-m.png';
+import SummaryMileageRu1m from '@public/course-introduction/summary-mileage-ru-1-m.png';
+import SummaryBenefit1 from '@public/course-introduction/summary-benefit-1.png';
 import SummaryBenefit2 from '@public/course-introduction/summary-benefit-2.png';
+import SummaryBenefitEn1 from '@public/course-introduction/summary-benefit-en-1.png';
+import SummaryBenefitEn2 from '@public/course-introduction/summary-benefit-en-2.png';
+import SummaryBenefitRu1 from '@public/course-introduction/summary-benefit-ru-1.png';
+import SummaryBenefitRu2 from '@public/course-introduction/summary-benefit-ru-2.png';
 import SummaryBenefit1m from '@public/course-introduction/summary-benefit-1-m.png';
 import SummaryBenefit2m from '@public/course-introduction/summary-benefit-2-m.png';
-import SummaryMileage1m from '@public/course-introduction/summary-mileage-1-m.png';
+import SummaryBenefitEn1m from '@public/course-introduction/summary-benefit-en-1-m.png';
+import SummaryBenefitEn2m from '@public/course-introduction/summary-benefit-en-2-m.png';
+import SummaryBenefitRu1m from '@public/course-introduction/summary-benefit-ru-1-m.png';
+import SummaryBenefitRu2m from '@public/course-introduction/summary-benefit-ru-2-m.png';
 import MenuBar from '@components/greeting/menuBar';
 import SEO from '@components/seo';
 import { useLocale } from '@libs/client/useLocale';
+import Link from 'next/link';
+import { imgFilter } from '@libs/client/utils';
 
 const Greeting: NextPage = () => {
-  const { text } = useLocale();
+  const { locale, text } = useLocale();
   return (
     <>
       <SEO title='온라인연수 소개' />
@@ -60,29 +81,49 @@ const Greeting: NextPage = () => {
           </div>
           <div className='mt-[1.063rem] flex justify-between md:mt-[1.688rem] md:grid md:grid-cols-2 md:gap-4'>
             <Image
-              src={SummaryGoal1}
+              src={imgFilter(
+                locale,
+                SummaryGoal1,
+                SummaryGoalEn1,
+                SummaryGoalRu1
+              )}
               alt='Summary Page Goal Section Image1'
               objectFit='cover'
               placeholder='blur'
               quality={100}
             />
             <Image
-              src={SummaryGoal2}
-              alt='Summary Page Goal Section Image1'
+              src={imgFilter(
+                locale,
+                SummaryGoal2,
+                SummaryGoalEn2,
+                SummaryGoalRu2
+              )}
+              alt='Summary Page Goal Section Image2'
               objectFit='cover'
               placeholder='blur'
               quality={100}
             />
             <Image
-              src={SummaryGoal3}
-              alt='Summary Page Goal Section Image1'
+              src={imgFilter(
+                locale,
+                SummaryGoal3,
+                SummaryGoalEn3,
+                SummaryGoalRu3
+              )}
+              alt='Summary Page Goal Section Image3'
               objectFit='cover'
               placeholder='blur'
               quality={100}
             />
             <Image
-              src={SummaryGoal4}
-              alt='Summary Page Goal Section Image1'
+              src={imgFilter(
+                locale,
+                SummaryGoal4,
+                SummaryGoalEn4,
+                SummaryGoalRu4
+              )}
+              alt='Summary Page Goal Section Image4'
               objectFit='cover'
               placeholder='blur'
               quality={100}
@@ -213,12 +254,15 @@ const Greeting: NextPage = () => {
 
         {/* 문의방법 */}
         <div className='mt-[2.531rem] text-2xl text-[#01111e] md:text-[1.375rem]'>
-          <div className='font-nexonBold font-bold leading-[2.25rem]'>
+          <div className='mb-[1.188rem] font-nexonBold font-bold leading-[2.25rem]'>
             {text.summary['35']}
           </div>
-          <button className='mt-[1.188rem] rounded-md bg-[#2fb2bc] px-[2.875rem] py-[0.75rem] text-[1.063rem] leading-[1.594rem] text-white md:w-full'>
-            <a href='#'>{text.summary['36']}</a>
-          </button>
+
+          <Link href='/support/contact'>
+            <a className='rounded-md bg-[#2fb2bc] px-[2.875rem] py-[0.75rem] text-[1.063rem] leading-[1.594rem] text-white md:w-full'>
+              {text.summary['36']}
+            </a>
+          </Link>
         </div>
 
         {/* 온라인연수 마일리지 제도란? */}
@@ -240,7 +284,12 @@ const Greeting: NextPage = () => {
         <div className='border-b border-[#e8e8e8] pt-[1.849rem] pb-[2.906rem] text-2xl text-[#01111e] md:pt-[1.281rem]'>
           <div className='relative h-[256.5px] w-full md:hidden'>
             <Image
-              src={SummaryMileage1}
+              src={imgFilter(
+                locale,
+                SummaryMileage1,
+                SummaryMileageEn1,
+                SummaryMileageRu1
+              )}
               alt='Summary Page Mileage Section Image1'
               objectFit='cover'
               placeholder='blur'
@@ -250,7 +299,12 @@ const Greeting: NextPage = () => {
           </div>
           <div className='relative hidden h-[903px] w-full md:block'>
             <Image
-              src={SummaryMileage1m}
+              src={imgFilter(
+                locale,
+                SummaryMileage1m,
+                SummaryMileageEn1m,
+                SummaryMileageRu1m
+              )}
               alt='Summary Page Mileage Section Image1'
               objectFit='cover'
               placeholder='blur'
@@ -292,7 +346,12 @@ const Greeting: NextPage = () => {
               </div>
               <div className='relative mt-3 h-[302px] w-[580px] md:hidden'>
                 <Image
-                  src={SummaryBenefit1}
+                  src={imgFilter(
+                    locale,
+                    SummaryBenefit1,
+                    SummaryBenefitEn1,
+                    SummaryBenefitRu1
+                  )}
                   alt='Summary Page Benefit Section Image1'
                   objectFit='cover'
                   placeholder='blur'
@@ -302,7 +361,12 @@ const Greeting: NextPage = () => {
               </div>
               <div className='relative mt-3 hidden h-[497px] w-full md:block'>
                 <Image
-                  src={SummaryBenefit1m}
+                  src={imgFilter(
+                    locale,
+                    SummaryBenefit1m,
+                    SummaryBenefitEn1m,
+                    SummaryBenefitRu1m
+                  )}
                   alt='Summary Page Benefit Section Image1'
                   objectFit='cover'
                   placeholder='blur'
@@ -317,7 +381,12 @@ const Greeting: NextPage = () => {
               </div>
               <div className='relative mt-3 h-[302px] w-[580px] md:hidden'>
                 <Image
-                  src={SummaryBenefit2}
+                  src={imgFilter(
+                    locale,
+                    SummaryBenefit2,
+                    SummaryBenefitEn2,
+                    SummaryBenefitRu2
+                  )}
                   alt='Summary Page Benefit Section Image2'
                   objectFit='cover'
                   placeholder='blur'
@@ -327,7 +396,12 @@ const Greeting: NextPage = () => {
               </div>
               <div className='relative mt-3 hidden h-[302px] w-full md:block'>
                 <Image
-                  src={SummaryBenefit2m}
+                  src={imgFilter(
+                    locale,
+                    SummaryBenefit2m,
+                    SummaryBenefitEn2m,
+                    SummaryBenefitRu2m
+                  )}
                   alt='Summary Page Benefit Section Image2'
                   objectFit='cover'
                   placeholder='blur'

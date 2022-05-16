@@ -1,17 +1,26 @@
 import Banner from '@components/banner';
 import { NextPage } from 'next';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import Schedule1 from '@public/course-introduction/schedule-1.png';
 import Schedule2 from '@public/course-introduction/schedule-2.png';
+import ScheduleEn1 from '@public/course-introduction/schedule-en-1.png';
+import ScheduleEn2 from '@public/course-introduction/schedule-en-2.png';
+import ScheduleRu1 from '@public/course-introduction/schedule-ru-1.png';
+import ScheduleRu2 from '@public/course-introduction/schedule-ru-2.png';
 import Schedule1m from '@public/course-introduction/schedule-1-m.png';
 import Schedule2m from '@public/course-introduction/schedule-2-m.png';
+import ScheduleEn1m from '@public/course-introduction/schedule-en-1-m.png';
+import ScheduleEn2m from '@public/course-introduction/schedule-en-2-m.png';
+import ScheduleRu1m from '@public/course-introduction/schedule-ru-1-m.png';
+import ScheduleRu2m from '@public/course-introduction/schedule-ru-2-m.png';
 import Layout from '@layouts/sectionLayout';
 import MenuBar from '@components/greeting/menuBar';
 import SEO from '@components/seo';
 import { useLocale } from '@libs/client/useLocale';
+import { imgFilter } from '@libs/client/utils';
 
 const TrainingSchedule: NextPage = () => {
-  const { text } = useLocale();
+  const { locale, text } = useLocale();
   return (
     <>
       <SEO title='온라인연수 소개' />
@@ -31,7 +40,7 @@ const TrainingSchedule: NextPage = () => {
           </div>
           <div className='relative mt-[1.375rem] h-[961px] w-full md:hidden'>
             <Image
-              src={Schedule1}
+              src={imgFilter(locale, Schedule1, ScheduleEn1, ScheduleRu1)}
               alt='Schedule Page Image 1'
               objectFit='cover'
               placeholder='blur'
@@ -41,7 +50,7 @@ const TrainingSchedule: NextPage = () => {
           </div>
           <div className='relative mt-[2.063rem] hidden h-[66.688rem] w-full md:block'>
             <Image
-              src={Schedule1m}
+              src={imgFilter(locale, Schedule1m, ScheduleEn1m, ScheduleRu1m)}
               alt='Schedule Page Image 1'
               objectFit='cover'
               placeholder='blur'
@@ -57,8 +66,8 @@ const TrainingSchedule: NextPage = () => {
           </div>
           <div className='relative mt-[1.375rem] h-[541px] w-full md:hidden'>
             <Image
-              src={Schedule2}
-              alt='Schedule Page Image 2'
+              src={imgFilter(locale, Schedule2, ScheduleEn2, ScheduleRu2)}
+              alt='Schedule Page Image 1'
               objectFit='cover'
               placeholder='blur'
               layout='fill'
@@ -67,8 +76,8 @@ const TrainingSchedule: NextPage = () => {
           </div>
           <div className='relative mt-[0.875rem] hidden h-[598px] w-full md:block'>
             <Image
-              src={Schedule2m}
-              alt='Schedule Page Image 1'
+              src={imgFilter(locale, Schedule2m, ScheduleEn2m, ScheduleRu2m)}
+              alt='Schedule Page Image 2'
               objectFit='cover'
               placeholder='blur'
               layout='fill'

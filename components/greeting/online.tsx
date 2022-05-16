@@ -1,14 +1,19 @@
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import Bg1 from '@public/course-introduction/bg1.png';
-import Sign1 from '@public/course-introduction/sign1.png';
 import Bg2 from '@public/course-introduction/bg2.png';
-import Sign2 from '@public/course-introduction/sign2.png';
 import Bg1m from '@public/course-introduction/bg1-m.png';
 import Bg2m from '@public/course-introduction/bg2-m.png';
+import Bg1mEn from '@public/course-introduction/bg1-en-m.png';
+import Bg2mEn from '@public/course-introduction/bg2-en-m.png';
+import Bg1mRu from '@public/course-introduction/bg1-ru-m.png';
+import Bg2mRu from '@public/course-introduction/bg2-ru-m.png';
+import Sign1 from '@public/course-introduction/sign1.png';
+import Sign2 from '@public/course-introduction/sign2.png';
 import { useLocale } from '@libs/client/useLocale';
+import { imgFilter } from '@libs/client/utils';
 
 export default function Online() {
-  const { text } = useLocale();
+  const { locale, text } = useLocale();
   return (
     <div>
       {/* 김성곤입니다. */}
@@ -44,7 +49,7 @@ export default function Online() {
               <div className='relative hidden h-[15.375rem] md:block'>
                 <div className='absolute top-0 left-0 z-[-1] h-full w-full'>
                   <Image
-                    src={Bg1m}
+                    src={imgFilter(locale, Bg1m, Bg1mEn, Bg1mRu)}
                     alt='Background Image1'
                     layout='fill'
                     objectFit='cover'
@@ -131,7 +136,7 @@ export default function Online() {
             quality={100}
           />
         </div>
-        {/* 온라인연수에 - 환영합니다. */}
+        {/* 재외동포 - 반갑습니다. */}
         <div className='flex justify-center'>
           <div className='flex w-[61.25rem] justify-end'>
             <div className='w-[32rem] pt-[4.214rem] md:w-screen md:pt-[1.875rem]'>
@@ -152,7 +157,7 @@ export default function Online() {
               <div className='relative hidden md:block'>
                 <div className='absolute top-0 left-0 z-[-1] h-[15.375rem] w-full'>
                   <Image
-                    src={Bg2m}
+                    src={imgFilter(locale, Bg2m, Bg2mEn, Bg2mRu)}
                     alt='Background Image1'
                     layout='fill'
                     objectFit='cover'
