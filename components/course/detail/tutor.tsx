@@ -30,7 +30,7 @@ export default function Tutor({ tutor }: IProps) {
               <path d='M2 28V2H28' stroke='#6B6B6B' strokeWidth='3' />
             </svg>
 
-            <div className='ml-[1.625rem]'>
+            <div className='ml-[1.625rem] w-[27rem]'>
               <div className='flex items-center space-x-6'>
                 <span className='text-[2rem] font-bold md:text-[1.75rem]'>
                   {tutor?.en_name}

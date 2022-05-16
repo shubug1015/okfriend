@@ -101,11 +101,12 @@ const Certificate: NextPage = () => {
   };
 
   useEffect(() => {
-    setPopup(true);
+    if (profile?.survey) {
+      setPopup(true);
+    }
   }, [profile?.survey]);
 
   if (data === 'there are uncompleted lectures') {
-    console.log('mount');
     alert('미완료된 강의가 있습니다.');
     router.back();
   }

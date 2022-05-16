@@ -526,7 +526,9 @@ export default function Header() {
               {navList.map((i) => (
                 <div key={i.id}>
                   <div
-                    onClick={() => setOpenedTab(i.id)}
+                    onClick={() =>
+                      openedTab === i.id ? setOpenedTab(-1) : setOpenedTab(i.id)
+                    }
                     className='mx-auto flex h-14 max-w-[330px] items-center justify-between'
                   >
                     <div

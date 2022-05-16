@@ -39,19 +39,14 @@ export default function Detail({
   const [popup, setPopup] = useState(false);
   const closePopup = () => setPopup(false);
 
-  const copyUrl = () => {
-    const url = window.location.href;
-    navigator.clipboard
-
-      .writeText(url)
-      .then(() => alert('링크가 복사되었습니다.'));
-  };
-
-  const registerCourse = () => {
+  const toggleLike = () => {
     if (myData?.token) {
       try {
-        courseApi.registerCourse(locale, id, myData?.token as string);
-        mutate({ ...data });
+        courseApi.likeCourse(locale, id, myData?.token as string);
+        mutate({
+          ...data,
+          like_num: data?.liked ? data?.like_num - 1 : data?.like_num + 1,
+        });
       } catch {
         alert('Error');
       }
@@ -60,17 +55,27 @@ export default function Detail({
     }
   };
 
-  // useEffect(() => {
-  //   const setProgress = () => {
-  //     courseApi.sendProgress(id, progressPer, myData?.token as string);
-  //   };
-  //   router.events.on('routeChangeStart', setProgress);
-  //   window.addEventListener('beforeunload', setProgress);
-  //   return () => {
-  //     router.events.off('routeChangeStart', setProgress);
-  //     window.removeEventListener('beforeunload', setProgress);
-  //   };
-  // }, [myData, progressPer]);
+  const copyUrl = () => {
+    const url = window.location.href;
+    navigator.clipboard
+
+      .writeText(url)
+      .then(() => alert('링크가 복사되었습니다.'));
+  };
+
+  const registerCourse = async () => {
+    if (myData?.token) {
+      try {
+        await courseApi.registerCourse(locale, id, myData?.token as string);
+        const data = await courseApi.detail(locale, id, myData?.token);
+        mutate(data);
+      } catch {
+        alert('Error');
+      }
+    } else {
+      router.push('/login');
+    }
+  };
 
   const setProgress = async () => {
     try {
@@ -192,23 +197,28 @@ export default function Detail({
               <div className='grid grid-cols-2 gap-x-5'>
                 {category === 'past' ? (
                   <>
-                    <div className='flex h-[3.625rem] cursor-pointer items-center justify-center space-x-2 rounded-lg border border-[#9e9e9e] transition-all hover:opacity-70'>
+                    <div
+                      onClick={toggleLike}
+                      className='flex h-[3.625rem] cursor-pointer items-center justify-center space-x-2 rounded-lg border border-[#9e9e9e] transition-all hover:opacity-70'
+                    >
                       <svg
-                        width='21'
-                        height='20'
-                        viewBox='0 0 21 20'
-                        fill='none'
                         xmlns='http://www.w3.org/2000/svg'
-                        className='translate-y-px'
+                        className={cls(
+                          data?.liked ? 'text-[#ef4444]' : 'text-[#01111E]',
+                          'h-5 w-5 translate-y-px'
+                        )}
+                        fill={data?.liked ? '#ef4444' : 'none'}
+                        viewBox='0 0 24 24'
+                        stroke='currentColor'
+                        strokeWidth={2}
                       >
                         <path
-                          fillRule='evenodd'
-                          clipRule='evenodd'
-                          d='M17.5833 7.5C17.5833 5.83333 16.3333 4.25 14.5 4.25C12.5833 4.25 11.3333 5.60833 10.5 7.025C9.66667 5.60833 8.41667 4.25 6.5 4.25C4.66667 4.25 3.41667 5.7225 3.41667 7.5C3.41667 11.35 7.54083 13.8892 10.5 15.5192C13.4592 13.8892 17.5833 11.35 17.5833 7.5ZM1.75 7.35333C1.75 4.6725 3.80167 2.5 6.33333 2.5C8.58333 2.5 9.66667 3.33333 10.5 4.33333C11.3333 3.33333 12.4167 2.5 14.6667 2.5C17.1983 2.5 19.25 4.6725 19.25 7.35333C19.25 12.3558 14.4033 15.4333 10.5 17.5C6.59667 15.4333 1.75 12.3558 1.75 7.35333Z'
-                          fill='#01111E'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          d='M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'
                         />
                       </svg>
-                      <div>2075</div>
+                      <div>{data?.like_num}</div>
                     </div>
 
                     <div

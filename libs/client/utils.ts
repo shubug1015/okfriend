@@ -1,4 +1,5 @@
 import { CookieSerializeOptions } from 'cookie';
+import { StaticImageData } from 'next/image';
 
 export const cls = (...classnames: string[]) => {
   return classnames.join(' ');
@@ -6,6 +7,24 @@ export const cls = (...classnames: string[]) => {
 
 export const trimDate = (date: string, start: number, end: number) =>
   date.split('T')[0].slice(start, end);
+
+export const imgFilter = (
+  locale: string | undefined,
+  koImg: StaticImageData,
+  enImg: StaticImageData,
+  ruImg: StaticImageData
+) => {
+  if (locale === 'ko') {
+    return koImg;
+  }
+  if (locale === 'en') {
+    return enImg;
+  }
+  if (locale === 'ru') {
+    return ruImg;
+  }
+  return koImg;
+};
 
 // 로그인, 회원가입 시 쿠키에 저장할 토큰 설정
 export const tokenSettings: CookieSerializeOptions = {

@@ -71,9 +71,9 @@ const Gallery: NextPage<IProps> = ({ page }) => {
         </div>
 
         {/* 갤러리 이미지 */}
-        <div>
+        {/* <div>
           <div className='mt-[1.847rem] h-[41.393rem] w-[73.813rem] rounded bg-slate-300 md:mt-8 md:h-[11.5rem] md:w-full' />
-        </div>
+        </div> */}
         <div className='mt-20 grid grid-cols-4 gap-y-6 gap-x-5 pb-20 md:mt-12 md:grid-cols-2 md:gap-x-2 md:gap-y-5 md:pb-0'>
           {data?.results.map((i: { [key: string]: any }, index: number) => (
             <div

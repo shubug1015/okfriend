@@ -76,7 +76,7 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
       boardApi.likeNewsLetter(locale, id, myData?.token as string);
       mutate({
         ...data,
-        view_num: data?.liked ? data?.view_num - 1 : data?.view_num + 1,
+        like_num: data?.liked ? data?.like_num - 1 : data?.like_num + 1,
       });
     } catch {
       alert('Error');
@@ -219,9 +219,9 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
             <input
               type='text'
               {...register('reply', {
-                required: '리뷰를 입력해주세요',
+                required: '댓글을 입력해주세요',
                 minLength: {
-                  message: '10자 이상의 리뷰를 남겨주세요',
+                  message: '10자 이상의 댓글을 남겨주세요',
                   value: 10,
                 },
               })}

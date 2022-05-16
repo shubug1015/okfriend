@@ -178,6 +178,22 @@ export const courseApi = {
       })
       .then((res) => res.data),
 
+  likeCourse: (locale: string | undefined, id: string, token?: string | null) =>
+    api
+      .post(
+        `${locale === 'ko' ? '' : `/${locale}`}/lectures/like/`,
+        { lecture_pk: id },
+        {
+          ...(token && {
+            headers: {
+              Authorization: token,
+              'Content-Type': 'application/json',
+            },
+          }),
+        }
+      )
+      .then((res) => res.data),
+
   registerCourse: (locale: string | undefined, id: string, token: string) =>
     api.post(
       `${locale === 'ko' ? '' : `/${locale}`}/lectures/${id}/register/`,
