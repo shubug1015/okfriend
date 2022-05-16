@@ -61,14 +61,17 @@ export default function Popup() {
 
         pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight, '', 'FAST');
 
-        // const blob = pdf.output('blob');
-        // const formData = new FormData();
-        // formData.append('certificate', blob);
+        const blob = pdf.output('blob');
+        const formData = new FormData();
+        formData.append('certificate', blob);
 
-        // await surveyApi.sendCertificate(formData, data?.token as string);
+        await surveyApi.sendCertificate(formData, data?.token as string);
         // // pdf.output('dataurlnewwindow');
-        pdf.save('download.pdf');
+        // pdf.save('download.pdf');
       });
+
+      alert('이수증 발급이 완료되었습니다. 메일을 확인해주세요.');
+      window.location.reload();
     } catch {
       alert('Error');
     } finally {
