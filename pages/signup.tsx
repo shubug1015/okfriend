@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import useMutation from '@libs/client/useMutation';
 import { FieldErrors, useForm } from 'react-hook-form';
 import Input from '@components/input';
-import { cls } from '@libs/client/utils';
+import { cls, clsFilter } from '@libs/client/utils';
 import Checkbox from '@components/checkbox';
 import { useUser } from '@libs/client/useUser';
 import { usersApi } from '@libs/api';
@@ -36,7 +36,7 @@ interface IForm {
 }
 
 const SignUp: NextPage = () => {
-  const { text } = useLocale();
+  const { locale, text } = useLocale();
   const { mutate } = useUser({});
   const [signup, { loading }] = useMutation(usersApi.signupNextApi);
   const [local, setLocal] = useState<boolean | null>(null);
@@ -115,7 +115,17 @@ const SignUp: NextPage = () => {
       <SEO title='회원가입' />
       <div className='bg-[#f4f9fb] pt-48 pb-28 md:pt-28 md:pb-12'>
         <div className='mx-auto flex max-w-[43.75rem] flex-col items-center rounded-lg bg-white p-[3.75rem] md:max-w-[330px] md:py-9 md:px-3.5'>
-          <h1 className='font-nexonBold text-3xl font-bold md:text-2xl'>
+          <h1
+            className={cls(
+              clsFilter(
+                locale,
+                'font-nexonBold',
+                'font-notoSans',
+                'font-notoSans'
+              ),
+              'text-3xl font-bold md:text-2xl'
+            )}
+          >
             {text.signup['35']}
           </h1>
 

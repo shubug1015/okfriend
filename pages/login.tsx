@@ -3,7 +3,7 @@ import SEO from '@components/seo';
 import { usersApi } from '@libs/api';
 import { useUser } from '@libs/client/useUser';
 import useMutation from '@libs/client/useMutation';
-import { cls } from '@libs/client/utils';
+import { cls, clsFilter } from '@libs/client/utils';
 import axios from 'axios';
 import type { NextPage } from 'next';
 import Link from 'next/link';
@@ -16,7 +16,7 @@ interface IForm {
 }
 
 const Login: NextPage = () => {
-  const { text } = useLocale();
+  const { locale, text } = useLocale();
   const { mutate } = useUser({});
   const [login, { loading, error }] = useMutation(usersApi.loginNextApi);
 
@@ -47,7 +47,17 @@ const Login: NextPage = () => {
       <SEO title='로그인' />
       <div className='bg-[#f4f9fb] pt-48 pb-28 md:pt-28 md:pb-12'>
         <div className='mx-auto flex max-w-[43.75rem] flex-col items-center rounded-lg bg-white p-[3.75rem] md:max-w-[330px] md:py-9 md:px-3.5'>
-          <h1 className='font-nexonBold text-3xl font-bold md:text-2xl'>
+          <h1
+            className={cls(
+              clsFilter(
+                locale,
+                'font-nexonBold',
+                'font-notoSans',
+                'font-notoSans'
+              ),
+              'text-3xl font-bold md:text-2xl'
+            )}
+          >
             {text.login['1']}
           </h1>
 

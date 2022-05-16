@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React, { useEffect } from 'react';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { useLocale } from '@libs/client/useLocale';
+import { cls, clsFilter } from '@libs/client/utils';
 
 interface IProps {
   username: string;
@@ -31,7 +32,7 @@ const popupVar = {
 };
 
 export default function Popup({ username, closePopup }: IProps) {
-  const { text } = useLocale();
+  const { locale, text } = useLocale();
   useEffect(() => {
     disableBodyScroll(document.body);
     return () => {
@@ -54,7 +55,17 @@ export default function Popup({ username, closePopup }: IProps) {
         exit='exit'
         className='w-[43.75rem] rounded bg-white p-12 md:w-[330px] md:py-9 md:px-3.5'
       >
-        <div className='flex justify-center font-nexonBold text-3xl font-bold md:text-2xl'>
+        <div
+          className={cls(
+            clsFilter(
+              locale,
+              'font-nexonBold',
+              'font-notoSans',
+              'font-notoSans'
+            ),
+            'flex justify-center text-3xl font-bold md:text-2xl'
+          )}
+        >
           {text.findIdPopup['1']}
         </div>
 

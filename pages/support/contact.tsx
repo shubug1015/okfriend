@@ -5,7 +5,7 @@ import Navigator from '@components/support/navigator';
 import Layout from '@layouts/sectionLayout';
 import { contactApi } from '@libs/api';
 import { useLocale } from '@libs/client/useLocale';
-import { cls } from '@libs/client/utils';
+import { cls, clsFilter } from '@libs/client/utils';
 import type { NextPage } from 'next';
 import { FieldErrors, useForm } from 'react-hook-form';
 
@@ -18,7 +18,7 @@ interface IForm {
 }
 
 const Contact: NextPage = () => {
-  const { text } = useLocale();
+  const { locale, text } = useLocale();
   const {
     register,
     handleSubmit,
@@ -60,7 +60,17 @@ const Contact: NextPage = () => {
 
       <div className='bg-[#f4f9fb]'>
         <Layout padding='pt-16 pb-24 md:pt-8'>
-          <div className='font-nexonBold text-4xl font-bold leading-[3.375rem] md:text-center md:text-2xl'>
+          <div
+            className={cls(
+              clsFilter(
+                locale,
+                'font-nexonBold',
+                'font-notoSans',
+                'font-notoSans'
+              ),
+              'text-4xl font-bold leading-[3.375rem] md:text-center md:text-2xl'
+            )}
+          >
             {text.contact['1']}
             <br className='hidden md:block' />
             <span className='text-[#2fb6bc]'> {text.contact['2']}</span>

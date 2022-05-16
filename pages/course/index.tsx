@@ -18,13 +18,28 @@ const Course: NextPage = () => {
           {/* <Layout padding='pt-44 pb-24'> */}
           <div
             className={cls(
-              clsFilter(locale, '', 'font-notoSans', 'font-notoSans'),
-              'flex justify-center font-nexonBold text-4xl font-bold md:text-3xl'
+              clsFilter(
+                locale,
+                'font-nexonBold',
+                'font-notoSans',
+                'font-notoSans'
+              ),
+              'flex justify-center text-4xl font-bold md:text-3xl'
             )}
           >
             {text.course['1']}
           </div>
-          <div className='mt-4 flex justify-center font-nexonBold font-bold md:mt-2'>
+          <div
+            className={cls(
+              clsFilter(
+                locale,
+                'font-nexonBold',
+                'font-notoSans',
+                'font-notoSans'
+              ),
+              'mt-4 flex justify-center font-bold md:mt-2'
+            )}
+          >
             {text.course['2']}
           </div>
 

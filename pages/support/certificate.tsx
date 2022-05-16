@@ -8,7 +8,7 @@ import Layout from '@layouts/sectionLayout';
 import { surveyApi } from '@libs/api';
 import { useLocale } from '@libs/client/useLocale';
 import { useUser } from '@libs/client/useUser';
-import { cls } from '@libs/client/utils';
+import { cls, clsFilter } from '@libs/client/utils';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -63,7 +63,7 @@ interface IForm {
 }
 
 const Certificate: NextPage = () => {
-  const { text } = useLocale();
+  const { locale, text } = useLocale();
   const { token, profile } = useUser({ isPrivate: true });
   const router = useRouter();
   const { data } = useSWR(token ? 'checkCertificate' : null, () =>
@@ -121,7 +121,17 @@ const Certificate: NextPage = () => {
 
       <Layout bgColor='bg-[#f4f9fb]' padding='pt-16 pb-24 md:pt-8'>
         <div>
-          <div className='font-nexonBold text-4xl font-bold md:text-center md:text-2xl'>
+          <div
+            className={cls(
+              clsFilter(
+                locale,
+                'font-nexonBold',
+                'font-notoSans',
+                'font-notoSans'
+              ),
+              'text-4xl font-bold md:text-center md:text-2xl'
+            )}
+          >
             <span className='text-[#2fb6bc]'>{text.certificate['8']}</span>{' '}
             {text.certificate['9']}
           </div>

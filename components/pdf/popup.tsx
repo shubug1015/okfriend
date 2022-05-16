@@ -1,6 +1,6 @@
 import { surveyApi } from '@libs/api';
 import { IUser } from '@libs/client/useUser';
-import { cls } from '@libs/client/utils';
+import { cls, clsFilter } from '@libs/client/utils';
 import { motion } from 'framer-motion';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
@@ -36,7 +36,7 @@ const popupVar = {
 };
 
 export default function Popup() {
-  const { text } = useLocale();
+  const { locale, text } = useLocale();
   const { data } = useSWR<IUser>('/api/user');
   const [loading, setLoading] = useState(false);
 
@@ -109,7 +109,17 @@ export default function Popup() {
         exit='exit'
         className='top-1/2 left-1/2 w-[21.875rem] rounded-xl bg-white py-10 shadow-sm md:w-[330px] md:py-8'
       >
-        <div className='text-center font-nexonBold text-[1.375rem] font-bold'>
+        <div
+          className={cls(
+            clsFilter(
+              locale,
+              'font-nexonBold',
+              'font-notoSans',
+              'font-notoSans'
+            ),
+            'text-center text-[1.375rem] font-bold'
+          )}
+        >
           {text.certificate['87']}
         </div>
 

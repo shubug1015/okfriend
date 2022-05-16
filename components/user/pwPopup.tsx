@@ -5,6 +5,8 @@ import { useRouter } from 'next/router';
 import { FieldErrors, useForm } from 'react-hook-form';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { useEffect } from 'react';
+import { cls, clsFilter } from '@libs/client/utils';
+import { useLocale } from '@libs/client/useLocale';
 
 interface IProps {
   username: string;
@@ -38,6 +40,7 @@ const popupVar = {
 };
 
 export default function Popup({ username, closePopup }: IProps) {
+  const { locale } = useLocale();
   const router = useRouter();
   const {
     register,
@@ -82,7 +85,17 @@ export default function Popup({ username, closePopup }: IProps) {
         exit='exit'
         className='w-[43.75rem] rounded bg-white p-12 md:w-[330px] md:py-9 md:px-3.5'
       >
-        <div className='flex justify-center font-nexonBold text-3xl font-bold md:text-2xl'>
+        <div
+          className={cls(
+            clsFilter(
+              locale,
+              'font-nexonBold',
+              'font-notoSans',
+              'font-notoSans'
+            ),
+            'flex justify-center text-3xl font-bold md:text-2xl'
+          )}
+        >
           비밀번호 재설정
         </div>
 

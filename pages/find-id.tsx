@@ -1,7 +1,7 @@
 import Popup from '@components/user/idPopup';
 import Input from '@components/input';
 import SEO from '@components/seo';
-import { cls } from '@libs/client/utils';
+import { cls, clsFilter } from '@libs/client/utils';
 import type { NextPage } from 'next';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -16,7 +16,7 @@ interface IForm {
 }
 
 const FindId: NextPage = () => {
-  const { text } = useLocale();
+  const { locale, text } = useLocale();
   useUser({});
   const [popup, setPopup] = useState(false);
   const closePopup = () => setPopup(false);
@@ -67,7 +67,17 @@ const FindId: NextPage = () => {
       <SEO title='아이디 찾기' />
       <div className='bg-[#f4f9fb] pt-48 pb-28 md:pt-28 md:pb-12'>
         <div className='mx-auto flex max-w-[43.75rem] flex-col items-center rounded-lg bg-white p-[3.75rem] md:max-w-[330px] md:py-9 md:px-3.5'>
-          <h1 className='font-nexonBold text-3xl font-bold md:text-2xl'>
+          <h1
+            className={cls(
+              clsFilter(
+                locale,
+                'font-nexonBold',
+                'font-notoSans',
+                'font-notoSans'
+              ),
+              'text-3xl font-bold md:text-2xl'
+            )}
+          >
             {text.findId['1']}
           </h1>
 

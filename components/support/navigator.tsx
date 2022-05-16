@@ -1,5 +1,5 @@
 import { useLocale } from '@libs/client/useLocale';
-import { cls } from '@libs/client/utils';
+import { cls, clsFilter } from '@libs/client/utils';
 import Link from 'next/link';
 
 interface IProps {
@@ -78,6 +78,12 @@ export default function Navigator({ supportCategory }: IProps) {
                 supportCategory === 'certificate'
                   ? 'border-[#2fb6bc]'
                   : 'border-transparent text-[#9e9e9e]',
+                clsFilter(
+                  locale,
+                  'w-48',
+                  'w-72 text-center leading-tight',
+                  'text-center leading-tight'
+                ),
                 'flex h-16 w-48 items-center justify-center border-b-4 text-[1.375rem] font-bold md:w-24 md:border-b-2 md:text-base'
               )}
             >

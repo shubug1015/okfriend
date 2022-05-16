@@ -1,6 +1,6 @@
 import { surveyApi } from '@libs/api';
 import { IUser } from '@libs/client/useUser';
-import { cls } from '@libs/client/utils';
+import { cls, clsFilter } from '@libs/client/utils';
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { FieldErrors, useForm } from 'react-hook-form';
@@ -45,7 +45,7 @@ const popupVar = {
 };
 
 export default function Popup({ id, closePopup }: IProps) {
-  const { text } = useLocale();
+  const { locale, text } = useLocale();
   const { data: myData } = useSWR<IUser>('/api/user');
   const {
     register,
@@ -107,7 +107,17 @@ export default function Popup({ id, closePopup }: IProps) {
           </svg>
         </div>
 
-        <div className='text-center font-nexonBold text-3xl font-bold leading-[1.5] md:text-[1.375rem]'>
+        <div
+          className={cls(
+            clsFilter(
+              locale,
+              'font-nexonBold',
+              'font-notoSans',
+              'font-notoSans'
+            ),
+            'text-center text-3xl font-bold leading-[1.5] md:text-[1.375rem]'
+          )}
+        >
           {text.courseSurvey['1']}{' '}
           <span className='text-[#2fb6bc]'>{text.courseSurvey['2']}</span>
         </div>

@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 // import BgImg from '@public/home/lecture-bg.png';
 import { useEffect, useRef, useState } from 'react';
-import { cls } from '@libs/client/utils';
+import { cls, clsFilter } from '@libs/client/utils';
 import { courseApi } from '@libs/api';
 import useSWR from 'swr';
 import AOS from 'aos';
@@ -44,7 +44,15 @@ export default function Course() {
             data-aos='flip-down'
             data-aos-duration='1500'
             onClick={() => setCategory('필수 차시')}
-            className='font-nexonBold text-3xl font-bold text-white transition-all md:text-[1.375rem]'
+            className={cls(
+              clsFilter(
+                locale,
+                'font-nexonBold',
+                'font-notoSans',
+                'font-notoSans'
+              ),
+              'text-3xl font-bold text-white transition-all md:text-[1.375rem]'
+            )}
           >
             {text.main['8']}
           </div>
