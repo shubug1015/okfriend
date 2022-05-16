@@ -41,11 +41,11 @@ export default function Footer() {
                   className={cls(
                     clsFilter(
                       locale,
-                      'font-nexonBold text-sm',
-                      'font-notoSans text-sm',
-                      'font-notoSans text-xs md:text-[0.5rem]'
+                      'text-sm',
+                      'text-sm',
+                      'text-xs md:text-[0.5rem]'
                     ),
-                    'text-[#d6d6d6]'
+                    'font-notoSans text-[#d6d6d6]'
                   )}
                 >
                   {text.footer['3']}
@@ -60,11 +60,11 @@ export default function Footer() {
                   className={cls(
                     clsFilter(
                       locale,
-                      'font-nexonBold text-sm',
-                      'font-notoSans text-sm',
-                      'font-notoSans text-xs md:text-[0.5rem]'
+                      'text-sm',
+                      'text-sm',
+                      'text-xs md:text-[0.5rem]'
                     ),
-                    'text-[#d6d6d6]'
+                    'font-notoSans text-[#d6d6d6]'
                   )}
                 >
                   {text.footer['4']}
@@ -79,11 +79,11 @@ export default function Footer() {
                   className={cls(
                     clsFilter(
                       locale,
-                      'font-nexonBold text-sm',
-                      'font-notoSans text-sm',
-                      'font-notoSans text-xs md:text-[0.5rem]'
+                      'text-sm',
+                      'text-sm',
+                      'text-xs md:text-[0.5rem]'
                     ),
-                    'text-[#d6d6d6]'
+                    'font-notoSans text-[#d6d6d6]'
                   )}
                 >
                   {text.footer['5']}
