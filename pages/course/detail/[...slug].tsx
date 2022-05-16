@@ -51,7 +51,6 @@ const CourseDetail: NextPage<IProps> = ({ slug }) => {
       label: text.courseDetail['13'],
     },
   ];
-  console.log(data);
   return (
     <>
       <SEO title={courseData?.name} />

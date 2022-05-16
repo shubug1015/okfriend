@@ -39,14 +39,12 @@ export default function Detail({
   const [popup, setPopup] = useState(false);
   const closePopup = () => setPopup(false);
 
-  const toggleLike = () => {
+  const toggleLike = async () => {
     if (myData?.token) {
       try {
-        courseApi.likeCourse(locale, id, myData?.token as string);
-        mutate({
-          ...data,
-          like_num: data?.liked ? data?.like_num - 1 : data?.like_num + 1,
-        });
+        await courseApi.likeCourse(locale, id, myData?.token as string);
+        const data = await courseApi.detail(locale, id, myData?.token);
+        mutate(data);
       } catch {
         alert('Error');
       }
@@ -113,6 +111,7 @@ export default function Detail({
 
     return () => clearInterval(intervalId);
   }, [setProgressPercent]);
+  console.log(data);
   return (
     <>
       <div>
