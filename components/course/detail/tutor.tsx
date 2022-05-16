@@ -29,7 +29,7 @@ export default function Tutor({ tutor }: IProps) {
               <path d='M2 28V2H28' stroke='#6B6B6B' strokeWidth='3' />
             </svg>
 
-            <div className='ml-[1.625rem] w-[27rem]'>
+            <div className='ml-[1.625rem] w-[27rem] md:w-56'>
               <div className='flex items-center space-x-6'>
                 <span className='text-[2rem] font-bold md:text-[1.75rem]'>
                   {tutor?.en_name}
@@ -52,7 +52,7 @@ export default function Tutor({ tutor }: IProps) {
               viewBox='0 0 28 28'
               fill='none'
               xmlns='http://www.w3.org/2000/svg'
-              className='ml-[28.5rem] md:ml-52'
+              className='ml-[28.5rem] md:ml-64'
             >
               <path d='M26 0L26 26L0 26' stroke='#6B6B6B' strokeWidth='3' />
             </svg>
