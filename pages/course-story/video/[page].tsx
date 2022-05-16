@@ -7,20 +7,20 @@ import { boardApi } from '@libs/api';
 import type { GetServerSidePropsContext, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
-import Vimeo from '@u-wave/react-vimeo';
+// import Vimeo from '@u-wave/react-vimeo';
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useLocale } from '@libs/client/useLocale';
+import { cls, clsFilter } from '@libs/client/utils';
 
 interface IProps {
   page: string;
 }
 
 const Video: NextPage<IProps> = ({ page }) => {
-  const { text } = useLocale();
+  const { locale, text } = useLocale();
   const router = useRouter();
-  const { locale } = router;
   const { data } = useSWR(`${locale}/videoList/${page}`, () =>
     boardApi.getVideoList(locale, page)
   );
@@ -37,7 +37,17 @@ const Video: NextPage<IProps> = ({ page }) => {
       />
       <MenuBar pageName='홍보 영상' />
       <Layout padding='pt-16 pb-56 md:pt-6 md:pb-16'>
-        <div className='font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#01111e] md:text-center md:text-xl'>
+        <div
+          className={cls(
+            clsFilter(
+              locale,
+              'font-nexonBold text-4xl',
+              'font-notoSans text-3xl',
+              'font-notoSans text-4xl'
+            ),
+            'font-bold leading-[3.15rem] text-[#01111e] md:text-center md:text-xl'
+          )}
+        >
           {text.video['1']}
           <br className='hidden md:block' />
           <span className='text-[#2fb6bc]'> {text.video['2']}</span>

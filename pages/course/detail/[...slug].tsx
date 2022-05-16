@@ -8,7 +8,7 @@ import Layout from '@layouts/sectionLayout';
 import { courseApi } from '@libs/api';
 import { useLocale } from '@libs/client/useLocale';
 import { IUser } from '@libs/client/useUser';
-import { cls } from '@libs/client/utils';
+import { cls, clsFilter } from '@libs/client/utils';
 import type { GetServerSidePropsContext, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
@@ -19,11 +19,9 @@ interface IProps {
 }
 
 const CourseDetail: NextPage<IProps> = ({ slug }) => {
-  const { text } = useLocale();
+  const { locale, text } = useLocale();
   const { data: myData } = useSWR<IUser>('/api/user');
-  const router = useRouter();
-  const { locale } = router;
-  const [, , id] = slug;
+  const [, category, id] = slug;
   const { data, mutate } = useSWR(
     myData?.token
       ? `${locale}/courseDetail/logged`
@@ -32,25 +30,35 @@ const CourseDetail: NextPage<IProps> = ({ slug }) => {
   );
   const courseData = data?.lecture || data;
 
-  const [section, setSection] = useState('강의소개');
-  const sectionList = [
-    {
-      id: 0,
-      label: text.courseDetail['11'],
-    },
-    {
-      id: 1,
-      label: text.courseDetail['12'],
-    },
-    // {
-    //   id: 2,
-    //   label: 'Q&A',
-    // },
-    {
-      id: 3,
-      label: text.courseDetail['13'],
-    },
-  ];
+  const [section, setSection] = useState(
+    category === 'past' ? '강의리뷰' : '강의소개'
+  );
+  const sectionList =
+    category === 'past'
+      ? [
+          {
+            id: 0,
+            label: text.courseDetail['13'],
+          },
+        ]
+      : [
+          {
+            id: 0,
+            label: text.courseDetail['11'],
+          },
+          {
+            id: 1,
+            label: text.courseDetail['12'],
+          },
+          // {
+          //   id: 2,
+          //   label: 'Q&A',
+          // },
+          {
+            id: 3,
+            label: text.courseDetail['13'],
+          },
+        ];
   return (
     <>
       <SEO title={courseData?.name} />
@@ -73,7 +81,8 @@ const CourseDetail: NextPage<IProps> = ({ slug }) => {
                 section === i.label
                   ? 'border-[#2fb6bc] font-bold text-[#2fb6bc]'
                   : 'border-transparent text-[#6b6b6b]',
-                'flex w-[12.5rem] cursor-pointer justify-center border-b-4 pb-2 text-xl transition-all md:w-full md:pb-3'
+                clsFilter(locale, 'w-[12.5rem]', 'w-40', 'w-96'),
+                'flex cursor-pointer justify-center border-b-4 pb-2 text-xl transition-all md:w-full md:pb-3'
               )}
             >
               {i.label}

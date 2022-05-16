@@ -1,5 +1,6 @@
 import Layout from '@layouts/sectionLayout';
 import { useLocale } from '@libs/client/useLocale';
+import { cls, clsFilter } from '@libs/client/utils';
 import Link from 'next/link';
 import useSWR from 'swr';
 
@@ -14,11 +15,16 @@ interface IUser {
 }
 
 export default function Header() {
-  const { text } = useLocale();
+  const { locale, text } = useLocale();
   const { data } = useSWR<IUser>('/api/user');
   return (
     <Layout bgColor='bg-[#f4f9fb]' padding='pt-40 md:pt-32 md:pb-5'>
-      <div className='flex justify-center font-nexonBold text-4xl font-bold md:text-2xl'>
+      <div
+        className={cls(
+          clsFilter(locale, 'font-nexonBold', 'font-notoSans', 'font-notoSans'),
+          'flex justify-center text-4xl font-bold md:text-2xl'
+        )}
+      >
         {text.mypageHeader['1']}
       </div>
 

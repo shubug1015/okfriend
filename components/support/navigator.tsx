@@ -7,7 +7,7 @@ interface IProps {
 }
 
 export default function Navigator({ supportCategory }: IProps) {
-  const { text } = useLocale();
+  const { locale, text } = useLocale();
   return (
     <div className='border-b border-[#e8e8e8]'>
       <div className='flex items-center justify-center md:mx-auto md:max-w-[330px] md:justify-start md:overflow-x-scroll'>

@@ -10,12 +10,12 @@ import {
   MenuBar,
 } from '@components/svg';
 import { useScroll } from '@libs/client/useScroll';
-import { cls } from '@libs/client/utils';
+import { cls, clsFilter } from '@libs/client/utils';
 import { useRouter } from 'next/router';
 import { IUser } from '@libs/client/useUser';
 import useSWR from 'swr';
 import axios from 'axios';
-import { useEffect, useState, Fragment } from 'react';
+import React, { useEffect, useState, Fragment, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, Transition } from '@headlessui/react';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
@@ -231,17 +231,6 @@ export default function Header() {
     await axios.post('/api/logout');
     mutate({ ok: false, token: null, profile: null });
   };
-
-  useEffect(() => {
-    if (mobileMenuOpened) {
-      // document.body.style.overflow = 'hidden';
-      // disableBodyScroll(document.body);
-    } else {
-      // document.body.style.overflow = 'visible';
-      // enableBodyScroll(document.body);
-    }
-  }, [mobileMenuOpened]);
-
   return (
     <header className='fixed top-0 left-0 z-[9999] w-screen'>
       {/* 상단 헤더 */}
@@ -343,7 +332,9 @@ export default function Header() {
       >
         <div className='mx-auto flex h-20 max-w-[1400px] items-center justify-between md:h-[4.5rem] md:max-w-[330px]'>
           {/* 로고 */}
-          <div className='w-1/4'>
+          <div
+            className={cls(clsFilter(locale, 'w-1/4', 'w-1/4', 'w-1/12'), '')}
+          >
             <Link href='/'>
               <a>{isWhiteBg ? <HeaderLogoBlack /> : <HeaderLogoWhite />}</a>
             </Link>
@@ -351,7 +342,12 @@ export default function Header() {
           {/* 로고 */}
 
           {/* 메뉴 */}
-          <div className='flex h-full w-2/4 items-center justify-center space-x-14 md:hidden'>
+          <div
+            className={cls(
+              clsFilter(locale, 'w-2/4', 'w-2/4', 'w-7/12'),
+              'flex h-full items-center justify-center space-x-14 md:hidden'
+            )}
+          >
             {navList.map((i) => (
               <div
                 key={i.id}
@@ -364,7 +360,13 @@ export default function Header() {
                     onClick={() => setOpenedTab(-1)}
                     className={cls(
                       i.isActivated ? 'text-[#2fb6bc]' : '',
-                      'flex h-full cursor-pointer items-center text-lg font-medium'
+                      clsFilter(
+                        locale,
+                        'text-lg',
+                        'text-base leading-tight',
+                        'text-base leading-tight'
+                      ),
+                      'flex h-full cursor-pointer items-center text-center font-medium'
                     )}
                   >
                     {i.title}
@@ -446,60 +448,50 @@ export default function Header() {
             initial='invisible'
             animate='visible'
             exit='exit'
-            className='absolute top-12 h-screen w-screen overflow-y-scroll bg-white pt-2.5'
+            className='absolute top-12 right-0 flex h-screen w-screen overflow-y-scroll'
             // style={{ overflowY: 'scroll', WebkitOverflowScrolling: 'touch' }}
           >
-            <div className='mx-auto max-w-[330px]'>
-              <div className='flex items-center justify-between'>
-                {/* 로고 */}
-                <HeaderLogoBlack />
-                {/* 로고 */}
+            <div onClick={() => setMobileMenuOpened(false)} className='grow' />
 
-                {/* 로그인 & 로그아웃 & 마이페이지 */}
-                <div className='flex items-center space-x-5'>
-                  {data?.token && data?.profile ? (
-                    <div className='flex items-center space-x-2.5'>
-                      <Link href='/mypage/course/1'>
-                        <a
-                          onClick={() => setMobileMenuOpened(false)}
+            <div className='w-[317px] bg-white pt-6'>
+              <div className='mx-auto max-w-[254px]'>
+                <div className='flex items-center justify-between'>
+                  {/* 로그인 & 로그아웃 & 마이페이지 */}
+                  <div className='flex items-center space-x-5'>
+                    {data?.token && data?.profile ? (
+                      <div className='flex items-center space-x-2.5'>
+                        <div
+                          onClick={handleLogout}
                           className='text-sm font-bold text-[#2fb6bc]'
                         >
-                          {text.header['7']}
-                        </a>
-                      </Link>
+                          {text.header['8']}
+                        </div>
 
-                      <div className='text-xs text-[#9e9e9e]'>|</div>
+                        <div className='text-xs text-[#9e9e9e]'>|</div>
 
-                      <div
-                        onClick={handleLogout}
-                        className='text-sm font-bold text-[#6b6b6b]'
-                      >
-                        {text.header['8']}
+                        <Link href='/mypage/course/1'>
+                          <a
+                            onClick={() => setMobileMenuOpened(false)}
+                            className='text-sm font-bold text-[#6b6b6b]'
+                          >
+                            {text.header['7']}
+                          </a>
+                        </Link>
                       </div>
-                    </div>
-                  ) : (
-                    <div className='flex items-center space-x-2.5'>
-                      <Link href='/login'>
-                        <a
-                          onClick={() => setMobileMenuOpened(false)}
-                          className='text-sm font-bold text-[#2fb6bc]'
-                        >
-                          {text.header['6']}
-                        </a>
-                      </Link>
-
-                      <div className='text-xs text-[#9e9e9e]'>|</div>
-
-                      <Link href='/signup'>
-                        <a
-                          onClick={() => setMobileMenuOpened(false)}
-                          className='text-sm font-bold text-[#6b6b6b]'
-                        >
-                          {text.header['9']}
-                        </a>
-                      </Link>
-                    </div>
-                  )}
+                    ) : (
+                      <div className='flex items-center space-x-2.5'>
+                        <Link href='/login'>
+                          <a
+                            onClick={() => setMobileMenuOpened(false)}
+                            className='text-sm font-bold text-[#2fb6bc]'
+                          >
+                            {text.header['6']}
+                          </a>
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+                  {/* 로그인 & 로그아웃 & 마이페이지 */}
 
                   <div onClick={() => setMobileMenuOpened(false)}>
                     <svg
@@ -518,90 +510,91 @@ export default function Header() {
                     </svg>
                   </div>
                 </div>
-                {/* 로그인 & 로그아웃 & 마이페이지 */}
               </div>
-            </div>
 
-            <div className='mt-8 h-[calc(100vh-8rem)] overflow-y-scroll'>
-              {navList.map((i) => (
-                <div key={i.id}>
-                  <div
-                    onClick={() =>
-                      openedTab === i.id ? setOpenedTab(-1) : setOpenedTab(i.id)
-                    }
-                    className='mx-auto flex h-14 max-w-[330px] items-center justify-between'
-                  >
+              <div className='mt-8 h-[calc(100vh-8rem)] overflow-y-scroll'>
+                {navList.map((i) => (
+                  <div key={i.id}>
                     <div
-                      onClick={() => {
-                        if (i.id === 1) {
-                          router.push('/course');
-                          setMobileMenuOpened(false);
-                        }
-                      }}
-                      className='font-medium text-[#6b6b6b]'
+                      onClick={() =>
+                        openedTab === i.id
+                          ? setOpenedTab(-1)
+                          : setOpenedTab(i.id)
+                      }
+                      className='mx-auto flex h-14 max-w-[254px] items-center justify-between'
                     >
-                      {i.title}
+                      <div
+                        onClick={() => {
+                          if (i.id === 1) {
+                            router.push('/course');
+                            setMobileMenuOpened(false);
+                          }
+                        }}
+                        className='font-medium text-[#6b6b6b]'
+                      >
+                        {i.title}
+                      </div>
+
+                      {i.id !== 1 &&
+                        (openedTab === i.id ? (
+                          <svg
+                            xmlns='http://www.w3.org/2000/svg'
+                            className='mr-3 w-5 text-[#9e9e9e]'
+                            fill='none'
+                            viewBox='0 0 24 24'
+                            stroke='currentColor'
+                            strokeWidth={2}
+                          >
+                            <path
+                              strokeLinecap='round'
+                              strokeLinejoin='round'
+                              d='M5 15l7-7 7 7'
+                            />
+                          </svg>
+                        ) : (
+                          <svg
+                            xmlns='http://www.w3.org/2000/svg'
+                            className='mr-3 w-5 text-[#9e9e9e]'
+                            fill='none'
+                            viewBox='0 0 24 24'
+                            stroke='currentColor'
+                            strokeWidth={2}
+                          >
+                            <path
+                              strokeLinecap='round'
+                              strokeLinejoin='round'
+                              d='M19 9l-7 7-7-7'
+                            />
+                          </svg>
+                        ))}
                     </div>
 
-                    {i.id !== 1 &&
-                      (openedTab === i.id ? (
-                        <svg
-                          xmlns='http://www.w3.org/2000/svg'
-                          className='mr-3 w-5 text-[#9e9e9e]'
-                          fill='none'
-                          viewBox='0 0 24 24'
-                          stroke='currentColor'
-                          strokeWidth={2}
+                    <AnimatePresence>
+                      {openedTab === i.id && (
+                        <motion.div
+                          variants={mobileTabVar}
+                          initial='invisible'
+                          animate='visible'
+                          exit='exit'
                         >
-                          <path
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
-                            d='M5 15l7-7 7 7'
-                          />
-                        </svg>
-                      ) : (
-                        <svg
-                          xmlns='http://www.w3.org/2000/svg'
-                          className='mr-3 w-5 text-[#9e9e9e]'
-                          fill='none'
-                          viewBox='0 0 24 24'
-                          stroke='currentColor'
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
-                            d='M19 9l-7 7-7-7'
-                          />
-                        </svg>
-                      ))}
+                          {i.subUrls.map((j, index) => (
+                            <Link href={j.url} key={index}>
+                              <a
+                                onClick={() => setMobileMenuOpened(false)}
+                                className='flex h-14 items-center bg-[#f8f8f8] font-medium text-[#6b6b6b]'
+                              >
+                                <div className='mx-auto w-full max-w-[254px]'>
+                                  {j.label}
+                                </div>
+                              </a>
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
-
-                  <AnimatePresence>
-                    {openedTab === i.id && (
-                      <motion.div
-                        variants={mobileTabVar}
-                        initial='invisible'
-                        animate='visible'
-                        exit='exit'
-                      >
-                        {i.subUrls.map((j, index) => (
-                          <Link href={j.url} key={index}>
-                            <a
-                              onClick={() => setMobileMenuOpened(false)}
-                              className='flex h-14 items-center bg-[#f8f8f8] font-medium text-[#6b6b6b]'
-                            >
-                              <div className='mx-auto w-full max-w-[330px]'>
-                                {j.label}
-                              </div>
-                            </a>
-                          </Link>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </motion.div>
         )}

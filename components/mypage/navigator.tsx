@@ -1,13 +1,13 @@
 import { useLocale } from '@libs/client/useLocale';
 import { IUser } from '@libs/client/useUser';
-import { cls } from '@libs/client/utils';
+import { cls, clsFilter } from '@libs/client/utils';
 import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
 
 export default function Navigator() {
-  const { text } = useLocale();
+  const { locale, text } = useLocale();
   const router = useRouter();
   const navList = [
     {
@@ -45,6 +45,7 @@ export default function Navigator() {
               i.active
                 ? 'bg-[#2fb6bc] font-bold text-white'
                 : 'border-[#d6d6d6]',
+              clsFilter(locale, '', '', 'text-center leading-tight'),
               'flex h-12 w-[13.625rem] items-center justify-center rounded-lg border transition-all hover:opacity-70 md:w-full'
             )}
           >

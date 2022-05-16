@@ -6,6 +6,8 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
+      notoSans: ['Noto Sans, sans-serif'],
+      notoSansKr: ['Noto Sans KR, sans-serif'],
       nexon: ['NEXON Lv1 Gothic OTF'],
       nexonBold: ['NEXON Lv1 Gothic OTF Bold'],
       quicksand: ['Quicksand', 'sans-serif'],

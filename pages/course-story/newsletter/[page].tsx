@@ -5,7 +5,7 @@ import SEO from '@components/seo';
 import Layout from '@layouts/sectionLayout';
 import { boardApi } from '@libs/api';
 import { useLocale } from '@libs/client/useLocale';
-import { trimDate } from '@libs/client/utils';
+import { cls, clsFilter, trimDate } from '@libs/client/utils';
 import type { GetServerSidePropsContext, NextPage } from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -31,7 +31,17 @@ const Newsletter: NextPage<IProps> = ({ page }) => {
       />
       <MenuBar pageName='뉴스레터' />
       <Layout padding='pt-16 pb-20 md:pt-8 md:pb-15'>
-        <div className='font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#01111e] md:border-b-2 md:border-[#9e9e9e] md:pb-6 md:text-center md:text-2xl'>
+        <div
+          className={cls(
+            clsFilter(
+              locale,
+              'font-nexonBold text-4xl',
+              'font-notoSans text-3xl',
+              'font-notoSans text-4xl'
+            ),
+            'font-bold leading-[3.15rem] text-[#01111e] md:border-b-2 md:border-[#9e9e9e] md:pb-6 md:text-center md:text-2xl'
+          )}
+        >
           {text.newsletter['1']}
         </div>
 

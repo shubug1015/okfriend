@@ -5,7 +5,7 @@ import SEO from '@components/seo';
 import Layout from '@layouts/sectionLayout';
 import { boardApi } from '@libs/api';
 import { useLocale } from '@libs/client/useLocale';
-import { cls } from '@libs/client/utils';
+import { cls, clsFilter } from '@libs/client/utils';
 import type { GetServerSidePropsContext, NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -37,7 +37,17 @@ const Cardnews: NextPage<IProps> = ({ page }) => {
       />
       <MenuBar pageName='카드뉴스' />
       <Layout padding='pt-16 pb-20 md:pt-8 md:pb-15'>
-        <div className='border-b border-[#9e9e9e] pb-[1.281rem] font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#01111e] md:pb-6 md:pt-0 md:text-center md:text-2xl'>
+        <div
+          className={cls(
+            clsFilter(
+              locale,
+              'font-nexonBold text-4xl',
+              'font-notoSans text-3xl',
+              'font-notoSans text-4xl'
+            ),
+            'border-b border-[#9e9e9e] pb-[1.281rem] font-bold leading-[3.15rem] text-[#01111e] md:pb-6 md:pt-0 md:text-center md:text-2xl'
+          )}
+        >
           {text.courseStoryHeader['5']}
         </div>
 

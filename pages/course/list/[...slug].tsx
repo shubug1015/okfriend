@@ -18,9 +18,7 @@ interface IProps {
 }
 
 const Course: NextPage<IProps> = ({ params }) => {
-  const { text } = useLocale();
-  const router = useRouter();
-  const { locale } = router;
+  const { locale, text } = useLocale();
   const [courseType, courseCategory, page] = params;
   const request = `${
     courseType === 'pre-online' ? '사전 연수' : '온라인 연수'

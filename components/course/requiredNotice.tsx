@@ -1,10 +1,21 @@
 import { useLocale } from '@libs/client/useLocale';
+import { cls, clsFilter } from '@libs/client/utils';
 
 export default function RequiredNotice() {
-  const { text } = useLocale();
+  const { locale, text } = useLocale();
   return (
     <>
-      <div className='flex justify-center whitespace-pre-wrap font-nexonBold text-4xl font-bold md:justify-start md:text-xl'>
+      <div
+        className={cls(
+          clsFilter(
+            locale,
+            'font-nexonBold text-4xl',
+            'font-notoSans text-3xl',
+            'font-notoSans text-4xl'
+          ),
+          'flex justify-center whitespace-pre-wrap font-bold md:justify-start md:text-xl'
+        )}
+      >
         <span className='text-[#d60a51]'>{text.preCourseRequired['1']} </span>
         {text.preCourseRequired['2']}
       </div>

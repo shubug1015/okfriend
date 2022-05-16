@@ -1,12 +1,25 @@
+import { useLocale } from '@libs/client/useLocale';
+import { clsFilter } from '@libs/client/utils';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
+import { NextRouter, withRouter } from 'next/router';
 
-class CustomDocument extends Document {
+interface WithRouterProps {
+  router: NextRouter;
+}
+
+interface IProps extends WithRouterProps {}
+
+class CustomDocument extends Document<IProps> {
   render(): JSX.Element {
     return (
       <Html lang='ko'>
         <Head>
           <link
             href='https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap'
+            rel='stylesheet'
+          />
+          <link
+            href='https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap'
             rel='stylesheet'
           />
           <link

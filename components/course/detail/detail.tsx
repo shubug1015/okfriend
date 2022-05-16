@@ -147,19 +147,21 @@ export default function Detail({
           {/* 강의 상세정보 */}
           <div className='flex w-[23.75rem] flex-col justify-center md:w-full'>
             {/* 카테고리 */}
-            <div
-              className={cls(
-                category === 'live' ? 'bg-[#f6a500]' : 'bg-[#d60a51]',
-                'flex h-[1.875rem] w-[4.375rem] items-center justify-center rounded-md text-xs font-bold text-white'
-              )}
-            >
-              {category === 'live'
-                ? text.courseDetail['1']
-                : category === 'required'
-                ? text.courseDetail['2']
-                : category === 'elective'
-                ? text.courseDetail['3']
-                : text.courseDetail['4']}
+            <div className='flex'>
+              <div
+                className={cls(
+                  category === 'live' ? 'bg-[#f6a500]' : 'bg-[#d60a51]',
+                  'flex h-[1.875rem] items-center justify-center rounded-md px-3 text-xs font-bold text-white'
+                )}
+              >
+                {category === 'live'
+                  ? text.courseDetail['1']
+                  : category === 'required'
+                  ? text.courseDetail['2']
+                  : category === 'elective'
+                  ? text.courseDetail['3']
+                  : text.courseDetail['4']}
+              </div>
             </div>
             {/* 카테고리 */}
 

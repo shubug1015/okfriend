@@ -6,16 +6,22 @@ import Link from 'next/link';
 import PreOnlieBgImg from '@public/course/pre-online-bg.png';
 import OnlieBgImg from '@public/course/online-bg.png';
 import { useLocale } from '@libs/client/useLocale';
+import { cls, clsFilter } from '@libs/client/utils';
 
 const Course: NextPage = () => {
-  const { text } = useLocale();
+  const { locale, text } = useLocale();
   return (
     <>
       <SEO title='연수실' />
       <div className='w-screen pt-44 pb-24 md:pt-32'>
         <div className='mx-auto w-full max-w-[1180px] md:max-w-[330px]'>
           {/* <Layout padding='pt-44 pb-24'> */}
-          <div className='flex justify-center font-nexonBold text-4xl font-bold md:text-3xl'>
+          <div
+            className={cls(
+              clsFilter(locale, '', 'font-notoSans', 'font-notoSans'),
+              'flex justify-center font-nexonBold text-4xl font-bold md:text-3xl'
+            )}
+          >
             {text.course['1']}
           </div>
           <div className='mt-4 flex justify-center font-nexonBold font-bold md:mt-2'>

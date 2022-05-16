@@ -2,7 +2,8 @@ import Image from 'next/image';
 import BgImg from '@public/course/header-bg.png';
 import Layout from '@layouts/sectionLayout';
 import { Fragment } from 'react';
-import { cls } from '@libs/client/utils';
+import { cls, clsFilter } from '@libs/client/utils';
+import { useLocale } from '@libs/client/useLocale';
 
 interface IProps {
   title: string;
@@ -10,8 +11,14 @@ interface IProps {
 }
 
 export default function Banner({ title, navList }: IProps) {
+  const { locale } = useLocale();
   return (
-    <div className='relative flex h-80 items-end pb-24 md:h-56 md:pb-10'>
+    <div
+      className={cls(
+        clsFilter(locale, 'pb-24', 'pb-24', 'pb-8'),
+        'relative flex h-80 items-end md:h-56 md:pb-10'
+      )}
+    >
       <div className='absolute top-0 left-0 -z-[1] h-full w-full'>
         <Image
           src={BgImg}
@@ -23,19 +30,35 @@ export default function Banner({ title, navList }: IProps) {
       </div>
 
       <Layout>
-        <div className='flex items-end justify-between md:flex-col md:items-center md:justify-center md:space-y-4'>
+        <div
+          className={cls(
+            clsFilter(locale, 'items-end', 'items-end', 'flex-col space-y-12'),
+            'flex justify-between md:flex-col md:items-center md:justify-center md:space-y-4'
+          )}
+        >
           <div
             className={cls(
               title === '재외동포 대학생 온라인연수 소개'
                 ? 'md:text-[1.375rem]'
                 : 'md:text-2xl',
+              clsFilter(
+                locale,
+                'font-nexonBold',
+                'font-notoSans',
+                'font-notoSans'
+              ),
               'whitespace-pre-wrap font-nexonBold text-4xl font-bold text-white'
             )}
           >
             {title}
           </div>
 
-          <div className='flex items-center space-x-2.5 text-white md:text-sm'>
+          <div
+            className={cls(
+              clsFilter(locale, '', '', 'justify-end'),
+              'flex items-center space-x-2.5 text-white md:text-sm'
+            )}
+          >
             <svg
               width='24'
               height='24'
