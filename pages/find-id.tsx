@@ -78,7 +78,7 @@ const FindId: NextPage = () => {
                 type='text'
                 label={text.findId['2']}
                 register={register('email', {
-                  required: '이메일을 입력해주세요',
+                  required: text.findIdError['1'],
                   validate: {
                     notEmail: (value) => {
                       const regEmail =
@@ -86,7 +86,7 @@ const FindId: NextPage = () => {
                       if (regEmail.test(value)) {
                         return true;
                       } else {
-                        return '올바른 이메일을 입력해주세요';
+                        return text.findIdError['2'];
                       }
                     },
                   },
@@ -134,7 +134,7 @@ const FindId: NextPage = () => {
                 type='tel'
                 label={text.findId['5']}
                 register={register('code', {
-                  required: '인증번호를 입력해주세요',
+                  required: text.findIdError['3'],
                   validate: {
                     notMatch: async (value) => {
                       const { data: checked } = await usersApi.checkCode(
@@ -142,7 +142,7 @@ const FindId: NextPage = () => {
                         value
                       );
                       if (checked === 'wrong_code') {
-                        return '인증번호가 일치하지 않습니다';
+                        return text.findIdError['4'];
                       } else {
                         return true;
                       }

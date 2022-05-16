@@ -36,7 +36,7 @@ const Contact: NextPage = () => {
   }: IForm) => {
     try {
       await contactApi.submitContact(name, phoneNum, email, category, content);
-      alert('문의가 제출되었습니다.');
+      alert(text.contactError['1']);
       setValue('name', '');
       setValue('phoneNum', '');
       setValue('email', '');
@@ -75,13 +75,13 @@ const Contact: NextPage = () => {
                     type='text'
                     label={text.contact['3']}
                     register={register('name', {
-                      required: '이름을 입력해주세요',
+                      required: text.contactError['2'],
                       minLength: {
-                        message: '이름은 2글자 이상이어야 합니다',
+                        message: text.contactError['3'],
                         value: 2,
                       },
                       maxLength: {
-                        message: '이름은 5글자 이하여야 합니다',
+                        message: text.contactError['4'],
                         value: 5,
                       },
                     })}
@@ -95,7 +95,7 @@ const Contact: NextPage = () => {
                     type='tel'
                     label={text.contact['5']}
                     register={register('phoneNum', {
-                      required: '전화번호를 입력해주세요',
+                      required: text.contactError['5'],
                       validate: {
                         notPhoneNum: (value) => {
                           const regPhoneNum =
@@ -103,7 +103,7 @@ const Contact: NextPage = () => {
                           if (regPhoneNum.test(value)) {
                             return true;
                           } else {
-                            return '올바른 전화번호를 입력해주세요';
+                            return text.contactError['6'];
                           }
                         },
                       },
@@ -118,7 +118,7 @@ const Contact: NextPage = () => {
                     type='text'
                     label={text.contact['7']}
                     register={register('email', {
-                      required: '이메일을 입력해주세요',
+                      required: text.contactError['7'],
                       validate: {
                         notEmail: (value) => {
                           const regEmail =
@@ -126,7 +126,7 @@ const Contact: NextPage = () => {
                           if (regEmail.test(value)) {
                             return true;
                           } else {
-                            return '올바른 이메일을 입력해주세요';
+                            return text.contactError['8'];
                           }
                         },
                       },
@@ -145,10 +145,10 @@ const Contact: NextPage = () => {
                     <select
                       defaultValue='default'
                       {...register('category', {
-                        required: '카테고리를 선택해주세요',
+                        required: text.contactError['9'],
                         validate: {
                           notDefault: (value) =>
-                            value !== 'default' || '카테고리를 선택해주세요',
+                            value !== 'default' || text.contactError['9'],
                         },
                       })}
                       className={cls(
@@ -181,13 +181,13 @@ const Contact: NextPage = () => {
                 <textarea
                   placeholder={text.contact['16']}
                   {...register('content', {
-                    required: '내용을 입력해주세요',
+                    required: text.contactError['10'],
                     validate: {
                       notDefault: (value) =>
-                        value !== 'default' || '내용을 입력해주세요',
+                        value !== 'default' || text.contactError['10'],
                     },
                     minLength: {
-                      message: '내용은 10글자 이상이어야 합니다',
+                      message: text.contactError['11'],
                       value: 10,
                     },
                   })}

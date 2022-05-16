@@ -30,6 +30,15 @@ export const en = {
     '9': 'Signin',
   },
 
+  //푸터
+  footer: {
+    '1': '2022 OKFriends CyberCamp Secretariat',
+    '2': 'COPYRIGHT 2022 OKFriends CyberCamp ALL RIGHTS RESERVED.',
+    '3': 'Terms of Service',
+    '4': 'Rejection of unauthorized e-mail collection',
+    '5': 'privacy policy',
+  },
+
   //   메인페이지
   main: {
     '1': 'Online home country training for overseas Korean college students',
@@ -227,6 +236,14 @@ export const en = {
     '20': 'Please write a lecture review.',
   },
 
+  // 연수실 - 상세페이지 리뷰 에러
+  ReviewError: {
+    '1': 'This is a lecture you did not take the course',
+    '2': "you've already written a review",
+    '3': 'Please enter a review',
+    '4': 'Please leave a review with more than 10 letters',
+  },
+
   courseSurvey: {
     '1': 'Survey on lectures from the 2022 oversea\nKorean student home country training',
     '2': '',
@@ -361,6 +378,21 @@ export const en = {
     '17': 'Contact',
   },
 
+  // 지원센터 - 1:1 문의하기 에러
+  contactError: {
+    '1': 'Your inquiry has been submitted',
+    '2': 'Please enter your name',
+    '3': 'Name must be at least 2 characters long',
+    '4': 'Name must not be more than 5 characters long',
+    '5': 'Please enter your phone number',
+    '6': 'Please enter a valid phone number',
+    '7': 'Please enter an email',
+    '8': 'Please enter a valid email',
+    '9': 'Please select a category',
+    '10': 'Please enter the contents',
+    '11': 'Content must be at least 10 characters long',
+  },
+
   //   지원센터 - 자료실
   library: {
     '1': 'Title',
@@ -482,6 +514,13 @@ export const en = {
     '9': 'Forgot Password',
   },
 
+  // 로그인에러
+  loginError: {
+    '1': 'Please enter your ID',
+    '2': 'Please enter your password',
+    '3': 'The ID or password does not match.',
+  },
+
   // 아이디 찾기
   findId: {
     '1': 'Find ID',
@@ -492,6 +531,14 @@ export const en = {
     '6': 'Verification code',
     '7': 'Find ID',
     '8': 'Forgot Password',
+  },
+
+  // 아이디 찾기 에러
+  findIdError: {
+    '1': 'Please enter an email',
+    '2': 'Please enter a valid email',
+    '3': 'Please enter the authentication number',
+    '4': 'The authentication number does not match',
   },
 
   //   아이디 찾기 - 팝업
@@ -515,6 +562,17 @@ export const en = {
     '9': 'Verification code',
     '10': 'Forgot Password',
     '11': 'Find ID',
+  },
+
+  // 비밀번호 찾기 에러
+  resetPwError: {
+    '1': "It doesn't exist",
+    '2': 'This email does not correspond to the ID',
+    '3': 'Please enter your ID',
+    '4': 'Please enter an email',
+    '5': 'Please enter a valid email',
+    '6': 'Please enter the authentication number',
+    '7': 'The authentication number does not match',
   },
 
   // 회원가입
@@ -560,6 +618,41 @@ export const en = {
     '38': 'a Korean-American student abroad',
   },
 
+  //회원가입 에러메시지
+  signupError: {
+    '1': 'This email has already been subscribed',
+    '2': 'Please select a cardinal number',
+    '3': 'Please enter your ID',
+    '4': 'ID must be at least 4 characters long',
+    '5': 'ID must be less than 12 characters',
+    '6': "It's the ID I'm using",
+    '7': 'Please enter your password.',
+    '8': 'Password must contain at least 8 digits / at least 1 letter, number, and special characters',
+    '9': 'Please enter your password.',
+    '10': "Passwords don't match",
+    '11': 'Please enter your name',
+    '12': 'Name must be at least 2 characters long',
+    '13': 'Name must not be more than 5 characters long',
+    '14': 'Please enter your name',
+    '15': 'Name must be at least 2 characters long',
+    '16': 'Name must not be more than 5 characters long',
+    '17': 'Please enter your name',
+    '18': 'Please select a year',
+    '19': 'Please select a month',
+    '20': 'Please select a day',
+    '21': 'Please select a date of birth',
+    '22': 'Please enter your country',
+    '23': 'Please enter an email',
+    '24': 'Please enter a valid email',
+    '25': 'Please enter the authentication number',
+    '26': 'The authentication number does not match',
+    '27': 'Please enter your mobile number',
+    '28': 'Please enter a valid mobile number',
+    '29': 'Please check the terms and conditions of the service',
+    '30': 'Please check your consent to collect and use personal information',
+    '31': 'Children under the age of 14 need the consent of their legal representatives.',
+  },
+
   // 마이페이지 - 헤더
   mypageHeader: {
     '1': 'My Page',
@@ -598,9 +691,24 @@ export const en = {
     '5': 'Email',
     '6': 'Phone Number',
     '7': 'Date of Birth',
+    '7-1': 'Year',
+    '7-2': 'Month',
+    '7-3': 'Day',
     '8': 'Date of Birth',
     '9': 'Feel free to write anything',
     '10': 'Change',
+  },
+
+  // 마이페이지 - 회원정보수정 에러메시지
+  mypageEditError: {
+    '1': 'Membership information modification completed.',
+    '2': 'Please enter your phone number',
+    '3': 'Please enter a valid phone number',
+    '4': 'Please select a year',
+    '5': 'Please select a month',
+    '6': 'Please select a day',
+    '7': 'Please select a date of birth',
+    '8': 'Please enter your self-introduction',
   },
 
   // 마이페이지 - 비밀번호 변경

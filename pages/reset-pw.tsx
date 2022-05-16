@@ -57,12 +57,12 @@ const ResetPw: NextPage = () => {
       );
       if (data === 'unexisting user') {
         setError('username', {
-          message: '존재하지 않는 아이디입니다',
+          message: text.resetPwError['1'],
         });
         setCode((prev) => ({ ...prev, loading: false }));
       } else if (data === 'unmatched email') {
         setError('email', {
-          message: '아이디에 해당하는 이메일이 아닙니다',
+          message: text.resetPwError['2'],
         });
         setCode((prev) => ({ ...prev, loading: false }));
       } else {
@@ -93,7 +93,7 @@ const ResetPw: NextPage = () => {
                 type='text'
                 label={text.resetPw['3']}
                 register={register('username', {
-                  required: '아이디를 입력해주세요',
+                  required: text.resetPwError['3'],
                 })}
                 error={errors?.username?.message}
               />
@@ -102,7 +102,7 @@ const ResetPw: NextPage = () => {
                 type='text'
                 label={text.resetPw['5']}
                 register={register('email', {
-                  required: '이메일을 입력해주세요',
+                  required: text.resetPwError['4'],
                   validate: {
                     notEmail: (value) => {
                       const regEmail =
@@ -110,7 +110,7 @@ const ResetPw: NextPage = () => {
                       if (regEmail.test(value)) {
                         return true;
                       } else {
-                        return '올바른 이메일을 입력해주세요';
+                        return text.resetPwError['5'];
                       }
                     },
                   },
@@ -166,7 +166,7 @@ const ResetPw: NextPage = () => {
                 type='tel'
                 label={text.resetPw['8']}
                 register={register('code', {
-                  required: '인증번호를 입력해주세요',
+                  required: text.resetPwError['6'],
                   validate: {
                     notMatch: async (value) => {
                       const { data: checked } = await usersApi.checkCode(
@@ -177,7 +177,7 @@ const ResetPw: NextPage = () => {
                         return '';
                       }
                       if (checked === 'wrong_code') {
-                        return '인증번호가 일치하지 않습니다';
+                        return text.resetPwError['7'];
                       } else {
                         return true;
                       }

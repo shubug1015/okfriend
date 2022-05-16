@@ -41,9 +41,9 @@ export default function Review({ data, mutate }: IProps) {
           myData?.token
         );
         if (message === 'unregistered lecture') {
-          setError('review', { message: '수강하지 않은 강의입니다.' });
+          setError('review', { message: text.ReviewError['1'] });
         } else if (message === 'review exist') {
-          setError('review', { message: '이미 리뷰를 작성한 강의입니다.' });
+          setError('review', { message: text.ReviewError['2'] });
         } else {
           setValue('review', '');
           mutate({
@@ -93,9 +93,9 @@ export default function Review({ data, mutate }: IProps) {
 
       <textarea
         {...register('review', {
-          required: '리뷰를 입력해주세요',
+          required: text.ReviewError['3'],
           minLength: {
-            message: '10자 이상의 리뷰를 남겨주세요',
+            message: text.ReviewError['4'],
             value: 10,
           },
         })}

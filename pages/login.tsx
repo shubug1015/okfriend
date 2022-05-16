@@ -58,7 +58,7 @@ const Login: NextPage = () => {
                 type='text'
                 label={text.login['2']}
                 register={register('username', {
-                  required: '아이디를 입력해주세요',
+                  required: text.loginError['1'],
                 })}
                 error={errors?.username?.message}
               />
@@ -67,7 +67,7 @@ const Login: NextPage = () => {
                 type='password'
                 label={text.login['4']}
                 register={register('password', {
-                  required: '비밀번호 입력해주세요',
+                  required: text.loginError['2'],
                 })}
                 error={errors?.password?.message}
               />
@@ -79,7 +79,7 @@ const Login: NextPage = () => {
                 'flex items-center text-sm text-red-500'
               )}
             >
-              {error && '아이디 또는 비밀번호가 일치하지 않습니다.'}
+              {error && text.loginError['3']}
             </div>
             {/* Input 필드 */}
 

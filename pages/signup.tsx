@@ -99,7 +99,7 @@ const SignUp: NextPage = () => {
     try {
       const { data } = await usersApi.getSignupCode(getValues('email'));
       if (data === 'existing_account') {
-        setError('email', { message: '이미 가입된 이메일입니다' });
+        setError('email', { message: text.signupError['1'] });
         setCode((prev) => ({ ...prev, loading: false }));
       } else {
         setCode({ sended: true, loading: false });
@@ -165,7 +165,7 @@ const SignUp: NextPage = () => {
                           type='radio'
                           value={i}
                           {...register('stage', {
-                            required: '기수를 선택해주세요',
+                            required: text.signupError['2'],
                           })}
                           className={cls(
                             errors?.stage?.message
@@ -184,7 +184,7 @@ const SignUp: NextPage = () => {
                   </div>
 
                   <div className='mt-2 text-sm text-red-500'>
-                    {errors?.stage?.message && '기수를 선택해주세요'}
+                    {errors?.stage?.message && text.signupError['2']}
                   </div>
                 </div>
                 {/* 가입유형 */}
@@ -194,13 +194,13 @@ const SignUp: NextPage = () => {
                   type='text'
                   label={text.signup['4']}
                   register={register('username', {
-                    required: '아이디를 입력해주세요',
+                    required: text.signupError['3'],
                     minLength: {
-                      message: '아이디는 4글자 이상이어야 합니다',
+                      message: text.signupError['4'],
                       value: 4,
                     },
                     maxLength: {
-                      message: '아이디는 12글자 이하여야 합니다',
+                      message: text.signupError['5'],
                       value: 12,
                     },
                     validate: {
@@ -209,7 +209,7 @@ const SignUp: NextPage = () => {
                         if (data === 'available') {
                           return true;
                         } else {
-                          return '사용중인 아이디입니다';
+                          return text.signupError['6'];
                         }
                       },
                     },
@@ -223,7 +223,7 @@ const SignUp: NextPage = () => {
                   type='password'
                   label={text.signup['7']}
                   register={register('password', {
-                    required: '비밀번호를 입력해주세요',
+                    required: text.signupError['7'],
                     validate: {
                       notPw: (value) => {
                         const regPw =
@@ -231,7 +231,7 @@ const SignUp: NextPage = () => {
                         if (regPw.test(value)) {
                           return true;
                         } else {
-                          return '비밀번호는 8자리 이상 / 1개 이상의 문자, 숫자, 특수문자가 포함되어야 합니다';
+                          return text.signupError['8'];
                         }
                       },
                     },
@@ -245,11 +245,10 @@ const SignUp: NextPage = () => {
                   type='password'
                   label={text.signup['9']}
                   register={register('passwordCheck', {
-                    required: '비밀번호를 입력해주세요',
+                    required: text.signupError['9'],
                     validate: {
                       notPwCheck: (value) =>
-                        value === watch('password') ||
-                        '비밀번호가 일치하지 않습니다',
+                        value === watch('password') || text.signupError['10'],
                     },
                   })}
                   error={errors?.passwordCheck?.message}
@@ -269,13 +268,13 @@ const SignUp: NextPage = () => {
                         type='text'
                         placeholder={text.signup['12']}
                         {...register('korName', {
-                          required: '이름을 입력해주세요',
+                          required: text.signupError['11'],
                           minLength: {
-                            message: '이름은 2글자 이상이어야 합니다',
+                            message: text.signupError['12'],
                             value: 2,
                           },
                           maxLength: {
-                            message: '이름은 5글자 이하이어야 합니다',
+                            message: text.signupError['13'],
                             value: 5,
                           },
                         })}
@@ -295,13 +294,13 @@ const SignUp: NextPage = () => {
                         type='text'
                         placeholder={text.signup['13']}
                         {...register('engName', {
-                          required: '이름을 입력해주세요',
+                          required: text.signupError['14'],
                           minLength: {
-                            message: '이름은 2글자 이상이어야 합니다',
+                            message: text.signupError['15'],
                             value: 2,
                           },
                           maxLength: {
-                            message: '이름은 5글자 이하이어야 합니다',
+                            message: text.signupError['16'],
                             value: 20,
                           },
                         })}
@@ -318,7 +317,7 @@ const SignUp: NextPage = () => {
 
                   <div className='mt-2 text-sm text-red-500'>
                     {(errors?.korName?.message || errors?.engName?.message) &&
-                      '이름을 입력해주세요'}
+                      text.signupError['17']}
                   </div>
                 </div>
                 {/* 이름 */}
@@ -335,10 +334,10 @@ const SignUp: NextPage = () => {
                       <select
                         defaultValue='default'
                         {...register('year', {
-                          required: '년도를 선택해주세요',
+                          required: text.signupError['18'],
                           validate: {
                             notDefault: (value) =>
-                              value !== 'default' || '년도를 선택해주세요',
+                              value !== 'default' || text.signupError['18'],
                           },
                         })}
                         className={cls(
@@ -363,10 +362,10 @@ const SignUp: NextPage = () => {
                       <select
                         defaultValue='default'
                         {...register('month', {
-                          required: '월을 선택해주세요',
+                          required: text.signupError['19'],
                           validate: {
                             notDefault: (value) =>
-                              value !== 'default' || '월을 선택해주세요',
+                              value !== 'default' || text.signupError['19'],
                           },
                         })}
                         className={cls(
@@ -391,10 +390,10 @@ const SignUp: NextPage = () => {
                       <select
                         defaultValue='default'
                         {...register('day', {
-                          required: '일을 선택해주세요',
+                          required: text.signupError['20'],
                           validate: {
                             notDefault: (value) =>
-                              value !== 'default' || '일을 선택해주세요',
+                              value !== 'default' || text.signupError['20'],
                           },
                         })}
                         className={cls(
@@ -419,7 +418,7 @@ const SignUp: NextPage = () => {
                     {(errors?.year?.message ||
                       errors?.year?.message ||
                       errors?.year?.message) &&
-                      '생년월일을 선택해주세요'}
+                      text.signupError['21']}
                   </div>
                 </div>
                 {/* 생년월일 */}
@@ -429,7 +428,7 @@ const SignUp: NextPage = () => {
                   type='text'
                   label={text.signup['18']}
                   register={register('country', {
-                    required: '국가를 입력해주세요',
+                    required: text.signupError['22'],
                   })}
                   error={errors?.country?.message}
                 />
@@ -440,7 +439,7 @@ const SignUp: NextPage = () => {
                   type='text'
                   label={text.signup['20']}
                   register={register('email', {
-                    required: '이메일을 입력해주세요',
+                    required: text.signupError['23'],
                     validate: {
                       notEmail: (value) => {
                         const regEmail =
@@ -448,7 +447,7 @@ const SignUp: NextPage = () => {
                         if (regEmail.test(value)) {
                           return true;
                         } else {
-                          return '올바른 이메일을 입력해주세요';
+                          return text.signupError['24'];
                         }
                       },
                     },
@@ -500,7 +499,7 @@ const SignUp: NextPage = () => {
                   type='tel'
                   label={text.signup['23']}
                   register={register('code', {
-                    required: '인증번호를 입력해주세요',
+                    required: text.signupError['25'],
                     validate: {
                       notMatch: async (value) => {
                         const { data: checked } = await usersApi.checkCode(
@@ -508,7 +507,7 @@ const SignUp: NextPage = () => {
                           value
                         );
                         if (checked === 'wrong_code') {
-                          return '인증번호가 일치하지 않습니다';
+                          return text.signupError['26'];
                         } else {
                           return true;
                         }
@@ -525,7 +524,7 @@ const SignUp: NextPage = () => {
                   type='tel'
                   label={text.signup['25']}
                   register={register('phoneNum', {
-                    required: '휴대폰 번호를 입력해주세요',
+                    required: text.signupError['27'],
                     validate: {
                       notPhoneNum: (value) => {
                         const regPhoneNum =
@@ -533,7 +532,7 @@ const SignUp: NextPage = () => {
                         if (regPhoneNum.test(value)) {
                           return true;
                         } else {
-                          return '올바른 휴대폰 번호를 입력해주세요';
+                          return text.signupError['28'];
                         }
                       },
                     },
@@ -548,7 +547,7 @@ const SignUp: NextPage = () => {
               <div className='mt-6 w-full space-y-[0.875rem]'>
                 <Checkbox
                   register={register('serviceAgree', {
-                    required: '서비스 이용약관을 체크해주세요',
+                    required: text.signupError['29'],
                   })}
                   error={errors?.serviceAgree?.message}
                 >
@@ -562,7 +561,7 @@ const SignUp: NextPage = () => {
 
                 <Checkbox
                   register={register('privacyAgree', {
-                    required: '개인정보 수집 및 이용동의를 체크해주세요',
+                    required: text.signupError['30'],
                   })}
                   error={errors?.privacyAgree?.message}
                 >
@@ -576,8 +575,7 @@ const SignUp: NextPage = () => {
 
                 <Checkbox
                   register={register('ageOver', {
-                    required:
-                      '만 14세 미만 아동은 법정 대리인의 동의가 필요합니다.',
+                    required: text.signupError['31'],
                   })}
                   error={errors?.ageOver?.message}
                 >

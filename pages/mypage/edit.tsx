@@ -43,7 +43,7 @@ const Edit: NextPage = () => {
         token,
       };
       editMyInfos({ req });
-      alert('회원 정보 수정이 완료되었습니다.');
+      alert(text.mypageEditError['1']);
     } catch {
       alert('Error');
     }
@@ -148,10 +148,10 @@ const Edit: NextPage = () => {
 
                 <input
                   type='text'
-                  placeholder='휴대폰번호'
+                  placeholder={text.mypageEdit['6']}
                   {...register('phoneNum', {
                     value: profile?.phone_number,
-                    required: '전화번호를 입력해주세요',
+                    required: text.mypageEditError['2'],
                     validate: {
                       notPhoneNum: (value) => {
                         const regPhoneNum =
@@ -159,7 +159,7 @@ const Edit: NextPage = () => {
                         if (regPhoneNum.test(value)) {
                           return true;
                         } else {
-                          return '올바른 전화번호를 입력해주세요';
+                          return text.mypageEditError['3'];
                         }
                       },
                     },
@@ -182,10 +182,10 @@ const Edit: NextPage = () => {
                       <select
                         defaultValue={profile?.birth.split('-')[0]}
                         {...register('year', {
-                          required: '년도를 선택해주세요',
+                          required: text.mypageEditError['4'],
                           validate: {
                             notDefault: (value) =>
-                              value !== 'default' || '년도를 선택해주세요',
+                              value !== 'default' || text.mypageEditError['4'],
                           },
                         })}
                         className={cls(
@@ -196,7 +196,7 @@ const Edit: NextPage = () => {
                         )}
                       >
                         <option value='default' disabled hidden>
-                          년(4자)
+                          {text.mypageEdit['7-1']}
                         </option>
                         {[...Array(123)].map((_, index) => (
                           <option key={index}>{index + 1900}</option>
@@ -210,10 +210,10 @@ const Edit: NextPage = () => {
                       <select
                         defaultValue={profile?.birth.split('-')[1]}
                         {...register('month', {
-                          required: '월을 선택해주세요',
+                          required: text.mypageEditError['5'],
                           validate: {
                             notDefault: (value) =>
-                              value !== 'default' || '월을 선택해주세요',
+                              value !== 'default' || text.mypageEditError['5'],
                           },
                         })}
                         className={cls(
@@ -224,7 +224,7 @@ const Edit: NextPage = () => {
                         )}
                       >
                         <option value='default' disabled hidden>
-                          월
+                          {text.mypageEdit['7-2']}
                         </option>
                         {[...Array(12)].map((_, index) => (
                           <option key={index}>{index + 1}</option>
@@ -238,10 +238,10 @@ const Edit: NextPage = () => {
                       <select
                         defaultValue={profile?.birth.split('-')[2]}
                         {...register('day', {
-                          required: '일을 선택해주세요',
+                          required: text.mypageEditError['6'],
                           validate: {
                             notDefault: (value) =>
-                              value !== 'default' || '일을 선택해주세요',
+                              value !== 'default' || text.mypageEditError['6'],
                           },
                         })}
                         className={cls(
@@ -252,7 +252,7 @@ const Edit: NextPage = () => {
                         )}
                       >
                         <option value='default' disabled hidden>
-                          일
+                          {text.mypageEdit['7-3']}
                         </option>
                         {[...Array(31)].map((_, index) => (
                           <option key={index}>{index + 1}</option>
@@ -266,7 +266,7 @@ const Edit: NextPage = () => {
                     {(errors?.year?.message ||
                       errors?.year?.message ||
                       errors?.year?.message) &&
-                      '생년월일을 선택해주세요'}
+                      text.mypageEditError['7']}
                   </div>
                 </div>
               )}
@@ -280,7 +280,7 @@ const Edit: NextPage = () => {
                   placeholder={text.mypageEdit['9']}
                   {...register('introduce', {
                     value: profile?.introduce,
-                    required: '자기소개를 입력해주세요',
+                    required: text.mypageEditError['8'],
                   })}
                   className='h-44 w-full rounded border border-[#d6d6d6] px-5 pt-4 text-lg font-medium outline-none placeholder:text-[#d6d6d6] md:h-52 md:px-2.5 md:pt-[0.8rem] md:text-[0.938rem]'
                 />
