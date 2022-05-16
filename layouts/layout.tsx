@@ -12,7 +12,12 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div
       className={cls(
-        clsFilter(locale, 'font-notoSansKr', 'font-notoSans', 'font-notoSans'),
+        clsFilter(
+          locale,
+          'font-["Noto_Sans_KR"]',
+          'font-["Noto_Sans"]',
+          'font-["Noto_Sans"]'
+        ),
         'w-screen'
       )}
     >
