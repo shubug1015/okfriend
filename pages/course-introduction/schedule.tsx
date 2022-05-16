@@ -17,7 +17,7 @@ import Layout from '@layouts/sectionLayout';
 import MenuBar from '@components/greeting/menuBar';
 import SEO from '@components/seo';
 import { useLocale } from '@libs/client/useLocale';
-import { imgFilter } from '@libs/client/utils';
+import { cls, clsFilter, imgFilter } from '@libs/client/utils';
 
 const TrainingSchedule: NextPage = () => {
   const { locale, text } = useLocale();
@@ -34,7 +34,17 @@ const TrainingSchedule: NextPage = () => {
       <Layout>
         <div className='pt-[4.089rem] pb-[10.375rem] md:pt-6 md:pb-11'>
           {/* 온라인연수 과정 */}
-          <div className='font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#01111e] md:text-xl'>
+          <div
+            className={cls(
+              clsFilter(
+                locale,
+                'font-nexonBold',
+                'font-notoSans',
+                'font-notoSans'
+              ),
+              'text-4xl font-bold leading-[3.15rem] text-[#01111e] md:text-xl'
+            )}
+          >
             <span className='text-[#2fb6bc]'>{text.schedule['7']}</span>{' '}
             {text.schedule['8']}
           </div>
@@ -60,7 +70,17 @@ const TrainingSchedule: NextPage = () => {
           </div>
 
           {/* 사전온라인연수 과정 */}
-          <div className='mt-16 font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#01111e] md:mt-10 md:text-xl'>
+          <div
+            className={cls(
+              clsFilter(
+                locale,
+                'font-nexonBold',
+                'font-notoSans',
+                'font-notoSans'
+              ),
+              'mt-16 text-4xl font-bold leading-[3.15rem] text-[#01111e] md:mt-10 md:text-xl'
+            )}
+          >
             <span className='text-[#2fb6bc]'>{text.schedule['9']}</span>{' '}
             {text.schedule['10']}
           </div>

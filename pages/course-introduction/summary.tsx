@@ -37,7 +37,7 @@ import MenuBar from '@components/greeting/menuBar';
 import SEO from '@components/seo';
 import { useLocale } from '@libs/client/useLocale';
 import Link from 'next/link';
-import { imgFilter } from '@libs/client/utils';
+import { cls, clsFilter, imgFilter } from '@libs/client/utils';
 
 const Greeting: NextPage = () => {
   const { locale, text } = useLocale();
@@ -65,7 +65,17 @@ const Greeting: NextPage = () => {
         </div>
 
         {/* 2022 재외동포 대학생 온라인 연수 */}
-        <div className='mt-[1.875rem] border-b border-[#9e9e9e] pb-[1.594rem] font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#2fb6bc] md:text-[1.375rem] md:leading-[2.25rem]'>
+        <div
+          className={cls(
+            clsFilter(
+              locale,
+              'font-nexonBold',
+              'font-notoSans',
+              'font-notoSans'
+            ),
+            'mt-[1.875rem] border-b border-[#9e9e9e] pb-[1.594rem] text-4xl font-bold leading-[3.15rem] text-[#2fb6bc] md:text-[1.375rem] md:leading-[2.25rem]'
+          )}
+        >
           {text.summary['7']}
           <br />
           <span className='text-[#01111e]'>{text.summary['8']}</span>
@@ -73,7 +83,17 @@ const Greeting: NextPage = () => {
 
         {/* 연수목적 */}
         <div className='border-b border-[#e8e8e8] pt-[1.594rem] pb-[2.719rem] text-2xl text-[#01111e] md:text-xl'>
-          <div className='font-nexonBold font-bold leading-[2.25rem]'>
+          <div
+            className={cls(
+              clsFilter(
+                locale,
+                'font-nexonBold',
+                'font-notoSans',
+                'font-notoSans'
+              ),
+              'font-bold leading-[2.25rem]'
+            )}
+          >
             {text.summary['9']}
           </div>
           <div className='mt-2 whitespace-pre-wrap text-[1.125rem] font-normal leading-[1.856rem] md:mt-[0.313rem] md:text-[0.875rem] md:leading-[1.444rem]'>
@@ -134,10 +154,21 @@ const Greeting: NextPage = () => {
         {/* 연수대상 */}
         <div className='text- border-b border-[#e8e8e8] pt-[3.094rem] pb-[2.719rem] text-2xl text-[#01111e] md:pb-[1.906rem] md:pt-[1.969rem] md:text-xl'>
           <div className='flex items-center font-bold leading-[2.25rem] md:block'>
-            <span className='font-nexonBold'>{text.summary['11']}</span>
+            <span
+              className={cls(
+                clsFilter(
+                  locale,
+                  'font-nexonBold',
+                  'font-notoSans',
+                  'font-notoSans'
+                ),
+                ''
+              )}
+            >
+              {text.summary['11']}
+            </span>
             <span className='ml-[0.813rem] text-[1.063rem] font-normal leading-[1.753rem] text-[#6b6b6b] md:hidden md:text-[0.875rem] md:leading-[1.444rem]'>
-              ※ 국가별 상이한 학제를 감안, 만18세 예비 대학생은 연수(청소년,
-              대학생)를 선택하여 신청 가능
+              {text.summary['12']}
             </span>
             <div className='hidden text-[0.875rem] font-normal leading-[1.444rem] text-[#6b6b6b] md:block'>
               {text.summary['12']}
@@ -190,7 +221,17 @@ const Greeting: NextPage = () => {
 
         {/* 연수방식 */}
         <div className='border-b border-[#e8e8e8] pt-[2.969rem] pb-[2.531rem] text-2xl text-[#01111e] md:pt-[1.406rem] md:text-xl'>
-          <div className='font-nexonBold font-bold leading-[2.25rem]'>
+          <div
+            className={cls(
+              clsFilter(
+                locale,
+                'font-nexonBold',
+                'font-notoSans',
+                'font-notoSans'
+              ),
+              'font-bold leading-[2.25rem]'
+            )}
+          >
             {text.summary['21']}
           </div>
           <div className='mt-4 text-[1.125rem] leading-[1.856rem] md:mt-[0.313rem] md:text-[0.875rem]'>
@@ -200,7 +241,17 @@ const Greeting: NextPage = () => {
 
         {/* 2022 재외동포대학생모국연수(온라인) */}
         <div className='border-b border-[#e8e8e8] pt-[2.906rem] pb-[2.531rem] text-2xl text-[#01111e] md:pt-[1.906rem] md:text-xl'>
-          <div className='font-nexonBold font-bold leading-[2.25rem] md:hidden md:leading-[1.875rem]'>
+          <div
+            className={cls(
+              clsFilter(
+                locale,
+                'font-nexonBold',
+                'font-notoSans',
+                'font-notoSans'
+              ),
+              'font-bold leading-[2.25rem] md:hidden md:leading-[1.875rem]'
+            )}
+          >
             {text.summary['23']}
           </div>
           <div className='hidden whitespace-pre-wrap font-bold leading-[2.25rem] md:block md:leading-[1.875rem]'>
@@ -244,7 +295,17 @@ const Greeting: NextPage = () => {
 
         {/* 2022 재외동포대학생 모국연수(사전온라인) 연수 기간 */}
         <div className='border-b border-[#e8e8e8] pt-[2.531rem] pb-[2.469rem] text-2xl text-[#01111e] md:pt-[1.281rem] md:pb-[1.781rem] md:text-xl'>
-          <div className='font-nexonBold font-bold leading-[2.25rem] md:leading-[1.875rem]'>
+          <div
+            className={cls(
+              clsFilter(
+                locale,
+                'font-nexonBold',
+                'font-notoSans',
+                'font-notoSans'
+              ),
+              'font-bold leading-[2.25rem] md:leading-[1.875rem]'
+            )}
+          >
             {text.summary['33']}
           </div>
           <div className='mt-3 text-[1.125rem] leading-[1.856rem] md:text-[0.875rem]'>
@@ -254,7 +315,17 @@ const Greeting: NextPage = () => {
 
         {/* 문의방법 */}
         <div className='mt-[2.531rem] text-2xl text-[#01111e] md:text-[1.375rem]'>
-          <div className='mb-[1.188rem] font-nexonBold font-bold leading-[2.25rem]'>
+          <div
+            className={cls(
+              clsFilter(
+                locale,
+                'font-nexonBold',
+                'font-notoSans',
+                'font-notoSans'
+              ),
+              'mb-[1.188rem] font-bold leading-[2.25rem]'
+            )}
+          >
             {text.summary['35']}
           </div>
 
@@ -266,14 +337,34 @@ const Greeting: NextPage = () => {
         </div>
 
         {/* 온라인연수 마일리지 제도란? */}
-        <div className='mt-[5.25rem] border-b border-[#9e9e9e] pb-[1.469rem] font-nexonBold text-4xl font-bold leading-[3.15rem] text-[#01111e] md:mt-[4.188rem] md:text-2xl'>
+        <div
+          className={cls(
+            clsFilter(
+              locale,
+              'font-nexonBold',
+              'font-notoSans',
+              'font-notoSans'
+            ),
+            'mt-[5.25rem] border-b border-[#9e9e9e] pb-[1.469rem] text-4xl font-bold leading-[3.15rem] text-[#01111e] md:mt-[4.188rem] md:text-2xl'
+          )}
+        >
           <span className='text-[#2fb6bc]'>{text.summary['37']}</span>{' '}
           {text.summary['38']}
         </div>
 
         {/* 마일리지 제도 적립/활용 */}
         <div className='border-b border-[#e8e8e8] pt-[2.656rem] pb-[1.838rem] text-2xl text-[#01111e] md:pb-[1.781rem] md:pt-[1.656rem] md:text-xl'>
-          <div className='font-nexonBold font-bold leading-[2.25rem]'>
+          <div
+            className={cls(
+              clsFilter(
+                locale,
+                'font-nexonBold',
+                'font-notoSans',
+                'font-notoSans'
+              ),
+              'font-bold leading-[2.25rem]'
+            )}
+          >
             {text.summary['39']}
           </div>
           <div className='mt-4 whitespace-pre-wrap text-[1.125rem] leading-[1.856rem] md:mt-[0.313rem] md:text-[0.875rem] md:leading-[1.444rem]'>
@@ -333,7 +424,17 @@ const Greeting: NextPage = () => {
 
         {/* 연수참여혜택 */}
         <div className='border-b border-[#e8e8e8] pt-[2.531rem] pb-[6.938rem] text-2xl text-[#01111e] md:pb-[3.719rem] md:pt-[2.094rem] md:text-xl'>
-          <div className='font-nexonBold font-bold leading-[2.25rem]'>
+          <div
+            className={cls(
+              clsFilter(
+                locale,
+                'font-nexonBold',
+                'font-notoSans',
+                'font-notoSans'
+              ),
+              'font-bold leading-[2.25rem]'
+            )}
+          >
             {text.summary['43']}
           </div>
           <div className='mt-4 text-[1.125rem] leading-[1.856rem] md:mt-[0.313rem] md:text-[0.875rem] md:leading-[1.444rem]'>

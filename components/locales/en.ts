@@ -42,7 +42,7 @@ export const en = {
   //   메인페이지
   main: {
     '1': 'Online home country training for overseas Korean college students',
-    '2': 'It is a space where overseas Korean university students and domestic exchange participants can communicate and exchange\nin real time. It is an online platform\nwhere you can experience the future of new changes.',
+    '2': 'It is a space where overseas Korean university students and domestic exchange\nparticipants can communicate and exchange in real time. It is an online platform\nwhere you can experience the future of new changes.',
     '3': '',
     '4': 'Notice',
     '5': 'More',
@@ -138,8 +138,8 @@ export const en = {
 
   //   온라인연수 소개 - 연수 편성표
   schedule: {
-    '1': '재외동포 대학생 온라인연수 소개',
-    '2': '온라인연수 소개',
+    '1': 'About the online camp for oversea\nKorean university student',
+    '2': 'About OKF',
     '3': 'Program',
     '4': '인사말',
     '5': '개요',

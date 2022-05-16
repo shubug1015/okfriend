@@ -5,9 +5,10 @@ import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useLocale } from '@libs/client/useLocale';
+import { cls, clsFilter } from '@libs/client/utils';
 
 export default function About() {
-  const { text } = useLocale();
+  const { locale, text } = useLocale();
   useEffect(() => {
     AOS.init({ once: true });
   }, []);
@@ -37,7 +38,15 @@ export default function About() {
             data-aos='fade-up'
             data-aos-duration='1500'
             data-aos-delay='300'
-            className='mt-5 flex flex-col items-center whitespace-pre-wrap text-[1.625rem] md:hidden'
+            className={cls(
+              clsFilter(
+                locale,
+                'text-2xl',
+                'text-center text-xl',
+                'text-center text-xl'
+              ),
+              'mt-5 flex flex-col items-center whitespace-pre-wrap md:hidden'
+            )}
           >
             <div>{text.main['2']}</div>
             <div className='font-bold text-[#31b7bc]'>{text.main['3']}</div>

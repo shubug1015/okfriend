@@ -34,8 +34,13 @@ export default function Online() {
             <div className='w-[32rem] pt-[4.214rem] md:w-screen md:pt-[1.875rem]'>
               <div
                 className={cls(
-                  clsFilter(locale, 'text-[2.5rem]', 'text-xs', 'text-5xl'),
-                  'font-nexon text-[#01111e] md:mx-[1.563rem] md:text-xl'
+                  clsFilter(
+                    locale,
+                    'font-nexon text-[2.5rem]',
+                    'font-notoSans text-3xl',
+                    'font-notoSans text-3xl'
+                  ),
+                  'text-[#01111e] md:mx-[1.563rem] md:text-xl'
                 )}
               >
                 {text.greeting['7']}
@@ -78,7 +83,17 @@ export default function Online() {
                 <div className='text-xl font-bold text-white'>
                   {text.greeting['9']}
                 </div>
-                <div className='mt-[15px] font-nexon text-[2.5rem] leading-[55px] text-white'>
+                <div
+                  className={cls(
+                    clsFilter(
+                      locale,
+                      'font-nexon text-[2.5rem]',
+                      'font-notoSans text-3xl',
+                      'font-notoSans text-2xl'
+                    ),
+                    'mt-[15px] text-white'
+                  )}
+                >
                   {text.greeting['10']}
                   <br />
                   <span className='font-nexonBold font-bold text-[#2fb6bc]'>
@@ -110,7 +125,17 @@ export default function Online() {
 
       {/* 2022 - 환영합니다.  */}
       <div className='mt-32 flex flex-col items-center pb-20 md:mt-60 md:w-screen md:pb-[3.625rem]'>
-        <div className='mt-10 w-[61.25rem] font-nexonBold text-[1.875rem] font-bold leading-6 text-[#01111e] md:w-screen md:px-[1.563rem] md:text-[1.25rem] md:leading-[1.875rem]'>
+        <div
+          className={cls(
+            clsFilter(
+              locale,
+              'font-nexonBold',
+              'font-notoSans',
+              'font-notoSans'
+            ),
+            'mt-10 w-[61.25rem] text-[1.875rem] font-bold text-[#01111e] md:w-screen md:px-[1.563rem] md:text-[1.25rem] md:leading-[1.875rem]'
+          )}
+        >
           {text.greeting['12']}
         </div>
         <div className='mt-[1.813rem] w-[61.25rem] whitespace-pre-wrap text-[1.125rem] font-normal leading-[1.856rem] text-[#6b6b6b] md:w-screen md:px-[1.563rem] md:text-[0.875rem] md:leading-[1.444rem]'>
@@ -145,7 +170,17 @@ export default function Online() {
         <div className='flex justify-center'>
           <div className='flex w-[61.25rem] justify-end'>
             <div className='w-[32rem] pt-[4.214rem] md:w-screen md:pt-[1.875rem]'>
-              <div className='font-nexon text-[2.5rem] leading-[3.438rem] text-[#01111e] md:mx-[1.563rem] md:text-xl'>
+              <div
+                className={cls(
+                  clsFilter(
+                    locale,
+                    'font-nexon text-[2.5rem]',
+                    'font-notoSans text-3xl',
+                    'font-notoSans text-3xl'
+                  ),
+                  'text-[#01111e] md:mx-[1.563rem] md:text-xl'
+                )}
+              >
                 {text.greeting['14']}
                 <br />
                 <span className='font-nexonBold font-bold text-[#2fb6bc]'>
@@ -186,7 +221,17 @@ export default function Online() {
                 <div className='text-xl font-bold text-white'>
                   {text.greeting['16']}
                 </div>
-                <div className='mt-[15px] font-nexon text-[2.5rem] leading-[55px] text-white'>
+                <div
+                  className={cls(
+                    clsFilter(
+                      locale,
+                      'font-nexon text-[2.5rem]',
+                      'text-3xl',
+                      'text-2xl'
+                    ),
+                    'mt-[15px] text-white'
+                  )}
+                >
                   {text.greeting['17']}
                   <br />
                   <span className='font-nexonBold font-bold text-[#2fb6bc]'>
@@ -218,7 +263,17 @@ export default function Online() {
 
       {/* 재외동포 - 반갑습니다. */}
       <div className='mt-32 flex flex-col items-center pb-20 md:mt-60 md:w-screen md:pb-[3.625rem]'>
-        <div className='mt-10 w-[61.25rem] font-nexonBold text-[1.875rem] font-bold leading-6 text-[#01111e] md:w-screen md:px-[1.563rem] md:text-[1.25rem] md:leading-[1.875rem]'>
+        <div
+          className={cls(
+            clsFilter(
+              locale,
+              'font-nexonBold',
+              'font-notoSans',
+              'font-notoSans'
+            ),
+            'mt-10 w-[61.25rem] text-[1.875rem] font-bold text-[#01111e] md:w-screen md:px-[1.563rem] md:text-[1.25rem] md:leading-[1.875rem]'
+          )}
+        >
           {text.greeting['19']}
         </div>
         <div className='mt-[1.813rem] w-[61.25rem] whitespace-pre-wrap text-[1.125rem] font-normal leading-[1.856rem] text-[#6b6b6b] md:w-screen md:px-[1.563rem] md:text-[0.875rem] md:leading-[1.444rem]'>

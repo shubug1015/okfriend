@@ -20,7 +20,7 @@ export default function MenuBar({ pageName }: IProps) {
               'flex h-[4.188rem] w-[12.5rem] items-center justify-center border-b-4 font-bold md:h-[3.125rem] md:w-[5.75rem] md:border-b-2'
             )}
           >
-            인사말
+            {text.greeting['4']}
           </div>
         </a>
       </Link>
@@ -35,7 +35,7 @@ export default function MenuBar({ pageName }: IProps) {
               'flex h-[4.188rem] w-[12.5rem] items-center justify-center border-b-4 font-bold md:h-[3.125rem] md:w-[5.75rem] md:border-b-2'
             )}
           >
-            개요
+            {text.greeting['5']}
           </div>
         </a>
       </Link>
@@ -47,10 +47,10 @@ export default function MenuBar({ pageName }: IProps) {
               pageName === text.schedule['6']
                 ? 'border-[#2fb6bc] font-bold text-[#2fb6bc]'
                 : 'border-transparent',
-              'flex h-[4.188rem] w-[12.5rem] items-center justify-center border-b-4 font-bold md:h-[3.125rem] md:w-[5.75rem] md:border-b-2'
+              'flex h-[4.188rem] w-[12.5rem] items-center justify-center border-b-4 text-center font-bold md:h-[3.125rem] md:w-[5.75rem] md:border-b-2'
             )}
           >
-            연수 편성표
+            {text.greeting['6']}
           </div>
         </a>
       </Link>
