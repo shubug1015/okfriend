@@ -24,9 +24,9 @@ export default function Card() {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 1200,
     slidesToShow: 4,
-    slidesToScroll: 1,
+    slidesToScroll: 4,
     autoplay: false,
     beforeChange: (current: number, next: number) => {
       setActiveSlide(next + 1);
@@ -37,6 +37,7 @@ export default function Card() {
         breakpoint: 639,
         settings: {
           slidesToShow: 2,
+          slidesToScroll: 2,
           centerPadding: '60px',
         },
       },
