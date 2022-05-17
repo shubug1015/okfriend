@@ -250,11 +250,12 @@ export default function Header() {
   // }, [mobileMenuOpened]);
 
   useEffect(() => {
-    disableBodyScroll(document.body);
-    return () => {
+    if (mobileMenuOpened) {
+      disableBodyScroll(document.body);
+    } else {
       enableBodyScroll(document.body);
-    };
-  }, []);
+    }
+  }, [mobileMenuOpened]);
   return (
     <header className='fixed top-0 left-0 z-[9999] w-screen'>
       {/* 상단 헤더 */}
