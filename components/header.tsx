@@ -15,7 +15,7 @@ import { useRouter } from 'next/router';
 import { IUser } from '@libs/client/useUser';
 import useSWR from 'swr';
 import axios from 'axios';
-import React, { useState, Fragment, useEffect } from 'react';
+import React, { useState, Fragment, useEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, Transition } from '@headlessui/react';
 import { useLocale } from '@libs/client/useLocale';
@@ -234,17 +234,19 @@ export default function Header() {
     mutate({ ok: false, token: null, profile: null });
   };
 
+  const mobileMenu = useRef<HTMLDivElement>(null);
   const handleMdHeight = () => {
     const vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    mobileMenu.current?.style.setProperty('--vh', `${vh}px`);
   };
 
   useEffect(() => {
     handleMdHeight();
-    window.addEventListener('resize', handleMdHeight);
-
+    if (mobileMenuOpened) {
+      window.addEventListener('resize', handleMdHeight);
+    }
     return () => window.removeEventListener('resize', handleMdHeight);
-  }, []);
+  }, [mobileMenuOpened]);
   return (
     <header className='fixed top-0 left-0 z-[9999] w-screen'>
       {/* 상단 헤더 */}
@@ -458,6 +460,7 @@ export default function Header() {
       <AnimatePresence>
         {mobileMenuOpened && (
           <motion.div
+            ref={mobileMenu}
             variants={mobileMenuVar}
             initial='invisible'
             animate='visible'
