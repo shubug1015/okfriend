@@ -19,6 +19,7 @@ import React, { useState, Fragment, useEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, Transition } from '@headlessui/react';
 import { useLocale } from '@libs/client/useLocale';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 const tabVar = {
   invisible: {
@@ -234,19 +235,26 @@ export default function Header() {
     mutate({ ok: false, token: null, profile: null });
   };
 
-  const mobileMenu = useRef<HTMLDivElement>(null);
-  const handleMdHeight = () => {
-    const vh = window.innerHeight * 0.01;
-    mobileMenu.current?.style.setProperty('--vh', `${vh}px`);
-  };
+  // const mobileMenu = useRef<HTMLDivElement>(null);
+  // const handleMdHeight = () => {
+  //   const vh = window.innerHeight * 0.01;
+  //   mobileMenu.current?.style.setProperty('--vh', `${vh}px`);
+  // };
+
+  // useEffect(() => {
+  //   handleMdHeight();
+  //   if (mobileMenuOpened) {
+  //     window.addEventListener('resize', handleMdHeight);
+  //   }
+  //   return () => window.removeEventListener('resize', handleMdHeight);
+  // }, [mobileMenuOpened]);
 
   useEffect(() => {
-    handleMdHeight();
-    if (mobileMenuOpened) {
-      window.addEventListener('resize', handleMdHeight);
-    }
-    return () => window.removeEventListener('resize', handleMdHeight);
-  }, [mobileMenuOpened]);
+    disableBodyScroll(document.body);
+    return () => {
+      enableBodyScroll(document.body);
+    };
+  }, []);
   return (
     <header className='fixed top-0 left-0 z-[9999] w-screen'>
       {/* 상단 헤더 */}
@@ -460,12 +468,12 @@ export default function Header() {
       <AnimatePresence>
         {mobileMenuOpened && (
           <motion.div
-            ref={mobileMenu}
+            // ref={mobileMenu}
             variants={mobileMenuVar}
             initial='invisible'
             animate='visible'
             exit='exit'
-            className='absolute top-12 right-0 flex h-[calc(var(--vh)*100)] w-screen overflow-y-scroll'
+            className='absolute top-12 right-0 flex h-screen w-screen overflow-y-scroll'
             // style={{ overflowY: 'scroll', WebkitOverflowScrolling: 'touch' }}
           >
             <div onClick={() => setMobileMenuOpened(false)} className='grow' />
