@@ -124,9 +124,10 @@ export default function Detail({
                 ref={videoPlayerRef}
                 playsInline
                 controls
-                className='h-full w-full'
+                autoPlay
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
+                className='h-full w-full'
               >
                 <source src={data?.url} />
               </video>

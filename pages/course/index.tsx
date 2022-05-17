@@ -50,13 +50,13 @@ const Course: NextPage = () => {
             {text.course['2']}
           </div>
 
-          {/* 사전 온라인연수 */}
-          <div
-            data-aos='fade-up'
-            data-aos-duration='1500'
-            className='mt-16 grid grid-cols-2 gap-x-5 md:mt-10 md:grid-cols-1 md:gap-x-0 md:gap-y-5'
-          >
-            <div className='relative flex h-[26rem] flex-col items-center justify-center space-y-6 rounded-lg md:h-60 md:space-y-4'>
+          <div className='mt-16 grid grid-cols-2 gap-x-5 md:mt-10 md:grid-cols-1 md:gap-x-0 md:gap-y-5'>
+            {/* 사전 온라인연수 */}
+            <div
+              data-aos='fade-up'
+              data-aos-duration='1500'
+              className='group relative flex h-[26rem] flex-col items-center justify-center space-y-6 rounded-lg md:h-60 md:space-y-4'
+            >
               <div className='absolute top-0 left-0 -z-[1] h-full w-full'>
                 <Image
                   src={PreOnlieBgImg}
@@ -75,7 +75,7 @@ const Course: NextPage = () => {
 
               <Link href='/course/list/pre-online/required/1'>
                 <a>
-                  <div className='flex h-[3.75rem] w-44 cursor-pointer items-center justify-center rounded-lg border border-white bg-[rgba(0,0,0,0.5)] text-xl font-bold text-white md:h-14 md:w-36 md:text-lg'>
+                  <div className='invisible flex h-[3.75rem] w-44 translate-y-4 cursor-pointer items-center justify-center rounded-lg border border-white bg-[rgba(0,0,0,0.5)] text-xl font-bold text-white opacity-0 transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 md:h-14 md:w-36 md:text-lg'>
                     {text.course['4']}
                   </div>
                 </a>
@@ -87,8 +87,7 @@ const Course: NextPage = () => {
             <div
               data-aos='fade-up'
               data-aos-duration='1500'
-              data-aos-delay='300'
-              className='relative flex h-[26rem] flex-col items-center justify-center space-y-6 md:h-60 md:space-y-4'
+              className='group relative flex h-[26rem] flex-col items-center justify-center space-y-6 md:h-60 md:space-y-4'
             >
               <div className='absolute top-0 left-0 -z-[1] h-full w-full'>
                 <Image
@@ -106,7 +105,7 @@ const Course: NextPage = () => {
               </div>
               <Link href='/course/list/online/required/1'>
                 <a>
-                  <div className='flex h-[3.75rem] w-44 cursor-pointer items-center justify-center rounded-lg border border-white bg-[rgba(0,0,0,0.5)] text-xl font-bold text-white md:h-14 md:w-36 md:text-lg'>
+                  <div className='invisible flex h-[3.75rem] w-44 translate-y-4 cursor-pointer items-center justify-center rounded-lg border border-white bg-[rgba(0,0,0,0.5)] text-xl font-bold text-white opacity-0 transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 md:h-14 md:w-36 md:text-lg'>
                     {text.course['6']}
                   </div>
                 </a>
