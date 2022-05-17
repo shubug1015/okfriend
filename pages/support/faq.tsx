@@ -7,26 +7,26 @@ import { AnimatePresence, motion } from 'framer-motion';
 import type { NextPage } from 'next';
 import { Fragment, useState } from 'react';
 
-// const faqVar = {
-//   invisible: {
-//     opacity: 0,
-//     height: 0,
-//   },
-//   visible: {
-//     opacity: 1,
-//     height: '5rem',
-//     transition: {
-//       duration: 0.2,
-//     },
-//   },
-//   exit: {
-//     opacity: 0,
-//     height: 0,
-//     transition: {
-//       duration: 0.2,
-//     },
-//   },
-// };
+const faqVar = {
+  invisible: {
+    opacity: 0,
+    height: 0,
+  },
+  visible: {
+    opacity: 1,
+    height: 'auto',
+    transition: {
+      duration: 0.4,
+    },
+  },
+  exit: {
+    opacity: 0,
+    height: 0,
+    transition: {
+      duration: 0.4,
+    },
+  },
+};
 
 const Faq: NextPage = () => {
   const { text } = useLocale();
@@ -164,13 +164,13 @@ const Faq: NextPage = () => {
               <AnimatePresence>
                 {openedFaq === i.id && (
                   <motion.div
-                    // variants={faqVar}
-                    // initial='invisible'
-                    // animate='visible'
-                    // exit='exit'
-                    className='flex items-center justify-between bg-[#f4f9fb] py-7 px-10 md:px-4'
+                    variants={faqVar}
+                    initial='invisible'
+                    animate='visible'
+                    exit='exit'
+                    className='flex items-center justify-between bg-[#f4f9fb] px-10 md:px-4'
                   >
-                    <div className='flex space-x-2'>
+                    <div className='my-7 flex space-x-2'>
                       <div className='flex h-8 w-8 flex-none items-center justify-center rounded-full bg-[#d60a51] font-medium text-white md:h-6 md:w-6 md:text-sm'>
                         A
                       </div>

@@ -60,7 +60,7 @@ export default function Course({
         </div>
       </div>
 
-      <div className='pl-5 pb-5'>
+      <div className='px-5 pb-5'>
         <div className='text-xl font-bold text-white'>{name}</div>
 
         <div className='mt-1 text-white'>{tutor.name} 강사</div>

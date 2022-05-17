@@ -71,15 +71,20 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
   const onInvalid = (errors: FieldErrors) => {
     console.log(errors);
   };
-  const toggleLike = () => {
-    try {
-      boardApi.likeNewsLetter(locale, id, myData?.token as string);
-      mutate({
-        ...data,
-        like_num: data?.liked ? data?.like_num - 1 : data?.like_num + 1,
-      });
-    } catch {
-      alert('Error');
+  const toggleLike = async () => {
+    if (myData?.token) {
+      try {
+        await boardApi.likeNewsLetter(locale, id, myData?.token as string);
+        const data = await boardApi.getNewsLetterDetail(
+          locale,
+          id,
+          myData?.token
+        );
+        mutate(data);
+      } catch {
+        alert('Error');
+      }
+    } else {
     }
   };
   return (
@@ -151,9 +156,7 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
 
         <div className='mt-12 flex justify-center'>
           <div
-            onClick={() =>
-              myData?.token ? toggleLike() : router.push('/login')
-            }
+            onClick={toggleLike}
             className='flex h-16 w-40 cursor-pointer items-center justify-between rounded-lg bg-[#2fb6bc] px-3.5 transition-opacity hover:opacity-90 md:h-12'
           >
             <div className='flex space-x-2'>
@@ -201,7 +204,7 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
                   />
                 </svg>
 
-                <div className='text-lg'>{i.user.name}</div>
+                <div className='text-lg'>{i.user}</div>
 
                 <div className='text-sm text-[#9e9e9e]'>
                   {trimDate(i.created, 0, 10)}{' '}

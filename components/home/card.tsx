@@ -18,7 +18,7 @@ export default function Card() {
     boardApi.getCardNewsList(locale, '1', '전체')
   );
   const slider = useRef<Slider | null>(null);
-  const [activeSlide, setActiveSlide] = useState(0);
+  const [activeSlide, setActiveSlide] = useState(1);
   const [progressBar, setProgressBar] = useState(0);
 
   const settings = {
@@ -28,8 +28,8 @@ export default function Card() {
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: false,
-    afterChange: (index: number) => {
-      setActiveSlide(index);
+    beforeChange: (current: number, next: number) => {
+      setActiveSlide(next + 1);
       setProgressBar(0);
     },
     responsive: [
@@ -67,6 +67,8 @@ export default function Card() {
   useEffect(() => {
     AOS.init({ once: true });
   }, []);
+
+  // console.log(activeSlide);
   return (
     <div className='bg-[url("/home/card-news-bg.png")] bg-cover bg-fixed bg-no-repeat pt-28 pb-32 md:py-10'>
       <Layout>
@@ -104,7 +106,7 @@ export default function Card() {
             </svg>
 
             <div className='ml-1 text-sm font-bold md:ml-1.5 md:text-xs'>
-              {(activeSlide + 1 + '').padStart(2, '0')}
+              {(activeSlide + '').padStart(2, '0')}
             </div>
 
             <div className='mx-3 h-[0.188rem] w-[13.125rem] rounded-full bg-[rgba(255,255,255,0.4)] md:w-28'>

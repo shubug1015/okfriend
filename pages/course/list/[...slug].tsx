@@ -31,8 +31,9 @@ const Course: NextPage<IProps> = ({ params }) => {
       ? '선택차시'
       : '지난 연수 자료'
   }`;
-  const { data } = useSWR(`${locale}/courseList/online/${request}`, () =>
-    courseApi.getCourseList(locale, request, page)
+  const { data } = useSWR(
+    `${locale}/courseList/online/${courseType}/${courseCategory}/${page}`,
+    () => courseApi.getCourseList(locale, request, page)
   );
   const navList = [
     text.preCourseHeader['2'],

@@ -83,7 +83,7 @@ export default function Search({ url }: IProps) {
         </div>
       </div>
 
-      <Select
+      {/* <Select
         select={orderType}
         option={[
           {
@@ -108,7 +108,7 @@ export default function Search({ url }: IProps) {
           )
         }
         setSelect={setOrderType}
-      />
+      /> */}
     </div>
   );
 }
