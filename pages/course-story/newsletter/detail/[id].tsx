@@ -47,20 +47,26 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
           myData?.token
         );
         setValue('reply', '');
-        mutate({
-          ...data,
-          reply: [
-            ...data?.reply,
-            {
-              id: Math.random(),
-              user: {
-                name: myData?.profile?.name,
-              },
-              text: reply,
-              created: new Date().toISOString(),
-            },
-          ],
-        });
+        const updatedData = await boardApi.getNewsLetterDetail(
+          locale,
+          id,
+          myData?.token
+        );
+        mutate(updatedData);
+        // mutate({
+        //   ...data,
+        //   reply: [
+        //     ...data?.reply,
+        //     {
+        //       id: Math.random(),
+        //       user: {
+        //         name: myData?.profile?.name,
+        //       },
+        //       text: reply,
+        //       created: new Date().toISOString(),
+        //     },
+        //   ],
+        // });
       } catch {
         alert('Error');
       }
@@ -75,12 +81,12 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
     if (myData?.token) {
       try {
         await boardApi.likeNewsLetter(locale, id, myData?.token as string);
-        const data = await boardApi.getNewsLetterDetail(
+        const updatedData = await boardApi.getNewsLetterDetail(
           locale,
           id,
           myData?.token
         );
-        mutate(data);
+        mutate(updatedData);
       } catch {
         alert('Error');
       }

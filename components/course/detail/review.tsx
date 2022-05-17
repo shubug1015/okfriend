@@ -17,10 +17,10 @@ interface IForm {
 }
 
 export default function Review({ data, mutate }: IProps) {
-  const { text } = useLocale();
+  const { locale, text } = useLocale();
   const { data: myData } = useSWR<IUser>('/api/user');
   const router = useRouter();
-  const { locale } = router;
+  const [, , id] = router.query.slug as string[];
 
   const {
     register,
@@ -46,20 +46,8 @@ export default function Review({ data, mutate }: IProps) {
           setError('review', { message: text.ReviewError['2'] });
         } else {
           setValue('review', '');
-          mutate({
-            ...data,
-            review: [
-              ...data?.review,
-              {
-                id: Math.random(),
-                user: {
-                  name: myData?.profile?.name,
-                },
-                text: review,
-                created: new Date().toISOString(),
-              },
-            ],
-          });
+          const updatedData = await courseApi.detail(locale, id, myData?.token);
+          mutate(updatedData);
         }
       } catch {
         alert('Error');

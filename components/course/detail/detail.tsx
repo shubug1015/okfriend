@@ -28,10 +28,9 @@ export default function Detail({
   survey,
   mutate,
 }: IProps) {
-  const { text } = useLocale();
+  const { locale, text } = useLocale();
   const { data: myData } = useSWR<IUser>('/api/user');
   const router = useRouter();
-  const { locale } = router;
   const [, category, id] = router.query.slug as string[];
 
   const [isPlaying, setIsPlaying] = useState(false);
@@ -43,8 +42,8 @@ export default function Detail({
     if (myData?.token) {
       try {
         await courseApi.likeCourse(locale, id, myData?.token as string);
-        const data = await courseApi.detail(locale, id, myData?.token);
-        mutate(data);
+        const updatedData = await courseApi.detail(locale, id, myData?.token);
+        mutate(updatedData);
       } catch {
         alert('Error');
       }
@@ -66,8 +65,8 @@ export default function Detail({
     if (myData?.token) {
       try {
         await courseApi.registerCourse(locale, id, myData?.token as string);
-        const data = await courseApi.detail(locale, id, myData?.token);
-        mutate(data);
+        const updatedData = await courseApi.detail(locale, id, myData?.token);
+        mutate(updatedData);
         videoPlayerRef.current.play();
       } catch {
         alert('Error');
@@ -85,8 +84,8 @@ export default function Detail({
         progressPercent,
         myData?.token as string
       );
-      const data = await courseApi.detail(locale, id, myData?.token);
-      mutate(data);
+      const updatedData = await courseApi.detail(locale, id, myData?.token);
+      mutate(updatedData);
     } catch {
       alert('Error');
     }
