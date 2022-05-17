@@ -61,12 +61,14 @@ export default function Detail({
       .then(() => alert('링크가 복사되었습니다.'));
   };
 
+  const videoPlayerRef = useRef<any>();
   const registerCourse = async () => {
     if (myData?.token) {
       try {
         await courseApi.registerCourse(locale, id, myData?.token as string);
         const data = await courseApi.detail(locale, id, myData?.token);
         mutate(data);
+        videoPlayerRef.current.play();
       } catch {
         alert('Error');
       }
@@ -98,7 +100,6 @@ export default function Detail({
   }, [isPlaying]);
 
   // Update progress percent.
-  const videoPlayerRef = useRef<any>();
   useEffect(() => {
     const intervalId = setInterval(() => {
       const videoElem: any = videoPlayerRef.current as any;
@@ -124,7 +125,6 @@ export default function Detail({
                 ref={videoPlayerRef}
                 playsInline
                 controls
-                autoPlay
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
                 className='h-full w-full'
