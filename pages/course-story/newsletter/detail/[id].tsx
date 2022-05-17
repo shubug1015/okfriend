@@ -8,6 +8,7 @@ import { trimDate } from '@libs/client/utils';
 import type { GetServerSidePropsContext, NextPage } from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 import { FieldErrors, useForm } from 'react-hook-form';
 import useSWR from 'swr';
 
@@ -29,6 +30,8 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
       : `${locale}/newsLetterDetail/unlogged`,
     () => boardApi.getNewsLetterDetail(locale, id, myData?.token)
   );
+  const [isEdit, setIsEdit] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -37,36 +40,38 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
   } = useForm<IForm>({
     mode: 'onSubmit',
   });
-  const onValid = async ({ reply }: IForm) => {
+  const onValid = async ({ reply }: IForm, e: any) => {
     if (myData?.token) {
       try {
-        await boardApi.writeNewsLetterReply(
-          locale,
-          data?.id,
-          reply,
-          myData?.token
-        );
-        setValue('reply', '');
-        const updatedData = await boardApi.getNewsLetterDetail(
-          locale,
-          id,
-          myData?.token
-        );
-        mutate(updatedData);
-        // mutate({
-        //   ...data,
-        //   reply: [
-        //     ...data?.reply,
-        //     {
-        //       id: Math.random(),
-        //       user: {
-        //         name: myData?.profile?.name,
-        //       },
-        //       text: reply,
-        //       created: new Date().toISOString(),
-        //     },
-        //   ],
-        // });
+        if (!isEdit) {
+          await boardApi.writeNewsLetterReply(
+            locale,
+            data?.id,
+            reply,
+            myData?.token
+          );
+          setValue('reply', '');
+          const updatedData = await boardApi.getNewsLetterDetail(
+            locale,
+            id,
+            myData?.token
+          );
+          mutate(updatedData);
+        } else {
+          await boardApi.editReview(
+            locale,
+            e.target.id,
+            reply,
+            myData?.token as string
+          );
+          const updatedData = await boardApi.getNewsLetterDetail(
+            locale,
+            id,
+            myData?.token
+          );
+          mutate(updatedData);
+          setIsEdit(false);
+        }
       } catch {
         alert('Error');
       }
@@ -77,6 +82,7 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
   const onInvalid = (errors: FieldErrors) => {
     console.log(errors);
   };
+
   const toggleLike = async () => {
     if (myData?.token) {
       try {
@@ -92,6 +98,21 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
       }
     } else {
       router.push('/login');
+    }
+  };
+
+  const deleteReview = async (id: string) => {
+    try {
+      await boardApi.deleteReview(locale, id, myData?.token as string);
+      const updatedData = await boardApi.getNewsLetterDetail(
+        locale,
+        id,
+        myData?.token
+      );
+      mutate(updatedData);
+      setValue('reply', '');
+    } catch {
+      alert('Error');
     }
   };
   return (
@@ -198,71 +219,144 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
         <div>
           {data?.reply.map((i: { [key: string]: any }) => (
             <div key={i.id} className='border-b border-b-[#e8e8e8] px-7 py-8'>
-              <div className='flex items-center space-x-2'>
-                <svg
-                  viewBox='0 0 36 36'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                  className='w-6'
-                >
-                  <path
-                    d='M18 0C8.2422 0 0 8.2422 0 18C0 27.7578 8.2422 36 18 36C27.7578 36 36 27.7578 36 18C36 8.2422 27.7578 0 18 0ZM18 9C21.1086 9 23.4 11.2896 23.4 14.4C23.4 17.5104 21.1086 19.8 18 19.8C14.8932 19.8 12.6 17.5104 12.6 14.4C12.6 11.2896 14.8932 9 18 9ZM8.8092 26.5896C10.4238 24.2136 13.1166 22.6296 16.2 22.6296H19.8C22.8852 22.6296 25.5762 24.2136 27.1908 26.5896C24.8904 29.052 21.627 30.6 18 30.6C14.373 30.6 11.1096 29.052 8.8092 26.5896Z'
-                    fill='#2FB6BC'
-                  />
-                </svg>
+              <div className='flex items-center justify-between'>
+                <div className='flex items-center space-x-2'>
+                  <svg
+                    viewBox='0 0 36 36'
+                    fill='none'
+                    xmlns='http://www.w3.org/2000/svg'
+                    className='w-6'
+                  >
+                    <path
+                      d='M18 0C8.2422 0 0 8.2422 0 18C0 27.7578 8.2422 36 18 36C27.7578 36 36 27.7578 36 18C36 8.2422 27.7578 0 18 0ZM18 9C21.1086 9 23.4 11.2896 23.4 14.4C23.4 17.5104 21.1086 19.8 18 19.8C14.8932 19.8 12.6 17.5104 12.6 14.4C12.6 11.2896 14.8932 9 18 9ZM8.8092 26.5896C10.4238 24.2136 13.1166 22.6296 16.2 22.6296H19.8C22.8852 22.6296 25.5762 24.2136 27.1908 26.5896C24.8904 29.052 21.627 30.6 18 30.6C14.373 30.6 11.1096 29.052 8.8092 26.5896Z'
+                      fill='#2FB6BC'
+                    />
+                  </svg>
 
-                <div className='text-lg'>{i.user}</div>
+                  <div className='text-lg'>{i.user}</div>
 
-                <div className='text-sm text-[#9e9e9e]'>
-                  {trimDate(i.created, 0, 10)}{' '}
-                  {i.created.split('T')[1].slice(0, 8)}
+                  <div className='text-sm text-[#9e9e9e]'>
+                    {trimDate(i.created, 0, 10)}{' '}
+                    {i.created.split('T')[1].slice(0, 8)}
+                  </div>
                 </div>
+
+                {i.is_mine && (
+                  <div className='flex items-center space-x-2 text-[#6b6b6b]'>
+                    <div
+                      onClick={() => setIsEdit(true)}
+                      className='cursor-pointer'
+                    >
+                      수정
+                    </div>
+                    <div className='text-sm'>|</div>
+                    <div
+                      onClick={() => deleteReview(i.id)}
+                      className='cursor-pointer'
+                    >
+                      삭제
+                    </div>
+                  </div>
+                )}
               </div>
 
-              <div className='mt-5 text-lg'>{i.text}</div>
+              {(!isEdit || !i.is_mine) && (
+                <div className='mt-5 text-lg'>{i.text}</div>
+              )}
+
+              {isEdit && i.is_mine && (
+                <div className='flex items-center justify-between'>
+                  {/* 댓글 수정창 */}
+                  <div className='grow py-8'>
+                    <input
+                      type='text'
+                      {...register('reply', {
+                        required: '댓글을 입력해주세요',
+                        minLength: {
+                          message: '10자 이상의 댓글을 남겨주세요',
+                          value: 10,
+                        },
+                      })}
+                      placeholder='댓글을 입력해주세요.'
+                      className='mt-2 w-full text-lg outline-none placeholder:text-[#9e9e9e] md:px-4 md:text-sm'
+                    />
+                    <div className='text-sm text-red-500'>
+                      {errors?.reply?.message}
+                    </div>
+                  </div>
+                  {/* 댓글 수정창 */}
+
+                  {/* 수정하기 */}
+                  <div
+                    id={i.id}
+                    onClick={handleSubmit(onValid, onInvalid)}
+                    className='flex h-[2.8rem] w-[7.5rem] cursor-pointer items-center justify-center space-x-1.5 rounded-lg bg-[#2fb6bc] font-medium text-white transition-all hover:opacity-90 md:h-[1.8rem] md:w-[5.4rem] md:text-sm'
+                  >
+                    <svg
+                      width='24'
+                      height='24'
+                      viewBox='0 0 24 24'
+                      fill='none'
+                      xmlns='http://www.w3.org/2000/svg'
+                      className='md:w-[0.8rem]'
+                    >
+                      <path
+                        d='M10.558 13.6172L12.319 13.1092L18.691 6.38729C18.7746 6.30159 18.8212 6.18643 18.8206 6.06668C18.8201 5.94693 18.7724 5.83221 18.688 5.74729L18.053 5.10529C18.012 5.06313 17.9629 5.02956 17.9088 5.00655C17.8546 4.98354 17.7965 4.97154 17.7376 4.97126C17.6788 4.97098 17.6205 4.98243 17.5661 5.00492C17.5118 5.02742 17.4624 5.06052 17.421 5.10229L11.077 11.7962L10.557 13.6162L10.558 13.6172ZM19.31 3.83329L19.945 4.47629C20.821 5.36329 20.829 6.79429 19.961 7.67229L13.266 14.7222L9.502 15.8062C9.2722 15.8705 9.02626 15.8411 8.81816 15.7243C8.61006 15.6075 8.4568 15.4129 8.392 15.1832C8.34378 15.0181 8.34309 14.8427 8.39 14.6772L9.485 10.8372L16.151 3.81629C16.3582 3.60765 16.6049 3.44235 16.8766 3.33005C17.1484 3.21774 17.4398 3.16066 17.7339 3.16215C18.0279 3.16364 18.3187 3.22366 18.5893 3.33872C18.8599 3.45378 19.1049 3.62256 19.31 3.83329ZM9.184 3.81621C9.68 3.81621 10.082 4.22321 10.082 4.72521C10.0828 4.84388 10.0602 4.96154 10.0155 5.07146C9.97075 5.18139 9.90481 5.28142 9.82141 5.36584C9.73801 5.45026 9.63879 5.51742 9.52942 5.56347C9.42004 5.60952 9.30267 5.63355 9.184 5.63421H5.592C4.6 5.63421 3.796 6.44821 3.796 7.45121V18.3572C3.796 19.3612 4.6 20.1752 5.592 20.1752H16.368C17.36 20.1752 18.165 19.3612 18.165 18.3572V14.7222C18.165 14.2202 18.567 13.8132 19.063 13.8132C19.559 13.8132 19.961 14.2202 19.961 14.7232V18.3572C19.961 20.3652 18.352 21.9932 16.368 21.9932H5.592C3.608 21.9932 2 20.3652 2 18.3572V7.45121C2 5.44421 3.608 3.81621 5.592 3.81621H9.184Z'
+                        fill='white'
+                      />
+                    </svg>
+                    <div>댓글 입력</div>
+                  </div>
+                  {/* 수정하기 */}
+                </div>
+              )}
             </div>
           ))}
         </div>
 
-        <div className='flex items-center justify-between space-x-14 border-b border-b-[#e8e8e8] md:space-x-4'>
-          <div className='grow py-8'>
-            <input
-              type='text'
-              {...register('reply', {
-                required: '댓글을 입력해주세요',
-                minLength: {
-                  message: '10자 이상의 댓글을 남겨주세요',
-                  value: 10,
-                },
-              })}
-              placeholder='댓글을 입력해주세요.'
-              className='mt-2 w-full px-7 text-lg outline-none placeholder:text-[#9e9e9e] md:px-4 md:text-sm'
-            />
-            <div className='px-7 text-sm text-red-500'>
-              {errors?.reply?.message}
+        {!data?.reply
+          .map((i: { [key: string]: any }) => i.is_mine)
+          .includes(true) && (
+          <div className='flex items-center justify-between space-x-14 border-b border-b-[#e8e8e8] md:space-x-4'>
+            <div className='grow py-8'>
+              <input
+                type='text'
+                {...register('reply', {
+                  required: '댓글을 입력해주세요',
+                  minLength: {
+                    message: '10자 이상의 댓글을 남겨주세요',
+                    value: 10,
+                  },
+                })}
+                placeholder='댓글을 입력해주세요.'
+                className='mt-2 w-full px-7 text-lg outline-none placeholder:text-[#9e9e9e] md:px-4 md:text-sm'
+              />
+              <div className='px-7 text-sm text-red-500'>
+                {errors?.reply?.message}
+              </div>
+            </div>
+
+            <div
+              onClick={handleSubmit(onValid, onInvalid)}
+              className='flex h-[2.8rem] w-[7.5rem] cursor-pointer items-center justify-center space-x-1.5 rounded-lg bg-[#2fb6bc] font-medium text-white transition-all hover:opacity-90 md:h-[1.8rem] md:w-[5.4rem] md:text-sm'
+            >
+              <svg
+                width='24'
+                height='24'
+                viewBox='0 0 24 24'
+                fill='none'
+                xmlns='http://www.w3.org/2000/svg'
+                className='md:w-[0.8rem]'
+              >
+                <path
+                  d='M10.558 13.6172L12.319 13.1092L18.691 6.38729C18.7746 6.30159 18.8212 6.18643 18.8206 6.06668C18.8201 5.94693 18.7724 5.83221 18.688 5.74729L18.053 5.10529C18.012 5.06313 17.9629 5.02956 17.9088 5.00655C17.8546 4.98354 17.7965 4.97154 17.7376 4.97126C17.6788 4.97098 17.6205 4.98243 17.5661 5.00492C17.5118 5.02742 17.4624 5.06052 17.421 5.10229L11.077 11.7962L10.557 13.6162L10.558 13.6172ZM19.31 3.83329L19.945 4.47629C20.821 5.36329 20.829 6.79429 19.961 7.67229L13.266 14.7222L9.502 15.8062C9.2722 15.8705 9.02626 15.8411 8.81816 15.7243C8.61006 15.6075 8.4568 15.4129 8.392 15.1832C8.34378 15.0181 8.34309 14.8427 8.39 14.6772L9.485 10.8372L16.151 3.81629C16.3582 3.60765 16.6049 3.44235 16.8766 3.33005C17.1484 3.21774 17.4398 3.16066 17.7339 3.16215C18.0279 3.16364 18.3187 3.22366 18.5893 3.33872C18.8599 3.45378 19.1049 3.62256 19.31 3.83329ZM9.184 3.81621C9.68 3.81621 10.082 4.22321 10.082 4.72521C10.0828 4.84388 10.0602 4.96154 10.0155 5.07146C9.97075 5.18139 9.90481 5.28142 9.82141 5.36584C9.73801 5.45026 9.63879 5.51742 9.52942 5.56347C9.42004 5.60952 9.30267 5.63355 9.184 5.63421H5.592C4.6 5.63421 3.796 6.44821 3.796 7.45121V18.3572C3.796 19.3612 4.6 20.1752 5.592 20.1752H16.368C17.36 20.1752 18.165 19.3612 18.165 18.3572V14.7222C18.165 14.2202 18.567 13.8132 19.063 13.8132C19.559 13.8132 19.961 14.2202 19.961 14.7232V18.3572C19.961 20.3652 18.352 21.9932 16.368 21.9932H5.592C3.608 21.9932 2 20.3652 2 18.3572V7.45121C2 5.44421 3.608 3.81621 5.592 3.81621H9.184Z'
+                  fill='white'
+                />
+              </svg>
+              <div>댓글 입력</div>
             </div>
           </div>
-
-          <div
-            onClick={handleSubmit(onValid, onInvalid)}
-            className='flex h-[2.8rem] w-[7.5rem] cursor-pointer items-center justify-center space-x-1.5 rounded-lg bg-[#2fb6bc] font-medium text-white transition-all hover:opacity-90 md:h-[1.8rem] md:w-[5.4rem] md:text-sm'
-          >
-            <svg
-              width='24'
-              height='24'
-              viewBox='0 0 24 24'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-              className='md:w-[0.8rem]'
-            >
-              <path
-                d='M10.558 13.6172L12.319 13.1092L18.691 6.38729C18.7746 6.30159 18.8212 6.18643 18.8206 6.06668C18.8201 5.94693 18.7724 5.83221 18.688 5.74729L18.053 5.10529C18.012 5.06313 17.9629 5.02956 17.9088 5.00655C17.8546 4.98354 17.7965 4.97154 17.7376 4.97126C17.6788 4.97098 17.6205 4.98243 17.5661 5.00492C17.5118 5.02742 17.4624 5.06052 17.421 5.10229L11.077 11.7962L10.557 13.6162L10.558 13.6172ZM19.31 3.83329L19.945 4.47629C20.821 5.36329 20.829 6.79429 19.961 7.67229L13.266 14.7222L9.502 15.8062C9.2722 15.8705 9.02626 15.8411 8.81816 15.7243C8.61006 15.6075 8.4568 15.4129 8.392 15.1832C8.34378 15.0181 8.34309 14.8427 8.39 14.6772L9.485 10.8372L16.151 3.81629C16.3582 3.60765 16.6049 3.44235 16.8766 3.33005C17.1484 3.21774 17.4398 3.16066 17.7339 3.16215C18.0279 3.16364 18.3187 3.22366 18.5893 3.33872C18.8599 3.45378 19.1049 3.62256 19.31 3.83329ZM9.184 3.81621C9.68 3.81621 10.082 4.22321 10.082 4.72521C10.0828 4.84388 10.0602 4.96154 10.0155 5.07146C9.97075 5.18139 9.90481 5.28142 9.82141 5.36584C9.73801 5.45026 9.63879 5.51742 9.52942 5.56347C9.42004 5.60952 9.30267 5.63355 9.184 5.63421H5.592C4.6 5.63421 3.796 6.44821 3.796 7.45121V18.3572C3.796 19.3612 4.6 20.1752 5.592 20.1752H16.368C17.36 20.1752 18.165 19.3612 18.165 18.3572V14.7222C18.165 14.2202 18.567 13.8132 19.063 13.8132C19.559 13.8132 19.961 14.2202 19.961 14.7232V18.3572C19.961 20.3652 18.352 21.9932 16.368 21.9932H5.592C3.608 21.9932 2 20.3652 2 18.3572V7.45121C2 5.44421 3.608 3.81621 5.592 3.81621H9.184Z'
-                fill='white'
-              />
-            </svg>
-            <div>댓글 입력</div>
-          </div>
-        </div>
+        )}
 
         <Link href='/course-story/newsletter/1'>
           <a className='mt-6 flex h-[2.8rem] w-[6.5rem] items-center justify-center rounded-lg border border-[#6b6b6b] text-lg font-medium text-[#6b6b6b] transition-all hover:opacity-70 md:h-[1.9rem] md:w-[4.7rem] md:text-sm'>

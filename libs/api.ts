@@ -133,7 +133,7 @@ export const boardApi = {
       )
       .then((res) => res.data),
 
-  // 강의 상세 리뷰 작성
+  // 뉴스레터 리뷰 작성
   writeNewsLetterReply: (
     locale: string | undefined,
     id: string,
@@ -148,6 +148,42 @@ export const boardApi = {
         text,
       },
       {
+        headers: {
+          Authorization: token,
+          'Content-Type': 'application/json',
+        },
+      }
+    ),
+
+  // 뉴스레터 리뷰 수정
+  editReview: (
+    locale: string | undefined,
+    id: string,
+    text: string,
+    token: string
+  ) =>
+    api.put(
+      `${locale === 'ko' ? '' : `/${locale}`}/board/news_letter/reply/`,
+      {
+        reply_pk: id,
+        text,
+      },
+      {
+        headers: {
+          Authorization: token,
+          'Content-Type': 'application/json',
+        },
+      }
+    ),
+
+  // 뉴스레터 리뷰 삭제
+  deleteReview: (locale: string | undefined, id: string, token: string) =>
+    api.delete(
+      `${locale === 'ko' ? '' : `/${locale}`}/board/news_letter/reply/`,
+      {
+        data: {
+          reply_pk: id,
+        },
         headers: {
           Authorization: token,
           'Content-Type': 'application/json',
@@ -247,6 +283,39 @@ export const courseApi = {
         },
       }
     ),
+
+  // 강의 상세 리뷰 수정
+  editReview: (
+    locale: string | undefined,
+    id: string,
+    text: string,
+    token: string
+  ) =>
+    api.put(
+      `${locale === 'ko' ? '' : `/${locale}`}/lectures/review/`,
+      {
+        review_pk: id,
+        text,
+      },
+      {
+        headers: {
+          Authorization: token,
+          'Content-Type': 'application/json',
+        },
+      }
+    ),
+
+  // 강의 상세 리뷰 삭제
+  deleteReview: (locale: string | undefined, id: string, token: string) =>
+    api.delete(`${locale === 'ko' ? '' : `/${locale}`}/lectures/review/`, {
+      data: {
+        review_pk: id,
+      },
+      headers: {
+        Authorization: token,
+        'Content-Type': 'application/json',
+      },
+    }),
 };
 
 export const usersApi = {
