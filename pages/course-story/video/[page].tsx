@@ -45,12 +45,11 @@ const Video: NextPage<IProps> = ({ page }) => {
               'font-notoSans text-3xl',
               'font-notoSans text-4xl'
             ),
-            'font-bold leading-[3.15rem] text-[#01111e] md:text-center md:text-xl'
+            'font-bold leading-[3.15rem] text-[#01111e] md:text-center md:text-xl md:tracking-tight'
           )}
         >
-          {text.video['1']}
-          <br className='hidden md:block' />
-          <span className='text-[#2fb6bc]'> {text.video['2']}</span>
+          {text.video['1']} <br className='hidden md:block' />
+          <span className='text-[#2fb6bc]'>{text.video['2']}</span>
         </div>
 
         <div
