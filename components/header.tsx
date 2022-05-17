@@ -19,7 +19,6 @@ import React, { useState, Fragment, useEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, Transition } from '@headlessui/react';
 import { useLocale } from '@libs/client/useLocale';
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 const tabVar = {
   invisible: {
@@ -248,14 +247,6 @@ export default function Header() {
   //   }
   //   return () => window.removeEventListener('resize', handleMdHeight);
   // }, [mobileMenuOpened]);
-
-  useEffect(() => {
-    if (mobileMenuOpened) {
-      disableBodyScroll(document.body);
-    } else {
-      enableBodyScroll(document.body);
-    }
-  }, [mobileMenuOpened]);
   return (
     <header className='fixed top-0 left-0 z-[9999] w-screen'>
       {/* 상단 헤더 */}
