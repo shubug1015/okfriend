@@ -40,7 +40,7 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
   } = useForm<IForm>({
     mode: 'onSubmit',
   });
-  const onValid = async ({ reply }: IForm, e: any) => {
+  const onValid = async ({ reply }: IForm) => {
     if (myData?.token) {
       try {
         if (!isEdit) {
@@ -58,9 +58,12 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
           );
           mutate(updatedData);
         } else {
+          const replyId = data?.reply.filter(
+            (i: { [key: string]: any }) => i.is_mine
+          )[0].id;
           await boardApi.editReview(
             locale,
-            e.target.id,
+            replyId,
             reply,
             myData?.token as string
           );
@@ -101,9 +104,9 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
     }
   };
 
-  const deleteReview = async (id: string) => {
+  const deleteReview = async (replyId: string) => {
     try {
-      await boardApi.deleteReview(locale, id, myData?.token as string);
+      await boardApi.deleteReview(locale, replyId, myData?.token as string);
       const updatedData = await boardApi.getNewsLetterDetail(
         locale,
         id,
@@ -241,10 +244,13 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
                   </div>
                 </div>
 
-                {i.is_mine && (
+                {!isEdit && i.is_mine && (
                   <div className='flex items-center space-x-2 text-[#6b6b6b]'>
                     <div
-                      onClick={() => setIsEdit(true)}
+                      onClick={() => {
+                        setIsEdit(true);
+                        setValue('reply', i.text);
+                      }}
                       className='cursor-pointer'
                     >
                       수정
@@ -288,7 +294,6 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
 
                   {/* 수정하기 */}
                   <div
-                    id={i.id}
                     onClick={handleSubmit(onValid, onInvalid)}
                     className='flex h-[2.8rem] w-[7.5rem] cursor-pointer items-center justify-center space-x-1.5 rounded-lg bg-[#2fb6bc] font-medium text-white transition-all hover:opacity-90 md:h-[1.8rem] md:w-[5.4rem] md:text-sm'
                   >

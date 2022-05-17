@@ -33,7 +33,7 @@ export default function Review({ data, mutate }: IProps) {
   } = useForm<IForm>({
     mode: 'onSubmit',
   });
-  const onValid = async ({ review }: IForm, e: any) => {
+  const onValid = async ({ review }: IForm) => {
     if (myData?.token) {
       try {
         if (!isEdit) {
@@ -57,9 +57,12 @@ export default function Review({ data, mutate }: IProps) {
             mutate(updatedData);
           }
         } else {
+          const reviewId = data?.review.filter(
+            (i: { [key: string]: any }) => i.is_mine
+          )[0].id;
           await courseApi.editReview(
             locale,
-            e.target.id,
+            reviewId,
             review,
             myData?.token as string
           );
@@ -78,9 +81,9 @@ export default function Review({ data, mutate }: IProps) {
     console.log(errors);
   };
 
-  const deleteReview = async (id: string) => {
+  const deleteReview = async (reviewId: string) => {
     try {
-      await courseApi.deleteReview(locale, id, myData?.token as string);
+      await courseApi.deleteReview(locale, reviewId, myData?.token as string);
       const updatedData = await courseApi.detail(locale, id, myData?.token);
       mutate(updatedData);
       setValue('review', '');
@@ -159,10 +162,13 @@ export default function Review({ data, mutate }: IProps) {
                 <div className='text-lg md:text-sm'>{i.user.name}</div>
               </div>
 
-              {i.is_mine && (
+              {!isEdit && i.is_mine && (
                 <div className='flex items-center space-x-2 text-[#6b6b6b]'>
                   <div
-                    onClick={() => setIsEdit(true)}
+                    onClick={() => {
+                      setIsEdit(true);
+                      setValue('review', i.text);
+                    }}
                     className='cursor-pointer'
                   >
                     수정
@@ -192,7 +198,7 @@ export default function Review({ data, mutate }: IProps) {
                 <div>
                   <textarea
                     {...register('review', {
-                      value: i.text,
+                      // value: i.text,
                       required: text.ReviewError['3'],
                       minLength: {
                         message: text.ReviewError['4'],
@@ -210,7 +216,6 @@ export default function Review({ data, mutate }: IProps) {
 
                 {/* 수정하기 */}
                 <div
-                  id={i.id}
                   onClick={handleSubmit(onValid, onInvalid)}
                   className='flex h-12 w-40 cursor-pointer items-center justify-center rounded-lg bg-[#2fb6bc] font-medium text-white transition-all hover:opacity-90 md:h-10 md:w-24 md:text-sm'
                 >
