@@ -53,7 +53,7 @@ export default function Footer() {
               </a>
             </Link>
 
-            <div className='text-sm text-[#9e9e9e]'>|</div>
+            <div className='whitespace-pre-wrap text-sm text-[#9e9e9e]'>|</div>
             <Link href='/email-policy'>
               <a>
                 <div
@@ -72,7 +72,7 @@ export default function Footer() {
               </a>
             </Link>
 
-            <div className='text-sm text-[#9e9e9e]'>|</div>
+            <div className='whitespace-pre-wrap text-sm text-[#9e9e9e]'>|</div>
             <Link href='/privacy-policy'>
               <a>
                 <div
