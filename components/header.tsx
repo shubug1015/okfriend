@@ -15,7 +15,7 @@ import { useRouter } from 'next/router';
 import { IUser } from '@libs/client/useUser';
 import useSWR from 'swr';
 import axios from 'axios';
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, Transition } from '@headlessui/react';
 import { useLocale } from '@libs/client/useLocale';
@@ -233,6 +233,18 @@ export default function Header() {
     await axios.post('/api/logout');
     mutate({ ok: false, token: null, profile: null });
   };
+
+  const handleMdHeight = () => {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  };
+
+  useEffect(() => {
+    handleMdHeight();
+    window.addEventListener('resize', handleMdHeight);
+
+    return () => window.removeEventListener('resize', handleMdHeight);
+  }, []);
   return (
     <header className='fixed top-0 left-0 z-[9999] w-screen'>
       {/* 상단 헤더 */}
@@ -450,7 +462,7 @@ export default function Header() {
             initial='invisible'
             animate='visible'
             exit='exit'
-            className='absolute top-12 right-0 flex h-screen w-screen overflow-y-scroll'
+            className='absolute top-12 right-0 flex h-[calc(var(--vh)*100)] w-screen overflow-y-scroll'
             // style={{ overflowY: 'scroll', WebkitOverflowScrolling: 'touch' }}
           >
             <div onClick={() => setMobileMenuOpened(false)} className='grow' />
