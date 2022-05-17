@@ -153,7 +153,7 @@ export default function Card() {
                       alt='Card News Thumbnail'
                       layout='fill'
                       objectFit='cover'
-                      priority
+                      // priority
                       className='rounded-lg'
                     />
                   </div>
