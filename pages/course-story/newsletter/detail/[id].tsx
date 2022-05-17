@@ -85,6 +85,7 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
         alert('Error');
       }
     } else {
+      router.push('/login');
     }
   };
   return (
