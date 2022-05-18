@@ -453,7 +453,7 @@ const SignUp: NextPage = () => {
                     validate: {
                       notEmail: (value) => {
                         const regEmail =
-                          /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+                          /^([\w\.\_\-])*[a-zA-Z0-9]+([\w\.\_\-])*([a-zA-Z0-9])+([\w\.\_\-])+@([a-zA-Z0-9]+\.)+[a-zA-Z0-9]{2,8}$/;
                         if (regEmail.test(value)) {
                           return true;
                         } else {
@@ -534,18 +534,18 @@ const SignUp: NextPage = () => {
                   type='tel'
                   label={text.signup['25']}
                   register={register('phoneNum', {
-                    required: text.signupError['27'],
-                    validate: {
-                      notPhoneNum: (value) => {
-                        const regPhoneNum =
-                          /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
-                        if (regPhoneNum.test(value)) {
-                          return true;
-                        } else {
-                          return text.signupError['28'];
-                        }
-                      },
-                    },
+                    // required: text.signupError['27'],
+                    // validate: {
+                    //   notPhoneNum: (value) => {
+                    //     const regPhoneNum =
+                    //       /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+                    //     if (regPhoneNum.test(value)) {
+                    //       return true;
+                    //     } else {
+                    //       return text.signupError['28'];
+                    //     }
+                    //   },
+                    // },
                   })}
                   error={errors?.phoneNum?.message}
                 />

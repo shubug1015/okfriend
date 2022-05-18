@@ -32,10 +32,10 @@ export default function Tutor({ tutor }: IProps) {
             <div className='ml-[1.625rem] w-[27rem] md:w-56'>
               <div className='flex items-center space-x-6'>
                 <span className='text-[2rem] font-bold md:text-[1.75rem]'>
-                  {tutor?.en_name}
+                  {tutor?.name}
                 </span>
                 <span className='text-xl font-bold md:text-lg'>
-                  {tutor?.name}
+                  {tutor?.en_name}
                 </span>
               </div>
 

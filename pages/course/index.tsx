@@ -57,7 +57,7 @@ const Course: NextPage = () => {
               data-aos-duration='1500'
               className='group relative flex h-[26rem] flex-col items-center justify-center space-y-6 rounded-lg md:h-60 md:space-y-4'
             >
-              <div className='absolute top-0 left-0 -z-[1] h-full w-full'>
+              <div className='absolute top-0 left-0 -z-[1] h-full w-full transition-all group-hover:grayscale-[30%]'>
                 <Image
                   src={PreOnlieBgImg}
                   alt='Pre Online Course Background Image'
@@ -89,7 +89,7 @@ const Course: NextPage = () => {
               data-aos-duration='1500'
               className='group relative flex h-[26rem] flex-col items-center justify-center space-y-6 md:h-60 md:space-y-4'
             >
-              <div className='absolute top-0 left-0 -z-[1] h-full w-full'>
+              <div className='absolute top-0 left-0 -z-[1] h-full w-full transition-all group-hover:grayscale-[30%]'>
                 <Image
                   src={OnlieBgImg}
                   alt='Online Course Background Image'
