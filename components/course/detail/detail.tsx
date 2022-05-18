@@ -76,12 +76,12 @@ export default function Detail({
     }
   };
 
-  const setProgress = async () => {
+  const setProgress = async (percent: number) => {
     try {
       await courseApi.sendProgress(
         locale,
         id,
-        progressPercent,
+        percent,
         myData?.token as string
       );
       const updatedData = await courseApi.detail(locale, id, myData?.token);
@@ -91,12 +91,12 @@ export default function Detail({
     }
   };
 
-  useEffect(() => {
-    if (isPlaying) {
-      let timer = setInterval(setProgress, 10000);
-      return () => clearInterval(timer);
-    }
-  }, [isPlaying]);
+  // useEffect(() => {
+  //   if (isPlaying) {
+  //     let timer = setInterval(setProgress, 10000);
+  //     return () => clearInterval(timer);
+  //   }
+  // }, [isPlaying]);
 
   // Update progress percent.
   useEffect(() => {
@@ -107,12 +107,16 @@ export default function Detail({
         return;
       }
 
-      const newPercent = (videoElem.currentTime / videoElem.duration) * 100;
-      setProgressPercent(newPercent);
-    }, 1000); // Update progress percent in every sec.
+      if (isPlaying) {
+        const currentTime = videoElem.currentTime;
+        const totalTime = videoElem.duration;
+        const percent = (currentTime / totalTime) * 100;
+        setProgress(percent);
+      }
+    }, 10000); // Update progress percent in every sec.
 
     return () => clearInterval(intervalId);
-  }, [setProgressPercent]);
+  }, [isPlaying]);
   return (
     <>
       <div>
