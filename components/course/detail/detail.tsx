@@ -1,14 +1,14 @@
-import Layout from '@layouts/sectionLayout';
+// import Layout from '@layouts/sectionLayout';
 import { cls } from '@libs/client/utils';
 import Image from 'next/image';
-import Link from 'next/link';
+// import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import Popup from '@components/course/detail/popup';
 import { courseApi } from '@libs/api';
 import { useRouter } from 'next/router';
 import { IUser } from '@libs/client/useUser';
 import useSWR from 'swr';
-import Vimeo from '@u-wave/react-vimeo';
+// import Vimeo from '@u-wave/react-vimeo';
 import { useLocale } from '@libs/client/useLocale';
 
 interface IProps {
@@ -34,7 +34,7 @@ export default function Detail({
   const [, category, id] = router.query.slug as string[];
 
   const [isPlaying, setIsPlaying] = useState(false);
-  const [progressPercent, setProgressPercent] = useState(0);
+  // const [progressPercent, setProgressPercent] = useState(0);
   const [popup, setPopup] = useState(false);
   const closePopup = () => setPopup(false);
 
