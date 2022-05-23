@@ -305,14 +305,14 @@ export default function Header() {
                         <div
                           onClick={() => {
                             i === '한국어'
-                              ? router.push(router.pathname, router.asPath, {
+                              ? router.push('/', '/', {
                                   locale: 'ko',
                                 })
                               : i === '영어'
-                              ? router.push(router.pathname, router.asPath, {
+                              ? router.push('/', '/', {
                                   locale: 'en',
                                 })
-                              : router.push(router.pathname, router.asPath, {
+                              : router.push('/', '/', {
                                   locale: 'ru',
                                 });
                           }}
