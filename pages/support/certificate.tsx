@@ -106,10 +106,16 @@ const Certificate: NextPage = () => {
   //   }
   // }, [profile?.survey]);
 
-  if (data === 'there are uncompleted lectures') {
-    alert('미완료된 강의가 있습니다.');
-    router.back();
-  }
+  // if (data === 'there are uncompleted lectures') {
+  //   alert('미완료된 강의가 있습니다.');
+  //   router.back();
+  // }
+  useEffect(() => {
+    if (data === 'there are uncompleted lectures') {
+      alert('미완료된 강의가 있습니다.');
+      router.back();
+    }
+  }, [data]);
   return (
     <>
       <SEO title='지원센터' />

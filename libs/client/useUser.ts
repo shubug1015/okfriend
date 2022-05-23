@@ -26,7 +26,7 @@ export const useUser = ({ isPrivate = false }: IProps) => {
     }
 
     if (data && !data.token && !data.profile && isPrivate) {
-      router.replace('/login');
+      router.push('/login');
     }
   }, [data, router]);
 
