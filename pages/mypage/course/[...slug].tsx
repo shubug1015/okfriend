@@ -5,7 +5,7 @@ import SEO from '@components/seo';
 import Layout from '@layouts/sectionLayout';
 import { cls } from '@libs/client/utils';
 import type { GetServerSidePropsContext, NextPage } from 'next';
-import { useState } from 'react';
+// import { useState } from 'react';
 import useSWR from 'swr';
 import { useUser } from '@libs/client/useUser';
 import { mypageApi } from '@libs/api';
