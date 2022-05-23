@@ -12,8 +12,8 @@ export default function Navigator() {
   const navList = [
     {
       id: 0,
-      url: '/mypage/course/1',
-      active: router.pathname === '/mypage/course/[page]',
+      url: '/mypage/course/ongoing/1',
+      active: router.pathname === '/mypage/course/[...slug]',
       label: text.mypageNav['1'],
     },
     {

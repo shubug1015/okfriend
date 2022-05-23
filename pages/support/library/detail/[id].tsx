@@ -3,10 +3,10 @@ import SEO from '@components/seo';
 import Navigator from '@components/support/navigator';
 import Layout from '@layouts/sectionLayout';
 import { boardApi } from '@libs/api';
+import { useLocale } from '@libs/client/useLocale';
 import { trimDate } from '@libs/client/utils';
 import type { GetServerSidePropsContext, NextPage } from 'next';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import useSWR from 'swr';
 
 interface IProps {
@@ -14,16 +14,18 @@ interface IProps {
 }
 
 const LibraryDetail: NextPage<IProps> = ({ id }) => {
-  const router = useRouter();
-  const { locale } = router;
+  const { locale, text } = useLocale();
   const { data } = useSWR(`${locale}/libraryDetail`, () =>
     boardApi.getLibraryDetail(locale, id)
   );
   return (
     <>
       <SEO title='자료실' />
-      <Banner title='지원센터 자료실' navList={['지원센터', '자료실']} />
-      <Navigator supportCategory='notice' />
+      <Banner
+        title={text.supportStoryHeader['1']}
+        navList={[text.supportStoryHeader['2'], text.supportStoryHeader['6']]}
+      />
+      <Navigator supportCategory='library' />
       <Layout bgColor='bg-[#f4f9fb]' padding='py-14'>
         <div className='font-bold'>자료실</div>
 
@@ -80,7 +82,7 @@ const LibraryDetail: NextPage<IProps> = ({ id }) => {
         </div>
       </Layout>
 
-      <Layout padding='py-20'>
+      <Layout padding='py-14'>
         <div dangerouslySetInnerHTML={{ __html: data?.content }} />
 
         <div className='mt-20 border-y border-[#cccccc] py-5'>
@@ -89,7 +91,10 @@ const LibraryDetail: NextPage<IProps> = ({ id }) => {
             download
             className='text-lg text-[#9e9e9e] transition-opacity hover:opacity-70'
           >
-            {decodeURI(data?.file).replace('http://127.0.0.1:8000/media/', '')}
+            {decodeURI(data?.file).replace(
+              'https://okfriends-s3.s3.ap-northeast-2.amazonaws.com/uploads/',
+              ''
+            )}
           </a>
         </div>
 

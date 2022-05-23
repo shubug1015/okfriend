@@ -409,9 +409,9 @@ export const usersApi = {
 
 export const mypageApi = {
   // 마이페이지 내 강의 리스트
-  myCourseList: (page: string, token: string) =>
+  myCourseList: (completed: boolean, page: string, token: string) =>
     api
-      .get(`/mypage/registered_lecture?page=${page}`, {
+      .get(`/mypage/registered_lecture?completed=${completed}&page=${page}`, {
         headers: {
           Authorization: token,
           'Content-Type': 'application/json',

@@ -1,13 +1,13 @@
 import Detail from '@components/course/detail/detail';
 import Info from '@components/course/detail/info';
-import Qna from '@components/course/detail/qna';
+// import Qna from '@components/course/detail/qna';
 import Review from '@components/course/detail/review';
 import Tutor from '@components/course/detail/tutor';
 import SEO from '@components/seo';
 import Layout from '@layouts/sectionLayout';
 import { courseApi } from '@libs/api';
 import { useLocale } from '@libs/client/useLocale';
-import { IUser } from '@libs/client/useUser';
+import { IUser, useUser } from '@libs/client/useUser';
 import { cls, clsFilter } from '@libs/client/utils';
 import type { GetServerSidePropsContext, NextPage } from 'next';
 import { useRouter } from 'next/router';
@@ -20,6 +20,7 @@ interface IProps {
 
 const CourseDetail: NextPage<IProps> = ({ slug }) => {
   const { locale, text } = useLocale();
+  useUser({ isPrivate: true });
   const { data: myData } = useSWR<IUser>('/api/user');
   const [, category, id] = slug;
   const { data, mutate } = useSWR(
@@ -31,7 +32,7 @@ const CourseDetail: NextPage<IProps> = ({ slug }) => {
   const courseData = data?.lecture || data;
 
   const [section, setSection] = useState(
-    category === 'past' ? '강의리뷰' : '강의소개'
+    category === 'past' ? text.courseDetail['13'] : text.courseDetail['11']
   );
   const sectionList =
     category === 'past'

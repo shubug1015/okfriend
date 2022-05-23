@@ -423,7 +423,7 @@ export default function Header() {
           <div className='flex w-1/4 justify-end space-x-2.5 md:hidden'>
             {data?.token && data?.profile ? (
               <>
-                <Link href='/mypage/course/1'>
+                <Link href='/mypage/course/ongoing/1'>
                   <a className='rounded-full border border-[#2fb6bc] px-10 py-3 font-bold text-[#2fb6bc]'>
                     {text.header['7']}
                   </a>

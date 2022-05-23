@@ -6,12 +6,12 @@ import { cls } from '@libs/client/utils';
 import RequiredNotice from '@components/course/requiredNotice';
 import ElectiveNotice from '@components/course/electiveNotice';
 import Navigator from '@components/course/navigator';
-import LiveNotice from '@components/course/liveNotice';
+// import LiveNotice from '@components/course/liveNotice';
 import Banner from '@components/banner';
 import useSWR from 'swr';
 import { courseApi } from '@libs/api';
-import { useRouter } from 'next/router';
 import { useLocale } from '@libs/client/useLocale';
+import { useUser } from '@libs/client/useUser';
 
 interface IProps {
   params: string[];
@@ -19,6 +19,7 @@ interface IProps {
 
 const Course: NextPage<IProps> = ({ params }) => {
   const { locale, text } = useLocale();
+  useUser({ isPrivate: true });
   const [courseType, courseCategory, page] = params;
   const request = `${
     courseType === 'pre-online' ? '사전 연수' : '온라인 연수'

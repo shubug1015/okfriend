@@ -3,21 +3,20 @@ import Pagebar from '@components/pagebar';
 import { useRouter } from 'next/router';
 
 interface IProps {
-  category: string;
   data: any[];
   totalItems: number;
 }
 
-export default function CourseList({ category, data, totalItems }: IProps) {
+export default function CourseList({ data, totalItems }: IProps) {
   const router = useRouter();
-  const currentPage = router.query.page as string;
+  const [category, currentPage] = router.query.slug as string[];
   return (
     <div>
       <div className='space-y-4 md:space-y-8'>
         {data?.map((i) => (
           <Course
             key={i.id}
-            id={i.id}
+            id={i.lecture.id}
             thumbnail={i.lecture.thumbnail}
             name={i.lecture.name}
             created={i.lecture.created}
@@ -33,7 +32,9 @@ export default function CourseList({ category, data, totalItems }: IProps) {
           totalItems={totalItems}
           itemsPerPage={5}
           currentPage={+currentPage}
-          url={(page: number) => router.push(`/mypage/course/${page}`)}
+          url={(page: number) =>
+            router.push(`/mypage/course/${category}/${page}`)
+          }
         />
       </div>
     </div>

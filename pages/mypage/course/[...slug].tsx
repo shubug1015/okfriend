@@ -10,18 +10,21 @@ import useSWR from 'swr';
 import { useUser } from '@libs/client/useUser';
 import { mypageApi } from '@libs/api';
 import { useLocale } from '@libs/client/useLocale';
+import Link from 'next/link';
 
 interface IProps {
-  page: string;
+  slug: string[];
 }
 
-const MyCourse: NextPage<IProps> = ({ page }) => {
+const MyCourse: NextPage<IProps> = ({ slug }) => {
   const { text } = useLocale();
   const { token } = useUser({ isPrivate: true });
-  const { data } = useSWR(token ? `myCourseList/${page}` : null, () =>
-    mypageApi.myCourseList(page, token as string)
+  const [category, page] = slug;
+  const { data } = useSWR(
+    token ? `myCourseList/${category}/${page}` : null,
+    () => mypageApi.myCourseList(category !== 'ongoing', page, token as string)
   );
-  const [category, setCategory] = useState('진행중');
+
   return (
     <>
       <SEO title='마이페이지' />
@@ -38,37 +41,40 @@ const MyCourse: NextPage<IProps> = ({ page }) => {
             </div>
 
             <div className='flex space-x-5 text-lg font-medium md:text-base'>
-              <div
-                onClick={() => setCategory('진행중')}
-                className={cls(
-                  category === '진행중' ? '' : 'cursor-pointer text-[#afafaf]',
-                  'transition-all'
-                )}
-              >
-                {text.mypageCourse['2']}
-              </div>
-              <div
-                onClick={() => setCategory('수강완료')}
-                className={cls(
-                  category === '수강완료'
-                    ? ''
-                    : 'cursor-pointer text-[#afafaf]',
-                  'transition-all'
-                )}
-              >
-                {text.mypageCourse['3']}
-              </div>
+              <Link href={`/mypage/course/ongoing/1`}>
+                <a
+                  className={cls(
+                    category === 'ongoing'
+                      ? ''
+                      : 'cursor-pointer text-[#afafaf]',
+                    'transition-all'
+                  )}
+                >
+                  {text.mypageCourse['2']}
+                </a>
+              </Link>
+              <Link href={`/mypage/course/completed/1`}>
+                <a
+                  className={cls(
+                    category === 'completed'
+                      ? ''
+                      : 'cursor-pointer text-[#afafaf]',
+                    'transition-all'
+                  )}
+                >
+                  {text.mypageCourse['3']}
+                </a>
+              </Link>
             </div>
 
             <CourseList
-              category={category}
               data={
-                category === '진행중'
+                category === 'ongoing'
                   ? data?.ongoing.results
                   : data?.completed.results
               }
               totalItems={
-                category === '진행중'
+                category === 'ongoing'
                   ? data?.ongoing.count
                   : data?.completed.count
               }
@@ -83,7 +89,7 @@ const MyCourse: NextPage<IProps> = ({ page }) => {
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   return {
     props: {
-      page: ctx.params?.page,
+      slug: ctx.params?.slug,
     },
   };
 };

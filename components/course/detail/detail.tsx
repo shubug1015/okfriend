@@ -189,7 +189,7 @@ export default function Detail({
             <div className='mt-8 space-y-3 md:mt-6'>
               {isRegistered ? (
                 <div className='flex h-[3.625rem] items-center justify-center rounded-lg bg-[#01111e] font-bold text-white'>
-                  {text.courseDetail['5']}
+                  {survey ? text.courseDetail['5-1'] : text.courseDetail['5']}
                 </div>
               ) : (
                 <div
@@ -295,7 +295,7 @@ export default function Detail({
             <div className='h-3 grow rounded-full bg-[#d6d6d6] md:h-2 md:w-full'>
               <div
                 className='h-3 rounded-full bg-[#d60a51] md:h-2'
-                style={{ width: `${progress}%` }}
+                style={{ width: completed ? '100%' : `${progress}%` }}
               />
             </div>
           </div>

@@ -158,6 +158,7 @@ export const en = {
     '4': 'Click',
     '5': 'Online training',
     '6': 'Click',
+    '7': 'Instructor',
   },
 
   //   연수실 - 사전 온라인연수 - 헤더 및 메뉴바
@@ -219,6 +220,7 @@ export const en = {
     '3': 'Optional Session',
     '4': 'Previous Course',
     '5': 'In Progress',
+    '5-1': 'Completed',
     '6': 'Play',
     '7': 'Share',
     '8': 'Required Survey',
