@@ -177,7 +177,7 @@ export default function Detail({
 
             {/* 강사명 & 강의 길이 */}
             <div className='mt-1.5 text-sm md:mt-4'>
-              {data?.tutor.name} · {data?.total_time}
+              {data?.tutor_name} · {data?.total_time}
             </div>
             {/* 강사명 & 강의 길이 */}
 
