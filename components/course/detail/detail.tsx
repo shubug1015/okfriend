@@ -1,5 +1,5 @@
 // import Layout from '@layouts/sectionLayout';
-import { cls } from '@libs/client/utils';
+import { cls, clsFilter } from '@libs/client/utils';
 import Image from 'next/image';
 // import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
@@ -248,7 +248,19 @@ export default function Detail({
                         />
                       </svg>
 
-                      <div>{text.courseDetail['7']}</div>
+                      <div
+                        className={cls(
+                          clsFilter(
+                            locale,
+                            'text-base',
+                            'text-base',
+                            'text-xs'
+                          ),
+                          ''
+                        )}
+                      >
+                        {text.courseDetail['7']}
+                      </div>
                     </div>
                   </>
                 ) : (
