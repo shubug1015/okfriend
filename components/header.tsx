@@ -84,7 +84,13 @@ export default function Header() {
   const router = useRouter();
   const { locale, text } = useLocale();
   const language =
-    locale === 'ko' ? '한국어' : locale === 'en' ? '영어' : '러시아어';
+    locale === 'ko' ? '한국어' : locale === 'en' ? 'English' : 'Русский';
+  const languageTab =
+    locale === 'ko'
+      ? ['한국어', '영어', '러시아어']
+      : locale === 'en'
+      ? ['Korean', 'English', 'Russian']
+      : ['Корея', 'Английский', 'Русский'];
   const [openedTab, setOpenedTab] = useState(-1);
   const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
 
@@ -300,15 +306,15 @@ export default function Header() {
               >
                 <Menu.Items className='absolute right-0 mt-1 w-full rounded-md bg-white shadow-lg focus:outline-none'>
                   <div className='flex flex-col divide-y divide-[#e8e8e8]'>
-                    {['한국어', '영어', '러시아어'].map((i, index) => (
+                    {languageTab.map((i, index) => (
                       <Menu.Item key={index}>
                         <div
                           onClick={() => {
-                            i === '한국어'
+                            index === 0
                               ? router.push('/', '/', {
                                   locale: 'ko',
                                 })
-                              : i === '영어'
+                              : index === 1
                               ? router.push('/', '/', {
                                   locale: 'en',
                                 })
