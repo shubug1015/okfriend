@@ -65,7 +65,11 @@ export default function Popup() {
         const formData = new FormData();
         formData.append('certificate', blob);
 
-        await surveyApi.sendCertificate(formData, data?.token as string);
+        await surveyApi.sendCertificate(
+          locale,
+          formData,
+          data?.token as string
+        );
         // // pdf.output('dataurlnewwindow');
         // pdf.save('download.pdf');
       });

@@ -476,18 +476,23 @@ export const contactApi = {
 
 export const surveyApi = {
   courseSurvey: (
+    locale: string | undefined,
     id: string,
     questions: { [key: string]: string },
     token: string
   ) =>
-    api.post(`/survey/lecture/${id}/`, questions, {
-      headers: {
-        Authorization: token,
-        'Content-Type': 'application/json',
-      },
-    }),
+    api.post(
+      `${locale === 'ko' ? '' : `/${locale}`}/survey/lecture/${id}/`,
+      questions,
+      {
+        headers: {
+          Authorization: token,
+          'Content-Type': 'application/json',
+        },
+      }
+    ),
 
-  checkCertificate: (token: string) =>
+  checkCertificate: (locale: string | undefined, token: string) =>
     api
       .get(`/survey/certificate/check/`, {
         headers: {
@@ -497,7 +502,11 @@ export const surveyApi = {
       })
       .then((res) => res.data),
 
-  certificateSurvey: (questions: { [key: string]: string }, token: string) =>
+  certificateSurvey: (
+    locale: string | undefined,
+    questions: { [key: string]: string },
+    token: string
+  ) =>
     api.post(`/survey/certificate/`, questions, {
       headers: {
         Authorization: token,
@@ -505,7 +514,11 @@ export const surveyApi = {
       },
     }),
 
-  sendCertificate: (certificate: any, token: string) =>
+  sendCertificate: (
+    locale: string | undefined,
+    certificate: any,
+    token: string
+  ) =>
     api
       .post(`/survey/certificate/send/`, certificate, {
         headers: {

@@ -130,9 +130,10 @@ export default function Detail({
                 controls
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
-                onEnded={() =>
-                  category !== 'past' && !survey ? setPopup(true) : null
-                }
+                onEnded={() => {
+                  setProgress(100);
+                  category !== 'past' && !survey ? setPopup(true) : null;
+                }}
                 className='h-full w-full'
               >
                 <source src={data?.url} />

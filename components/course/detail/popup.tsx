@@ -56,7 +56,12 @@ export default function Popup({ id, closePopup }: IProps) {
   });
   const onValid = async (data: IForm) => {
     try {
-      await surveyApi.courseSurvey(id, { ...data }, myData?.token as string);
+      await surveyApi.courseSurvey(
+        locale,
+        id,
+        { ...data },
+        myData?.token as string
+      );
       alert('제출이 완료되었습니다');
       closePopup();
     } catch {

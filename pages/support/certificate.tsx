@@ -67,7 +67,7 @@ const Certificate: NextPage = () => {
   const { token, profile } = useUser({ isPrivate: true });
   const router = useRouter();
   const { data } = useSWR(token ? 'checkCertificate' : null, () =>
-    surveyApi.checkCertificate(token as string)
+    surveyApi.checkCertificate(locale, token as string)
   );
   const [popup, setPopup] = useState(false);
 
@@ -83,6 +83,7 @@ const Certificate: NextPage = () => {
   const onValid = async ({ Q1_etc, Q8_5_etc, ...data }: IForm) => {
     try {
       await surveyApi.certificateSurvey(
+        locale,
         {
           ...data,
           Q1: data.Q1 === text.certificate['20'] ? Q1_etc : data.Q1,
