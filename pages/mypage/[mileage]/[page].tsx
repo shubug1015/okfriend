@@ -16,8 +16,9 @@ interface IProps {
 const Mileage: NextPage<IProps> = ({ page }) => {
   const { locale, text } = useLocale();
   const { token } = useUser({ isPrivate: true });
-  const { data, mutate } = useSWR(token ? `mileageList/${page}` : null, () =>
-    mypageApi.getMileageList(locale, page, token as string)
+  const { data, mutate } = useSWR(
+    token ? `${locale}/mileageList/${page}` : null,
+    () => mypageApi.getMileageList(locale, page, token as string)
   );
   const router = useRouter();
 

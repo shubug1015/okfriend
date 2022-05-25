@@ -66,7 +66,7 @@ const Certificate: NextPage = () => {
   const { locale, text } = useLocale();
   const { token, profile } = useUser({ isPrivate: true });
   const router = useRouter();
-  const { data } = useSWR(token ? 'checkCertificate' : null, () =>
+  const { data } = useSWR(token ? `${locale}/checkCertificate` : null, () =>
     surveyApi.checkCertificate(locale, token as string)
   );
   const [popup, setPopup] = useState(false);

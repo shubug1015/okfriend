@@ -21,7 +21,7 @@ const MyCourse: NextPage<IProps> = ({ slug }) => {
   const { token } = useUser({ isPrivate: true });
   const [category, page] = slug;
   const { data } = useSWR(
-    token ? `myCourseList/${category}/${page}` : null,
+    token ? `${locale}/myCourseList/${category}/${page}` : null,
     () =>
       mypageApi.myCourseList(
         locale,
