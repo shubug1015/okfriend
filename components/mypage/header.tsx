@@ -87,7 +87,11 @@ export default function Header() {
               </Link>
             </div>
             <div className='mt-2 text-[1.75rem] font-bold md:text-[1.375rem]'>
-              {data?.profile?.total_mileage.toLocaleString()}
+              {locale === 'ko'
+                ? data?.profile?.total_mileage.toLocaleString()
+                : locale === 'en'
+                ? data?.profile?.en_total_mileage.toLocaleString()
+                : data?.profile?.ru_total_mileage.toLocaleString()}
             </div>
           </div>
         </div>
