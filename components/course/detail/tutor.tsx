@@ -58,10 +58,10 @@ export default function Tutor({ tutor }: IProps) {
             </svg>
           </div>
 
-          <div className='mt-6 ml-[1.625rem] md:hidden'>
+          <div className='mt-6 ml-[1.625rem] w-[27rem] md:hidden'>
             <div className='text-xl font-bold'>{text.courseDetail['16']}</div>
 
-            <div className='mt-2.5 text-[#626262]'>
+            <div className='mt-2.5 space-y-1.5 text-[#626262]'>
               {tutor?.career?.map((i: { [key: string]: any }) => (
                 <div key={i.id}>{i.text}</div>
               ))}

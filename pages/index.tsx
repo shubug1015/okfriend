@@ -11,7 +11,7 @@ import type { NextPage } from 'next';
 const Home: NextPage = () => {
   return (
     <>
-      <SEO title='홈' />
+      <SEO title='OKFriends Youth Camp On-Line' />
       <Slide />
       <About />
       <Notice />
