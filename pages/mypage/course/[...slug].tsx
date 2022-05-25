@@ -17,12 +17,18 @@ interface IProps {
 }
 
 const MyCourse: NextPage<IProps> = ({ slug }) => {
-  const { text } = useLocale();
+  const { locale, text } = useLocale();
   const { token } = useUser({ isPrivate: true });
   const [category, page] = slug;
   const { data } = useSWR(
     token ? `myCourseList/${category}/${page}` : null,
-    () => mypageApi.myCourseList(category !== 'ongoing', page, token as string)
+    () =>
+      mypageApi.myCourseList(
+        locale,
+        category !== 'ongoing',
+        page,
+        token as string
+      )
   );
 
   return (

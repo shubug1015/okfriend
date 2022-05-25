@@ -409,14 +409,24 @@ export const usersApi = {
 
 export const mypageApi = {
   // 마이페이지 내 강의 리스트
-  myCourseList: (completed: boolean, page: string, token: string) =>
+  myCourseList: (
+    locale: string | undefined,
+    completed: boolean,
+    page: string,
+    token: string
+  ) =>
     api
-      .get(`/mypage/registered_lecture?completed=${completed}&page=${page}`, {
-        headers: {
-          Authorization: token,
-          'Content-Type': 'application/json',
-        },
-      })
+      .get(
+        `${
+          locale === 'ko' ? '' : `/${locale}`
+        }/mypage/registered_lecture?completed=${completed}&page=${page}`,
+        {
+          headers: {
+            Authorization: token,
+            'Content-Type': 'application/json',
+          },
+        }
+      )
       .then((res) => res.data),
 
   // 마이페이지 회원 정보 수정
@@ -446,14 +456,17 @@ export const mypageApi = {
     ),
 
   // 마이페이지 마일리지 리스트
-  getMileageList: (page: string, token: string) =>
+  getMileageList: (locale: string | undefined, page: string, token: string) =>
     api
-      .get(`/mypage/mileage?page=${page}`, {
-        headers: {
-          Authorization: token,
-          'Content-Type': 'application/json',
-        },
-      })
+      .get(
+        `${locale === 'ko' ? '' : `/${locale}`}/mypage/mileage?page=${page}`,
+        {
+          headers: {
+            Authorization: token,
+            'Content-Type': 'application/json',
+          },
+        }
+      )
       .then((res) => res.data),
 };
 
