@@ -52,7 +52,7 @@ export default function Course({
         <div className='absolute top-0 left-0 h-full w-full bg-[rgba(0,0,0,0.5)]' />
       )}
 
-      <div className='relative h-40 w-72 rounded md:h-[11.5rem] md:w-full'>
+      <div className='relative -z-[1] h-40 w-72 rounded md:h-[11.5rem] md:w-full'>
         <Image
           src={thumbnail}
           alt='Lecture Thumbnail'

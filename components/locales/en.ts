@@ -247,7 +247,7 @@ export const en = {
   },
 
   courseSurvey: {
-    '1': 'Survey on lectures from the 2022 oversea\nKorean student home country training',
+    '1': 'Survey on lectures from the 2022 OKFriends\nYouth Camp On-Line',
     '2': '',
     '3': 'This survey is designed to improve the quality of the lecture by collecting opinions\nfrom the students. We ask for your sincere response.',
     '4': 'Strongly disagree 1 / Strongly agree 5',

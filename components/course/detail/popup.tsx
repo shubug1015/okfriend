@@ -120,7 +120,7 @@ export default function Popup({ id, closePopup }: IProps) {
               'font-notoSans',
               'font-notoSans'
             ),
-            'text-center text-3xl font-bold leading-[1.5] md:text-[1.375rem]'
+            'whitespace-pre-wrap text-center text-3xl font-bold leading-[1.5] md:text-[1.375rem]'
           )}
         >
           {text.courseSurvey['1']}{' '}
@@ -128,7 +128,7 @@ export default function Popup({ id, closePopup }: IProps) {
         </div>
 
         <div className='mt-2.5 text-center text-lg font-medium md:mt-5 md:tracking-tight'>
-          2022 OKFriends CyberCamp -Youth-
+          2022 OKFriends Youth Camp On-Line
         </div>
 
         <div className='mt-6 whitespace-pre-wrap border-t-2 border-dotted border-[#9e9e9e] pt-6 text-center text-lg font-medium text-[#6b6b6b] md:text-sm'>
