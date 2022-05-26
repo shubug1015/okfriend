@@ -3,7 +3,7 @@ import Layout from '@layouts/sectionLayout';
 import { useLocale } from '@libs/client/useLocale';
 import { cls, clsFilter } from '@libs/client/utils';
 import Link from 'next/link';
-import LogoWhite from '@public/icons/logo-white.png';
+import Logo from '@public/icons/footer-logo.png';
 import Image from 'next/image';
 
 export default function Footer() {
@@ -15,7 +15,7 @@ export default function Footer() {
           {/* <FooterLogo /> */}
           <div className='relative h-28 w-[16.8rem] md:h-14 md:w-32'>
             <Image
-              src={LogoWhite}
+              src={Logo}
               alt='Logo'
               layout='fill'
               objectFit='cover'
