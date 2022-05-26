@@ -3,8 +3,8 @@ import {
   TopLogo1,
   TopLogo2,
   Facebook,
-  HeaderLogoWhite,
-  HeaderLogoBlack,
+  // HeaderLogoWhite,
+  // HeaderLogoBlack,
   Instagram,
   Youtube,
   MenuBar,
@@ -15,10 +15,13 @@ import { useRouter } from 'next/router';
 import { IUser } from '@libs/client/useUser';
 import useSWR from 'swr';
 import axios from 'axios';
-import React, { useState, Fragment, useEffect, useRef } from 'react';
+import React, { useState, Fragment } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, Transition } from '@headlessui/react';
 import { useLocale } from '@libs/client/useLocale';
+import Image from 'next/image';
+import LogoWhite from '@public/icons/logo-white.png';
+import LogoBlack from '@public/icons/logo-black.png';
 
 const tabVar = {
   invisible: {
@@ -358,7 +361,18 @@ export default function Header() {
             className={cls(clsFilter(locale, 'w-1/4', 'w-1/4', 'w-1/12'), '')}
           >
             <Link href='/'>
-              <a>{isWhiteBg ? <HeaderLogoBlack /> : <HeaderLogoWhite />}</a>
+              <a>
+                <div className='relative h-12 w-28 md:h-10 md:w-24'>
+                  <Image
+                    src={isWhiteBg ? LogoBlack : LogoWhite}
+                    alt='Logo'
+                    layout='fill'
+                    objectFit='cover'
+                    placeholder='blur'
+                    quality={100}
+                  />
+                </div>
+              </a>
             </Link>
           </div>
           {/* 로고 */}

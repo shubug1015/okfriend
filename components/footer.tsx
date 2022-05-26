@@ -3,6 +3,8 @@ import Layout from '@layouts/sectionLayout';
 import { useLocale } from '@libs/client/useLocale';
 import { cls, clsFilter } from '@libs/client/utils';
 import Link from 'next/link';
+import LogoWhite from '@public/icons/logo-white.png';
+import Image from 'next/image';
 
 export default function Footer() {
   const { locale, text } = useLocale();
@@ -10,7 +12,17 @@ export default function Footer() {
     <footer className='w-screen bg-[#01111e] pt-14 pb-8 md:pt-10 md:pb-14'>
       <div className='mx-auto flex max-w-[1400px] md:flex-col md:items-center'>
         <div className='w-1/3 md:flex md:w-full md:justify-center'>
-          <FooterLogo />
+          {/* <FooterLogo /> */}
+          <div className='relative h-28 w-[16.8rem] md:h-14 md:w-32'>
+            <Image
+              src={LogoWhite}
+              alt='Logo'
+              layout='fill'
+              objectFit='cover'
+              placeholder='blur'
+              quality={100}
+            />
+          </div>
         </div>
 
         <div className='-mt-1.5 w-1/3 md:mt-0 md:flex md:w-full md:justify-center'>
