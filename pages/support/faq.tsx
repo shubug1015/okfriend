@@ -110,7 +110,7 @@ const Faq: NextPage = () => {
       <SEO title='지원센터' />
       <Banner
         title={text.supportStoryHeader['1']}
-        navList={[text.supportStoryHeader['2'], text.supportStoryHeader['3']]}
+        navList={[text.supportStoryHeader['2'], text.supportStoryHeader['4']]}
       />
       <Navigator supportCategory='faq' />
       <Layout padding='pt-16 pb-24 md:pt-10 md:pb-16'>
