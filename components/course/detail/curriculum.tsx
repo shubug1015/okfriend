@@ -1,14 +1,16 @@
 import Layout from '@layouts/sectionLayout';
+import { useLocale } from '@libs/client/useLocale';
 
 interface IProps {
   data: any[];
 }
 
 export default function Curriculum({ data }: IProps) {
+  const { text } = useLocale();
   return (
     <Layout padding='pb-80'>
       <div className='w-full rounded bg-[#373c46] py-12 px-16'>
-        <div className='mb-12 text-xl font-bold'>커리큘럼</div>
+        <div className='mb-12 text-xl font-bold'>{text.courseDetail['21']}</div>
 
         {data.map((i, chapterId) => (
           <div key={i.id} className='w-full pb-8'>

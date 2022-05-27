@@ -64,13 +64,15 @@ const Newsletter: NextPage<IProps> = ({ page }) => {
                 <div className='grow text-left md:text-[0.875rem]'>
                   {i.title}
                 </div>
-                <div className='w-[11%] md:hidden'>관리자</div>
+                <div className='w-[11%] md:hidden'>
+                  {text.newsletter['4-1']}
+                </div>
                 <div className='w-[11%] md:hidden'>
                   {trimDate(i.created, 0, 10)}
                 </div>
                 <div className='hidden md:flex md:justify-between md:text-[0.7rem]'>
                   <div className=''>{trimDate(i.created, 0, 10)}</div>
-                  <div className=''>관리자</div>
+                  <div className=''>{text.newsletter['4-1']}</div>
                 </div>
                 <div className='w-[11%] md:hidden'>{i.view_num}</div>
               </a>

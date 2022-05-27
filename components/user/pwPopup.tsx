@@ -40,7 +40,7 @@ const popupVar = {
 };
 
 export default function Popup({ username, closePopup }: IProps) {
-  const { locale } = useLocale();
+  const { locale, text } = useLocale();
   const router = useRouter();
   const {
     register,
@@ -96,15 +96,15 @@ export default function Popup({ username, closePopup }: IProps) {
             'flex justify-center text-3xl font-bold md:text-2xl'
           )}
         >
-          비밀번호 재설정
+          {text.pwPopup['1']}
         </div>
 
         <div className='mt-12 w-full space-y-8 md:mt-8'>
           <Input
             type='password'
-            label='새 비밀번호'
+            label={text.pwPopup['2']}
             register={register('password', {
-              required: '비밀번호를 입력해주세요',
+              required: text.pwPopup['3'],
               validate: {
                 notPw: (value) => {
                   const regPw =
@@ -112,7 +112,7 @@ export default function Popup({ username, closePopup }: IProps) {
                   if (regPw.test(value)) {
                     return true;
                   } else {
-                    return '비밀번호는 8자리 이상 / 1개 이상의 문자, 숫자, 특수문자가 포함되어야 합니다';
+                    return text.pwPopup['4'];
                   }
                 },
               },
@@ -122,12 +122,12 @@ export default function Popup({ username, closePopup }: IProps) {
 
           <Input
             type='password'
-            label='새 비밀번호 확인'
+            label={text.pwPopup['5']}
             register={register('passwordCheck', {
-              required: '비밀번호를 입력해주세요',
+              required: text.pwPopup['6'],
               validate: {
                 notPwCheck: (value) =>
-                  value === watch('password') || '비밀번호가 일치하지 않습니다',
+                  value === watch('password') || text.pwPopup['7'],
               },
             })}
             error={errors?.passwordCheck?.message}
@@ -138,7 +138,7 @@ export default function Popup({ username, closePopup }: IProps) {
           onClick={handleSubmit(onValid, onInvalid)}
           className='mt-12 flex cursor-pointer justify-center rounded bg-[#2fb6bc] py-4 text-lg font-medium text-white transition-all hover:opacity-90 md:py-2.5 md:text-base'
         >
-          패스워드 재설정 완료
+          {text.pwPopup['7']}
         </div>
       </motion.div>
     </div>

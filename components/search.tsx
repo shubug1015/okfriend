@@ -13,7 +13,7 @@ export default function Search({ url }: IProps) {
   const slugs = router.query.slug as string[];
 
   const [searchType, setSearchType] = useState({
-    label: slugs[0] === 'title' ? '제목' : '글쓴이',
+    label: slugs[0] === 'title' ? text.SearchBar['1'] : text.SearchBar['2'],
     value: slugs[0],
   });
   const [orderType, setOrderType] = useState({
@@ -22,7 +22,7 @@ export default function Search({ url }: IProps) {
         ? text.notice['3']
         : slugs[1] === 'view_num'
         ? text.notice['4']
-        : '댓글 많은 순',
+        : text.SearchBar['3'],
     value: slugs[1],
   });
   const [searchTerm, setSearchTerm] = useState(slugs[3] || '');

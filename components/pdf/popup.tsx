@@ -74,7 +74,7 @@ export default function Popup() {
         // pdf.save('download.pdf');
       });
 
-      alert('이수증 발급이 완료되었습니다. 메일을 확인해주세요.');
+      alert(text.certificateError['4']);
       window.location.reload();
     } catch {
       alert('Error');
@@ -138,7 +138,7 @@ export default function Popup() {
                 type='radio'
                 value={i}
                 {...register('type', {
-                  required: '항목을 선택해주세요',
+                  required: text.certificateError['5'],
                 })}
                 className={cls(
                   errors?.type?.message ? 'border-red-500' : 'border-[#d6d6d6]',
@@ -239,8 +239,10 @@ export default function Popup() {
         </div>
 
         <div className='absolute left-1/2 top-0 translate-y-[200mm] -translate-x-1/2 text-xl font-bold'>
-          {new Date().getFullYear()}년 {new Date().getMonth() + 1}월{' '}
-          {new Date().getDate()}일
+          {new Date().getFullYear()}
+          {text.certificateError['6']} {new Date().getMonth() + 1}
+          {text.certificateError['7']} {new Date().getDate()}
+          {text.certificateError['8']}
         </div>
       </div>
       {/* 국문 이수증 */}

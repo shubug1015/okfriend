@@ -57,7 +57,7 @@ export default function Detail({
     navigator.clipboard
 
       .writeText(url)
-      .then(() => alert('링크가 복사되었습니다.'));
+      .then(() => alert(text.courseDetailError['1']));
   };
 
   const videoPlayerRef = useRef<any>();
@@ -270,12 +270,12 @@ export default function Detail({
                       onClick={() => {
                         if (completed) {
                           if (survey) {
-                            alert('이미 설문조사를 완료하였습니다.');
+                            alert(text.courseDetailError['2']);
                           } else {
                             setPopup(true);
                           }
                         } else {
-                          alert('강의 수강 완료 시 가능합니다.');
+                          alert(text.courseDetailError['3']);
                         }
                       }}
                       className='flex h-[3.625rem] cursor-pointer items-center justify-center rounded-lg border border-[#9e9e9e] text-[#6b6b6b] transition-all hover:opacity-70'

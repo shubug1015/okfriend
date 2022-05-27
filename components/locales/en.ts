@@ -159,6 +159,7 @@ export const en = {
     '5': 'Online training',
     '6': 'Click',
     '7': 'Instructor',
+    '8': 'You are not eligible for the course.',
   },
 
   //   연수실 - 사전 온라인연수 - 헤더 및 메뉴바
@@ -236,6 +237,19 @@ export const en = {
     '18': 'Review',
     '19': 'Write',
     '20': 'Please write a lecture review.',
+    '21': 'curriculum',
+    '22': 'Is this an online course?',
+    '23': 'Yes, you can watch all the courses we provide on web browsers.',
+  },
+
+  //   연수실 - 상세페이지 에러메시지
+  courseDetailError: {
+    '1': 'Copied.',
+    '2': 'You already submitted the form.',
+    '3': 'You must finish the course to submit the form.',
+    '4': 'Done.',
+    '5': 'Choose your option.',
+    '6': 'Enter an item.',
   },
 
   // 연수실 - 상세페이지 리뷰 에러
@@ -244,6 +258,8 @@ export const en = {
     '2': "you've already written a review",
     '3': 'Please enter a review',
     '4': 'Please leave a review with more than 10 letters',
+    '5': 'Change',
+    '6': 'Delete',
   },
 
   courseSurvey: {
@@ -299,8 +315,28 @@ export const en = {
     '2': 'No.',
     '3': 'Title',
     '4': 'Writer',
+    '4-1': 'Manager',
     '5': 'Date',
     '6': 'View',
+  },
+
+  //   연수이야기 - 뉴스레터 상세페이지
+  newsletterDetail: {
+    '1': 'Newsletter',
+    '2': 'Manager',
+    '3': 'Like',
+    '4': 'Comment',
+    '5': 'Change',
+    '6': 'Delete',
+    '7': 'Enter comments.',
+    '8': 'Enter at least 10 characters.',
+    '9': 'Enter comments.',
+    '10': 'Enter comments',
+    '11': 'Enter comments.',
+    '12': 'Enter at least 10 characters.',
+    '13': 'Enter comments.',
+    '14': 'Enter comments',
+    '15': 'View List',
   },
 
   //   지원센터 - 헤더 및 메뉴바
@@ -325,6 +361,7 @@ export const en = {
     '7': 'Writer',
     '8': 'Date',
     '9': 'View',
+    '10': 'Author',
   },
 
   //   지원센터 - 공지사항
@@ -406,6 +443,21 @@ export const en = {
     '7': 'Writer',
     '8': 'Date',
     '9': 'View',
+    '10': 'Author',
+  },
+
+  //   지원센터 - 자료실 서치바
+  SearchBar: {
+    '1': 'Title',
+    '2': 'Author',
+    '3': 'number of comments',
+  },
+
+  //   지원센터 - 자료실 상세페이지
+  libraryDetail: {
+    '1': 'Download',
+    '2': 'Manager',
+    '3': 'View List',
   },
 
   //   지원센터 - 이수증 발급
@@ -503,6 +555,18 @@ export const en = {
     '91': 'Complete Submission',
   },
 
+  // 지원센터 - 이수증 발급 에러메시지
+  certificateError: {
+    '1': 'Done',
+    '2': 'You have at least an unfinished lecture.',
+    '3': 'You need to select your option.',
+    '4': 'We just issued the certification. Please check your mailbox.',
+    '5': 'Choose your option.',
+    '6': 'Year',
+    '7': 'Month',
+    '8': 'Date',
+  },
+
   // 로그인
   login: {
     '1': 'Log In',
@@ -575,6 +639,18 @@ export const en = {
     '5': 'Please enter a valid email',
     '6': 'Please enter the authentication number',
     '7': 'The authentication number does not match',
+  },
+
+  //비밀번호 찾기 팝업
+  pwPopup: {
+    '1': 'Reset password',
+    '2': 'New password',
+    '3': 'Enter password.',
+    '4': 'Password must contain at least 8 characters including at least 1 alphabet, 1 digit, and 1 special character.',
+    '5': 'Re-enter your password.',
+    '6': 'Enter password.',
+    '7': 'Wrong password.',
+    '8': 'Done resetting password.',
   },
 
   // 회원가입
@@ -722,6 +798,15 @@ export const en = {
     '5': 'New Password Confirmation',
     '6': 'New Password Confirmation',
     '7': 'Change',
+  },
+
+  // 마이페이지 - 비밀번호 변경 에러메시지
+  mypageResetPwError: {
+    '1': 'Done changing password.',
+    '2': 'Enter your password.',
+    '3': 'Password must contain at least 8 characters including at least 1 alphabet, 1 digit, and 1 special character.',
+    '4': 'Enter your password.',
+    '5': 'Wrong password.',
   },
 
   // 마이페이지 - 마일리지 내역

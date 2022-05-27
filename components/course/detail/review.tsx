@@ -171,14 +171,14 @@ export default function Review({ data, mutate }: IProps) {
                     }}
                     className='cursor-pointer'
                   >
-                    수정
+                    {text.ReviewError['5']}
                   </div>
                   <div className='text-sm'>|</div>
                   <div
                     onClick={() => deleteReview(i.id)}
                     className='cursor-pointer'
                   >
-                    삭제
+                    {text.ReviewError['6']}
                   </div>
                 </div>
               )}

@@ -1,3 +1,4 @@
+import { useLocale } from '@libs/client/useLocale';
 import { trimDate } from '@libs/client/utils';
 import { cls } from '@libs/client/utils';
 import Link from 'next/link';
@@ -23,6 +24,7 @@ export default function Library({
   name,
   view,
 }: IProps) {
+  const { text } = useLocale();
   return (
     <Link href={`/support/library/detail/${id}`}>
       <a>
@@ -104,7 +106,7 @@ export default function Library({
             <div className='flex items-center space-x-1.5'>
               {type === 'notice' && (
                 <div className='rounded bg-[#d60a51] px-1.5 py-0.5 text-[0.688rem] font-medium text-white'>
-                  공 지
+                  {text.library['10']}
                 </div>
               )}
 

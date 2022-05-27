@@ -3,6 +3,7 @@ import MenuBar from '@components/course-story/menuBar';
 import SEO from '@components/seo';
 import Layout from '@layouts/sectionLayout';
 import { boardApi } from '@libs/api';
+import { useLocale } from '@libs/client/useLocale';
 import { IUser } from '@libs/client/useUser';
 import { trimDate } from '@libs/client/utils';
 import type { GetServerSidePropsContext, NextPage } from 'next';
@@ -21,6 +22,7 @@ interface IForm {
 }
 
 const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
+  const { text } = useLocale();
   const router = useRouter();
   const { locale } = router;
   const { data: myData } = useSWR<IUser>('/api/user');
@@ -124,7 +126,7 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
       <Banner title='연수이야기' navList={['연수이야기', '뉴스레터']} />
       <MenuBar pageName='뉴스레터' />
       <Layout bgColor='bg-[#f4f9fb]' padding='py-14 md:pt-6 md:pb-8'>
-        <div className='font-bold md:text-sm'>뉴스레터</div>
+        <div className='font-bold md:text-sm'>{text.newsletterDetail['1']}</div>
 
         <div className='mt-6 text-[1.875rem] font-medium md:mt-4 md:text-lg'>
           {data?.title}
@@ -144,7 +146,9 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
                   fill='#2FB6BC'
                 />
               </svg>
-              <div className='text-lg md:text-sm'>관리자</div>
+              <div className='text-lg md:text-sm'>
+                {text.newsletterDetail['2']}
+              </div>
             </div>
 
             {data?.created && (
@@ -205,7 +209,9 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
                   d='M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'
                 />
               </svg>
-              <div className='font-medium text-white md:text-base'>좋아요</div>
+              <div className='font-medium text-white md:text-base'>
+                {text.newsletterDetail['3']}
+              </div>
             </div>
 
             <div className='text-white md:text-base'>{data?.like_num}</div>
@@ -213,7 +219,9 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
         </div>
 
         <div className='mt-20 flex items-center space-x-4 border-b border-b-[#e8e8e8] pb-8 md:space-x-2'>
-          <div className='text-2xl font-bold md:text-xl'>댓글</div>
+          <div className='text-2xl font-bold md:text-xl'>
+            {text.newsletterDetail['4']}
+          </div>
           <div className='flex h-8 w-12 items-center justify-center rounded-full bg-[#2fb6bc] font-medium text-white md:h-6 md:w-8 md:text-base'>
             {data?.reply.length}
           </div>
@@ -253,14 +261,14 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
                       }}
                       className='cursor-pointer'
                     >
-                      수정
+                      {text.newsletterDetail['5']}
                     </div>
                     <div className='text-sm'>|</div>
                     <div
                       onClick={() => deleteReview(i.id)}
                       className='cursor-pointer'
                     >
-                      삭제
+                      {text.newsletterDetail['6']}
                     </div>
                   </div>
                 )}
@@ -277,13 +285,13 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
                     <input
                       type='text'
                       {...register('reply', {
-                        required: '댓글을 입력해주세요',
+                        required: text.newsletterDetail['7'],
                         minLength: {
-                          message: '10자 이상의 댓글을 남겨주세요',
+                          message: text.newsletterDetail['8'],
                           value: 10,
                         },
                       })}
-                      placeholder='댓글을 입력해주세요.'
+                      placeholder={text.newsletterDetail['9']}
                       className='mt-2 w-full text-lg outline-none placeholder:text-[#9e9e9e] md:px-4 md:text-sm'
                     />
                     <div className='text-sm text-red-500'>
@@ -310,7 +318,7 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
                         fill='white'
                       />
                     </svg>
-                    <div>댓글 입력</div>
+                    <div>{text.newsletterDetail['10']}</div>
                   </div>
                   {/* 수정하기 */}
                 </div>
@@ -327,13 +335,13 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
               <input
                 type='text'
                 {...register('reply', {
-                  required: '댓글을 입력해주세요',
+                  required: text.newsletterDetail['11'],
                   minLength: {
-                    message: '10자 이상의 댓글을 남겨주세요',
+                    message: text.newsletterDetail['12'],
                     value: 10,
                   },
                 })}
-                placeholder='댓글을 입력해주세요.'
+                placeholder={text.newsletterDetail['13']}
                 className='mt-2 w-full px-7 text-lg outline-none placeholder:text-[#9e9e9e] md:px-4 md:text-sm'
               />
               <div className='px-7 text-sm text-red-500'>
@@ -358,14 +366,14 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
                   fill='white'
                 />
               </svg>
-              <div>댓글 입력</div>
+              <div>{text.newsletterDetail['14']}</div>
             </div>
           </div>
         )}
 
         <Link href='/course-story/newsletter/1'>
           <a className='mt-6 flex h-[2.8rem] w-[6.5rem] items-center justify-center rounded-lg border border-[#6b6b6b] text-lg font-medium text-[#6b6b6b] transition-all hover:opacity-70 md:h-[1.9rem] md:w-[4.7rem] md:text-sm'>
-            목록보기
+            {text.newsletterDetail['15']}
           </a>
         </Link>
       </Layout>

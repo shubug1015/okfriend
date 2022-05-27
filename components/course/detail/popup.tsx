@@ -62,7 +62,7 @@ export default function Popup({ id, closePopup }: IProps) {
         { ...data },
         myData?.token as string
       );
-      alert('제출이 완료되었습니다');
+      alert(text.courseDetailError['4']);
       closePopup();
     } catch {
       alert('Error');
@@ -179,7 +179,7 @@ export default function Popup({ id, closePopup }: IProps) {
                   type='radio'
                   value={i}
                   {...register('Q1', {
-                    required: '항목을 선택해주세요',
+                    required: text.courseDetailError['5'],
                   })}
                   className={cls(
                     errors?.Q1?.message ? 'border-red-500' : 'border-[#d6d6d6]',
@@ -212,7 +212,7 @@ export default function Popup({ id, closePopup }: IProps) {
                   type='radio'
                   value={i}
                   {...register('Q2', {
-                    required: '항목을 선택해주세요',
+                    required: text.courseDetailError['5'],
                   })}
                   className={cls(
                     errors?.Q2?.message ? 'border-red-500' : 'border-[#d6d6d6]',
@@ -245,7 +245,7 @@ export default function Popup({ id, closePopup }: IProps) {
                   type='radio'
                   value={i}
                   {...register('Q3', {
-                    required: '항목을 선택해주세요',
+                    required: text.courseDetailError['5'],
                   })}
                   className={cls(
                     errors?.Q3?.message ? 'border-red-500' : 'border-[#d6d6d6]',
@@ -277,7 +277,7 @@ export default function Popup({ id, closePopup }: IProps) {
                   type='radio'
                   value={i}
                   {...register('Q4', {
-                    required: '항목을 선택해주세요',
+                    required: text.courseDetailError['5'],
                   })}
                   className={cls(
                     errors?.Q4?.message ? 'border-red-500' : 'border-[#d6d6d6]',
@@ -309,7 +309,7 @@ export default function Popup({ id, closePopup }: IProps) {
                   type='radio'
                   value={i}
                   {...register('Q5', {
-                    required: '항목을 선택해주세요',
+                    required: text.courseDetailError['5'],
                   })}
                   className={cls(
                     errors?.Q5?.message ? 'border-red-500' : 'border-[#d6d6d6]',
@@ -341,7 +341,7 @@ export default function Popup({ id, closePopup }: IProps) {
                   type='radio'
                   value={i}
                   {...register('Q6', {
-                    required: '항목을 선택해주세요',
+                    required: text.courseDetailError['5'],
                   })}
                   className={cls(
                     errors?.Q6?.message ? 'border-red-500' : 'border-[#d6d6d6]',
@@ -361,7 +361,7 @@ export default function Popup({ id, closePopup }: IProps) {
           <textarea
             placeholder={text.courseSurvey['15']}
             {...register('Q7', {
-              required: '항목 입력해주세요',
+              required: text.courseDetailError['6'],
             })}
             className='h-40 w-full rounded border border-[#d6d6d6] px-5 pt-4 outline-none placeholder:text-[#d6d6d6] md:h-52 md:px-2.5 md:pt-[0.8rem] md:text-[0.938rem]'
           />

@@ -1,4 +1,5 @@
 import Layout from '@layouts/sectionLayout';
+import { useLocale } from '@libs/client/useLocale';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Fragment, useState } from 'react';
 
@@ -24,6 +25,7 @@ const qnaVar = {
 };
 
 export default function Qna() {
+  const { text } = useLocale();
   const [openedQna, setOpenedQna] = useState(0);
   const toggleQna = (id: number) => setOpenedQna(id);
 
@@ -43,7 +45,7 @@ export default function Qna() {
                   Q
                 </div>
                 <div className='text-lg font-medium md:text-sm'>
-                  온라인 강의 인가요?
+                  {text.courseDetail['22']}
                 </div>
               </div>
 
@@ -90,8 +92,7 @@ export default function Qna() {
                       A
                     </div>
                     <div className='grow text-lg font-medium md:text-sm'>
-                      내 본 강의는 오프라인 직강에서 쌓인 노하우와 핵심만 담아서
-                      만들어진 온라인 강의입니다.
+                      {text.courseDetail['23']}
                     </div>
                   </div>
                 </motion.div>

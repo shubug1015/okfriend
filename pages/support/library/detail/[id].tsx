@@ -27,7 +27,7 @@ const LibraryDetail: NextPage<IProps> = ({ id }) => {
       />
       <Navigator supportCategory='library' />
       <Layout bgColor='bg-[#f4f9fb]' padding='py-14'>
-        <div className='font-bold'>자료실</div>
+        <div className='font-bold'>{text.libraryDetail['1']}</div>
 
         <div className='mt-6 text-[1.875rem] font-medium'>{data?.title}</div>
 
@@ -45,7 +45,7 @@ const LibraryDetail: NextPage<IProps> = ({ id }) => {
                   fill='#2FB6BC'
                 />
               </svg>
-              <div className='text-lg'>관리자</div>
+              <div className='text-lg'>{text.libraryDetail['2']}</div>
             </div>
 
             {data?.created && (
@@ -100,7 +100,7 @@ const LibraryDetail: NextPage<IProps> = ({ id }) => {
 
         <Link href='/support/library/title/created/1'>
           <a className='mt-6 flex h-[2.8rem] w-[6.5rem] items-center justify-center rounded-lg border border-[#6b6b6b] text-lg font-medium text-[#6b6b6b] transition-all hover:opacity-70'>
-            목록보기
+            {text.libraryDetail['3']}
           </a>
         </Link>
       </Layout>

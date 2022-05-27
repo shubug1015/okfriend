@@ -33,7 +33,7 @@ const ResetPw: NextPage = () => {
         token,
       };
       editMyInfos({ req });
-      alert('비밀번호 변경이 완료되었습니다.');
+      alert(text.mypageResetPwError['1']);
     } catch {
       alert('Error');
     }
@@ -81,7 +81,7 @@ const ResetPw: NextPage = () => {
                     placeholder={text.mypageResetPw['4']}
                     {...register('password', {
                       value: '',
-                      required: '비밀번호를 입력해주세요',
+                      required: text.mypageResetPwError['2'],
                       validate: {
                         notPw: (value) => {
                           const regPw =
@@ -89,7 +89,7 @@ const ResetPw: NextPage = () => {
                           if (regPw.test(value)) {
                             return true;
                           } else {
-                            return '비밀번호는 8자리 이상 / 1개 이상의 문자, 숫자, 특수문자가 포함되어야 합니다';
+                            return text.mypageResetPwError['3'];
                           }
                         },
                       },
@@ -116,11 +116,11 @@ const ResetPw: NextPage = () => {
                     placeholder={text.mypageResetPw['6']}
                     {...register('passwordCheck', {
                       value: '',
-                      required: '비밀번호를 입력해주세요',
+                      required: text.mypageResetPwError['4'],
                       validate: {
                         notPwCheck: (value) =>
                           value === watch('password') ||
-                          '비밀번호가 일치하지 않습니다',
+                          text.mypageResetPwError['5'],
                       },
                     })}
                     className='outline-none placeholder:text-[#d6d6d6] md:h-12 md:w-full md:flex-col md:items-start md:justify-between md:border-b md:border-[#d6d6d6] md:pl-2.5 md:pb-1 md:text-[0.938rem]'

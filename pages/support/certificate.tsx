@@ -91,7 +91,7 @@ const Certificate: NextPage = () => {
         },
         token as string
       );
-      alert('제출이 완료되었습니다');
+      alert(text.certificateError['1']);
       setPopup(true);
     } catch {
       alert('Error');
@@ -113,7 +113,7 @@ const Certificate: NextPage = () => {
   // }
   useEffect(() => {
     if (data === 'there are uncompleted lectures') {
-      alert('미완료된 강의가 있습니다.');
+      alert(text.certificateError['2']);
       router.back();
     }
   }, [data]);
@@ -176,7 +176,7 @@ const Certificate: NextPage = () => {
                       type='radio'
                       value={i}
                       {...register('Q1', {
-                        required: '항목을 선택해주세요',
+                        required: text.certificateError['3'],
                       })}
                       className={cls(
                         errors?.Q1?.message
@@ -227,7 +227,7 @@ const Certificate: NextPage = () => {
                       type='radio'
                       value={index + 1}
                       {...register('Q2', {
-                        required: '항목을 선택해주세요',
+                        required: 'text.certificateError['3']',
                       })}
                       className={cls(
                         errors?.Q2?.message
@@ -273,7 +273,7 @@ const Certificate: NextPage = () => {
                     key={j.id}
                     question={j.question}
                     register={register(j.num, {
-                      required: '항목을 선택해주세요',
+                      required: 'text.certificateError['3']',
                     })}
                     error={errors[j.num]?.message}
                   >
@@ -308,7 +308,7 @@ const Certificate: NextPage = () => {
                       type='radio'
                       value={index + 1}
                       {...register('Q10', {
-                        required: '항목을 선택해주세요',
+                        required: 'text.certificateError['3']',
                       })}
                       className={cls(
                         errors?.Q10?.message
@@ -340,7 +340,7 @@ const Certificate: NextPage = () => {
                         type='radio'
                         value={index + 1}
                         {...register('Q11', {
-                          required: '항목을 선택해주세요',
+                          required: 'text.certificateError['3']',
                         })}
                         className={cls(
                           errors?.Q11?.message
