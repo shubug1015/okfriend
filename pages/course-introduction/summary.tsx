@@ -388,7 +388,12 @@ const Greeting: NextPage = () => {
               quality={100}
             />
           </div>
-          <div className='relative hidden h-[903px] w-full md:block'>
+          <div
+            className={cls(
+              clsFilter(locale, 'h-[903px]', 'h-[1005px]', 'h-[1037px]'),
+              'relative hidden w-full md:block'
+            )}
+          >
             <Image
               src={imgFilter(
                 locale,
@@ -412,11 +417,11 @@ const Greeting: NextPage = () => {
             </div>
           </div>
 
-          <div className='mt-6 flex items-center justify-center bg-[#f8f8f8] py-[1.125rem] md:flex-col md:px-[1.563rem]'>
-            <div className='mr-[7px] rounded bg-[#d60a51] py-[0.085rem] px-[0.438rem] text-[0.875rem] leading-5 text-white'>
+          <div className='mt-6 flex items-center justify-center bg-[#f8f8f8] px-8 py-[1.125rem] md:flex-col md:px-[1.563rem]'>
+            <div className='mr-[7px] whitespace-nowrap rounded bg-[#d60a51] py-[0.085rem] px-[0.438rem] text-[0.875rem] leading-5 text-white'>
               POINT 02
             </div>
-            <div className='text-xl font-medium leading-7 text-[#01111e] md:mt-[0.813rem] md:text-center md:text-[0.875rem] md:leading-[1.225rem]'>
+            <div className='text-center text-xl font-medium leading-7 text-[#01111e] md:mt-[0.813rem] md:text-center md:text-[0.875rem] md:leading-[1.225rem]'>
               {text.summary['42']}
             </div>
           </div>
@@ -460,7 +465,12 @@ const Greeting: NextPage = () => {
                   quality={100}
                 />
               </div>
-              <div className='relative mt-3 hidden h-[497px] w-full md:block'>
+              <div
+                className={cls(
+                  clsFilter(locale, 'h-[497px]', 'h-[453px]', 'h-[453px]'),
+                  'relative mt-3 hidden w-full md:block'
+                )}
+              >
                 <Image
                   src={imgFilter(
                     locale,

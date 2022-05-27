@@ -58,7 +58,12 @@ const TrainingSchedule: NextPage = () => {
               quality={100}
             />
           </div>
-          <div className='relative mt-[2.063rem] hidden h-[66.688rem] w-full md:block'>
+          <div
+            className={cls(
+              clsFilter(locale, 'h-[66.688rem]', 'h-[1120px]', 'h-[1120px]'),
+              'relative mt-[2.063rem] hidden w-full md:block'
+            )}
+          >
             <Image
               src={imgFilter(locale, Schedule1m, ScheduleEn1m, ScheduleRu1m)}
               alt='Schedule Page Image 1'
@@ -94,7 +99,12 @@ const TrainingSchedule: NextPage = () => {
               quality={100}
             />
           </div>
-          <div className='relative mt-[0.875rem] hidden h-[598px] w-full md:block'>
+          <div
+            className={cls(
+              clsFilter(locale, 'h-[598px]', 'h-[598px]', 'h-[598px]'),
+              'relative mt-[0.875rem] hidden w-full md:block'
+            )}
+          >
             <Image
               src={imgFilter(locale, Schedule2m, ScheduleEn2m, ScheduleRu2m)}
               alt='Schedule Page Image 2'
