@@ -227,7 +227,7 @@ const Certificate: NextPage = () => {
                       type='radio'
                       value={index + 1}
                       {...register('Q2', {
-                        required: 'text.certificateError['3']',
+                        required: text.certificateError['3'],
                       })}
                       className={cls(
                         errors?.Q2?.message
@@ -273,7 +273,7 @@ const Certificate: NextPage = () => {
                     key={j.id}
                     question={j.question}
                     register={register(j.num, {
-                      required: 'text.certificateError['3']',
+                      required: text.certificateError['3'],
                     })}
                     error={errors[j.num]?.message}
                   >
@@ -308,7 +308,7 @@ const Certificate: NextPage = () => {
                       type='radio'
                       value={index + 1}
                       {...register('Q10', {
-                        required: 'text.certificateError['3']',
+                        required: text.certificateError['3'],
                       })}
                       className={cls(
                         errors?.Q10?.message
@@ -340,7 +340,7 @@ const Certificate: NextPage = () => {
                         type='radio'
                         value={index + 1}
                         {...register('Q11', {
-                          required: 'text.certificateError['3']',
+                          required: text.certificateError['3'],
                         })}
                         className={cls(
                           errors?.Q11?.message
