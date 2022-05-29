@@ -3,8 +3,8 @@ import {
   TopLogo1,
   TopLogo2,
   Facebook,
-  // HeaderLogoWhite,
-  // HeaderLogoBlack,
+  HeaderLogoWhite,
+  HeaderLogoBlack,
   Instagram,
   Youtube,
   MenuBar,
@@ -19,9 +19,9 @@ import React, { useState, Fragment } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, Transition } from '@headlessui/react';
 import { useLocale } from '@libs/client/useLocale';
-import Image from 'next/image';
-import LogoWhite from '@public/icons/logo-white.png';
-import LogoBlack from '@public/icons/logo-black.png';
+// import Image from 'next/image';
+// import LogoWhite from '@public/icons/logo-white.png';
+// import LogoBlack from '@public/icons/logo-black.png';
 
 const tabVar = {
   invisible: {
@@ -362,7 +362,8 @@ export default function Header() {
           >
             <Link href='/'>
               <a>
-                <div className='relative h-12 w-28 md:h-10 md:w-24'>
+                {isWhiteBg ? <HeaderLogoBlack /> : <HeaderLogoWhite />}
+                {/* <div className='relative h-12 w-28 md:h-10 md:w-24'>
                   <Image
                     src={isWhiteBg ? LogoBlack : LogoWhite}
                     alt='Logo'
@@ -371,7 +372,7 @@ export default function Header() {
                     placeholder='blur'
                     quality={100}
                   />
-                </div>
+                </div> */}
               </a>
             </Link>
           </div>
