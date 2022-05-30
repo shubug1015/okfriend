@@ -10,7 +10,7 @@ import { useLocale } from '@libs/client/useLocale';
 import { IUser, useUser } from '@libs/client/useUser';
 import { cls, clsFilter } from '@libs/client/utils';
 import type { GetServerSidePropsContext, NextPage } from 'next';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import { useState } from 'react';
 import useSWR from 'swr';
 
@@ -25,8 +25,8 @@ const CourseDetail: NextPage<IProps> = ({ slug }) => {
   const [, category, id] = slug;
   const { data, mutate } = useSWR(
     myData?.token
-      ? `${locale}/courseDetail/logged`
-      : `${locale}/courseDetail/unlogged`,
+      ? `${locale}/courseDetail/${id}/logged`
+      : `${locale}/courseDetail/${id}/unlogged`,
     () => courseApi.detail(locale, id, myData?.token)
   );
   const courseData = data?.lecture || data;
