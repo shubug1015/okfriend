@@ -603,10 +603,10 @@ export const HeaderLogoBlack = () => {
           gradientUnits='userSpaceOnUse'
           gradientTransform='translate(163.857 14.8504) scale(4.01797 3.9991)'
         >
-          <stop stop-color='#130D0F' />
-          <stop offset='0.57' stop-color='#130D0F' />
-          <stop offset='0.8' stop-color='#130D0F' />
-          <stop offset='1' stop-color='#130D0F' />
+          <stop stopColor='#130D0F' />
+          <stop offset='0.57' stopColor='#130D0F' />
+          <stop offset='0.8' stopColor='#130D0F' />
+          <stop offset='1' stopColor='#130D0F' />
         </radialGradient>
         <radialGradient
           id='paint1_radial_1843_70323'
@@ -616,10 +616,10 @@ export const HeaderLogoBlack = () => {
           gradientUnits='userSpaceOnUse'
           gradientTransform='translate(163.872 25.5657) scale(4.12762 4.10823)'
         >
-          <stop stop-color='#130D0F' />
-          <stop offset='0.57' stop-color='#130D0F' />
-          <stop offset='0.8' stop-color='#130D0F' />
-          <stop offset='1' stop-color='#130D0F' />
+          <stop stopColor='#130D0F' />
+          <stop offset='0.57' stopColor='#130D0F' />
+          <stop offset='0.8' stopColor='#130D0F' />
+          <stop offset='1' stopColor='#130D0F' />
         </radialGradient>
         <radialGradient
           id='paint2_radial_1843_70323'
@@ -629,10 +629,10 @@ export const HeaderLogoBlack = () => {
           gradientUnits='userSpaceOnUse'
           gradientTransform='translate(96.3217 20.2533) scale(5.3435 5.31838)'
         >
-          <stop stop-color='#130D0F' />
-          <stop offset='0.57' stop-color='#130D0F' />
-          <stop offset='0.8' stop-color='#130D0F' />
-          <stop offset='1' stop-color='#130D0F' />
+          <stop stopColor='#130D0F' />
+          <stop offset='0.57' stopColor='#130D0F' />
+          <stop offset='0.8' stopColor='#130D0F' />
+          <stop offset='1' stopColor='#130D0F' />
         </radialGradient>
         <radialGradient
           id='paint3_radial_1843_70323'
@@ -642,10 +642,10 @@ export const HeaderLogoBlack = () => {
           gradientUnits='userSpaceOnUse'
           gradientTransform='translate(96.3241 7.78599) scale(2.29041 2.27965)'
         >
-          <stop stop-color='#130D0F' />
-          <stop offset='0.57' stop-color='#130D0F' />
-          <stop offset='0.8' stop-color='#130D0F' />
-          <stop offset='1' stop-color='#130D0F' />
+          <stop stopColor='#130D0F' />
+          <stop offset='0.57' stopColor='#130D0F' />
+          <stop offset='0.8' stopColor='#130D0F' />
+          <stop offset='1' stopColor='#130D0F' />
         </radialGradient>
         <radialGradient
           id='paint4_radial_1843_70323'
@@ -655,10 +655,10 @@ export const HeaderLogoBlack = () => {
           gradientUnits='userSpaceOnUse'
           gradientTransform='translate(126.323 20.0016) scale(7.22212 7.18819)'
         >
-          <stop stop-color='#130D0F' />
-          <stop offset='0.57' stop-color='#130D0F' />
-          <stop offset='0.8' stop-color='#130D0F' />
-          <stop offset='1' stop-color='#130D0F' />
+          <stop stopColor='#130D0F' />
+          <stop offset='0.57' stopColor='#130D0F' />
+          <stop offset='0.8' stopColor='#130D0F' />
+          <stop offset='1' stopColor='#130D0F' />
         </radialGradient>
         <radialGradient
           id='paint5_radial_1843_70323'
@@ -668,10 +668,10 @@ export const HeaderLogoBlack = () => {
           gradientUnits='userSpaceOnUse'
           gradientTransform='translate(146.409 16.3069) scale(10.609 10.5592)'
         >
-          <stop stop-color='#130D0F' />
-          <stop offset='0.57' stop-color='#130D0F' />
-          <stop offset='0.8' stop-color='#130D0F' />
-          <stop offset='1' stop-color='#130D0F' />
+          <stop stopColor='#130D0F' />
+          <stop offset='0.57' stopColor='#130D0F' />
+          <stop offset='0.8' stopColor='#130D0F' />
+          <stop offset='1' stopColor='#130D0F' />
         </radialGradient>
         <radialGradient
           id='paint6_radial_1843_70323'
@@ -681,10 +681,10 @@ export const HeaderLogoBlack = () => {
           gradientUnits='userSpaceOnUse'
           gradientTransform='translate(108.951 19.8157) scale(7.59248 7.55681)'
         >
-          <stop stop-color='#130D0F' />
-          <stop offset='0.57' stop-color='#130D0F' />
-          <stop offset='0.8' stop-color='#130D0F' />
-          <stop offset='1' stop-color='#130D0F' />
+          <stop stopColor='#130D0F' />
+          <stop offset='0.57' stopColor='#130D0F' />
+          <stop offset='0.8' stopColor='#130D0F' />
+          <stop offset='1' stopColor='#130D0F' />
         </radialGradient>
         <radialGradient
           id='paint7_radial_1843_70323'
@@ -694,10 +694,10 @@ export const HeaderLogoBlack = () => {
           gradientUnits='userSpaceOnUse'
           gradientTransform='translate(164.018 20.346) scale(5.02429 5.00069)'
         >
-          <stop stop-color='#130D0F' />
-          <stop offset='0.57' stop-color='#130D0F' />
-          <stop offset='0.8' stop-color='#130D0F' />
-          <stop offset='1' stop-color='#130D0F' />
+          <stop stopColor='#130D0F' />
+          <stop offset='0.57' stopColor='#130D0F' />
+          <stop offset='0.8' stopColor='#130D0F' />
+          <stop offset='1' stopColor='#130D0F' />
         </radialGradient>
         <radialGradient
           id='paint8_radial_1843_70323'
@@ -707,10 +707,10 @@ export const HeaderLogoBlack = () => {
           gradientUnits='userSpaceOnUse'
           gradientTransform='translate(85.0889 20.0016) scale(6.71287 6.68133)'
         >
-          <stop stop-color='#130D0F' />
-          <stop offset='0.57' stop-color='#130D0F' />
-          <stop offset='0.8' stop-color='#130D0F' />
-          <stop offset='1' stop-color='#130D0F' />
+          <stop stopColor='#130D0F' />
+          <stop offset='0.57' stopColor='#130D0F' />
+          <stop offset='0.8' stopColor='#130D0F' />
+          <stop offset='1' stopColor='#130D0F' />
         </radialGradient>
       </defs>
     </svg>
