@@ -156,10 +156,10 @@ const Contact: NextPage = () => {
                       defaultValue='default'
                       {...register('category', {
                         required: text.contactError['9'],
-                        validate: {
-                          notDefault: (value) =>
-                            value !== 'default' || text.contactError['9'],
-                        },
+                        // validate: {
+                        //   notDefault: (value) =>
+                        //     value !== 'default' || text.contactError['9'],
+                        // },
                       })}
                       className={cls(
                         errors?.category?.message
