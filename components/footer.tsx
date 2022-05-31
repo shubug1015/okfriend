@@ -46,7 +46,12 @@ export default function Footer() {
             <Youtube />
           </div>
 
-          <div className='mt-8 flex items-center space-x-4 md:mt-5 md:space-x-2.5 md:text-[0.8rem]'>
+          <div
+            className={cls(
+              clsFilter(locale, 'space-x-4', 'space-x-2', 'space-x-4'),
+              'mt-8 flex items-center md:mt-5 md:space-x-2.5 md:text-[0.8rem]'
+            )}
+          >
             <Link href='/service-policy'>
               <a>
                 <div
@@ -54,7 +59,7 @@ export default function Footer() {
                     clsFilter(
                       locale,
                       'text-sm',
-                      'text-sm',
+                      'text-xs',
                       'text-xs md:text-[0.5rem]'
                     ),
                     'font-notoSans text-[#d6d6d6]'
@@ -73,7 +78,7 @@ export default function Footer() {
                     clsFilter(
                       locale,
                       'text-sm',
-                      'text-sm',
+                      'text-xs',
                       'text-xs md:text-[0.5rem]'
                     ),
                     'font-notoSans text-[#d6d6d6]'
@@ -92,7 +97,7 @@ export default function Footer() {
                     clsFilter(
                       locale,
                       'text-sm',
-                      'text-sm',
+                      'text-xs',
                       'text-xs md:text-[0.5rem]'
                     ),
                     'font-notoSans text-[#d6d6d6]'

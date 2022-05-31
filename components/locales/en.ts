@@ -21,9 +21,9 @@ export const en = {
     '5': 'Support center',
     '5-1': 'Announcement',
     '5-2': 'FAQ',
-    '5-3': '1:1 Contact',
-    '5-4': 'Data',
-    '5-5': 'Issuance of a certificate of completion',
+    '5-3': '1:1 Inquries',
+    '5-4': 'Reference Room',
+    '5-5': 'Issue of certificates',
     '6': 'Login',
     '7': 'Mypage',
     '8': 'Logout',
@@ -32,8 +32,8 @@ export const en = {
 
   //푸터
   footer: {
-    '1': '2022 OKFriends CyberCamp Secretariat',
-    '2': 'COPYRIGHT 2022 OKFriends CyberCamp ALL RIGHTS RESERVED.',
+    '1': '2022 OKFriends Youth Camp',
+    '2': 'COPYRIGHT 2022 OKFriends Youth Camp ALL RIGHTS RESERVED.',
     '3': 'Terms of Service',
     '4': 'Rejection of unauthorized e-mail collection',
     '5': 'privacy policy',
@@ -41,8 +41,8 @@ export const en = {
 
   //   메인페이지
   main: {
-    '1': 'Online home country training for overseas Korean college students',
-    '2': 'It is a space where overseas Korean university students and domestic exchange\nparticipants can communicate and exchange in real time. It is an online platform\nwhere you can experience the future of new changes.',
+    '1': ' 2022 OKFriends Youth Camp On-Line',
+    '2': 'It is an online platform where Overseas Koreans and Domestic participants can experience the\nfuture of new changes by communicate and exchange',
     '3': '',
     '4': 'Notice',
     '5': 'More',
@@ -59,7 +59,7 @@ export const en = {
     '16': 'Click',
     '17': 'Instructor',
     '18': 'Support Center',
-    '19': '1:1 Contact',
+    '19': '1:1 Inquries',
   },
 
   //   온라인연수 소개 - 인사말
@@ -72,18 +72,18 @@ export const en = {
     '6': 'Program',
     '7': 'Sincerely welcome participants',
     '8': 'in 2022 OKFriends Youth Camp On-Line',
-    '9': 'The 2022 OKFriends Home Coming Youth Camp',
+    '9': 'The 2022 OKFriends Youth Camp On-Line',
     '10': "I'm Kim Sung-Gon,",
     '11': 'the chairman of the Overseas\nKoreans Foundation',
-    '12': 'We sincerely welcome that you participated in the 2022 OKFriends Home Coming Youth Camp.',
-    '13': "We sincerely welcome that you visited the 2022 OKFriends Home Coming Youth Camp.\n\nOnline training for overseas Korean university students is a venue for the festival that the students can grow into global Koreans in the world with a sense of community through various contents that encompass the traditions and modernity of South Korea regardless of time and space In the 'global era' where the world is connected, overseas Korean university students are 'Koreans around the world' with a Korean national identity. Plus, the students are 'world citizen' who can widely realize the spirit of Humanitarian ideal.\n\nI hope you meet a lot of good friends through this online camp and picture your dream as much as you want to realize the world stage.\n\nThank you.",
+    '12': 'We sincerely welcome that you participated in the 2022 OKFriends Youth Camp On-Line.',
+    '13': "We sincerely welcome that you visited the 2022 OKFriends Youth Camp On-Line.\n\nOnline training for overseas Korean university students is a venue for the festival that the students can grow into global Koreans in the world with a sense of community through various contents that encompass the traditions and modernity of South Korea regardless of time and space In the 'global era' where the world is connected, overseas Korean university students are 'Koreans around the world' with a Korean national identity. Plus, the students are 'world citizen' who can widely realize the spirit of Humanitarian ideal.\n\nI hope you meet a lot of good friends through this online camp and picture your dream as much as you want to realize the world stage.\n\nThank you.",
     '14': 'Dear oversea Korean university',
     '15': 'students, nice to meet you.',
-    '16': 'The 2022 OKFriends Home Coming Youth Camp',
+    '16': 'The 2022 OKFriends Youth Camp On-Line',
     '17': "I'm Oh Moon-beom,",
     '18': 'the head of the\nbusiness manager',
-    '19': 'Dear oversea Korean university students joining the 2022 OKFriends Home Coming Youth Camp, nice to meet you.',
-    '20': 'Korean students from all over the world, nice to meet you\nIn the summer of 2022 in Seoul, South Korea, the 2022 OKFriends Home Coming Youth Camp where students experienced being a member of the Korean community under the identity of Korean will be held\nBecause of the COVID-19 pandemic, our meeting has stopped for the past two years. Of course, the aftermath of COVID-19 has not completely ended, but the camp will start again both online and offline this year.\n\nThe camp, which will resume for the first time in three years, will be visited by global Korean students. It will be a meaningful time for them to experience and discuss our culture, history, and universal values of the world in six cities across the country, including Seoul and Busan.\n\nIn addition, the 2022 Overseas Korean University Cyber Camp, which has greatly supplemented online content following last year, will also be held through an online web page. We look forward to your enthusiastic participation in this online/offline camp, which will be an opportunity for Korean youth to exchange anywhere, beyond time and space.',
+    '19': 'Dear oversea Korean university students joining the 2022 OKFriends Youth Camp On-Line, nice to meet you.',
+    '20': 'Korean students from all over the world, nice to meet you\nIn the summer of 2022 in Seoul, South Korea, the 2022 OKFriends Youth Camp On-Line where students experienced being a member of the Korean community under the identity of Korean will be held\nBecause of the COVID-19 pandemic, our meeting has stopped for the past two years. Of course, the aftermath of COVID-19 has not completely ended, but the camp will start again both online and offline this year.\n\nThe camp, which will resume for the first time in three years, will be visited by global Korean students. It will be a meaningful time for them to experience and discuss our culture, history, and universal values of the world in six cities across the country, including Seoul and Busan.\n\nIn addition, the 2022 OKFriends Youth Camp On-Line, which has greatly supplemented online content following last year, will also be held through an online web page. We look forward to your enthusiastic participation in this online/offline camp, which will be an opportunity for Korean youth to exchange anywhere, beyond time and space.',
   },
 
   //   온라인연수 소개 - 개요
@@ -95,7 +95,7 @@ export const en = {
     '5': 'About',
     '6': 'Program',
     '7': '2022',
-    '8': 'The 2022 OKFriends Home Coming Youth Camp',
+    '8': 'The 2022 OKFriends Youth Camp On-Line',
     '9': 'Purpose of the camp',
     '10': 'We provide an online communication space where both overseas Koreans and domestic Koreans can participate through home country camp using online platforms. It is to encourage participants to exchange various activities through online',
     '11': 'Training students',
@@ -153,7 +153,7 @@ export const en = {
   // 연수실
   course: {
     '1': 'Training Room of Overseas Koreans University Student',
-    '2': 'Online training in advance / Online training Click',
+    '2': 'Online training in advance / Online training',
     '3': 'Online training in advance',
     '4': 'Click',
     '5': 'Online training',
@@ -185,7 +185,7 @@ export const en = {
     '1': '',
     '2': 'Precautions to consider when watching lectures during Optional Session',
     '3': 'All programs are open\ntemporarily so that participants\ncan select and learn on their own',
-    '4': 'Automatically payment of pre-\nset mileage per respective\nprogram',
+    '4': 'Automatically accumulate pre-\nset mileage per respective\nprogram',
   },
 
   //   연수실 - 온라인연수 - 헤더 및 메뉴바
@@ -211,7 +211,7 @@ export const en = {
     '1': '',
     '2': 'Precautions to consider when watching lectures during Optional Session',
     '3': 'All programs are open\ntemporarily so that participants\ncan select and learn on their own',
-    '4': 'Automatically payment of pre-\nset mileage per respective\nprogram',
+    '4': 'Automatically accumulate pre-\nset mileage per respective\nprogram',
   },
 
   //   연수실 - 상세페이지
@@ -293,7 +293,7 @@ export const en = {
 
   //   연수이야기 - 홍보 영상
   video: {
-    '1': '2022 Overseas Korean University Student Home Training(Online)',
+    '1': '2022 OKFriends Youth Camp On-Line',
     '2': 'Video',
   },
 
@@ -345,9 +345,9 @@ export const en = {
     '2': 'Support Center',
     '3': 'Announcement',
     '4': 'FAQ',
-    '5': '1:1 Contact',
-    '6': 'Data',
-    '7': 'Issuance of a certificate of completion',
+    '5': '1:1 Inquries',
+    '6': 'Reference Room',
+    '7': 'Issue of certificates',
   },
 
   //   지원센터 - 공지사항
@@ -366,16 +366,16 @@ export const en = {
 
   //   지원센터 - 공지사항
   faq: {
-    '1': 'How do I participate in the 2022 OKFriends Home Coming Youth Camp?',
+    '1': 'How do I participate in the 2022 OKFriends Youth Camp On-Line?',
     '2': 'You can participate by accessing the online camp website (www.okfyouthcamp.com) and registering as a member.\n\n[Period of application for the camp]\n2022. 05. 12 (Thu) ~ 2022. 06. 30 (Thu) (based on KST) * May close early depending on circumstances',
     '3': 'Is the online camp free of charge?',
     '4': 'Yes! This online camp is free for all participants, and there is no additional charge.',
-    '5': 'I am an 18-year-old prospective college student. Is it possible to participate in the 2022 OKFriends Home Coming Youth Camp?',
+    '5': 'I am an 18-year-old prospective college student. Is it possible to participate in the 2022 OKFriends Youth Camp On-Line?',
     '6': 'Considering the different academic system by country, 18-year-old prospective college students can apply for the camp and decide the kind of camp (youth, college students).',
-    '7': 'I have participated in the previous OKFriends Home Coming Youth Camp. Can I still participate in the 2022 OKFriends Home Coming Youth Camp?',
-    '8': 'Yes! Even if you have previously participated in the OKFriends Home Coming Youth Camp, you can still participate in the 2022 OKFriends Home Coming Youth Camp.',
-    '9': 'What is the schedule of the 2022 OKFriends Home Coming Youth Camp?',
-    '10': 'The 2022 OKFriends Home Coming Youth Camp is divided into 4 sessions, and it will run for 4 months. \n– 1st term: 2022.7.1.(Fri)~7.31(Sun).\n– 2nd term: 2022.8.1.(Mon)~8.31.(Wed)\n– 3rd term: 2022.9.1.(Thu) ~ 9.30.(Fri)\n- 4th term : 2022.10.1.(Sat) ~ 10.31.(Mon)\n*(based on KST)',
+    '7': 'I have participated in the previous OKFriends Homecoming Youth Camp. Can I still participate in the 2022 OKFriends Youth Camp On-Line?',
+    '8': 'Yes! Even if you have previously participated in the OKFriends Homecoming Youth Camp, you can still participate in the 2022 OKFriends Youth Camp On-Line.',
+    '9': 'What is the schedule of the 2022 OKFriends Youth Camp On-Line?',
+    '10': 'The 2022 OKFriends Youth Camp On-Line is divided into 4 sessions, and it will run for 4 months. \n– 1st term: 2022.7.1.(Fri)~7.31(Sun).\n– 2nd term: 2022.8.1.(Mon)~8.31.(Wed)\n– 3rd term: 2022.9.1.(Thu) ~ 9.30.(Fri)\n- 4th term : 2022.10.1.(Sat) ~ 10.31.(Mon)\n*(based on KST)',
     '11': 'If I cannot participate in the live program (Next-generation leader talk show, Hello. Closing ceremony) in real time due to personal circumstances, will I not be able to complete the program?',
     '12': 'You can still pass. Even if you do not participate in real time, you can complete the course by watching the recorded version of the content.\n**However, there is a difference in mileage saving (10 points for live completion, 5 points for recorded content)',
     '13': 'What are the essential things to check when watching the online camp contents?',
@@ -387,13 +387,13 @@ export const en = {
     '19': 'How can I use my mileage?',
     '20': 'We provide various benefits by selecting excellent participants for each session based on the mileage points saving during the camp.\n\n[For overseas Korean university students]\nWhen participating in offline camp in 2023\n1) Top 5% of graduates: Additional 5% of airfare is provided for offline participation in the next year, and priority selection is given for offline participation in the next year\n2) Top 30% of graduates: Priority selection is given for offline participation in the next year\n3) All those who completed the course: Additional points are given for offline participation in the next year\n\n[For domestic university students]\n1) Top 50 graduates: Opportunity to participate in Unification Public Diplomacy Camp at the end of the camp\n2) Other recipients: Gift vouchers or e-vouchers are provided through events',
     '21': 'Can I participate in the online camp only with a PC?',
-    '22': 'You can participate in the 2022 OKFriends Home Coming Youth Camp by using various electronic devices such as PCs, mobiles, and tablets!',
+    '22': 'You can participate in the  2022 OKFriends Youth Camp On-Line by using various electronic devices such as PCs, mobiles, and tablets!',
     '23': 'Which browser should I use to participate in the online camp?',
     '24': 'Wired internet is recommended for a stable internet environment when participating in the online camp. Network communication may not be smooth when participating in the camp by connecting Wi-Fi and a hotspot.\n\n*If you cannot connect to Firefox, please use Chrome or the latest browser. If you cannot connect to Chrome, please use Firefox or another latest browser.',
     '25': 'How can I get a certificate of completion?',
-    '26': 'Certificate of completion can be issued through the ‘Support Center → Issuance of Certificate of Completion’ page after completing all contents within the required course. However, please note that the certificate can only be issued within the specified period.\n※The period of certificate issuance will be announced through a notice later.',
-    '27': 'I have a question about the 2022 OKFriends Home Coming Youth Camp! Where should I ask?',
-    '28': 'If you contact us through the ‘one-to-one inquiry’ of the support center on the homepage, we will kindly answer your questions.',
+    '26': 'Certificate of completion can be issued through the ‘Support Center → Issue of certificates of Completion’ page after completing all contents within the required course. However, please note that the certificate can only be issued within the specified period.\n※The period of certificate issuance will be announced through a notice later.',
+    '27': 'I have a question about the  2022 OKFriends Youth Camp On-Line! Where should I ask?',
+    '28': 'If you contact us through the ‘1:1 inquiries’ of the support center on the homepage, we will kindly answer your questions.',
   },
 
   //   지원센터 - 1:1 문의하기

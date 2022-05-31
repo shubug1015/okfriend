@@ -16,13 +16,13 @@ export default function Slide() {
     {
       id: 0,
       bgImg: SlideBg1,
-      title: '2022 OKFriends\nCyberCamp',
+      title: '2022 OKFriends\nYouth Camp',
       text: text.main['1'],
     },
     {
       id: 1,
       bgImg: SlideBg2,
-      title: '2022 OKFriends\nCyberCamp',
+      title: '2022 OKFriends\nYouth Camp',
       text: text.main['1'],
     },
   ];
