@@ -13,6 +13,7 @@ import type { GetServerSidePropsContext, NextPage } from 'next';
 // import { useRouter } from 'next/router';
 import { useState } from 'react';
 import useSWR from 'swr';
+import usePreventConcurrentWatch from '../../../use-prevent-concurrent-watch';
 
 interface IProps {
   slug: string[];
@@ -20,7 +21,7 @@ interface IProps {
 
 const CourseDetail: NextPage<IProps> = ({ slug }) => {
   const { locale, text } = useLocale();
-  useUser({ isPrivate: true });
+  const user = useUser({ isPrivate: true });
   const { data: myData } = useSWR<IUser>('/api/user');
   const [, category, id] = slug;
   const { data, mutate } = useSWR(
@@ -60,6 +61,18 @@ const CourseDetail: NextPage<IProps> = ({ slug }) => {
             label: text.courseDetail['13'],
           },
         ];
+
+  const [videoElem, setVideoElem] = useState<any>(undefined);
+  {
+    const toStringIfNotNull = (a: string | null | undefined) => a != null ? a.toString() : a;
+
+    usePreventConcurrentWatch({
+      userId: toStringIfNotNull(user?.profile?.id),
+      courseId: toStringIfNotNull(courseData?.id),
+      videoElem,
+    });
+  }
+
   return (
     <>
       <SEO title={courseData?.name} />
@@ -71,6 +84,7 @@ const CourseDetail: NextPage<IProps> = ({ slug }) => {
           completed={data?.completed}
           survey={data?.survey}
           mutate={mutate}
+          setVideoElem={setVideoElem}
         />
 
         <div className='mt-24 flex text-lg font-medium md:mt-14 md:grid md:grid-cols-2 md:gap-y-6'>
