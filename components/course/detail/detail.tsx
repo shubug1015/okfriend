@@ -18,6 +18,7 @@ interface IProps {
   completed: boolean;
   survey: boolean;
   mutate: (args: { [key: string]: any }) => void;
+  setVideoElem: (videoElem: any) => void;
 }
 
 export default function Detail({
@@ -27,6 +28,7 @@ export default function Detail({
   completed,
   survey,
   mutate,
+  setVideoElem,
 }: IProps) {
   const { locale, text } = useLocale();
   const { data: myData } = useSWR<IUser>('/api/user');
@@ -125,7 +127,10 @@ export default function Detail({
           <div className='relative h-[26.125rem] w-[44.688rem] md:h-48 md:w-full'>
             {isRegistered ? (
               <video
-                ref={videoPlayerRef}
+                ref={(elem: any) => {
+                  videoPlayerRef.current = elem;
+                  setVideoElem(elem);
+                }}
                 playsInline
                 controls
                 onPlay={() => setIsPlaying(true)}
