@@ -81,20 +81,24 @@ const Certificate: NextPage = () => {
   });
 
   const onValid = async ({ Q1_etc, Q8_5_etc, ...data }: IForm) => {
-    try {
-      await surveyApi.certificateSurvey(
-        locale,
-        {
-          ...data,
-          Q1: data.Q1 === text.certificate['20'] ? Q1_etc : data.Q1,
-          Q8_5: `${Q8_5_etc} ${data.Q8_5}`,
-        },
-        token as string
-      );
-      alert(text.certificateError['1']);
-      setPopup(true);
-    } catch {
-      alert('Error');
+    if (profile?.survey) {
+      alert('이미 이수증 발급을 진행하였습니다.');
+    } else {
+      try {
+        await surveyApi.certificateSurvey(
+          locale,
+          {
+            ...data,
+            Q1: data.Q1 === text.certificate['20'] ? Q1_etc : data.Q1,
+            Q8_5: `${Q8_5_etc} ${data.Q8_5}`,
+          },
+          token as string
+        );
+        alert(text.certificateError['1']);
+        setPopup(true);
+      } catch {
+        alert('Error');
+      }
     }
   };
   const onInvalid = (errors: FieldErrors) => {
