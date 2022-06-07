@@ -7,6 +7,7 @@ import { FieldErrors, useForm } from 'react-hook-form';
 import useSWR from 'swr';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { useLocale } from '@libs/client/useLocale';
+import { useRouter } from 'next/router';
 
 interface IForm {
   Q1: string;
@@ -54,6 +55,9 @@ export default function Popup({ id, closePopup }: IProps) {
   } = useForm<IForm>({
     mode: 'onChange',
   });
+
+  const router = useRouter();
+
   const onValid = async (data: IForm) => {
     try {
       await surveyApi.courseSurvey(
@@ -64,6 +68,8 @@ export default function Popup({ id, closePopup }: IProps) {
       );
       alert(text.courseDetailError['4']);
       closePopup();
+
+      router.back();
     } catch {
       alert('Error');
     }
