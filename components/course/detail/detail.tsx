@@ -1,14 +1,11 @@
-// import Layout from '@layouts/sectionLayout';
 import { cls, clsFilter } from '@libs/client/utils';
 import Image from 'next/image';
-// import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import Popup from '@components/course/detail/popup';
 import { courseApi } from '@libs/api';
 import { useRouter } from 'next/router';
 import { IUser } from '@libs/client/useUser';
 import useSWR from 'swr';
-// import Vimeo from '@u-wave/react-vimeo';
 import { useLocale } from '@libs/client/useLocale';
 
 interface IProps {
@@ -78,6 +75,7 @@ export default function Detail({
     }
   };
 
+  const [currentProgress, setCurrentProgress] = useState<undefined | number>(undefined);
   const setProgress = async (percent: number) => {
     try {
       await courseApi.sendProgress(
@@ -88,37 +86,37 @@ export default function Detail({
       );
       const updatedData = await courseApi.detail(locale, id, myData?.token);
       mutate(updatedData);
+      setCurrentProgress(percent);
     } catch {
       alert('Error');
     }
   };
 
-  // useEffect(() => {
-  //   if (isPlaying) {
-  //     let timer = setInterval(setProgress, 10000);
-  //     return () => clearInterval(timer);
-  //   }
-  // }, [isPlaying]);
-
-  // Update progress percent.
   useEffect(() => {
-    const intervalId = setInterval(() => {
+    const interval = 5000;
+
+    const intervalId = setInterval(async () => {
       const videoElem: any = videoPlayerRef.current as any;
 
       if (videoElem == null) {
         return;
       }
 
-      if (isPlaying) {
-        const currentTime = videoElem.currentTime;
-        const totalTime = videoElem.duration;
-        const percent = (currentTime / totalTime) * 100;
-        setProgress(percent);
+      if (!isPlaying) {
+        return;
       }
-    }, 10000); // Update progress percent in every sec.
+
+      const totalTime = videoElem.duration;
+
+      const theProgress = currentProgress ?? progress;
+      const newProgress = Math.min(100, theProgress + (interval / 1000) / totalTime * 100);
+
+      await setProgress(newProgress);
+    }, interval);
 
     return () => clearInterval(intervalId);
-  }, [isPlaying]);
+  }, [isPlaying, progress, currentProgress]);
+
   return (
     <>
       <div>
