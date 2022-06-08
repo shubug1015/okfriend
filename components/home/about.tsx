@@ -53,8 +53,8 @@ export default function About() {
           </div>
 
           <div className='mt-4 hidden text-center text-base md:block'>
-            {text.main['1']}{' '}
-            <span className='font-bold text-[#31b7bc]'>{text.main['2']}</span>
+            {text.main['2']}{' '}
+            <span className='font-bold text-[#31b7bc]'>{text.main['3']}</span>
           </div>
         </div>
       </Layout>

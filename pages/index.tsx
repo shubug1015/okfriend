@@ -15,7 +15,7 @@ const Home: NextPage = () => {
       <Slide />
       <About />
       <Notice />
-      <Course />
+      {/* <Course /> */}
       <Card />
       <Contact />
       {/* <Partner /> */}
