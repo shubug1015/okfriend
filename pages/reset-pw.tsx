@@ -67,6 +67,7 @@ const ResetPw: NextPage = () => {
         setCode((prev) => ({ ...prev, loading: false }));
       } else {
         setCode({ sended: true, loading: false });
+        alert('인증번호가 발송되었습니다. 메일을 확인해주세요.');
       }
     } catch {
       alert('Error');
