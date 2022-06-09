@@ -31,7 +31,9 @@ export default function Header() {
       <div className='flex translate-y-[4.5rem] space-x-5 md:mt-8 md:translate-y-0 md:flex-col md:space-x-0 md:space-y-2.5'>
         <div className='flex h-36 w-[48.75rem] flex-col justify-between rounded bg-white py-7 px-12 shadow-md md:h-[4.25rem] md:w-full md:flex-row md:items-center md:py-0 md:px-6'>
           <div className='text-[1.75rem] font-bold md:text-xl'>
-            {data?.profile?.name}님
+            {locale === 'ko'
+              ? `${data?.profile?.name}님`
+              : data?.profile?.en_name}
           </div>
 
           <Link href='/mypage/edit'>

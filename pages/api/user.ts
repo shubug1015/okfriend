@@ -8,7 +8,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   } = req;
 
   if (!token)
-    return res.status(401).json({ ok: false, token: null, profile: null });
+    return res.status(200).json({ ok: false, token: null, profile: null });
 
   const { data: profile } = await usersApi.myInfos(token);
   return res.status(200).json({ ok: true, token, profile });

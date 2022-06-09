@@ -138,7 +138,7 @@ export default function Popup({ username, closePopup }: IProps) {
           onClick={handleSubmit(onValid, onInvalid)}
           className='mt-12 flex cursor-pointer justify-center rounded bg-[#2fb6bc] py-4 text-lg font-medium text-white transition-all hover:opacity-90 md:py-2.5 md:text-base'
         >
-          {text.pwPopup['7']}
+          {text.pwPopup['8']}
         </div>
       </motion.div>
     </div>
