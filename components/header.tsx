@@ -382,7 +382,7 @@ export default function Header() {
           <div
             className={cls(
               clsFilter(locale, 'w-2/4', 'w-2/4', 'w-7/12'),
-              'flex h-full items-center justify-center space-x-14 md:hidden'
+              'flex h-full items-center justify-center space-x-10 md:hidden'
             )}
           >
             {navList.map((i) => (
@@ -399,7 +399,7 @@ export default function Header() {
                       i.isActivated ? 'text-[#2fb6bc]' : '',
                       clsFilter(
                         locale,
-                        'text-lg',
+                        'text-base',
                         'text-base leading-tight',
                         'text-base leading-tight'
                       ),
