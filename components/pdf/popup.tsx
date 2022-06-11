@@ -181,68 +181,78 @@ export default function Popup() {
       </motion.div>
 
       {/* 영문 이수증 */}
-      <div id='pdfEn' className='relative hidden h-[297mm] w-[210mm] bg-white'>
-        <img src='/pdf/en.png' alt='PDF Image' className='object-contain' />
+      <div className='absolute'>
+        <div
+          id='pdfEn'
+          className='relative hidden h-[297mm] w-[210mm] bg-white'
+        >
+          <img src='/pdf/en.png' alt='PDF Image' className='object-contain' />
 
-        <div className='absolute right-[4.5rem] top-0 translate-y-[18mm] font-montserrat text-[0.938rem] font-bold text-[#292E31]'>
-          22OKF-A{(data?.profile?.id + '').padStart(4, '000')}
-        </div>
+          <div className='absolute right-[4.5rem] top-0 translate-y-[18mm] font-montserrat text-[0.938rem] font-bold text-[#292E31]'>
+            22OKF-A{(data?.profile?.id + '').padStart(4, '000')}
+          </div>
 
-        <div className='absolute left-1/2 top-0 translate-y-[100.5mm] -translate-x-1/2 font-montserrat text-2xl font-bold text-[#292E31]'>
-          {data?.profile?.en_name}
-        </div>
+          <div className='absolute left-1/2 top-0 translate-y-[100.5mm] -translate-x-1/2 font-montserrat text-2xl font-bold text-[#292E31]'>
+            {data?.profile?.en_name}
+          </div>
 
-        <div className='absolute left-1/2 top-0 translate-y-[156.5mm] -translate-x-1/2 font-montserrat text-[1.75rem] font-bold text-[#292E31]'>
-          {data?.profile?.stage === 1
-            ? 'July 1st-31th, 2022'
-            : data?.profile?.stage === 2
-            ? 'August 1st-30th, 2022'
-            : data?.profile?.stage === 3
-            ? 'September 1st-30th, 2022'
-            : 'October 1st-30th, 2022'}
-        </div>
+          <div className='absolute left-1/2 top-0 translate-y-[156.5mm] -translate-x-1/2 font-montserrat text-[1.75rem] font-bold text-[#292E31]'>
+            {data?.profile?.stage === 1
+              ? 'July 1st-31th, 2022'
+              : data?.profile?.stage === 2
+              ? 'August 1st-30th, 2022'
+              : data?.profile?.stage === 3
+              ? 'September 1st-30th, 2022'
+              : 'October 1st-30th, 2022'}
+          </div>
 
-        <div className='absolute left-1/2 top-0 translate-y-[195mm] -translate-x-1/2 font-montserrat text-2xl text-[#292E31]'>
-          {new Date().getFullYear()}.
-          {(new Date().getMonth() + 1 + '').padStart(2, '0')}.
-          {(new Date().getDate() + '').padStart(2, '0')}
+          <div className='absolute left-1/2 top-0 translate-y-[195mm] -translate-x-1/2 font-montserrat text-2xl text-[#292E31]'>
+            {new Date().getFullYear()}.
+            {(new Date().getMonth() + 1 + '').padStart(2, '0')}.
+            {(new Date().getDate() + '').padStart(2, '0')}
+          </div>
         </div>
       </div>
       {/* 영문 이수증 */}
 
       {/* 국문 이수증 */}
-      <div id='pdfKo' className='relative hidden h-[297mm] w-[210mm] bg-white'>
-        <img src='/pdf/ko.png' alt='PDF Image' className='object-contain' />
+      <div className='absolute'>
+        <div
+          id='pdfKo'
+          className='relative hidden h-[297mm] w-[210mm] bg-white'
+        >
+          <img src='/pdf/ko.png' alt='PDF Image' className='object-contain' />
 
-        <div className='absolute right-[4.5rem] top-0 translate-y-[18mm] font-montserrat text-[0.938rem] font-bold text-[#292E31]'>
-          22OKF-A{(data?.profile?.id + '').padStart(4, '000')}
-        </div>
+          <div className='absolute right-[4.5rem] top-0 translate-y-[18mm] font-montserrat text-[0.938rem] font-bold text-[#292E31]'>
+            22OKF-A{(data?.profile?.id + '').padStart(4, '000')}
+          </div>
 
-        <div className='absolute right-12 top-0 w-40 translate-y-[86.9mm] text-lg font-bold'>
-          {data?.profile?.name}
-        </div>
+          <div className='absolute right-12 top-0 w-40 translate-y-[86.9mm] text-lg font-bold'>
+            {data?.profile?.name}
+          </div>
 
-        <div className='absolute right-12 top-0 w-40 translate-y-[95.7mm] text-lg font-bold'>
-          {data?.profile?.birth.split('-')[0]}.
-          {data?.profile?.birth.split('-')[1].padStart(2, '0')}.
-          {data?.profile?.birth.split('-')[2].padStart(2, '0')}
-        </div>
+          <div className='absolute right-12 top-0 w-40 translate-y-[95.7mm] text-lg font-bold'>
+            {data?.profile?.birth.split('-')[0]}.
+            {data?.profile?.birth.split('-')[1].padStart(2, '0')}.
+            {data?.profile?.birth.split('-')[2].padStart(2, '0')}
+          </div>
 
-        <div className='absolute right-[12.3rem] top-0 translate-y-[143.7mm] text-2xl font-bold'>
-          {data?.profile?.stage === 1
-            ? '(2022.07.01~07.31)'
-            : data?.profile?.stage === 2
-            ? '(2022.08.01~08.30)'
-            : data?.profile?.stage === 3
-            ? '(2022.09.01~09.30)'
-            : '(2022.10.01~10.31)'}
-        </div>
+          <div className='absolute right-[12.3rem] top-0 translate-y-[143.7mm] text-2xl font-bold'>
+            {data?.profile?.stage === 1
+              ? '2022.07.01~07.31'
+              : data?.profile?.stage === 2
+              ? '2022.08.01~08.30'
+              : data?.profile?.stage === 3
+              ? '2022.09.01~09.30'
+              : '2022.10.01~10.31'}
+          </div>
 
-        <div className='absolute left-1/2 top-0 translate-y-[200mm] -translate-x-1/2 text-xl font-bold'>
-          {new Date().getFullYear()}
-          {text.certificateError['6']} {new Date().getMonth() + 1}
-          {text.certificateError['7']} {new Date().getDate()}
-          {text.certificateError['8']}
+          <div className='absolute left-1/2 top-0 translate-y-[200mm] -translate-x-1/2 text-xl font-bold'>
+            {new Date().getFullYear()}
+            {text.certificateError['6']} {new Date().getMonth() + 1}
+            {text.certificateError['7']} {new Date().getDate()}
+            {text.certificateError['8']}
+          </div>
         </div>
       </div>
       {/* 국문 이수증 */}
