@@ -70,6 +70,7 @@ export default function Popup() {
           formData,
           data?.token as string
         );
+
         // // pdf.output('dataurlnewwindow');
         // pdf.save('download.pdf');
       });
@@ -192,7 +193,7 @@ export default function Popup() {
             22OKF-A{(data?.profile?.id + '').padStart(4, '000')}
           </div>
 
-          <div className='absolute left-1/2 top-0 translate-y-[100.5mm] -translate-x-1/2 font-montserrat text-2xl font-bold text-[#292E31]'>
+          <div className='absolute left-1/2 top-0 translate-y-[100.3mm] -translate-x-1/2 font-montserrat text-2xl font-bold text-[#292E31]'>
             {data?.profile?.en_name}
           </div>
 
@@ -227,24 +228,24 @@ export default function Popup() {
             22OKF-A{(data?.profile?.id + '').padStart(4, '000')}
           </div>
 
-          <div className='absolute right-12 top-0 w-40 translate-y-[86.9mm] text-lg font-bold'>
+          <div className='absolute right-12 top-0 w-40 translate-y-[87.2mm] text-lg font-bold'>
             {data?.profile?.name}
           </div>
 
-          <div className='absolute right-12 top-0 w-40 translate-y-[95.7mm] text-lg font-bold'>
+          <div className='absolute right-12 top-0 w-40 translate-y-[96mm] text-lg font-bold'>
             {data?.profile?.birth.split('-')[0]}.
             {data?.profile?.birth.split('-')[1].padStart(2, '0')}.
             {data?.profile?.birth.split('-')[2].padStart(2, '0')}
           </div>
 
-          <div className='absolute right-[12.3rem] top-0 translate-y-[143.7mm] text-2xl font-bold'>
+          <div className='absolute right-[12.8rem] top-0 translate-y-[143.6mm] text-2xl font-bold'>
             {data?.profile?.stage === 1
-              ? '2022.07.01~07.31'
+              ? '2022.07.01 ~ 07.31'
               : data?.profile?.stage === 2
-              ? '2022.08.01~08.30'
+              ? '2022.08.01 ~ 08.30'
               : data?.profile?.stage === 3
-              ? '2022.09.01~09.30'
-              : '2022.10.01~10.31'}
+              ? '2022.09.01 ~ 09.30'
+              : '2022.10.01 ~ 10.31'}
           </div>
 
           <div className='absolute left-1/2 top-0 translate-y-[200mm] -translate-x-1/2 text-xl font-bold'>
