@@ -82,7 +82,7 @@ export default function Card() {
             {text.main['13']}
           </div>
 
-          <Link href='/course-story/cardnews/1'>
+          <Link href='/course-story/cardnews/전체/1'>
             <a className='hidden rounded-full border border-white py-[0.35rem] px-[0.7rem] text-[0.75rem] font-bold text-white md:block'>
               {text.main['12']}
             </a>
@@ -134,7 +134,7 @@ export default function Card() {
             </svg>
           </div>
 
-          <Link href='/course-story/cardnews/1'>
+          <Link href='/course-story/cardnews/전체/1'>
             <a className='rounded-full border border-white py-2 px-[1.375rem] text-lg font-bold md:hidden'>
               {text.main['12']}
             </a>

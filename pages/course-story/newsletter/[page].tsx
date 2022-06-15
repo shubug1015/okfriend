@@ -91,7 +91,9 @@ const Newsletter: NextPage<IProps> = ({ page }) => {
             totalItems={data?.count}
             itemsPerPage={15}
             currentPage={+page}
-            url={(page: number) => router.push(`/course-story/gallery/${page}`)}
+            url={(page: number) =>
+              router.push(`/course-story/newsletter/${page}`)
+            }
           />
         </div>
       </Layout>

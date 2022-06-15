@@ -187,7 +187,10 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
       </Layout>
 
       <Layout padding='py-20 md:pt-6 md:text-sm'>
-        <div dangerouslySetInnerHTML={{ __html: data?.content }} />
+        <div
+          dangerouslySetInnerHTML={{ __html: data?.content }}
+          className='wysiwyg'
+        />
 
         <div className='mt-12 flex justify-center'>
           <div

@@ -81,7 +81,10 @@ const NoticeDetail: NextPage<IProps> = ({ id }) => {
       </Layout>
 
       <Layout padding='py-20'>
-        <div dangerouslySetInnerHTML={{ __html: data?.content }} />
+        <div
+          dangerouslySetInnerHTML={{ __html: data?.content }}
+          className='wysiwyg'
+        />
 
         <Link href='/support/notice/title/created/1'>
           <a className='mt-6 flex h-[2.8rem] w-[6.5rem] items-center justify-center rounded-lg border border-[#6b6b6b] text-lg font-medium text-[#6b6b6b] transition-all hover:opacity-70'>

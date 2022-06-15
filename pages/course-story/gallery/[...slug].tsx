@@ -9,31 +9,28 @@ import { useLocale } from '@libs/client/useLocale';
 import { cls, clsFilter } from '@libs/client/utils';
 import type { GetServerSidePropsContext, NextPage } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import useSWR from 'swr';
 
 interface IProps {
-  page: string;
+  slug: string[];
 }
 
-const Gallery: NextPage<IProps> = ({ page }) => {
+const Gallery: NextPage<IProps> = ({ slug }) => {
   const { text } = useLocale();
   const router = useRouter();
   const { locale } = router;
-  const [currentTab, setCurrentTab] = useState('전체');
-  const { data } = useSWR(`${locale}/galleryList/${currentTab}/${page}`, () =>
-    boardApi.getGalleryList(locale, currentTab, page)
+  const [type, page] = slug;
+  const { data } = useSWR(`${locale}/galleryList/${type}/${page}`, () =>
+    boardApi.getGalleryList(locale, type, page)
   );
 
   const [popup, setPopup] = useState({
     open: false,
     index: -1,
   });
-
-  const toggleTab = (tab: string) => {
-    setCurrentTab(tab);
-  };
   const closePopup = () => setPopup({ open: false, index: -1 });
   const prevPopup = () =>
     setPopup((prev) => ({ ...prev, index: prev.index - 1 }));
@@ -64,19 +61,28 @@ const Gallery: NextPage<IProps> = ({ page }) => {
 
         {/* 서브메뉴 탭 */}
         <div className='mt-[2.531rem] flex space-x-4 text-center text-[1.375rem] font-bold leading-[2.2rem] text-[#9e9e9e] md:mt-4 md:text-base'>
-          {[text.gallery['2'], '2022', '2021', '2019'].map((i) => (
-            <div
-              key={i}
-              onClick={() => toggleTab(i)}
-              className={cls(
-                currentTab === i
-                  ? 'cursor-default border-[#01111e] text-[#01111e]'
-                  : 'cursor-pointer border-transparent',
-                'w-[6.5rem] border-b-4 pb-[0.653rem] md:border-b-2'
-              )}
+          {[text.gallery['2'], '2022', '2021', '2019'].map((i, index) => (
+            <Link
+              href={
+                index === 0
+                  ? '/course-story/gallery/전체/1'
+                  : `/course-story/gallery/${i}/1`
+              }
             >
-              {i}
-            </div>
+              <a>
+                <div
+                  key={i}
+                  className={cls(
+                    type === i || (type === '전체' && index === 0)
+                      ? 'cursor-default border-[#01111e] text-[#01111e]'
+                      : 'cursor-pointer border-transparent',
+                    'w-[6.5rem] border-b-4 pb-[0.653rem] md:border-b-2'
+                  )}
+                >
+                  {i}
+                </div>
+              </a>
+            </Link>
           ))}
         </div>
 
@@ -112,7 +118,9 @@ const Gallery: NextPage<IProps> = ({ page }) => {
             totalItems={data?.count}
             itemsPerPage={16}
             currentPage={+page}
-            url={(page: number) => router.push(`/course-story/gallery/${page}`)}
+            url={(page: number) =>
+              router.push(`/course-story/gallery/${type}/${page}`)
+            }
           />
         </div>
       </Layout>
@@ -133,7 +141,7 @@ const Gallery: NextPage<IProps> = ({ page }) => {
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   return {
     props: {
-      page: ctx.params?.page,
+      slug: ctx.params?.slug,
     },
   };
 };

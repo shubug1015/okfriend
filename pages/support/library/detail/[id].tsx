@@ -83,7 +83,10 @@ const LibraryDetail: NextPage<IProps> = ({ id }) => {
       </Layout>
 
       <Layout padding='py-14'>
-        <div dangerouslySetInnerHTML={{ __html: data?.content }} />
+        <div
+          dangerouslySetInnerHTML={{ __html: data?.content }}
+          className='wysiwyg'
+        />
 
         <div className='mt-20 border-y border-[#cccccc] py-5'>
           <a

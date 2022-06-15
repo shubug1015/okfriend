@@ -13,7 +13,10 @@ export default function Info({ info }: IProps) {
         {text.courseDetail['14']}
       </div>
 
-      <div className='mt-9' dangerouslySetInnerHTML={{ __html: info }} />
+      <div
+        dangerouslySetInnerHTML={{ __html: info }}
+        className='wysiwyg mt-9'
+      />
     </Layout>
   );
 }

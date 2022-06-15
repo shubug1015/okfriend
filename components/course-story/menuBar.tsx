@@ -26,7 +26,7 @@ export default function MenuBar({ pageName }: IProps) {
         </a>
       </Link>
 
-      <Link href='/course-story/gallery/1'>
+      <Link href='/course-story/gallery/전체/1'>
         <a>
           <div
             className={cls(
@@ -42,7 +42,7 @@ export default function MenuBar({ pageName }: IProps) {
         </a>
       </Link>
 
-      <Link href='/course-story/cardnews/1'>
+      <Link href='/course-story/cardnews/전체/1'>
         <a>
           <div
             className={cls(

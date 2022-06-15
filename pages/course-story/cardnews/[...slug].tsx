@@ -14,16 +14,17 @@ import { useState } from 'react';
 import useSWR from 'swr';
 
 interface IProps {
-  page: string;
+  slug: string[];
 }
 
-const Cardnews: NextPage<IProps> = ({ page }) => {
+const Cardnews: NextPage<IProps> = ({ slug }) => {
   const { text } = useLocale();
   const router = useRouter();
   const { locale } = router;
   const [currentTab, setCurrentTab] = useState('전체');
-  const { data } = useSWR(`${locale}/cardNews/${currentTab}/${page}`, () =>
-    boardApi.getCardNewsList(locale, page, currentTab)
+  const [type, page] = slug;
+  const { data } = useSWR(`${locale}/cardNews/${type}/${page}`, () =>
+    boardApi.getCardNewsList(locale, page, type)
   );
   const toggleTab = (tab: string) => {
     setCurrentTab(tab);
@@ -53,39 +54,50 @@ const Cardnews: NextPage<IProps> = ({ page }) => {
 
         {/* 서브메뉴 탭 */}
         <div className='mt-[2.531rem] flex space-x-4 text-center text-[1.375rem] font-bold leading-[2.2rem] text-[#9e9e9e] md:mt-4 md:text-base'>
-          <div
-            onClick={() => toggleTab('전체')}
-            className={cls(
-              currentTab === '전체'
-                ? 'cursor-default border-[#01111e] text-[#01111e]'
-                : 'cursor-pointer border-transparent',
-              'w-[6.5rem] border-b-4 pb-[0.653rem] md:border-b-2'
-            )}
-          >
-            {text.cardnews['2']}
-          </div>
-          <div
-            onClick={() => toggleTab('KOR')}
-            className={cls(
-              currentTab === 'KOR'
-                ? 'cursor-default border-[#01111e] text-[#01111e]'
-                : 'cursor-pointer border-transparent',
-              'w-[6.5rem] border-b-4 pb-[0.653rem] md:border-b-2'
-            )}
-          >
-            KOR
-          </div>
-          <div
-            onClick={() => toggleTab('ENG')}
-            className={cls(
-              currentTab === 'ENG'
-                ? 'cursor-default border-[#01111e] text-[#01111e]'
-                : 'cursor-pointer border-transparent',
-              'w-[6.5rem] border-b-4 pb-[0.653rem] md:border-b-2'
-            )}
-          >
-            ENG
-          </div>
+          <Link href='/course-story/cardnews/전체/1'>
+            <a>
+              <div
+                className={cls(
+                  type === '전체'
+                    ? 'cursor-default border-[#01111e] text-[#01111e]'
+                    : 'cursor-pointer border-transparent',
+                  'w-[6.5rem] border-b-4 pb-[0.653rem] md:border-b-2'
+                )}
+              >
+                {text.cardnews['2']}
+              </div>
+            </a>
+          </Link>
+
+          <Link href='/course-story/cardnews/KOR/1'>
+            <a>
+              <div
+                className={cls(
+                  type === 'KOR'
+                    ? 'cursor-default border-[#01111e] text-[#01111e]'
+                    : 'cursor-pointer border-transparent',
+                  'w-[6.5rem] border-b-4 pb-[0.653rem] md:border-b-2'
+                )}
+              >
+                KOR
+              </div>
+            </a>
+          </Link>
+
+          <Link href='/course-story/cardnews/ENG/1'>
+            <a>
+              <div
+                className={cls(
+                  type === 'ENG'
+                    ? 'cursor-default border-[#01111e] text-[#01111e]'
+                    : 'cursor-pointer border-transparent',
+                  'w-[6.5rem] border-b-4 pb-[0.653rem] md:border-b-2'
+                )}
+              >
+                ENG
+              </div>
+            </a>
+          </Link>
         </div>
 
         {/* 갤러리 이미지 */}
@@ -111,7 +123,7 @@ const Cardnews: NextPage<IProps> = ({ page }) => {
             itemsPerPage={16}
             currentPage={+page}
             url={(page: number) =>
-              router.push(`/course-story/cardnews/${page}`)
+              router.push(`/course-story/cardnews/${type}/${page}`)
             }
           />
         </div>
@@ -123,7 +135,7 @@ const Cardnews: NextPage<IProps> = ({ page }) => {
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   return {
     props: {
-      page: ctx.params?.page,
+      slug: ctx.params?.slug,
     },
   };
 };

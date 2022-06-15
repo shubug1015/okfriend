@@ -184,11 +184,11 @@ export default function Header() {
         },
         {
           label: text.header['4-2'],
-          url: '/course-story/gallery/1',
+          url: '/course-story/gallery/전체/1',
         },
         {
           label: text.header['4-3'],
-          url: '/course-story/cardnews/1',
+          url: '/course-story/cardnews/전체/1',
         },
         {
           label: text.header['4-4'],
