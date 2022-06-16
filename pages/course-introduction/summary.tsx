@@ -445,12 +445,12 @@ const Greeting: NextPage = () => {
           <div className='mt-4 text-[1.125rem] leading-[1.856rem] md:mt-[0.313rem] md:text-[0.875rem] md:leading-[1.444rem]'>
             {text.summary['44']}
           </div>
-          <div className='flex md:block'>
+          <div className=''>
             <div className='mr-[1.375rem] mt-[2.313rem] md:mt-7 md:mr-0'>
               <div className='text-[1.125rem] leading-[1.688rem]'>
                 {text.summary['45']}
               </div>
-              <div className='relative mt-3 h-[302px] w-[580px] md:hidden'>
+              <div className='relative mt-3 h-[365px] w-full md:hidden'>
                 <Image
                   src={imgFilter(
                     locale,
@@ -467,7 +467,7 @@ const Greeting: NextPage = () => {
               </div>
               <div
                 className={cls(
-                  clsFilter(locale, 'h-[497px]', 'h-[453px]', 'h-[453px]'),
+                  clsFilter(locale, 'h-[455px]', 'h-[465px]', 'h-[465px]'),
                   'relative mt-3 hidden w-full md:block'
                 )}
               >
@@ -490,7 +490,7 @@ const Greeting: NextPage = () => {
               <div className='text-[1.125rem] leading-[1.688rem]'>
                 {text.summary['46']}
               </div>
-              <div className='relative mt-3 h-[302px] w-[580px] md:hidden'>
+              <div className='relative mt-3 h-[208px] w-full md:hidden'>
                 <Image
                   src={imgFilter(
                     locale,
@@ -505,7 +505,12 @@ const Greeting: NextPage = () => {
                   quality={100}
                 />
               </div>
-              <div className='relative mt-3 hidden h-[302px] w-full md:block'>
+              <div
+                className={cls(
+                  clsFilter(locale, 'h-[335px]', 'h-[355px]', 'h-[355px]'),
+                  'relative mt-3 hidden w-full md:block'
+                )}
+              >
                 <Image
                   src={imgFilter(
                     locale,
