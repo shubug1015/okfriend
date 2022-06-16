@@ -2,6 +2,7 @@ import Link from 'next/link';
 import {
   TopLogo1,
   TopLogo2,
+  TopLogo3,
   Facebook,
   HeaderLogoWhite,
   HeaderLogoBlack,
@@ -264,6 +265,7 @@ export default function Header() {
           <div className='flex items-center space-x-7 md:space-x-4'>
             <TopLogo1 />
             <TopLogo2 />
+            <TopLogo3 />
           </div>
 
           <div className='flex items-center space-x-6'>
