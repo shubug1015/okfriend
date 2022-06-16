@@ -134,7 +134,7 @@ export default function Popup({ id, closePopup }: IProps) {
         </div>
 
         <div className='mt-2.5 text-center text-lg font-medium md:mt-5 md:tracking-tight'>
-          2022 OKFriends Youth Camp On-Line
+          2022 OKFriends Teens Camp On-Line
         </div>
 
         <div className='mt-6 whitespace-pre-wrap border-t-2 border-dotted border-[#9e9e9e] pt-6 text-center text-lg font-medium text-[#6b6b6b] md:text-sm'>
