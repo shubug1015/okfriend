@@ -568,7 +568,7 @@ export default function Header() {
                             setMobileMenuOpened(false);
                           }
                         }}
-                        className='font-medium text-[#6b6b6b]'
+                        className='whitespace-pre-wrap font-medium text-[#6b6b6b]'
                       >
                         {i.title}
                       </div>
