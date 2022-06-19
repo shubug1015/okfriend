@@ -77,12 +77,12 @@ export const en = {
     '11': 'the chairman of the Overseas\nKoreans Foundation',
     '12': 'We sincerely welcome that you participated in the 2022 OKFriends Youth Camp On-Line.',
     '13': "We sincerely welcome that you visited the 2022 OKFriends Youth Camp On-Line.\n\nOnline training for overseas Korean university students is a venue for the festival that the students can grow into global Koreans in the world with a sense of community through various contents that encompass the traditions and modernity of South Korea regardless of time and space In the 'global era' where the world is connected, overseas Korean university students are 'Koreans around the world' with a Korean national identity. Plus, the students are 'world citizen' who can widely realize the spirit of Humanitarian ideal.\n\nI hope you meet a lot of good friends through this online camp and picture your dream as much as you want to realize the world stage.\n\nThank you.",
-    '14': 'Dear oversea Korean university',
+    '14': 'Dear overseas Korean university',
     '15': 'students, nice to meet you.',
     '16': 'The 2022 OKFriends Youth Camp On-Line',
     '17': "I'm Oh Moon-beom,",
     '18': 'the head of the\nbusiness manager',
-    '19': 'Dear oversea Korean university students joining the 2022 OKFriends Youth Camp On-Line, nice to meet you.',
+    '19': 'Dear overseas Korean university students joining the 2022 OKFriends Youth Camp On-Line, nice to meet you.',
     '20': 'Korean students from all over the world, nice to meet you\nIn the summer of 2022 in Seoul, South Korea, the 2022 OKFriends Youth Camp On-Line where students experienced being a member of the Korean community under the identity of Korean will be held\nBecause of the COVID-19 pandemic, our meeting has stopped for the past two years. Of course, the aftermath of COVID-19 has not completely ended, but the camp will start again both online and offline this year.\n\nThe camp, which will resume for the first time in three years, will be visited by global Korean students. It will be a meaningful time for them to experience and discuss our culture, history, and universal values of the world in six cities across the country, including Seoul and Busan.\n\nIn addition, the 2022 OKFriends Youth Camp On-Line, which has greatly supplemented online content following last year, will also be held through an online web page. We look forward to your enthusiastic participation in this online/offline camp, which will be an opportunity for Korean youth to exchange anywhere, beyond time and space.',
   },
 
@@ -367,7 +367,7 @@ export const en = {
   //   지원센터 - 공지사항
   faq: {
     '1': 'How do I participate in the 2022 OKFriends Youth Camp On-Line?',
-    '2': 'You can participate by accessing the online camp website (www.okfyouthcamp.com) and registering as a member.\n\n[Period of application for the camp]\n2022. 05. 12 (Thu) ~ 2022. 06. 30 (Thu) (based on KST) * May close early depending on circumstances',
+    '2': 'You can participate by accessing the online camp website (www.okfyouthcamp.com) and registering as a member.\n\n[Period of application for the camp]\n2022. 06. 01 (Wed) ~ 2022. 06. 30 (Thu) (based on KST) * May close early depending on circumstances',
     '3': 'Is the online camp free of charge?',
     '4': 'Yes! This online camp is free for all participants, and there is no additional charge.',
     '5': 'I am an 18-year-old prospective college student. Is it possible to participate in the 2022 OKFriends Youth Camp On-Line?',
@@ -473,7 +473,7 @@ export const en = {
     '9': '',
     '10': 'Once you have completed all the survey below, you will receive a certificate of completion via email.',
     '11': '',
-    '12': 'Satisfaction survey on the 2022 online training for oversea Korean university student',
+    '12': 'Satisfaction survey on the 2022 online training for overseas Korean university student',
     '13': '',
     '14': '1. What is the purpose of your personal participation in this program?',
     '15': '* Mandatory',
