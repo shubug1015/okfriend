@@ -38,7 +38,7 @@ export default function Banner({ title, navList }: IProps) {
         >
           <div
             className={cls(
-              title === '재외동포 대학생 온라인연수 소개'
+              title === '재외동포 청소년 온라인연수 소개'
                 ? 'md:text-[1.375rem]'
                 : 'md:text-2xl',
               clsFilter(
