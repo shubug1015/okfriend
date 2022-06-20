@@ -234,6 +234,29 @@ const Greeting: NextPage = () => {
           </div>
         </div>
 
+        {/* 문의방법 */}
+        <div className='border-b border-[#e8e8e8] pt-[2.969rem] pb-[2.531rem] text-2xl text-[#01111e] md:pt-[1.406rem] md:text-xl'>
+          <div
+            className={cls(
+              clsFilter(
+                locale,
+                'font-nexonBold',
+                'font-notoSans',
+                'font-notoSans'
+              ),
+              'mb-[1.188rem] font-bold leading-[2.25rem]'
+            )}
+          >
+            {text.summary['35']}
+          </div>
+
+          <Link href='/support/contact'>
+            <a className='rounded-md bg-[#2fb2bc] px-[2.875rem] py-[0.75rem] text-[1.063rem] leading-[1.594rem] text-white md:w-full'>
+              {text.summary['36']}
+            </a>
+          </Link>
+        </div>
+
         {/* 2022 재외동포 청소년 모국연수(온라인) */}
         <div className='border-b border-[#e8e8e8] pt-[2.906rem] pb-[2.531rem] text-2xl text-[#01111e] md:pt-[1.906rem] md:text-xl'>
           <div
@@ -286,29 +309,6 @@ const Greeting: NextPage = () => {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* 문의방법 */}
-        <div className='mt-[2.531rem] text-2xl text-[#01111e] md:text-[1.375rem]'>
-          <div
-            className={cls(
-              clsFilter(
-                locale,
-                'font-nexonBold',
-                'font-notoSans',
-                'font-notoSans'
-              ),
-              'mb-[1.188rem] font-bold leading-[2.25rem]'
-            )}
-          >
-            {text.summary['35']}
-          </div>
-
-          <Link href='/support/contact'>
-            <a className='rounded-md bg-[#2fb2bc] px-[2.875rem] py-[0.75rem] text-[1.063rem] leading-[1.594rem] text-white md:w-full'>
-              {text.summary['36']}
-            </a>
-          </Link>
         </div>
 
         {/* 온라인연수 마일리지 제도란? */}

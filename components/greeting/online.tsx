@@ -227,10 +227,10 @@ export default function Online() {
                   {text.greeting['17']}
                   <br />
                   <span className='text-white'>
-                    {/* {text.greeting['18-1']} */}
+                    {text.greeting['18-1']}
                   </span>
                   <span className='font-nexonBold font-bold text-[#2fb6bc]'>
-                    {/* {text.greeting['18-2']} */}
+                    {text.greeting['18-2']}
                   </span>
                 </div>
               </div>
