@@ -86,14 +86,14 @@ const Contact: NextPage = () => {
                     label={text.contact['3']}
                     register={register('name', {
                       required: text.contactError['2'],
-                      minLength: {
-                        message: text.contactError['3'],
-                        value: 2,
-                      },
-                      maxLength: {
-                        message: text.contactError['4'],
-                        value: 5,
-                      },
+                      // minLength: {
+                      //   message: text.contactError['3'],
+                      //   value: 2,
+                      // },
+                      // maxLength: {
+                      //   message: text.contactError['4'],
+                      //   value: 5,
+                      // },
                     })}
                     error={errors?.name?.message}
                   />
@@ -129,17 +129,17 @@ const Contact: NextPage = () => {
                     label={text.contact['7']}
                     register={register('email', {
                       required: text.contactError['7'],
-                      validate: {
-                        notEmail: (value) => {
-                          const regEmail =
-                            /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
-                          if (regEmail.test(value)) {
-                            return true;
-                          } else {
-                            return text.contactError['8'];
-                          }
-                        },
-                      },
+                      // validate: {
+                      //   notEmail: (value) => {
+                      //     const regEmail =
+                      //       /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+                      //     if (regEmail.test(value)) {
+                      //       return true;
+                      //     } else {
+                      //       return text.contactError['8'];
+                      //     }
+                      //   },
+                      // },
                     })}
                     error={errors?.email?.message}
                   />
