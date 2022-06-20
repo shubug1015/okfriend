@@ -76,11 +76,11 @@ const Faq: NextPage = () => {
       question: text.faq['17'],
       answer: text.faq['18'],
     },
-    {
-      id: 9,
-      question: text.faq['19'],
-      answer: text.faq['20'],
-    },
+    // {
+    //   id: 9,
+    //   question: text.faq['19'],
+    //   answer: text.faq['20'],
+    // },
     {
       id: 10,
       question: text.faq['21'],
