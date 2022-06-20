@@ -7,8 +7,6 @@ import Bg1mEn from '@public/course-introduction/bg1-en-m.png';
 import Bg2mEn from '@public/course-introduction/bg2-en-m.png';
 import Bg1mRu from '@public/course-introduction/bg1-ru-m.png';
 import Bg2mRu from '@public/course-introduction/bg2-ru-m.png';
-import Sign1 from '@public/course-introduction/sign1.png';
-import Sign2 from '@public/course-introduction/sign2.png';
 import { useLocale } from '@libs/client/useLocale';
 import { cls, clsFilter, imgFilter } from '@libs/client/utils';
 
@@ -18,7 +16,7 @@ export default function Online() {
     <div>
       {/* 김성곤입니다. */}
       <div className='relative h-[33vw]'>
-        <div className='absolute top-0 left-0 -z-[1] mt-[83px] h-full w-full md:hidden'>
+        <div className='absolute top-0 left-0 -z-[1] mt-[108px] h-full w-full md:hidden'>
           <Image
             src={Bg1}
             alt='Background Image1'
@@ -36,11 +34,11 @@ export default function Online() {
                 className={cls(
                   clsFilter(
                     locale,
-                    'font-nexon text-[2.5rem]',
+                    'font-nexon text-[1.875rem]',
                     'font-notoSans text-3xl',
                     'font-notoSans text-3xl'
                   ),
-                  'text-[#01111e] md:mx-[1.563rem] md:text-xl'
+                  'whitespace-pre-wrap text-[#01111e] md:mx-[1.563rem] md:text-xl'
                 )}
               >
                 {text.greeting['7']}
@@ -75,7 +73,7 @@ export default function Online() {
                 viewBox='0 0 28 28'
                 fill='none'
                 xmlns='http://www.w3.org/2000/svg'
-                className='mt-40 md:hidden'
+                className='mt-[7rem] md:hidden'
               >
                 <path d='M2 28V2H28' stroke='#F8F8F8' strokeWidth='4' />
               </svg>
@@ -139,16 +137,10 @@ export default function Online() {
           {text.greeting['12']}
         </div>
         <div className='mt-[1.813rem] w-[61.25rem] whitespace-pre-wrap text-[1.125rem] font-normal leading-[1.856rem] text-[#6b6b6b] md:w-screen md:px-[1.563rem] md:text-[0.875rem] md:leading-[1.444rem]'>
-          {text.greeting['13']}
+          {text.greeting['13-1']}
           <div className='flex justify-end'>
-            <div className='mt-[0.813rem] md:h-[2.625rem] md:w-[8.438rem]'>
-              <Image
-                src={Sign1}
-                alt='Sign Image1'
-                objectFit='cover'
-                placeholder='blur'
-                quality={100}
-              />
+            <div className='mt-[0.813rem] md:h-[2.625rem] md:w-[8.438rem] text-[#6b6b6b] text-right font-bold'>
+              {text.greeting['13-2']}
             </div>
           </div>
         </div>
@@ -174,11 +166,11 @@ export default function Online() {
                 className={cls(
                   clsFilter(
                     locale,
-                    'font-nexon text-[2.5rem]',
+                    'font-nexon text-[1.875rem]',
                     'font-notoSans text-3xl',
                     'font-notoSans text-3xl'
                   ),
-                  'text-[#01111e] md:mx-[1.563rem] md:text-xl'
+                  'whitespace-pre-wrap text-[#01111e] md:mx-[1.563rem] md:text-xl'
                 )}
               >
                 {text.greeting['14']}
@@ -190,7 +182,7 @@ export default function Online() {
             </div>
           </div>
         </div>
-        {/* 재외동포재단 사업단장 오문범입니다. */}
+        {/* 한국YMCA전국연맹 사무총장 김경민입니다. */}
         <div className='flex justify-center'>
           <div className='flex w-[61.25rem] justify-end'>
             <div className='w-[32rem] md:w-screen md:pb-[15.438rem] md:pt-[1.875rem]'>
@@ -213,7 +205,7 @@ export default function Online() {
                 viewBox='0 0 28 28'
                 fill='none'
                 xmlns='http://www.w3.org/2000/svg'
-                className='mt-40 md:hidden'
+                className='mt-[7rem] md:hidden'
               >
                 <path d='M2 28V2H28' stroke='#F8F8F8' strokeWidth='4' />
               </svg>
@@ -234,8 +226,11 @@ export default function Online() {
                 >
                   {text.greeting['17']}
                   <br />
+                  <span className='text-white'>
+                    {/* {text.greeting['18-1']} */}
+                  </span>
                   <span className='font-nexonBold font-bold text-[#2fb6bc]'>
-                    {text.greeting['18']}
+                    {/* {text.greeting['18-2']} */}
                   </span>
                 </div>
               </div>
@@ -277,16 +272,10 @@ export default function Online() {
           {text.greeting['19']}
         </div>
         <div className='mt-[1.813rem] w-[61.25rem] whitespace-pre-wrap text-[1.125rem] font-normal leading-[1.856rem] text-[#6b6b6b] md:w-screen md:px-[1.563rem] md:text-[0.875rem] md:leading-[1.444rem]'>
-          {text.greeting['20']}
+          {text.greeting['20-1']}
           <div className='flex justify-end'>
-            <div className='mt-[0.813rem] md:h-[2.625rem] md:w-[8.438rem]'>
-              <Image
-                src={Sign2}
-                alt='Sign Image2'
-                objectFit='cover'
-                placeholder='blur'
-                quality={100}
-              />
+            <div className='mt-[0.813rem] md:h-[2.625rem] md:w-[8.438rem] text-[#6b6b6b] text-right font-bold'>
+              {text.greeting['20-2']}
             </div>
           </div>
         </div>
