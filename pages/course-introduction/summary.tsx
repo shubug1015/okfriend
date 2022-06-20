@@ -15,24 +15,12 @@ import SummaryGoalRu1 from '@public/course-introduction/summary-goal-ru-1.png';
 import SummaryGoalRu2 from '@public/course-introduction/summary-goal-ru-2.png';
 import SummaryGoalRu3 from '@public/course-introduction/summary-goal-ru-3.png';
 import SummaryGoalRu4 from '@public/course-introduction/summary-goal-ru-4.png';
-import SummaryMileage1 from '@public/course-introduction/summary-mileage-1.png';
-import SummaryMileageEn1 from '@public/course-introduction/summary-mileage-en-1.png';
-import SummaryMileageRu1 from '@public/course-introduction/summary-mileage-ru-1.png';
-import SummaryMileage1m from '@public/course-introduction/summary-mileage-1-m.png';
-import SummaryMileageEn1m from '@public/course-introduction/summary-mileage-en-1-m.png';
-import SummaryMileageRu1m from '@public/course-introduction/summary-mileage-ru-1-m.png';
-import SummaryBenefit1 from '@public/course-introduction/summary-benefit-1.png';
-import SummaryBenefit2 from '@public/course-introduction/summary-benefit-2.png';
-import SummaryBenefitEn1 from '@public/course-introduction/summary-benefit-en-1.png';
-import SummaryBenefitEn2 from '@public/course-introduction/summary-benefit-en-2.png';
-import SummaryBenefitRu1 from '@public/course-introduction/summary-benefit-ru-1.png';
-import SummaryBenefitRu2 from '@public/course-introduction/summary-benefit-ru-2.png';
-import SummaryBenefit1m from '@public/course-introduction/summary-benefit-1-m.png';
-import SummaryBenefit2m from '@public/course-introduction/summary-benefit-2-m.png';
-import SummaryBenefitEn1m from '@public/course-introduction/summary-benefit-en-1-m.png';
-import SummaryBenefitEn2m from '@public/course-introduction/summary-benefit-en-2-m.png';
-import SummaryBenefitRu1m from '@public/course-introduction/summary-benefit-ru-1-m.png';
-import SummaryBenefitRu2m from '@public/course-introduction/summary-benefit-ru-2-m.png';
+// import SummaryMileage1 from '@public/course-introduction/summary-mileage-1.png';
+// import SummaryMileageEn1 from '@public/course-introduction/summary-mileage-en-1.png';
+// import SummaryMileageRu1 from '@public/course-introduction/summary-mileage-ru-1.png';
+// import SummaryMileage1m from '@public/course-introduction/summary-mileage-1-m.png';
+// import SummaryMileageEn1m from '@public/course-introduction/summary-mileage-en-1-m.png';
+// import SummaryMileageRu1m from '@public/course-introduction/summary-mileage-ru-1-m.png';
 import MenuBar from '@components/greeting/menuBar';
 import SEO from '@components/seo';
 import { useLocale } from '@libs/client/useLocale';
@@ -64,7 +52,7 @@ const Greeting: NextPage = () => {
           />
         </div>
 
-        {/* 2022 재외동포 대학생 온라인 연수 */}
+        {/* 2022 재외동포 청소년 온라인 연수 */}
         <div
           className={cls(
             clsFilter(
@@ -176,46 +164,53 @@ const Greeting: NextPage = () => {
           </div>
           <div className='mt-[1.438rem] flex justify-between md:block'>
             <div className='w-[23.75rem] border border-[#d6d6d6] pt-[2.25rem] pb-[1.125rem] text-center text-[1.125rem] md:w-full'>
-              <div className='inline rounded-full bg-[#2fb6bc] py-[0.438rem] pr-[1.063rem] pl-[1.125rem] text-2xl font-bold leading-6 text-white'>
+              <div className='mx-[auto] my-[0] w-[50px] h-[50px] flex justify-center items-center rounded-full bg-[#2fb6bc] py-[0.438rem] text-2xl font-bold leading-6 text-white'>
                 1
               </div>
               <div className='mt-2 font-bold leading-[1.856]'>
                 {text.summary['13']}
               </div>
-              <div className='fonr-normal mt-[6px] whitespace-pre-wrap leading-6 text-[#6b6b6b]'>
-                {text.summary['14']}
+              <div className='mt-[6px] whitespace-pre-wrap leading-6 text-[#6b6b6b]'>
+                {text.summary['14-1']}
               </div>
+              <ul className='mt-[6px] whitespace-pre-wrap leading-6 text-[#01111E] text-left text-[16px] pl-[62px] pr-[62px] md:pl-[36px] md:pr-[36px]'>
+                <li>{text.summary['14-2']}</li>
+                <li>{text.summary['14-3']}</li>
+                <li>{text.summary['14-4']}</li>
+                <li>{text.summary['14-5']}</li>
+                <li>{text.summary['14-6']}</li>
+              </ul>
             </div>
             <div className='w-[23.75rem] border border-[#d6d6d6] pt-[2.25rem] pb-[1.125rem] text-center text-[1.125rem] md:mt-[1.438rem] md:w-full'>
-              <div className='inline rounded-full bg-[#2fb6bc] py-[0.438rem] pr-[1.063rem] pl-[1.125rem] text-2xl font-bold leading-6 text-white'>
+              <div className='mx-[auto] my-[0] w-[50px] h-[50px] flex justify-center items-center rounded-full bg-[#2fb6bc] py-[0.438rem] text-2xl font-bold leading-6 text-white'>
                 2
               </div>
               <div className='mt-2 font-bold leading-[1.856]'>
                 {text.summary['15']}
               </div>
-              <div className='fonr-normal mt-[6px] whitespace-pre-wrap leading-6 text-[#6b6b6b]'>
-                {text.summary['16']}
+              <div className='font-normal mt-[6px] whitespace-pre-wrap leading-6 text-[#6b6b6b]'>
+                <p className='whitespace-pre-wrap leading-6'>
+                  {text.summary['16-1']}
+                  <span className='block text-[14px]'>
+                    {text.summary['16-2']}
+                  </span>
+                </p>
+                <em className='block mt-[6px] not-italic text-[16px] whitespace-pre-wrap leading-6 text-[#05AADB]'>
+                  {text.summary['16-3']}
+                </em>
               </div>
             </div>
             <div className='w-[23.75rem] border border-[#d6d6d6] pt-[2.25rem] pb-[1.125rem] text-center text-[1.125rem] md:mt-[1.438rem] md:w-full'>
-              <div className='inline rounded-full bg-[#2fb6bc] py-[0.438rem] pr-[1.063rem] pl-[1.125rem] text-2xl font-bold leading-6 text-white'>
+              <div className='mx-[auto] my-[0] w-[50px] h-[50px] flex justify-center items-center rounded-full bg-[#2fb6bc] py-[0.438rem] text-2xl font-bold leading-6 text-white'>
                 3
               </div>
               <div className='mt-2 font-bold leading-[1.856]'>
                 {text.summary['17']}
               </div>
-              <div className='fonr-normal mt-[6px] leading-6 text-[#6b6b6b]'>
+              <div className='mt-[6px] leading-6 text-[#6b6b6b]'>
                 {text.summary['18']}
-                <br />
-                <span className='text-[0.875rem] leading-[1.444]'>
-                  {text.summary['19']}
-                </span>
               </div>
             </div>
-          </div>
-
-          <div className='mt-[1.438rem] whitespace-pre-wrap text-base leading-[1.65rem] md:mt-[0.75rem] md:text-[0.875rem] md:leading-[1.444rem]'>
-            {text.summary['20']}
           </div>
         </div>
 
@@ -293,26 +288,6 @@ const Greeting: NextPage = () => {
           </div>
         </div>
 
-        {/* 2022 재외동포 청소년 모국연수(사전온라인) 연수 기간 */}
-        <div className='border-b border-[#e8e8e8] pt-[2.531rem] pb-[2.469rem] text-2xl text-[#01111e] md:pt-[1.281rem] md:pb-[1.781rem] md:text-xl'>
-          <div
-            className={cls(
-              clsFilter(
-                locale,
-                'font-nexonBold',
-                'font-notoSans',
-                'font-notoSans'
-              ),
-              'font-bold leading-[2.25rem] md:leading-[1.875rem]'
-            )}
-          >
-            {text.summary['33']}
-          </div>
-          <div className='mt-3 text-[1.125rem] leading-[1.856rem] md:text-[0.875rem]'>
-            {text.summary['34']}
-          </div>
-        </div>
-
         {/* 문의방법 */}
         <div className='mt-[2.531rem] text-2xl text-[#01111e] md:text-[1.375rem]'>
           <div
@@ -337,7 +312,7 @@ const Greeting: NextPage = () => {
         </div>
 
         {/* 온라인연수 마일리지 제도란? */}
-        <div
+        {/* <div
           className={cls(
             clsFilter(
               locale,
@@ -350,10 +325,10 @@ const Greeting: NextPage = () => {
         >
           <span className='text-[#2fb6bc]'>{text.summary['37']}</span>{' '}
           {text.summary['38']}
-        </div>
+        </div> */}
 
         {/* 마일리지 제도 적립/활용 */}
-        <div className='border-b border-[#e8e8e8] pt-[2.656rem] pb-[1.838rem] text-2xl text-[#01111e] md:pb-[1.781rem] md:pt-[1.656rem] md:text-xl'>
+        {/* <div className='border-b border-[#e8e8e8] pt-[2.656rem] pb-[1.838rem] text-2xl text-[#01111e] md:pb-[1.781rem] md:pt-[1.656rem] md:text-xl'>
           <div
             className={cls(
               clsFilter(
@@ -425,7 +400,7 @@ const Greeting: NextPage = () => {
               {text.summary['42']}
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* 연수참여혜택 */}
         <div className='border-b border-[#e8e8e8] pt-[2.531rem] pb-[6.938rem] text-2xl text-[#01111e] md:pb-[3.719rem] md:pt-[2.094rem] md:text-xl'>
@@ -445,80 +420,28 @@ const Greeting: NextPage = () => {
           <div className='mt-4 text-[1.125rem] leading-[1.856rem] md:mt-[0.313rem] md:text-[0.875rem] md:leading-[1.444rem]'>
             {text.summary['44']}
           </div>
-          <div className='flex md:block'>
-            <div className='mr-[1.375rem] mt-[2.313rem] md:mt-7 md:mr-0'>
-              <div className='text-[1.125rem] leading-[1.688rem]'>
-                {text.summary['45']}
+          <div className=''>
+            <div className='mt-[2.313rem] md:mt-7 md:mr-0'>
+              <div className='text-[1.125rem] leading-[1.688rem] font-[500]'>
+                {text.summary['45-1']}
               </div>
-              <div className='relative mt-3 h-[302px] w-[580px] md:hidden'>
-                <Image
-                  src={imgFilter(
-                    locale,
-                    SummaryBenefit1,
-                    SummaryBenefitEn1,
-                    SummaryBenefitRu1
-                  )}
-                  alt='Summary Page Benefit Section Image1'
-                  objectFit='cover'
-                  placeholder='blur'
-                  layout='fill'
-                  quality={100}
-                />
-              </div>
-              <div
-                className={cls(
-                  clsFilter(locale, 'h-[497px]', 'h-[453px]', 'h-[453px]'),
-                  'relative mt-3 hidden w-full md:block'
-                )}
-              >
-                <Image
-                  src={imgFilter(
-                    locale,
-                    SummaryBenefit1m,
-                    SummaryBenefitEn1m,
-                    SummaryBenefitRu1m
-                  )}
-                  alt='Summary Page Benefit Section Image1'
-                  objectFit='cover'
-                  placeholder='blur'
-                  layout='fill'
-                  quality={100}
-                />
+              <div className='relative mt-3'>
+                <ul className='text-[#6B6B6B] text-[18px]'>
+                  <li>{text.summary['45-2']}</li>
+                  <li>{text.summary['45-3']}</li>
+                  <li>{text.summary['45-4']}</li>
+                </ul>
               </div>
             </div>
             <div className='mt-[2.313rem]'>
-              <div className='text-[1.125rem] leading-[1.688rem]'>
-                {text.summary['46']}
+              <div className='text-[1.125rem] leading-[1.688rem] font-[500]'>
+                {text.summary['46-1']}
               </div>
-              <div className='relative mt-3 h-[302px] w-[580px] md:hidden'>
-                <Image
-                  src={imgFilter(
-                    locale,
-                    SummaryBenefit2,
-                    SummaryBenefitEn2,
-                    SummaryBenefitRu2
-                  )}
-                  alt='Summary Page Benefit Section Image2'
-                  objectFit='cover'
-                  placeholder='blur'
-                  layout='fill'
-                  quality={100}
-                />
-              </div>
-              <div className='relative mt-3 hidden h-[302px] w-full md:block'>
-                <Image
-                  src={imgFilter(
-                    locale,
-                    SummaryBenefit2m,
-                    SummaryBenefitEn2m,
-                    SummaryBenefitRu2m
-                  )}
-                  alt='Summary Page Benefit Section Image2'
-                  objectFit='cover'
-                  placeholder='blur'
-                  layout='fill'
-                  quality={100}
-                />
+              <div className='relative mt-3'>
+                <ul className='text-[#6B6B6B] text-[18px]'>
+                  <li>{text.summary['46-2']}</li>
+                  <li>{text.summary['46-3']}</li>
+                </ul>
               </div>
             </div>
           </div>
