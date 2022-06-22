@@ -106,17 +106,17 @@ const Contact: NextPage = () => {
                     label={text.contact['5']}
                     register={register('phoneNum', {
                       required: text.contactError['5'],
-                      validate: {
-                        notPhoneNum: (value) => {
-                          const regPhoneNum =
-                            /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
-                          if (regPhoneNum.test(value)) {
-                            return true;
-                          } else {
-                            return text.contactError['6'];
-                          }
-                        },
-                      },
+                      // validate: {
+                      //   notPhoneNum: (value) => {
+                      //     const regPhoneNum =
+                      //       /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+                      //     if (regPhoneNum.test(value)) {
+                      //       return true;
+                      //     } else {
+                      //       return text.contactError['6'];
+                      //     }
+                      //   },
+                      // },
                     })}
                     error={errors?.phoneNum?.message}
                   />
