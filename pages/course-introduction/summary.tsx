@@ -15,12 +15,12 @@ import SummaryGoalRu1 from '@public/course-introduction/summary-goal-ru-1.png';
 import SummaryGoalRu2 from '@public/course-introduction/summary-goal-ru-2.png';
 import SummaryGoalRu3 from '@public/course-introduction/summary-goal-ru-3.png';
 import SummaryGoalRu4 from '@public/course-introduction/summary-goal-ru-4.png';
-// import SummaryMileage1 from '@public/course-introduction/summary-mileage-1.png';
-// import SummaryMileageEn1 from '@public/course-introduction/summary-mileage-en-1.png';
-// import SummaryMileageRu1 from '@public/course-introduction/summary-mileage-ru-1.png';
-// import SummaryMileage1m from '@public/course-introduction/summary-mileage-1-m.png';
-// import SummaryMileageEn1m from '@public/course-introduction/summary-mileage-en-1-m.png';
-// import SummaryMileageRu1m from '@public/course-introduction/summary-mileage-ru-1-m.png';
+import SummaryMileage1 from '@public/course-introduction/summary-mileage-1.png';
+import SummaryMileageEn1 from '@public/course-introduction/summary-mileage-en-1.png';
+import SummaryMileageRu1 from '@public/course-introduction/summary-mileage-ru-1.png';
+import SummaryMileage1m from '@public/course-introduction/summary-mileage-1-m.png';
+import SummaryMileageEn1m from '@public/course-introduction/summary-mileage-en-1-m.png';
+import SummaryMileageRu1m from '@public/course-introduction/summary-mileage-ru-1-m.png';
 import MenuBar from '@components/greeting/menuBar';
 import SEO from '@components/seo';
 import { useLocale } from '@libs/client/useLocale';
@@ -234,29 +234,6 @@ const Greeting: NextPage = () => {
           </div>
         </div>
 
-        {/* 문의방법 */}
-        <div className='border-b border-[#e8e8e8] pt-[2.969rem] pb-[2.531rem] text-2xl text-[#01111e] md:pt-[1.406rem] md:text-xl'>
-          <div
-            className={cls(
-              clsFilter(
-                locale,
-                'font-nexonBold',
-                'font-notoSans',
-                'font-notoSans'
-              ),
-              'mb-[1.188rem] font-bold leading-[2.25rem]'
-            )}
-          >
-            {text.summary['35']}
-          </div>
-
-          <Link href='/support/contact'>
-            <a className='rounded-md bg-[#2fb2bc] px-[2.875rem] py-[0.75rem] text-[1.063rem] leading-[1.594rem] text-white md:w-full'>
-              {text.summary['36']}
-            </a>
-          </Link>
-        </div>
-
         {/* 2022 재외동포 청소년 모국연수(온라인) */}
         <div className='border-b border-[#e8e8e8] pt-[2.906rem] pb-[2.531rem] text-2xl text-[#01111e] md:pt-[1.906rem] md:text-xl'>
           <div
@@ -311,8 +288,31 @@ const Greeting: NextPage = () => {
           </div>
         </div>
 
-        {/* 온라인연수 마일리지 제도란? */}
-        {/* <div
+        {/* 문의방법 */}
+        <div className='pt-[2.969rem] text-2xl text-[#01111e] md:pt-[1.406rem] md:text-xl'>
+          <div
+            className={cls(
+              clsFilter(
+                locale,
+                'font-nexonBold',
+                'font-notoSans',
+                'font-notoSans'
+              ),
+              'mb-[1.188rem] font-bold leading-[2.25rem]'
+            )}
+          >
+            {text.summary['35']}
+          </div>
+
+          <Link href='/support/contact'>
+            <a className='rounded-md bg-[#2fb2bc] px-[2.875rem] py-[0.75rem] text-[1.063rem] leading-[1.594rem] text-white md:w-full'>
+              {text.summary['36']}
+            </a>
+          </Link>
+        </div>
+
+        {/* TEENS 마일리지 부여 방식 */}
+        <div
           className={cls(
             clsFilter(
               locale,
@@ -323,12 +323,14 @@ const Greeting: NextPage = () => {
             'mt-[5.25rem] border-b border-[#9e9e9e] pb-[1.469rem] text-4xl font-bold leading-[3.15rem] text-[#01111e] md:mt-[4.188rem] md:text-2xl'
           )}
         >
-          <span className='text-[#2fb6bc]'>{text.summary['37']}</span>{' '}
-          {text.summary['38']}
-        </div> */}
+          {text.summary['37-1']}
+          <span className='text-[#2fb6bc]'>{text.summary['37-2']}</span>
+          {text.summary['38-1']}
+          <span className='text-[#2fb6bc]'>{text.summary['38-2']}</span>
+        </div>
 
         {/* 마일리지 제도 적립/활용 */}
-        {/* <div className='border-b border-[#e8e8e8] pt-[2.656rem] pb-[1.838rem] text-2xl text-[#01111e] md:pb-[1.781rem] md:pt-[1.656rem] md:text-xl'>
+        <div className='border-b border-[#e8e8e8] pt-[2.656rem] pb-[1.838rem] text-2xl text-[#01111e] md:pb-[1.781rem] md:pt-[1.656rem] md:text-xl'>
           <div
             className={cls(
               clsFilter(
@@ -348,7 +350,7 @@ const Greeting: NextPage = () => {
         </div>
 
         <div className='border-b border-[#e8e8e8] pt-[1.849rem] pb-[2.906rem] text-2xl text-[#01111e] md:pt-[1.281rem]'>
-          <div className='relative h-[256.5px] w-full md:hidden'>
+          <div className='relative h-[488px] w-full md:hidden'>
             <Image
               src={imgFilter(
                 locale,
@@ -365,7 +367,7 @@ const Greeting: NextPage = () => {
           </div>
           <div
             className={cls(
-              clsFilter(locale, 'h-[903px]', 'h-[1005px]', 'h-[1037px]'),
+              clsFilter(locale, 'h-[1439px]', 'h-[1005px]', 'h-[1037px]'),
               'relative hidden w-full md:block'
             )}
           >
@@ -385,24 +387,48 @@ const Greeting: NextPage = () => {
           </div>
           <div className='mt-8 flex items-center justify-center bg-[#f8f8f8] py-[1.125rem] md:flex-col md:px-[1.563rem]'>
             <div className='mr-[7px] rounded bg-[#d60a51] py-[0.085rem] px-[0.438rem] text-[0.875rem] leading-5 text-white md:w-[5rem] md:text-center'>
-              POINT 01
+              {clsFilter(locale, 'POINT 01', 'POINT 01', 'Пункт 01')}
             </div>
             <div className='text-xl font-medium leading-7 text-[#01111e] md:mt-[0.813rem] md:text-center md:text-[0.875rem] md:leading-[1.225rem]'>
-              {text.summary['41']}
+              {text.summary['41-1']}
             </div>
           </div>
 
           <div className='mt-6 flex items-center justify-center bg-[#f8f8f8] px-8 py-[1.125rem] md:flex-col md:px-[1.563rem]'>
             <div className='mr-[7px] whitespace-nowrap rounded bg-[#d60a51] py-[0.085rem] px-[0.438rem] text-[0.875rem] leading-5 text-white'>
-              POINT 02
+            {clsFilter(locale, 'POINT 02', 'POINT 02', 'Пункт 02')}
             </div>
             <div className='text-center text-xl font-medium leading-7 text-[#01111e] md:mt-[0.813rem] md:text-center md:text-[0.875rem] md:leading-[1.225rem]'>
-              {text.summary['42']}
+              {text.summary['41-2']}
             </div>
           </div>
-        </div> */}
+          <div className='mt-6 flex items-center justify-center bg-[#f8f8f8] px-8 py-[1.125rem] md:flex-col md:px-[1.563rem]'>
+            <div className='mr-[7px] whitespace-nowrap rounded bg-[#d60a51] py-[0.085rem] px-[0.438rem] text-[0.875rem] leading-5 text-white'>
+            {clsFilter(locale, 'POINT 03', 'POINT 03', 'Пункт 03')}
+            </div>
+            <div className='text-center text-xl font-medium leading-7 text-[#01111e] md:mt-[0.813rem] md:text-center md:text-[0.875rem] md:leading-[1.225rem]'>
+              {text.summary['41-3']}
+            </div>
+          </div>
+          <div className='mt-6 flex items-center justify-center bg-[#f8f8f8] px-8 py-[1.125rem] md:flex-col md:px-[1.563rem]'>
+            <div className='mr-[7px] whitespace-nowrap rounded bg-[#d60a51] py-[0.085rem] px-[0.438rem] text-[0.875rem] leading-5 text-white'>
+              {clsFilter(locale, 'POINT 04', 'POINT 04', 'Пункт 04')}
+            </div>
+            <div className='text-center text-xl font-medium leading-7 text-[#01111e] md:mt-[0.813rem] md:text-center md:text-[0.875rem] md:leading-[1.225rem]'>
+              {text.summary['41-4']}
+            </div>
+          </div>
+          <div className='mt-6 flex items-center justify-center bg-[#f8f8f8] px-8 py-[1.125rem] md:flex-col md:px-[1.563rem]'>
+            <div className='mr-[7px] whitespace-nowrap rounded bg-[#d60a51] py-[0.085rem] px-[0.438rem] text-[0.875rem] leading-5 text-white'>
+              {clsFilter(locale, 'POINT 05', 'POINT 05', 'Пункт 05')}
+            </div>
+            <div className='text-center text-xl font-medium leading-7 text-[#01111e] md:mt-[0.813rem] md:text-center md:text-[0.875rem] md:leading-[1.225rem]'>
+              {text.summary['41-5']}
+            </div>
+          </div>
+        </div>
 
-        {/* 연수참여혜택 */}
+        {/* 우수 연수자 혜택 */}
         <div className='border-b border-[#e8e8e8] pt-[2.531rem] pb-[6.938rem] text-2xl text-[#01111e] md:pb-[3.719rem] md:pt-[2.094rem] md:text-xl'>
           <div
             className={cls(
