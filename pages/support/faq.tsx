@@ -57,16 +57,6 @@ const Faq: NextPage = () => {
       answer: text.faq['10'],
     },
     {
-      id: 5,
-      question: text.faq['11'],
-      answer: text.faq['12'],
-    },
-    {
-      id: 6,
-      question: text.faq['13'],
-      answer: text.faq['14'],
-    },
-    {
       id: 7,
       question: text.faq['15'],
       answer: text.faq['16'],
