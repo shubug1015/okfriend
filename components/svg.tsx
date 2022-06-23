@@ -157,7 +157,7 @@ export const TopLogo1 = () => {
 export const TopLogo2 = () => {
   return (
     <svg
-      onClick={() => window.open('https://psymca.or.kr/')}
+      onClick={() => window.open('http://ymcakorea.kr/')}
       viewBox='0 0 581.84 503.89'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
@@ -200,7 +200,7 @@ export const TopLogo2 = () => {
 export const TopLogo3 = () => {
   return (
     <svg
-      onClick={() => window.open('')}
+      onClick={() => window.open('https://www.imbc.com/')}
       viewBox='0 0 563.08 161.95'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
@@ -222,7 +222,7 @@ export const TopLogo3 = () => {
 export const Instagram = () => {
   return (
     <svg
-      onClick={() => window.open('https://www.instagram.com/okfriends_cybercamp/')}
+      onClick={() => window.open('https://www.instagram.com/okfteenscamp.kr/')}
       width='18'
       height='19'
       viewBox='0 0 18 19'
@@ -248,7 +248,7 @@ export const Instagram = () => {
 export const Facebook = () => {
   return (
     <svg
-      onClick={() => window.open('https://www.facebook.com/OKFYC/')}
+      onClick={() => window.open('https://www.facebook.com/%EC%9E%AC%EC%99%B8%EB%8F%99%ED%8F%AC-%EC%B2%AD%EC%86%8C%EB%85%84-%EB%AA%A8%EA%B5%AD%EC%97%B0%EC%88%98-%EC%98%A8%EB%9D%BC%EC%9D%B8-110117275063910')}
       width='10'
       height='19'
       viewBox='0 0 10 19'
@@ -266,7 +266,7 @@ export const Facebook = () => {
 export const Youtube = () => {
   return (
     <svg
-      onClick={() => window.open('https://www.youtube.com/c/%EC%9E%AC%EC%99%B8%EB%8F%99%ED%8F%AC%EC%9E%AC%EB%8B%A8TV')}
+      onClick={() => window.open('https://www.youtube.com/channel/UC1N-OEqJAEIY6W1l887PS-g')}
       width='22'
       height='16'
       viewBox='0 0 22 16'
