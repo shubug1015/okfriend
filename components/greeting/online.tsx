@@ -73,7 +73,7 @@ export default function Online() {
                 viewBox='0 0 28 28'
                 fill='none'
                 xmlns='http://www.w3.org/2000/svg'
-                className='mt-[7rem] md:hidden'
+                className='mt-[4rem] md:hidden'
               >
                 <path d='M2 28V2H28' stroke='#F8F8F8' strokeWidth='4' />
               </svg>
@@ -205,7 +205,7 @@ export default function Online() {
                 viewBox='0 0 28 28'
                 fill='none'
                 xmlns='http://www.w3.org/2000/svg'
-                className='mt-[7rem] md:hidden'
+                className='mt-[4rem] md:hidden'
               >
                 <path d='M2 28V2H28' stroke='#F8F8F8' strokeWidth='4' />
               </svg>
