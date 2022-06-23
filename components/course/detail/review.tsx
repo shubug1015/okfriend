@@ -98,7 +98,7 @@ export default function Review({ data, mutate }: IProps) {
           <div className='text-2xl font-bold md:text-xl'>
             {text.courseDetail['18']}
           </div>
-          <div className='mt-0.5 rounded-full bg-[#2fb6bc] px-3 font-medium text-white md:px-2.5'>
+          <div className='mt-0.5 rounded-full bg-[#05aadb] px-3 font-medium text-white md:px-2.5'>
             {data?.review.length}
           </div>
         </div>
@@ -109,7 +109,7 @@ export default function Review({ data, mutate }: IProps) {
           .includes(true) && (
           <div
             onClick={handleSubmit(onValid, onInvalid)}
-            className='flex h-12 w-40 cursor-pointer items-center justify-center rounded-lg bg-[#2fb6bc] font-medium text-white transition-all hover:opacity-90 md:h-10 md:w-24 md:text-sm'
+            className='flex h-12 w-40 cursor-pointer items-center justify-center rounded-lg bg-[#05aadb] font-medium text-white transition-all hover:opacity-90 md:h-10 md:w-24 md:text-sm'
           >
             {text.courseDetail['19']}
           </div>
@@ -217,7 +217,7 @@ export default function Review({ data, mutate }: IProps) {
                 {/* 수정하기 */}
                 <div
                   onClick={handleSubmit(onValid, onInvalid)}
-                  className='flex h-12 w-40 cursor-pointer items-center justify-center rounded-lg bg-[#2fb6bc] font-medium text-white transition-all hover:opacity-90 md:h-10 md:w-24 md:text-sm'
+                  className='flex h-12 w-40 cursor-pointer items-center justify-center rounded-lg bg-[#05aadb] font-medium text-white transition-all hover:opacity-90 md:h-10 md:w-24 md:text-sm'
                 >
                   {text.courseDetail['19']}
                 </div>

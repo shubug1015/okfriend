@@ -77,7 +77,7 @@ export default function Course({
             <div className='ml-9 h-1 w-72 rounded-full bg-[rgba(0,231,255,0.24)] md:w-52'>
               <div
                 className={cls(
-                  category === 'ongoing' ? 'bg-[#2fb6bc]' : 'bg-[#d60a51]',
+                  category === 'ongoing' ? 'bg-[#05aadb]' : 'bg-[#d60a51]',
                   'h-full rounded-full'
                 )}
                 style={{ width: `${progress}%` }}
@@ -98,7 +98,7 @@ export default function Course({
             <div
               className={cls(
                 category === 'ongoing'
-                  ? 'rounded bg-[#e2fbfb] px-2.5 py-1 text-[#2fb6bc]'
+                  ? 'rounded bg-[#e2fbfb] px-2.5 py-1 text-[#05aadb]'
                   : 'text-[#9e9e9e]',
                 'font-medium'
               )}

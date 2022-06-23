@@ -140,19 +140,19 @@ const SignUp: NextPage = () => {
               <div className='mt-10 flex space-x-5 md:mt-8 md:flex-col md:space-x-0 md:space-y-5'>
                 <div
                   onClick={() => setLocal(true)}
-                  className='flex h-[12.7rem] w-[17.5rem] cursor-pointer flex-col items-center justify-center space-y-4 rounded-lg border border-[#2fb6bc] transition-all hover:opacity-70'
+                  className='flex h-[12.7rem] w-[17.5rem] cursor-pointer flex-col items-center justify-center space-y-4 rounded-lg border border-[#05aadb] transition-all hover:opacity-70'
                 >
                   <Local />
-                  <div className='text-center text-lg font-medium text-[#2fb6bc]'>
+                  <div className='text-center text-lg font-medium text-[#05aadb]'>
                     {text.signup['37']}
                   </div>
                 </div>
                 <div
                   onClick={() => setLocal(false)}
-                  className='flex h-[12.7rem] w-[17.5rem] cursor-pointer flex-col items-center justify-center space-y-2.5 rounded-lg border border-[#2fb6bc] transition-all hover:opacity-70'
+                  className='flex h-[12.7rem] w-[17.5rem] cursor-pointer flex-col items-center justify-center space-y-2.5 rounded-lg border border-[#05aadb] transition-all hover:opacity-70'
                 >
                   <NotLocal />
-                  <div className='text-center text-lg font-medium text-[#2fb6bc]'>
+                  <div className='text-center text-lg font-medium text-[#05aadb]'>
                     {text.signup['38']}
                   </div>
                 </div>
@@ -477,13 +477,13 @@ const SignUp: NextPage = () => {
                       watch('email') && !errors?.email?.message
                         ? 'cursor-pointer transition-all hover:opacity-70'
                         : '',
-                      'ml-4 flex h-full w-[8.25rem] items-center justify-center rounded border border-[#2fb6bc] text-sm font-medium text-[#2fb6bc] md:ml-2 md:w-32 md:text-xs'
+                      'ml-4 flex h-full w-[8.25rem] items-center justify-center rounded border border-[#05aadb] text-sm font-medium text-[#05aadb] md:ml-2 md:w-32 md:text-xs'
                     )}
                   >
                     {code.loading ? (
                       <svg
                         role='status'
-                        className='h-6 w-6 animate-spin fill-[#2fb6bc] text-black'
+                        className='h-6 w-6 animate-spin fill-[#05aadb] text-black'
                         viewBox='0 0 100 101'
                         fill='none'
                         xmlns='http://www.w3.org/2000/svg'
@@ -609,12 +609,12 @@ const SignUp: NextPage = () => {
               {/* 회원가입 버튼 */}
               <div
                 onClick={handleSubmit(onValid, onInvalid)}
-                className='mt-12 flex h-[3.688rem] w-full cursor-pointer items-center justify-center rounded bg-[#2fb6bc] text-lg font-medium text-white transition-all hover:opacity-90 md:mt-8 md:h-[2.813rem] md:text-base'
+                className='mt-12 flex h-[3.688rem] w-full cursor-pointer items-center justify-center rounded bg-[#05aadb] text-lg font-medium text-white transition-all hover:opacity-90 md:mt-8 md:h-[2.813rem] md:text-base'
               >
                 {loading ? (
                   <svg
                     role='status'
-                    className='h-6 w-6 animate-spin fill-black text-[#2fb6bc]'
+                    className='h-6 w-6 animate-spin fill-black text-[#05aadb]'
                     viewBox='0 0 100 101'
                     fill='none'
                     xmlns='http://www.w3.org/2000/svg'

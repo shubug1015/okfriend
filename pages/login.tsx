@@ -98,13 +98,13 @@ const Login: NextPage = () => {
               type='submit'
               className={cls(
                 error ? 'mt-4' : 'mt-8 md:mt-10',
-                'flex h-[3.688rem] w-full cursor-pointer items-center justify-center rounded bg-[#2fb6bc] text-lg font-medium text-white transition-all hover:opacity-90 md:h-[2.813rem] md:text-base'
+                'flex h-[3.688rem] w-full cursor-pointer items-center justify-center rounded bg-[#05aadb] text-lg font-medium text-white transition-all hover:opacity-90 md:h-[2.813rem] md:text-base'
               )}
             >
               {loading ? (
                 <svg
                   role='status'
-                  className='h-6 w-6 animate-spin fill-[#01111e] text-[#2fb6bc]'
+                  className='h-6 w-6 animate-spin fill-[#01111e] text-[#05aadb]'
                   viewBox='0 0 100 101'
                   fill='none'
                   xmlns='http://www.w3.org/2000/svg'
@@ -129,7 +129,7 @@ const Login: NextPage = () => {
 
           {/* 회원가입 버튼 */}
           <Link href='/signup'>
-            <a className='flex h-[3.688rem] w-full items-center justify-center rounded border border-[#2fb6bc] text-lg font-medium text-[#2fb6bc] transition-all hover:opacity-70 md:h-[2.813rem] md:text-base'>
+            <a className='flex h-[3.688rem] w-full items-center justify-center rounded border border-[#05aadb] text-lg font-medium text-[#05aadb] transition-all hover:opacity-70 md:h-[2.813rem] md:text-base'>
               {text.login['7']}
             </a>
           </Link>

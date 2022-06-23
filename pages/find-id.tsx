@@ -115,13 +115,13 @@ const FindId: NextPage = () => {
                     watch('email') && !errors?.email?.message
                       ? 'cursor-pointer transition-all hover:opacity-70'
                       : '',
-                    'ml-4 flex h-full w-[7.5rem] items-center justify-center rounded border border-[#2fb6bc] text-sm font-medium text-[#2fb6bc] md:ml-2 md:w-32 md:text-xs'
+                    'ml-4 flex h-full w-[7.5rem] items-center justify-center rounded border border-[#05aadb] text-sm font-medium text-[#05aadb] md:ml-2 md:w-32 md:text-xs'
                   )}
                 >
                   {code.loading ? (
                     <svg
                       role='status'
-                      className='h-6 w-6 animate-spin fill-[#2fb6bc] text-black'
+                      className='h-6 w-6 animate-spin fill-[#05aadb] text-black'
                       viewBox='0 0 100 101'
                       fill='none'
                       xmlns='http://www.w3.org/2000/svg'
@@ -169,7 +169,7 @@ const FindId: NextPage = () => {
             {/* 아이디 찾기 버튼 */}
             <button
               type='submit'
-              className='mt-8 flex h-[3.688rem] w-full cursor-pointer items-center justify-center rounded bg-[#2fb6bc] text-lg font-medium text-white transition-all hover:opacity-90 md:h-[2.813rem] md:text-base'
+              className='mt-8 flex h-[3.688rem] w-full cursor-pointer items-center justify-center rounded bg-[#05aadb] text-lg font-medium text-white transition-all hover:opacity-90 md:h-[2.813rem] md:text-base'
             >
               {text.findId['7']}
             </button>

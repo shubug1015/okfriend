@@ -77,7 +77,7 @@ export default function Popup({ username, closePopup }: IProps) {
 
         <Link href='/login'>
           <a>
-            <div className='mt-6 flex cursor-pointer justify-center rounded bg-[#2fb6bc] py-4 text-lg font-medium text-white transition-all hover:opacity-90 md:py-2.5 md:text-base'>
+            <div className='mt-6 flex cursor-pointer justify-center rounded bg-[#05aadb] py-4 text-lg font-medium text-white transition-all hover:opacity-90 md:py-2.5 md:text-base'>
               {text.findIdPopup['3']}
             </div>
           </a>

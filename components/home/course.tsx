@@ -71,7 +71,7 @@ export default function Course() {
           </div> */}
 
           <Link href='/course/list/online/required/1'>
-            <a className='hidden rounded-full bg-[#2fb6bc] py-[0.35rem] px-[0.7rem] text-[0.75rem] font-bold text-white md:block'>
+            <a className='hidden rounded-full bg-[#05aadb] py-[0.35rem] px-[0.7rem] text-[0.75rem] font-bold text-white md:block'>
               {text.main['12']}
             </a>
           </Link>
@@ -91,7 +91,7 @@ export default function Course() {
               onClick={() => setCategory('라이브 차시')}
               className={cls(
                 category === '라이브 차시'
-                  ? 'border-b-4 border-[#2fb6bc] pb-2 text-[#2fb6bc] md:border-b-2 md:pb-1'
+                  ? 'border-b-4 border-[#05aadb] pb-2 text-[#05aadb] md:border-b-2 md:pb-1'
                   : 'text-[#9e9e9e]',
                 'cursor-pointer transition-colors'
               )}
@@ -103,7 +103,7 @@ export default function Course() {
               onClick={() => setCategory('필수 차시')}
               className={cls(
                 category === '필수 차시'
-                  ? 'border-b-4 border-[#2fb6bc] pb-2 text-[#2fb6bc] md:border-b-2 md:pb-1'
+                  ? 'border-b-4 border-[#05aadb] pb-2 text-[#05aadb] md:border-b-2 md:pb-1'
                   : 'text-[#9e9e9e]',
                 'cursor-pointer transition-colors'
               )}
@@ -115,7 +115,7 @@ export default function Course() {
               onClick={() => setCategory('선택 차시')}
               className={cls(
                 category === '선택 차시'
-                  ? 'border-b-4 border-[#2fb6bc] pb-2 text-[#2fb6bc] md:border-b-2 md:pb-1'
+                  ? 'border-b-4 border-[#05aadb] pb-2 text-[#05aadb] md:border-b-2 md:pb-1'
                   : 'text-[#9e9e9e]',
                 'cursor-pointer transition-colors'
               )}
@@ -125,7 +125,7 @@ export default function Course() {
           </div>
 
           <Link href='/course/list/online/required/1'>
-            <a className='rounded-full bg-[#2fb6bc] py-2 px-[1.375rem] text-lg font-bold md:hidden'>
+            <a className='rounded-full bg-[#05aadb] py-2 px-[1.375rem] text-lg font-bold md:hidden'>
               {text.main['12']}
             </a>
           </Link>

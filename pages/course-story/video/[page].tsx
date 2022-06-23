@@ -49,7 +49,7 @@ const Video: NextPage<IProps> = ({ page }) => {
           )}
         >
           {text.video['1']} <br className='hidden md:block' />
-          <span className='text-[#2fb6bc]'>{text.video['2']}</span>
+          <span className='text-[#05aadb]'>{text.video['2']}</span>
         </div>
 
         <div

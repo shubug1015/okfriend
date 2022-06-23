@@ -329,7 +329,7 @@ export default function Header() {
                           }}
                           className={cls(
                             i === language ? 'hidden' : 'block',
-                            'cursor-pointer py-3 pl-4 text-xs text-[#6b6b6b] transition-colors hover:text-[#2fb6bc] md:pl-2.5'
+                            'cursor-pointer py-3 pl-4 text-xs text-[#6b6b6b] transition-colors hover:text-[#05aadb] md:pl-2.5'
                           )}
                         >
                           {i}
@@ -398,7 +398,7 @@ export default function Header() {
                   <a
                     onClick={() => setOpenedTab(-1)}
                     className={cls(
-                      i.isActivated ? 'text-[#2fb6bc]' : '',
+                      i.isActivated ? 'text-[#05aadb]' : '',
                       clsFilter(
                         locale,
                         'text-base',
@@ -428,7 +428,7 @@ export default function Header() {
                         <Link key={index} href={j.url}>
                           <a
                             onClick={() => setOpenedTab(-1)}
-                            className='py-4 pl-4 text-[#6b6b6b] transition-colors hover:text-[#2fb6bc]'
+                            className='py-4 pl-4 text-[#6b6b6b] transition-colors hover:text-[#05aadb]'
                           >
                             {j.label}
                           </a>
@@ -447,21 +447,21 @@ export default function Header() {
             {data?.token && data?.profile ? (
               <>
                 <Link href='/mypage/course/ongoing/1'>
-                  <a className='rounded-full border border-[#2fb6bc] px-10 py-3 font-bold text-[#2fb6bc]'>
+                  <a className='rounded-full border border-[#05aadb] px-10 py-3 font-bold text-[#05aadb]'>
                     {text.header['7']}
                   </a>
                 </Link>
 
                 <div
                   onClick={handleLogout}
-                  className='cursor-pointer rounded-full bg-[#2fb6bc] px-10 py-3 font-bold text-white'
+                  className='cursor-pointer rounded-full bg-[#05aadb] px-10 py-3 font-bold text-white'
                 >
                   {text.header['8']}
                 </div>
               </>
             ) : (
               <Link href='/login'>
-                <a className='rounded-full bg-[#2fb6bc] px-10 py-3 font-bold text-white'>
+                <a className='rounded-full bg-[#05aadb] px-10 py-3 font-bold text-white'>
                   {text.header['6']}
                 </a>
               </Link>
@@ -502,7 +502,7 @@ export default function Header() {
                       <div className='flex items-center space-x-2.5'>
                         <div
                           onClick={handleLogout}
-                          className='text-sm font-bold text-[#2fb6bc]'
+                          className='text-sm font-bold text-[#05aadb]'
                         >
                           {text.header['8']}
                         </div>
@@ -523,7 +523,7 @@ export default function Header() {
                         <Link href='/login'>
                           <a
                             onClick={() => setMobileMenuOpened(false)}
-                            className='text-sm font-bold text-[#2fb6bc]'
+                            className='text-sm font-bold text-[#05aadb]'
                           >
                             {text.header['6']}
                           </a>

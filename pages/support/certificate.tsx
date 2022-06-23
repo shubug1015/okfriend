@@ -139,7 +139,7 @@ const Certificate: NextPage = () => {
               'text-4xl font-bold md:text-center md:text-2xl'
             )}
           >
-            <span className='text-[#2fb6bc]'>{text.certificate['8']}</span>{' '}
+            <span className='text-[#05aadb]'>{text.certificate['8']}</span>{' '}
             {text.certificate['9']}
           </div>
 
@@ -149,9 +149,9 @@ const Certificate: NextPage = () => {
 
           <div className='mt-14 rounded bg-white p-10 pb-16 md:mt-[1.313rem] md:px-[1.313rem]'>
             <div className='border-b border-[#9e9e9e] pb-10 text-2xl font-bold md:pb-4 md:text-base md:tracking-tighter'>
-              <span className='text-[#2fb6bc]'>{text.certificate['11']}</span>{' '}
+              <span className='text-[#05aadb]'>{text.certificate['11']}</span>{' '}
               {text.certificate['12']}
-              <div className='mt-2 hidden whitespace-pre-wrap text-center text-sm font-medium text-[#2fb6bc] md:block'>
+              <div className='mt-2 hidden whitespace-pre-wrap text-center text-sm font-medium text-[#05aadb] md:block'>
                 {text.certificate['13']}
               </div>
             </div>
@@ -160,7 +160,7 @@ const Certificate: NextPage = () => {
             <div className='space-y-7 border-b border-dotted border-[#d6d6d6] py-12 md:h-[21rem] md:flex-col md:justify-center md:space-y-6 md:py-4'>
               <div className='text-xl font-medium md:text-sm md:font-bold md:tracking-tighter'>
                 {text.certificate['14']}{' '}
-                <span className='text-[#2fb6bc]'>{text.certificate['15']}</span>
+                <span className='text-[#05aadb]'>{text.certificate['15']}</span>
               </div>
 
               <div className='space-y-5 md:w-full md:justify-between'>
@@ -211,7 +211,7 @@ const Certificate: NextPage = () => {
             <div className='space-y-7 border-b border-dotted border-[#d6d6d6] py-12 md:h-[19rem] md:flex-col md:justify-center md:space-y-6 md:py-4'>
               <div className='text-xl font-medium md:text-sm md:font-bold md:leading-6 md:tracking-tighter'>
                 {text.certificate['21']}{' '}
-                <span className='text-[#2fb6bc]'>*</span>
+                <span className='text-[#05aadb]'>*</span>
               </div>
 
               <div className='space-y-5 md:w-full md:justify-between'>
@@ -248,11 +248,11 @@ const Certificate: NextPage = () => {
             {useList().map((i) => (
               <div key={i.id} className='mt-14 md:mt-4'>
                 <div className='text-xl font-medium md:text-sm md:font-bold md:tracking-tighter'>
-                  {i.title} <span className='text-[#2fb6bc]'>*</span>
+                  {i.title} <span className='text-[#05aadb]'>*</span>
                 </div>
 
                 <div className='mt-6 flex justify-between md:mt-2'>
-                  <div className='text-sm font-medium text-[#2fb6bc] md:hidden md:text-xs'>
+                  <div className='text-sm font-medium text-[#05aadb] md:hidden md:text-xs'>
                     {text.certificate['28']}
                   </div>
 
@@ -294,7 +294,7 @@ const Certificate: NextPage = () => {
             <div className='space-y-7 border-b border-dotted border-[#d6d6d6] py-12 md:h-[12rem] md:flex-col md:justify-center md:space-y-6 md:py-4'>
               <div className='text-xl font-medium md:text-sm md:font-bold md:tracking-tighter'>
                 {text.certificate['79']}{' '}
-                <span className='text-[#2fb6bc]'>*</span>
+                <span className='text-[#05aadb]'>*</span>
               </div>
 
               <div className='space-y-5 md:w-full md:justify-between'>
@@ -329,7 +329,7 @@ const Certificate: NextPage = () => {
             <div className='space-y-7 py-12 md:h-[12rem] md:flex-col md:justify-center md:space-y-6 md:py-4'>
               <div className='text-xl font-medium md:text-sm md:tracking-tighter'>
                 {text.certificate['83']}{' '}
-                <span className='text-[#2fb6bc]'>*</span>
+                <span className='text-[#05aadb]'>*</span>
               </div>
 
               <div className='space-y-5 md:w-full md:justify-between'>
@@ -362,7 +362,7 @@ const Certificate: NextPage = () => {
             <div className='flex justify-center'>
               <div
                 onClick={handleSubmit(onValid, onInvalid)}
-                className='mt-2 flex w-96 cursor-pointer justify-center rounded-lg bg-[#2fb6bc] py-4 text-lg font-medium text-white transition-all hover:opacity-90 md:py-3 md:text-base'
+                className='mt-2 flex w-96 cursor-pointer justify-center rounded-lg bg-[#05aadb] py-4 text-lg font-medium text-white transition-all hover:opacity-90 md:py-3 md:text-base'
               >
                 {text.certificate['86']}
               </div>

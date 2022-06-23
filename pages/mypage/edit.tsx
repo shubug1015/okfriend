@@ -291,7 +291,7 @@ const Edit: NextPage = () => {
             <div className='flex justify-end'>
               <div
                 onClick={handleSubmit(onValid, onInvalid)}
-                className='cursor-pointer rounded bg-[#2fb6bc] py-4 px-14 font-bold text-white transition-all hover:opacity-90 md:flex md:w-full md:justify-center md:px-0 md:py-3'
+                className='cursor-pointer rounded bg-[#05aadb] py-4 px-14 font-bold text-white transition-all hover:opacity-90 md:flex md:w-full md:justify-center md:px-0 md:py-3'
               >
                 {text.mypageEdit['10']}
               </div>

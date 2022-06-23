@@ -16,12 +16,12 @@ export default function ElectiveNotice() {
           'flex justify-center whitespace-pre-wrap font-bold md:justify-start md:text-xl'
         )}
       >
-        <span className='text-[#2fb6bc]'>{text.preCourseElective['1']} </span>
+        <span className='text-[#05aadb]'>{text.preCourseElective['1']} </span>
         {text.preCourseElective['2']}
       </div>
 
       <div className='mt-9 grid grid-cols-1 gap-x-5 md:mt-6 md:grid-cols-1 md:gap-x-0 md:gap-y-5'>
-        <div className='flex h-[9.375rem] items-center justify-center border-t-2 border-[#2fb6bc] bg-[#f4f9fb] md:h-[7.5rem] md:justify-start md:px-6'>
+        <div className='flex h-[9.375rem] items-center justify-center border-t-2 border-[#05aadb] bg-[#f4f9fb] md:h-[7.5rem] md:justify-start md:px-6'>
           <svg
             viewBox='0 0 66 60'
             fill='none'
@@ -79,7 +79,7 @@ export default function ElectiveNotice() {
           </div>
         </div>
 
-        {/* <div className='flex h-[9.375rem] items-center justify-center border-t-2 border-[#2fb6bc] bg-[#f4f9fb] md:h-[7.5rem] md:justify-start md:px-6'>
+        {/* <div className='flex h-[9.375rem] items-center justify-center border-t-2 border-[#05aadb] bg-[#f4f9fb] md:h-[7.5rem] md:justify-start md:px-6'>
           <svg
             viewBox='0 0 62 58'
             fill='none'
@@ -133,7 +133,7 @@ export default function ElectiveNotice() {
           </div>
         </div> */}
 
-        {/* <div className='flex h-[9.375rem] items-center justify-center border-t-2 border-[#2fb6bc] bg-[#f4f9fb] md:h-[7.5rem] md:justify-start md:px-6'>
+        {/* <div className='flex h-[9.375rem] items-center justify-center border-t-2 border-[#05aadb] bg-[#f4f9fb] md:h-[7.5rem] md:justify-start md:px-6'>
           <svg
             viewBox='0 0 68 53'
             fill='none'

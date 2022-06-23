@@ -81,7 +81,7 @@ const Newsletter: NextPage<IProps> = ({ page }) => {
         </div>
 
         {/* <div className='flex justify-end'>
-          <div className='mt-[2.875rem] flex h-[2.813rem] w-[6.563rem] items-center justify-center rounded bg-[#2fb6bc] text-white'>
+          <div className='mt-[2.875rem] flex h-[2.813rem] w-[6.563rem] items-center justify-center rounded bg-[#05aadb] text-white'>
             글쓰기
           </div>
         </div> */}

@@ -43,7 +43,7 @@ export default function Online() {
               >
                 {text.greeting['7']}
                 <br />
-                <span className='font-nexonBold font-bold text-[#2fb6bc]'>
+                <span className='font-nexonBold font-bold text-[#05aadb]'>
                   {text.greeting['8']}
                 </span>
               </div>
@@ -94,7 +94,7 @@ export default function Online() {
                 >
                   {text.greeting['10']}
                   <br />
-                  <span className='font-nexonBold font-bold text-[#2fb6bc]'>
+                  <span className='font-nexonBold font-bold text-[#05aadb]'>
                     {text.greeting['11']}
                   </span>
                 </div>
@@ -175,7 +175,7 @@ export default function Online() {
               >
                 {text.greeting['14']}
                 <br />
-                <span className='font-nexonBold font-bold text-[#2fb6bc]'>
+                <span className='font-nexonBold font-bold text-[#05aadb]'>
                   {text.greeting['15']}
                 </span>
               </div>
@@ -229,7 +229,7 @@ export default function Online() {
                   <span className='text-white'>
                     {text.greeting['18-1']}
                   </span>
-                  <span className='font-nexonBold font-bold text-[#2fb6bc]'>
+                  <span className='font-nexonBold font-bold text-[#05aadb]'>
                     {text.greeting['18-2']}
                   </span>
                 </div>

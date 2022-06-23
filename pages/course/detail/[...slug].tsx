@@ -94,7 +94,7 @@ const CourseDetail: NextPage<IProps> = ({ slug }) => {
               onClick={() => setSection(i.label)}
               className={cls(
                 section === i.label
-                  ? 'border-[#2fb6bc] font-bold text-[#2fb6bc]'
+                  ? 'border-[#05aadb] font-bold text-[#05aadb]'
                   : 'border-transparent text-[#6b6b6b]',
                 clsFilter(locale, 'w-[12.5rem]', 'w-40', 'w-96'),
                 'flex cursor-pointer justify-center border-b-4 pb-2 text-xl transition-all md:w-full md:pb-3'

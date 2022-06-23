@@ -155,12 +155,12 @@ export default function Popup() {
         <div className='flex justify-center'>
           <div
             onClick={handleSubmit(onValid, onInvalid)}
-            className='mt-10 flex w-72 cursor-pointer justify-center rounded-lg bg-[#2fb6bc] py-4 font-bold text-white transition-all hover:opacity-90'
+            className='mt-10 flex w-72 cursor-pointer justify-center rounded-lg bg-[#05aadb] py-4 font-bold text-white transition-all hover:opacity-90'
           >
             {loading ? (
               <svg
                 role='status'
-                className='h-6 w-6 animate-spin fill-[#2fb6bc] text-white'
+                className='h-6 w-6 animate-spin fill-[#05aadb] text-white'
                 viewBox='0 0 100 101'
                 fill='none'
                 xmlns='http://www.w3.org/2000/svg'

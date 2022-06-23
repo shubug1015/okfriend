@@ -76,7 +76,7 @@ export default function Search({ url }: IProps) {
                 `/support/${url}/${searchType.value}/${orderType.value}/1/${searchTerm}`
               )
             }
-            className='flex h-12 w-24 cursor-pointer items-center justify-center rounded-lg bg-[#2fb6bc] text-lg font-medium text-white md:h-[2.188rem] md:w-[3.312rem] md:text-[0.813rem]'
+            className='flex h-12 w-24 cursor-pointer items-center justify-center rounded-lg bg-[#05aadb] text-lg font-medium text-white md:h-[2.188rem] md:w-[3.312rem] md:text-[0.813rem]'
           >
             {text.notice['2']}
           </div>

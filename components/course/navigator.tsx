@@ -19,7 +19,7 @@ export default function Navigator({ courseType, courseCategory }: IProps) {
               <div
                 className={cls(
                   courseCategory === 'live'
-                    ? 'border-[#2fb6bc]'
+                    ? 'border-[#05aadb]'
                     : 'border-transparent text-[#9e9e9e]',
                   'flex h-16 w-48 items-center justify-center border-b-4 text-[1.375rem] font-bold md:h-14 md:w-auto md:border-b-2 md:text-base'
                 )}
@@ -37,7 +37,7 @@ export default function Navigator({ courseType, courseCategory }: IProps) {
             <div
               className={cls(
                 courseCategory === 'required'
-                  ? 'border-[#2fb6bc]'
+                  ? 'border-[#05aadb]'
                   : 'border-transparent text-[#9e9e9e]',
                 clsFilter(
                   locale,
@@ -60,7 +60,7 @@ export default function Navigator({ courseType, courseCategory }: IProps) {
             <div
               className={cls(
                 courseCategory === 'elective'
-                  ? 'border-[#2fb6bc]'
+                  ? 'border-[#05aadb]'
                   : 'border-transparent text-[#9e9e9e]',
                 clsFilter(
                   locale,
@@ -83,7 +83,7 @@ export default function Navigator({ courseType, courseCategory }: IProps) {
             <div
               className={cls(
                 courseCategory === 'past'
-                  ? 'border-[#2fb6bc]'
+                  ? 'border-[#05aadb]'
                   : 'border-transparent text-[#9e9e9e]',
                 clsFilter(
                   locale,

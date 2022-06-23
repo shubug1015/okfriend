@@ -73,7 +73,7 @@ const Contact: NextPage = () => {
           >
             {text.contact['1']}
             <br className='hidden md:block' />
-            <span className='text-[#2fb6bc]'> {text.contact['2']}</span>
+            <span className='text-[#05aadb]'> {text.contact['2']}</span>
           </div>
 
           <div className='mt-12 w-[73.688rem] rounded bg-white py-14 px-[3.75rem] md:mt-5 md:w-full md:px-[0.813rem] md:py-8 md:text-base'>
@@ -218,7 +218,7 @@ const Contact: NextPage = () => {
             <div className='flex justify-center'>
               <div
                 onClick={handleSubmit(onValid, onInValid)}
-                className='mt-12 h-[3.75rem] w-[23.75rem] cursor-pointer rounded bg-[#2fb6bc] pt-4 text-center text-[1.125rem] font-medium text-white md:mt-4 md:h-[2.813rem] md:w-[17.5rem] md:pt-[0.6rem] md:text-base'
+                className='mt-12 h-[3.75rem] w-[23.75rem] cursor-pointer rounded bg-[#05aadb] pt-4 text-center text-[1.125rem] font-medium text-white md:mt-4 md:h-[2.813rem] md:w-[17.5rem] md:pt-[0.6rem] md:text-base'
               >
                 {text.contact['17']}
               </div>

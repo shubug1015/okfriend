@@ -114,7 +114,7 @@ const Faq: NextPage = () => {
                 className='flex cursor-pointer items-center justify-between py-7 px-10 transition-all hover:opacity-70 md:space-x-2 md:px-4 md:py-5'
               >
                 <div className='flex items-center space-x-2'>
-                  <div className='flex h-8 w-8 flex-none items-center justify-center rounded-full bg-[#2fb6bc] font-medium text-white md:h-6 md:w-6 md:text-sm'>
+                  <div className='flex h-8 w-8 flex-none items-center justify-center rounded-full bg-[#05aadb] font-medium text-white md:h-6 md:w-6 md:text-sm'>
                     Q
                   </div>
                   <div className='text-lg font-medium md:text-sm'>

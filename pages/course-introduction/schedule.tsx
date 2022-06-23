@@ -45,7 +45,7 @@ const TrainingSchedule: NextPage = () => {
               'text-4xl font-bold leading-[3.15rem] text-[#01111e] md:text-xl'
             )}
           >
-            <span className='text-[#2fb6bc]'>{text.schedule['7']}</span>{' '}
+            <span className='text-[#05aadb]'>{text.schedule['7']}</span>{' '}
             {text.schedule['8']}
           </div>
           <div className='relative mt-[1.375rem] h-[961px] w-full md:hidden'>
@@ -86,7 +86,7 @@ const TrainingSchedule: NextPage = () => {
               'mt-16 text-4xl font-bold leading-[3.15rem] text-[#01111e] md:mt-10 md:text-xl'
             )}
           >
-            <span className='text-[#2fb6bc]'>{text.schedule['9']}</span>{' '}
+            <span className='text-[#05aadb]'>{text.schedule['9']}</span>{' '}
             {text.schedule['10']}
           </div>
           <div className='relative mt-[1.375rem] h-[541px] w-full md:hidden'>

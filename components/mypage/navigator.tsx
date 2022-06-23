@@ -43,7 +43,7 @@ export default function Navigator() {
           <a
             className={cls(
               i.active
-                ? 'bg-[#2fb6bc] font-bold text-white'
+                ? 'bg-[#05aadb] font-bold text-white'
                 : 'border-[#d6d6d6]',
               clsFilter(locale, '', '', 'text-center leading-tight'),
               'flex h-12 w-[13.625rem] items-center justify-center rounded-lg border transition-all hover:opacity-70 md:w-full'

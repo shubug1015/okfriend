@@ -192,7 +192,7 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
         <div className='mt-12 flex justify-center'>
           <div
             onClick={toggleLike}
-            className='flex h-16 w-40 cursor-pointer items-center justify-between rounded-lg bg-[#2fb6bc] px-3.5 transition-opacity hover:opacity-90 md:h-12'
+            className='flex h-16 w-40 cursor-pointer items-center justify-between rounded-lg bg-[#05aadb] px-3.5 transition-opacity hover:opacity-90 md:h-12'
           >
             <div className='flex space-x-2'>
               <svg
@@ -222,7 +222,7 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
           <div className='text-2xl font-bold md:text-xl'>
             {text.newsletterDetail['4']}
           </div>
-          <div className='flex h-8 w-12 items-center justify-center rounded-full bg-[#2fb6bc] font-medium text-white md:h-6 md:w-8 md:text-base'>
+          <div className='flex h-8 w-12 items-center justify-center rounded-full bg-[#05aadb] font-medium text-white md:h-6 md:w-8 md:text-base'>
             {data?.reply.length}
           </div>
         </div>
@@ -303,7 +303,7 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
                   {/* 수정하기 */}
                   <div
                     onClick={handleSubmit(onValid, onInvalid)}
-                    className='flex h-[2.8rem] w-[7.5rem] cursor-pointer items-center justify-center space-x-1.5 rounded-lg bg-[#2fb6bc] font-medium text-white transition-all hover:opacity-90 md:h-[1.8rem] md:w-[5.4rem] md:text-sm'
+                    className='flex h-[2.8rem] w-[7.5rem] cursor-pointer items-center justify-center space-x-1.5 rounded-lg bg-[#05aadb] font-medium text-white transition-all hover:opacity-90 md:h-[1.8rem] md:w-[5.4rem] md:text-sm'
                   >
                     <svg
                       width='24'
@@ -351,7 +351,7 @@ const NewsLetterDetail: NextPage<IProps> = ({ id }) => {
 
             <div
               onClick={handleSubmit(onValid, onInvalid)}
-              className='flex h-[2.8rem] w-[7.5rem] cursor-pointer items-center justify-center space-x-1.5 rounded-lg bg-[#2fb6bc] font-medium text-white transition-all hover:opacity-90 md:h-[1.8rem] md:w-[5.4rem] md:text-sm'
+              className='flex h-[2.8rem] w-[7.5rem] cursor-pointer items-center justify-center space-x-1.5 rounded-lg bg-[#05aadb] font-medium text-white transition-all hover:opacity-90 md:h-[1.8rem] md:w-[5.4rem] md:text-sm'
             >
               <svg
                 width='24'

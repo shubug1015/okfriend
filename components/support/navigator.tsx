@@ -16,7 +16,7 @@ export default function Navigator({ supportCategory }: IProps) {
             <div
               className={cls(
                 supportCategory === 'notice'
-                  ? 'border-[#2fb6bc]'
+                  ? 'border-[#05aadb]'
                   : 'border-transparent text-[#9e9e9e]',
                 clsFilter(locale, 'md:w-24', 'md:w-[7.8rem]', 'md:w-[7rem]'),
                 'flex h-16 w-48 items-center justify-center border-b-4 text-[1.375rem] font-bold md:border-b-2 md:text-base'
@@ -32,7 +32,7 @@ export default function Navigator({ supportCategory }: IProps) {
             <div
               className={cls(
                 supportCategory === 'faq'
-                  ? 'border-[#2fb6bc]'
+                  ? 'border-[#05aadb]'
                   : 'border-transparent text-[#9e9e9e]',
                 'flex h-16 w-48 items-center justify-center border-b-4 text-[1.375rem] font-bold md:w-24 md:border-b-2 md:text-base'
               )}
@@ -47,7 +47,7 @@ export default function Navigator({ supportCategory }: IProps) {
             <div
               className={cls(
                 supportCategory === 'contact'
-                  ? 'border-[#2fb6bc]'
+                  ? 'border-[#05aadb]'
                   : 'border-transparent text-[#9e9e9e]',
                 'flex h-16 w-48 items-center justify-center border-b-4 text-center text-[1.375rem] font-bold md:w-24 md:border-b-2 md:text-base'
               )}
@@ -62,7 +62,7 @@ export default function Navigator({ supportCategory }: IProps) {
             <div
               className={cls(
                 supportCategory === 'library'
-                  ? 'border-[#2fb6bc]'
+                  ? 'border-[#05aadb]'
                   : 'border-transparent text-[#9e9e9e]',
                 clsFilter(locale, 'md:w-24', 'md:w-24', 'md:w-[7rem]'),
                 'flex h-16 w-48 items-center justify-center border-b-4 text-[1.375rem] font-bold md:w-24 md:border-b-2 md:text-base'
@@ -78,7 +78,7 @@ export default function Navigator({ supportCategory }: IProps) {
             <div
               className={cls(
                 supportCategory === 'certificate'
-                  ? 'border-[#2fb6bc]'
+                  ? 'border-[#05aadb]'
                   : 'border-transparent text-[#9e9e9e]',
                 clsFilter(
                   locale,

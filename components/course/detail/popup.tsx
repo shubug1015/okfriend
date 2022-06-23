@@ -130,7 +130,7 @@ export default function Popup({ id, closePopup }: IProps) {
           )}
         >
           {text.courseSurvey['1']}{' '}
-          <span className='text-[#2fb6bc]'>{text.courseSurvey['2']}</span>
+          <span className='text-[#05aadb]'>{text.courseSurvey['2']}</span>
         </div>
 
         <div className='mt-2.5 text-center text-lg font-medium md:mt-5 md:tracking-tight'>
@@ -142,7 +142,7 @@ export default function Popup({ id, closePopup }: IProps) {
         </div>
 
         <div className='mt-12 flex justify-between border-b border-[#d6d6d6] pb-3 md:mt-7'>
-          <div className='text-sm font-medium text-[#2fb6bc] md:text-xs'>
+          <div className='text-sm font-medium text-[#05aadb] md:text-xs'>
             {text.courseSurvey['4']}
           </div>
 
@@ -378,7 +378,7 @@ export default function Popup({ id, closePopup }: IProps) {
         <div className='flex justify-center'>
           <div
             onClick={handleSubmit(onValid, onInvalid)}
-            className='mt-12 flex w-96 cursor-pointer justify-center rounded-lg bg-[#2fb6bc] py-4 text-lg font-medium text-white transition-all hover:opacity-90 md:py-3 md:text-base'
+            className='mt-12 flex w-96 cursor-pointer justify-center rounded-lg bg-[#05aadb] py-4 text-lg font-medium text-white transition-all hover:opacity-90 md:py-3 md:text-base'
           >
             {text.courseSurvey['16']}
           </div>

@@ -61,7 +61,7 @@ const Greeting: NextPage = () => {
               'font-notoSans',
               'font-notoSans'
             ),
-            'mt-[1.875rem] border-b border-[#9e9e9e] pb-[1.594rem] text-4xl font-bold leading-[3.15rem] text-[#2fb6bc] md:text-[1.375rem] md:leading-[2.25rem]'
+            'mt-[1.875rem] border-b border-[#9e9e9e] pb-[1.594rem] text-4xl font-bold leading-[3.15rem] text-[#05aadb] md:text-[1.375rem] md:leading-[2.25rem]'
           )}
         >
           {text.summary['7']}
@@ -164,7 +164,7 @@ const Greeting: NextPage = () => {
           </div>
           <div className='mt-[1.438rem] flex justify-between md:block'>
             <div className='w-[23.75rem] border border-[#d6d6d6] pt-[2.25rem] pb-[1.125rem] text-center text-[1.125rem] md:w-full'>
-              <div className='mx-[auto] my-[0] w-[50px] h-[50px] flex justify-center items-center rounded-full bg-[#2fb6bc] py-[0.438rem] text-2xl font-bold leading-6 text-white'>
+              <div className='mx-[auto] my-[0] w-[50px] h-[50px] flex justify-center items-center rounded-full bg-[#05aadb] py-[0.438rem] text-2xl font-bold leading-6 text-white'>
                 1
               </div>
               <div className='mt-2 font-bold leading-[1.856]'>
@@ -182,7 +182,7 @@ const Greeting: NextPage = () => {
               </ul>
             </div>
             <div className='w-[23.75rem] border border-[#d6d6d6] pt-[2.25rem] pb-[1.125rem] text-center text-[1.125rem] md:mt-[1.438rem] md:w-full'>
-              <div className='mx-[auto] my-[0] w-[50px] h-[50px] flex justify-center items-center rounded-full bg-[#2fb6bc] py-[0.438rem] text-2xl font-bold leading-6 text-white'>
+              <div className='mx-[auto] my-[0] w-[50px] h-[50px] flex justify-center items-center rounded-full bg-[#05aadb] py-[0.438rem] text-2xl font-bold leading-6 text-white'>
                 2
               </div>
               <div className='mt-2 font-bold leading-[1.856]'>
@@ -201,7 +201,7 @@ const Greeting: NextPage = () => {
               </div>
             </div>
             <div className='w-[23.75rem] border border-[#d6d6d6] pt-[2.25rem] pb-[1.125rem] text-center text-[1.125rem] md:mt-[1.438rem] md:w-full'>
-              <div className='mx-[auto] my-[0] w-[50px] h-[50px] flex justify-center items-center rounded-full bg-[#2fb6bc] py-[0.438rem] text-2xl font-bold leading-6 text-white'>
+              <div className='mx-[auto] my-[0] w-[50px] h-[50px] flex justify-center items-center rounded-full bg-[#05aadb] py-[0.438rem] text-2xl font-bold leading-6 text-white'>
                 3
               </div>
               <div className='mt-2 font-bold leading-[1.856]'>
@@ -253,7 +253,7 @@ const Greeting: NextPage = () => {
             {text.summary['24']}
           </div>
           <div className='mt-[1.438rem] flex justify-between md:block'>
-            <div className='w-[17.75rem] border-t-2 border-[#2fb6bc] bg-[#d5f0f2] pt-[1.438rem] pb-6 text-center md:mt-[0.938rem] md:w-full'>
+            <div className='w-[17.75rem] border-t-2 border-[#05aadb] bg-[#d5f0f2] pt-[1.438rem] pb-6 text-center md:mt-[0.938rem] md:w-full'>
               <div className='text-xl font-bold leading-[2.062rem]'>
                 {text.summary['25']}
               </div>
@@ -261,7 +261,7 @@ const Greeting: NextPage = () => {
                 {text.summary['29']}
               </div>
             </div>
-            <div className='w-[17.75rem] border-t-2 border-[#2fb6bc] bg-[#d5f0f2] pt-[1.438rem] pb-6 text-center md:mt-[1.438rem] md:w-full'>
+            <div className='w-[17.75rem] border-t-2 border-[#05aadb] bg-[#d5f0f2] pt-[1.438rem] pb-6 text-center md:mt-[1.438rem] md:w-full'>
               <div className='text-xl font-bold leading-[2.062rem]'>
                 {text.summary['26']}
               </div>
@@ -269,7 +269,7 @@ const Greeting: NextPage = () => {
                 {text.summary['30']}
               </div>
             </div>
-            <div className='w-[17.75rem] border-t-2 border-[#2fb6bc] bg-[#d5f0f2] pt-[1.438rem] pb-6 text-center md:mt-[1.438rem] md:w-full'>
+            <div className='w-[17.75rem] border-t-2 border-[#05aadb] bg-[#d5f0f2] pt-[1.438rem] pb-6 text-center md:mt-[1.438rem] md:w-full'>
               <div className='text-xl font-bold leading-[2.062rem]'>
                 {text.summary['27']}
               </div>
@@ -277,7 +277,7 @@ const Greeting: NextPage = () => {
                 {text.summary['31']}
               </div>
             </div>
-            <div className='w-[17.75rem] border-t-2 border-[#2fb6bc] bg-[#d5f0f2] pt-[1.438rem] pb-6 text-center md:mt-[1.438rem] md:w-full'>
+            <div className='w-[17.75rem] border-t-2 border-[#05aadb] bg-[#d5f0f2] pt-[1.438rem] pb-6 text-center md:mt-[1.438rem] md:w-full'>
               <div className='text-xl font-bold leading-[2.062rem]'>
                 {text.summary['28']}
               </div>
@@ -324,9 +324,9 @@ const Greeting: NextPage = () => {
           )}
         >
           {text.summary['37-1']}
-          <span className='text-[#2fb6bc]'>{text.summary['37-2']}</span>
+          <span className='text-[#05aadb]'>{text.summary['37-2']}</span>
           {text.summary['38-1']}
-          <span className='text-[#2fb6bc]'>{text.summary['38-2']}</span>
+          <span className='text-[#05aadb]'>{text.summary['38-2']}</span>
         </div>
 
         {/* 마일리지 제도 적립/활용 */}

@@ -15,7 +15,7 @@ export default function MenuBar({ pageName }: IProps) {
           <div
             className={cls(
               pageName === '홍보 영상'
-                ? 'border-[#2fb6bc] font-bold text-[#01111e]'
+                ? 'border-[#05aadb] font-bold text-[#01111e]'
                 : 'border-transparent',
               clsFilter(locale, 'md:w-16', 'md:w-12', 'md:w-14'),
               'flex h-[4.188rem] w-[12.5rem] items-center justify-center border-b-4 font-bold md:h-12 md:border-b-2 md:text-base'
@@ -31,7 +31,7 @@ export default function MenuBar({ pageName }: IProps) {
           <div
             className={cls(
               pageName === '연수 갤러리'
-                ? 'border-[#2fb6bc] font-bold text-[#01111e]'
+                ? 'border-[#05aadb] font-bold text-[#01111e]'
                 : 'border-transparent',
               clsFilter(locale, 'md:w-[5.5rem]', 'md:w-14', 'md:w-16'),
               'flex h-[4.188rem] w-[12.5rem] items-center justify-center border-b-4 font-bold md:h-12 md:border-b-2 md:text-base'
@@ -47,7 +47,7 @@ export default function MenuBar({ pageName }: IProps) {
           <div
             className={cls(
               pageName === '카드뉴스'
-                ? 'border-[#2fb6bc] font-bold text-[#01111e]'
+                ? 'border-[#05aadb] font-bold text-[#01111e]'
                 : 'border-transparent',
               clsFilter(locale, 'md:w-16', 'md:w-[5rem]', 'md:w-[5rem]'),
               'flex h-[4.188rem] w-[12.5rem] items-center justify-center border-b-4 font-bold md:h-12 md:border-b-2 md:text-base'
@@ -63,7 +63,7 @@ export default function MenuBar({ pageName }: IProps) {
           <div
             className={cls(
               pageName === '뉴스레터'
-                ? 'border-[#2fb6bc] font-bold text-[#01111e]'
+                ? 'border-[#05aadb] font-bold text-[#01111e]'
                 : 'border-transparent',
               clsFilter(locale, 'md:w-16', 'md:w-[5rem]', 'md:w-[5rem]'),
               'flex h-[4.188rem] w-[12.5rem] items-center justify-center border-b-4 font-bold md:h-12 md:border-b-2 md:text-base'
