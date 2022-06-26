@@ -9,7 +9,7 @@ import Link from 'next/link';
 export default function Footer() {
   const { locale, text } = useLocale();
   return (
-    <footer className='w-screen bg-[#01111e] pt-14 pb-8 md:pt-10 md:pb-14'>
+    <footer className='w-screen bg-[#171717] pt-14 pb-8 md:pt-10 md:pb-14'>
       <div className='mx-auto flex max-w-[1400px] md:flex-col md:items-center'>
         <div className='w-1/3 md:flex md:w-full md:justify-center'>
           { locale === 'ko'
