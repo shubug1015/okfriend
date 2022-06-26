@@ -21,6 +21,12 @@ import SummaryMileageRu1 from '@public/course-introduction/summary-mileage-ru-1.
 import SummaryMileage1m from '@public/course-introduction/summary-mileage-1-m.png';
 import SummaryMileageEn1m from '@public/course-introduction/summary-mileage-en-1-m.png';
 import SummaryMileageRu1m from '@public/course-introduction/summary-mileage-ru-1-m.png';
+import SummaryParticipantBenefits from '@public/course-introduction/summary-participan-benefits.png';
+import SummaryParticipantBenefitsEn from '@public/course-introduction/summary-participan-benefits-en.png';
+import SummaryParticipantBenefitsRu from '@public/course-introduction/summary-participan-benefits-ru.png';
+import SummaryParticipantBenefitsMo from '@public/course-introduction/summary-participan-benefits-mo.png';
+import SummaryParticipantBenefitsEnMo from '@public/course-introduction/summary-participan-benefits-en-mo.png';
+import SummaryParticipantBenefitsRuMo from '@public/course-introduction/summary-participan-benefits-ru-mo.png';
 import MenuBar from '@components/greeting/menuBar';
 import SEO from '@components/seo';
 import { useLocale } from '@libs/client/useLocale';
@@ -367,7 +373,7 @@ const Greeting: NextPage = () => {
           </div>
           <div
             className={cls(
-              clsFilter(locale, 'h-[1439px]', 'h-[1005px]', 'h-[1037px]'),
+              clsFilter(locale, 'h-[1439px]', 'h-[1565px]', 'h-[1729px]'),
               'relative hidden w-full md:block'
             )}
           >
@@ -429,7 +435,7 @@ const Greeting: NextPage = () => {
         </div>
 
         {/* 우수 연수자 혜택 */}
-        <div className='border-b border-[#e8e8e8] pt-[2.531rem] pb-[6.938rem] text-2xl text-[#01111e] md:pb-[3.719rem] md:pt-[2.094rem] md:text-xl'>
+        <div className='border-b border-[#e8e8e8] pt-[2.531rem] pb-[2.531rem] text-2xl text-[#01111e] md:pb-[3.719rem] md:pt-[2.094rem] md:text-xl'>
           <div
             className={cls(
               clsFilter(
@@ -446,7 +452,7 @@ const Greeting: NextPage = () => {
           <div className='mt-4 text-[1.125rem] leading-[1.856rem] md:mt-[0.313rem] md:text-[0.875rem] md:leading-[1.444rem]'>
             {text.summary['44']}
           </div>
-          <div className=''>
+          <div>
             <div className='mt-[2.313rem] md:mt-7 md:mr-0'>
               <div className='text-[1.125rem] leading-[1.688rem] font-[500]'>
                 {text.summary['45-1']}
@@ -469,6 +475,56 @@ const Greeting: NextPage = () => {
                   <li>{text.summary['46-3']}</li>
                 </ul>
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 연수 참가자 혜택 */}
+        <div className='border-b border-[#e8e8e8] pt-[2.531rem] pb-[6.938rem] text-2xl text-[#01111e] md:pb-[3.719rem] md:pt-[2.094rem] md:text-xl'>
+          <div
+            className={cls(
+              clsFilter(
+                locale,
+                'font-nexonBold',
+                'font-notoSans',
+                'font-notoSans'
+              ),
+              'font-bold leading-[2.25rem]'
+            )}
+          >
+            {text.summary['47']}
+          </div>
+
+          <div className='pt-[1.849rem] pb-[2.906rem] text-2xl text-[#01111e] md:pt-[1.281rem]'>
+            <div className='relative h-[543px] w-full md:hidden'>
+              <Image
+                src={imgFilter(
+                  locale,
+                  SummaryParticipantBenefits,
+                  SummaryParticipantBenefitsEn,
+                  SummaryParticipantBenefitsRu
+                )}
+                alt='Summary Page Camp Participant Benefits Section Image'
+                objectFit='cover'
+                placeholder='blur'
+                layout='fill'
+                quality={100}
+              />
+            </div>
+            <div className='relative hidden h-[1530px] w-full md:block'>
+              <Image
+                src={imgFilter(
+                  locale,
+                  SummaryParticipantBenefitsMo,
+                  SummaryParticipantBenefitsEnMo,
+                  SummaryParticipantBenefitsRuMo
+                )}
+                alt='Summary Page Camp Participant Benefits Section Image'
+                objectFit='cover'
+                placeholder='blur'
+                layout='fill'
+                quality={100}
+              />
             </div>
           </div>
         </div>
