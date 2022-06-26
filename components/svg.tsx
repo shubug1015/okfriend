@@ -425,7 +425,7 @@ export const HeaderLogoWhiteEn = () => {
 };
 export const HeaderLogoWhiteRu = () => {
   return (
-    <svg viewBox='0 0 110 44' fill="none" xmlns="http://www.w3.org/2000/svg" className="w-[16.8rem] md:w-32">
+    <svg viewBox='0 0 110 44' fill="none" xmlns="http://www.w3.org/2000/svg" className="w-28 md:w-24">
       <g clipPath="url(#a)">
         <path d="M43.002 7.602h5.3c.9 0 1.5.7 1.5 1.5 0 .9-.7 1.5-1.5 1.5h-5.3c-.9 0-1.5-.7-1.5-1.5-.1-.8.6-1.5 1.5-1.5Z" fill="#24B6BC"/>
         <path d="M37.998 17.905h.5c.9 0 1.5-.7 1.5-1.5v-10.9c0-.7.1-1.2.4-1.6.2-.4.7-.6 1.5-.6h6.4c.9 0 1.5-.7 1.5-1.5 0-.9-.7-1.5-1.5-1.5h-7.3c-.9 0-1.6.2-2.2.4-.6.3-1.1.7-1.5 1.1-.4.5-.6 1-.7 1.7-.1.6-.2 1.3-.2 2v11c.1.7.7 1.4 1.6 1.4Z" fill="#24B6BC"/>
