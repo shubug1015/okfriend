@@ -150,6 +150,7 @@ export const en = {
     '46-1': '• Korean Teens',
     '46-2': 'Qualified to be selected first when applying for the offline camp in the coming year.',
     '46-3': 'Provided with special prizes:  Hallyu star concert tickets, electronic products, gift certificates, gift cards, etc.',
+    '47': 'Camp Participant Benefits',
   },
 
   //   온라인연수 소개 - 연수 편성표
@@ -157,13 +158,13 @@ export const en = {
     '1': 'About the OKFriends Youth Camp On-Line',
     '2': 'About OKF',
     '3': 'Program',
-    '4': '인사말',
-    '5': '개요',
+    '4': '',
+    '5': '',
     '6': '연수 편성표',
-    '7': 'Online Training',
-    '8': 'Course',
-    '9': 'Online training in advance',
-    '10': 'Course',
+    '7': 'Participants who have completed the required courses will be issued the',
+    '8': " 'certificate of completion'.",
+    '9': '',
+    '10': '',
   },
 
   // 연수실
