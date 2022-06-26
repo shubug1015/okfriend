@@ -5,7 +5,11 @@ import {
   TopLogo3,
   Facebook,
   HeaderLogoWhite,
+  HeaderLogoWhiteEn,
+  HeaderLogoWhiteRu,
   HeaderLogoBlack,
+  HeaderLogoBlackEn,
+  HeaderLogoBlackRu,
   Instagram,
   Youtube,
   MenuBar,
@@ -364,17 +368,19 @@ export default function Header() {
           >
             <Link href='/'>
               <a>
-                {isWhiteBg ? <HeaderLogoBlack /> : <HeaderLogoWhite />}
-                {/* <div className='relative h-12 w-28 md:h-10 md:w-24'>
-                  <Image
-                    src={isWhiteBg ? LogoBlack : LogoWhite}
-                    alt='Logo'
-                    layout='fill'
-                    objectFit='cover'
-                    placeholder='blur'
-                    quality={100}
-                  />
-                </div> */}
+                {isWhiteBg ?
+                  locale === 'ko'
+                    ? <HeaderLogoBlack />
+                    : locale === 'en'
+                      ? <HeaderLogoBlackEn />
+                      : <HeaderLogoBlackRu />
+                  :
+                    locale === 'ko'
+                      ? <HeaderLogoWhite />
+                      : locale === 'en'
+                        ? <HeaderLogoWhiteEn />
+                        : <HeaderLogoWhiteRu />
+                }
               </a>
             </Link>
           </div>

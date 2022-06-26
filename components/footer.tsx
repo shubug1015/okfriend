@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Youtube, FooterLogo } from '@components/svg';
+import { Facebook, Instagram, Youtube, FooterLogo, FooterLogoEn, FooterLogoRu } from '@components/svg';
 // import Layout from '@layouts/sectionLayout';
 import { useLocale } from '@libs/client/useLocale';
 import { cls, clsFilter } from '@libs/client/utils';
@@ -12,17 +12,11 @@ export default function Footer() {
     <footer className='w-screen bg-[#01111e] pt-14 pb-8 md:pt-10 md:pb-14'>
       <div className='mx-auto flex max-w-[1400px] md:flex-col md:items-center'>
         <div className='w-1/3 md:flex md:w-full md:justify-center'>
-          <FooterLogo />
-          {/* <div className='relative h-28 w-[16.8rem] md:h-14 md:w-32'>
-            <Image
-              src={Logo}
-              alt='Logo'
-              layout='fill'
-              objectFit='cover'
-              placeholder='blur'
-              quality={100}
-            />
-          </div> */}
+          { locale === 'ko'
+            ? <FooterLogo />
+            : locale === 'en'
+              ? <FooterLogoEn />
+              : <FooterLogoRu /> }
         </div>
 
         <div className='-mt-1.5 w-1/3 md:mt-0 md:flex md:w-full md:justify-center'>
