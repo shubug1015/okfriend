@@ -1,18 +1,12 @@
 import Banner from '@components/banner';
 import { NextPage } from 'next';
 import Image, { StaticImageData } from 'next/image';
-import Schedule1 from '@public/course-introduction/schedule-1.png';
-import Schedule2 from '@public/course-introduction/schedule-2.png';
-import ScheduleEn1 from '@public/course-introduction/schedule-en-1.png';
-import ScheduleEn2 from '@public/course-introduction/schedule-en-2.png';
-import ScheduleRu1 from '@public/course-introduction/schedule-ru-1.png';
-import ScheduleRu2 from '@public/course-introduction/schedule-ru-2.png';
-import Schedule1m from '@public/course-introduction/schedule-1-m.png';
-import Schedule2m from '@public/course-introduction/schedule-2-m.png';
-import ScheduleEn1m from '@public/course-introduction/schedule-en-1-m.png';
-import ScheduleEn2m from '@public/course-introduction/schedule-en-2-m.png';
-import ScheduleRu1m from '@public/course-introduction/schedule-ru-1-m.png';
-import ScheduleRu2m from '@public/course-introduction/schedule-ru-2-m.png';
+import Schedule from '@public/course-introduction/schedule.png';
+import ScheduleEn from '@public/course-introduction/schedule-en.png';
+import ScheduleRu from '@public/course-introduction/schedule-ru.png';
+import ScheduleMo from '@public/course-introduction/schedule-mo.png';
+import ScheduleEnMo from '@public/course-introduction/schedule-en-mo.png';
+import ScheduleRuMo from '@public/course-introduction/schedule-ru-mo.png';
 import Layout from '@layouts/sectionLayout';
 import MenuBar from '@components/greeting/menuBar';
 import SEO from '@components/seo';
@@ -33,7 +27,7 @@ const TrainingSchedule: NextPage = () => {
 
       <Layout>
         <div className='pt-[4.089rem] pb-[10.375rem] md:pt-6 md:pb-11'>
-          {/* 온라인연수 과정 */}
+          {/* 연수 편성표 */}
           <div
             className={cls(
               clsFilter(
@@ -45,12 +39,18 @@ const TrainingSchedule: NextPage = () => {
               'text-4xl font-bold leading-[3.15rem] text-[#01111e] md:text-xl'
             )}
           >
-            <span className='text-[#05aadb]'>{text.schedule['7']}</span>{' '}
-            {text.schedule['8']}
+            {text.schedule['7']}
+            <span className='text-[#05aadb]'>{text.schedule['8']}</span>{' '}
+            {text.schedule['9']}
           </div>
-          <div className='relative mt-[1.375rem] h-[961px] w-full md:hidden'>
+          <div
+            className={cls(
+              clsFilter(locale, 'h-[1023px]', 'h-[1023px]', 'h-[1083px]'),
+              'relative mt-[1.375rem] w-full md:hidden'
+            )}
+          >
             <Image
-              src={imgFilter(locale, Schedule1, ScheduleEn1, ScheduleRu1)}
+              src={imgFilter(locale, Schedule, ScheduleEn, ScheduleRu)}
               alt='Schedule Page Image 1'
               objectFit='cover'
               placeholder='blur'
@@ -60,54 +60,13 @@ const TrainingSchedule: NextPage = () => {
           </div>
           <div
             className={cls(
-              clsFilter(locale, 'h-[66.688rem]', 'h-[1120px]', 'h-[1120px]'),
+              clsFilter(locale, 'h-[2224px]', 'h-[2934px]', 'h-[3474px]'),
               'relative mt-[2.063rem] hidden w-full md:block'
             )}
           >
             <Image
-              src={imgFilter(locale, Schedule1m, ScheduleEn1m, ScheduleRu1m)}
+              src={imgFilter(locale, ScheduleMo, ScheduleEnMo, ScheduleRuMo)}
               alt='Schedule Page Image 1'
-              objectFit='cover'
-              placeholder='blur'
-              layout='fill'
-              quality={100}
-            />
-          </div>
-
-          {/* 사전온라인연수 과정 */}
-          <div
-            className={cls(
-              clsFilter(
-                locale,
-                'font-nexonBold',
-                'font-notoSans',
-                'font-notoSans'
-              ),
-              'mt-16 text-4xl font-bold leading-[3.15rem] text-[#01111e] md:mt-10 md:text-xl'
-            )}
-          >
-            <span className='text-[#05aadb]'>{text.schedule['9']}</span>{' '}
-            {text.schedule['10']}
-          </div>
-          <div className='relative mt-[1.375rem] h-[541px] w-full md:hidden'>
-            <Image
-              src={imgFilter(locale, Schedule2, ScheduleEn2, ScheduleRu2)}
-              alt='Schedule Page Image 1'
-              objectFit='cover'
-              placeholder='blur'
-              layout='fill'
-              quality={100}
-            />
-          </div>
-          <div
-            className={cls(
-              clsFilter(locale, 'h-[598px]', 'h-[598px]', 'h-[598px]'),
-              'relative mt-[0.875rem] hidden w-full md:block'
-            )}
-          >
-            <Image
-              src={imgFilter(locale, Schedule2m, ScheduleEn2m, ScheduleRu2m)}
-              alt='Schedule Page Image 2'
               objectFit='cover'
               placeholder='blur'
               layout='fill'
