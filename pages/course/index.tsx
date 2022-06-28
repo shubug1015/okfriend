@@ -11,14 +11,34 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import { useUser } from '@libs/client/useUser';
+import { useRouter } from 'next/router'
 
 const Course: NextPage = () => {
   const { locale, text } = useLocale();
-  const { profile } = useUser({ isPrivate: true });
+  const { isLoading: isProfileLoading, profile } = useUser({ isPrivate: true });
+  const router = useRouter();
+
+  useEffect(
+    () => {
+      if (isProfileLoading) {
+        return;
+      }
+
+      if (!isProfileLoading && profile == null) {
+        return;
+      }
+
+      router.push('/course/list/online/required/1');
+    },
+    [isProfileLoading, profile]
+  );
 
   useEffect(() => {
     AOS.init({ once: true });
   }, []);
+
+  return null;
+
   return (
     <>
       <SEO title='연수실' />
