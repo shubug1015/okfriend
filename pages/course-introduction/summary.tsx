@@ -356,7 +356,12 @@ const Greeting: NextPage = () => {
         </div>
 
         <div className='border-b border-[#e8e8e8] pt-[1.849rem] pb-[2.906rem] text-2xl text-[#01111e] md:pt-[1.281rem]'>
-          <div className='relative h-[488px] w-full md:hidden'>
+          <div
+            className={cls(
+              clsFilter(locale, 'h-[488px]', 'h-[552px]', 'h-[632px]'),
+              'relative w-full md:hidden'
+            )}
+          >
             <Image
               src={imgFilter(
                 locale,
