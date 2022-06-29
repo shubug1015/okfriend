@@ -350,7 +350,7 @@ const Greeting: NextPage = () => {
           >
             {text.summary['39']}
           </div>
-          <div className='mt-4 whitespace-pre-wrap text-[1.125rem] leading-[1.856rem] md:mt-[0.313rem] md:text-[0.875rem] md:leading-[1.444rem]'>
+          <div className='mt-4 whitespace-pre-wrap text-[1.125rem] leading-[1.856rem] md:mt-[0.313rem] md:text-[0.875rem] md:leading-[1.444rem]' style={{fontWeight: 'bold'}}>
             {text.summary['40']}
           </div>
         </div>
@@ -440,49 +440,49 @@ const Greeting: NextPage = () => {
         </div>
 
         {/* 우수 연수자 혜택 */}
-        <div className='border-b border-[#e8e8e8] pt-[2.531rem] pb-[2.531rem] text-2xl text-[#01111e] md:pb-[3.719rem] md:pt-[2.094rem] md:text-xl'>
-          <div
-            className={cls(
-              clsFilter(
-                locale,
-                'font-nexonBold',
-                'font-notoSans',
-                'font-notoSans'
-              ),
-              'font-bold leading-[2.25rem]'
-            )}
-          >
-            {text.summary['43']}
-          </div>
-          <div className='mt-4 text-[1.125rem] leading-[1.856rem] md:mt-[0.313rem] md:text-[0.875rem] md:leading-[1.444rem]'>
-            {text.summary['44']}
-          </div>
-          <div>
-            <div className='mt-[2.313rem] md:mt-7 md:mr-0'>
-              <div className='text-[1.125rem] leading-[1.688rem] font-[500]'>
-                {text.summary['45-1']}
-              </div>
-              <div className='relative mt-3'>
-                <ul className='text-[#6B6B6B] text-[18px]'>
-                  <li>{text.summary['45-2']}</li>
-                  <li>{text.summary['45-3']}</li>
-                  <li>{text.summary['45-4']}</li>
-                </ul>
-              </div>
-            </div>
-            <div className='mt-[2.313rem]'>
-              <div className='text-[1.125rem] leading-[1.688rem] font-[500]'>
-                {text.summary['46-1']}
-              </div>
-              <div className='relative mt-3'>
-                <ul className='text-[#6B6B6B] text-[18px]'>
-                  <li>{text.summary['46-2']}</li>
-                  <li>{text.summary['46-3']}</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/*<div className='border-b border-[#e8e8e8] pt-[2.531rem] pb-[2.531rem] text-2xl text-[#01111e] md:pb-[3.719rem] md:pt-[2.094rem] md:text-xl'>*/}
+        {/*  <div*/}
+        {/*    className={cls(*/}
+        {/*      clsFilter(*/}
+        {/*        locale,*/}
+        {/*        'font-nexonBold',*/}
+        {/*        'font-notoSans',*/}
+        {/*        'font-notoSans'*/}
+        {/*      ),*/}
+        {/*      'font-bold leading-[2.25rem]'*/}
+        {/*    )}*/}
+        {/*  >*/}
+        {/*    {text.summary['43']}*/}
+        {/*  </div>*/}
+        {/*  <div className='mt-4 text-[1.125rem] leading-[1.856rem] md:mt-[0.313rem] md:text-[0.875rem] md:leading-[1.444rem]'>*/}
+        {/*    {text.summary['44']}*/}
+        {/*  </div>*/}
+        {/*  <div>*/}
+        {/*    <div className='mt-[2.313rem] md:mt-7 md:mr-0'>*/}
+        {/*      <div className='text-[1.125rem] leading-[1.688rem] font-[500]'>*/}
+        {/*        {text.summary['45-1']}*/}
+        {/*      </div>*/}
+        {/*      <div className='relative mt-3'>*/}
+        {/*        <ul className='text-[#6B6B6B] text-[18px]'>*/}
+        {/*          <li>{text.summary['45-2']}</li>*/}
+        {/*          <li>{text.summary['45-3']}</li>*/}
+        {/*          <li>{text.summary['45-4']}</li>*/}
+        {/*        </ul>*/}
+        {/*      </div>*/}
+        {/*    </div>*/}
+        {/*    <div className='mt-[2.313rem]'>*/}
+        {/*      <div className='text-[1.125rem] leading-[1.688rem] font-[500]'>*/}
+        {/*        {text.summary['46-1']}*/}
+        {/*      </div>*/}
+        {/*      <div className='relative mt-3'>*/}
+        {/*        <ul className='text-[#6B6B6B] text-[18px]'>*/}
+        {/*          <li>{text.summary['46-2']}</li>*/}
+        {/*          <li>{text.summary['46-3']}</li>*/}
+        {/*        </ul>*/}
+        {/*      </div>*/}
+        {/*    </div>*/}
+        {/*  </div>*/}
+        {/*</div>*/}
 
         {/* 연수 참가자 혜택 */}
         <div className='border-b border-[#e8e8e8] pt-[2.531rem] pb-[6.938rem] text-2xl text-[#01111e] md:pb-[3.719rem] md:pt-[2.094rem] md:text-xl'>
