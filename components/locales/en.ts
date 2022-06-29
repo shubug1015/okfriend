@@ -41,7 +41,7 @@ export const en = {
 
   //   메인페이지
   main: {
-    '1': ' 2022 OKFriends Youth Camp On-Line',
+    '1': ' 2022 OKFriends Teens Camp On-Line',
     '2': 'It is an online platform where Overseas Koreans and Domestic participants can experience the\nfuture of new changes by communicate and exchange',
     '3': '',
     '4': 'Notice',
@@ -91,7 +91,7 @@ export const en = {
   
   //   온라인연수 소개 - 개요
   summary: {
-    '1': 'About the OKFriends Youth Camp On-Line',
+    '1': 'About the OKFriends Teens Camp On-Line',
     '2': 'About OKF',
     '3': 'About',
     '4': 'Greetings',
@@ -155,7 +155,7 @@ export const en = {
 
   //   온라인연수 소개 - 연수 편성표
   schedule: {
-    '1': 'About the OKFriends Youth Camp On-Line',
+    '1': 'About the OKFriends Teens Camp On-Line',
     '2': 'About OKF',
     '3': 'Program',
     '4': '',
@@ -280,7 +280,7 @@ export const en = {
   },
 
   courseSurvey: {
-    '1': 'Survey on lectures from the 2022 OKFriends\nYouth Camp On-Line',
+    '1': 'Survey on lectures from the 2022 OKFriends\nTeens Camp On-Line',
     '2': '',
     '3': 'This survey is designed to improve the quality of the lecture by collecting opinions\nfrom the students. We ask for your sincere response.',
     '4': 'Strongly disagree 1 / Strongly agree 5',
@@ -310,7 +310,7 @@ export const en = {
 
   //   연수이야기 - 홍보 영상
   video: {
-    '1': '2022 OKFriends Youth Camp On-Line',
+    '1': '2022 OKFriends Teens Camp On-Line',
     '2': 'Video',
   },
 
@@ -383,16 +383,16 @@ export const en = {
 
   //   지원센터 - 공지사항
   faq: {
-    '1': 'How do I participate in the 2022 OKFriends Youth Camp On-Line?',
+    '1': 'How do I participate in the 2022 OKFriends Teens Camp On-Line?',
     '2': 'You can participate by accessing the online camp website (www.okfteenscamp.kr) and registering as a member.\n\n[Period of application for the camp]\n2022. 05. 12 (Thu) ~ 2022. 06. 30 (Thu) (based on KST) * May close early depending on circumstances',
     '3': 'Is the online camp free of charge?',
     '4': 'Yes! This online camp is free for all participants, and there is no additional charge.',
-    '5': 'I am an 18-year-old prospective college student. Is it possible to participate in the 2022 OKFriends Youth Camp On-Line?',
-    '6': 'Considering the different academic system by country, 18-year-old prospective college students can apply for the camp and decide the kind of camp (youth, college students).',
-    '7': 'I have participated in the previous OKFriends Homecoming Youth Camp. Can I still participate in the 2022 OKFriends Youth Camp On-Line?',
-    '8': 'Yes! Even if you have previously participated in the OKFriends Homecoming Youth Camp, you can still participate in the 2022 OKFriends Youth Camp On-Line.',
-    '9': 'What is the schedule of the 2022 OKFriends Youth Camp On-Line?',
-    '10': 'The 2022 OKFriends Youth Camp On-Line is divided into 4 sessions, and it will run for 4 months. \n– 1st term: 2022.7.1.(Fri)~7.31(Sun).\n– 2nd term: 2022.8.1.(Mon)~8.31.(Wed)\n– 3rd term: 2022.9.1.(Thu) ~ 9.30.(Fri)\n- 4th term : 2022.10.1.(Sat) ~ 10.31.(Mon)\n*(based on KST)',
+    '5': 'I am an 18-year-old prospective college student. Is it possible to participate in the 2022 OKFriends Teens Camp On-Line?',
+    '6': 'Considering the different academic system by country, 18-year-old prospective college students can apply for the camp and decide the kind of camp (Teens, college students).',
+    '7': 'I have participated in the previous OKFriends Homecoming Teens Camp. Can I still participate in the 2022 OKFriends Teens Camp On-Line?',
+    '8': 'Yes! Even if you have previously participated in the OKFriends Homecoming Teens Camp, you can still participate in the 2022 OKFriends Teens Camp On-Line.',
+    '9': 'What is the schedule of the 2022 OKFriends Teens Camp On-Line?',
+    '10': 'The 2022 OKFriends Teens Camp On-Line is divided into 4 sessions, and it will run for 4 months. \n– 1st term: 2022.7.1.(Fri)~7.31(Sun).\n– 2nd term: 2022.8.1.(Mon)~8.31.(Wed)\n– 3rd term: 2022.9.1.(Thu) ~ 9.30.(Fri)\n- 4th term : 2022.10.1.(Sat) ~ 10.31.(Mon)\n*(based on KST)',
     '15': 'I want to check the list of courses I have taken so far. How can I check?',
     '16': 'On My Page, you can check the list of courses you have completed and are in progress.',
     '17': 'I want to check the mileage saving status. How can I check?',
@@ -400,12 +400,12 @@ export const en = {
     // '19': 'How can I use my mileage?',
     // '20': 'We provide various benefits by selecting excellent participants for each session based on the mileage points saving during the camp.\n\n[For overseas Korean university students]\nWhen participating in offline camp in 2023\n1) Top 5% of graduates: Additional 5% of airfare is provided for offline participation in the next year, and priority selection is given for offline participation in the next year\n2) Top 30% of graduates: Priority selection is given for offline participation in the next year\n3) All those who completed the course: Additional points are given for offline participation in the next year\n\n[For domestic university students]\n1) Top 50 graduates: Opportunity to participate in Unification Public Diplomacy Camp at the end of the camp\n2) Other recipients: Gift vouchers or e-vouchers are provided through events',
     '21': 'Can I participate in the online camp only with a PC?',
-    '22': 'You can participate in the  2022 OKFriends Youth Camp On-Line by using various electronic devices such as PCs, mobiles, and tablets!',
+    '22': 'You can participate in the  2022 OKFriends Teens Camp On-Line by using various electronic devices such as PCs, mobiles, and tablets!',
     '23': 'Which browser should I use to participate in the online camp?',
     '24': 'Wired internet is recommended for a stable internet environment when participating in the online camp. Network communication may not be smooth when participating in the camp by connecting Wi-Fi and a hotspot.\n\n*If you cannot connect to Firefox, please use Chrome or the latest browser. If you cannot connect to Chrome, please use Firefox or another latest browser.',
     '25': 'How can I get a certificate of completion?',
     '26': 'Certificate of completion can be issued through the ‘Support Center → Issue of certificates of Completion’ page after completing all contents within the required course. However, please note that the certificate can only be issued within the specified period.\n※The period of certificate issuance will be announced through a notice later.',
-    '27': 'I have a question about the  2022 OKFriends Youth Camp On-Line! Where should I ask?',
+    '27': 'I have a question about the  2022 OKFriends Teens Camp On-Line! Where should I ask?',
     '28': 'If you contact us through the ‘1:1 inquiries’ of the support center on the homepage, we will kindly answer your questions.',
   },
 
