@@ -78,12 +78,12 @@ export default function Popup({ id, closePopup }: IProps) {
     console.log(errors);
   };
 
-  useEffect(() => {
-    disableBodyScroll(document.body);
-    return () => {
-      enableBodyScroll(document.body);
-    };
-  }, []);
+  // useEffect(() => {
+  //   disableBodyScroll(document.body);
+  //   return () => {
+  //     enableBodyScroll(document.body);
+  //   };
+  // }, []);
   return (
     <div
       onClick={closePopup}
