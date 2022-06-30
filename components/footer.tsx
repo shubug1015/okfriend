@@ -25,7 +25,7 @@ export default function Footer() {
             <br />
             82-2-2137-2402
             <br />
-            okfteencamp@gmail.com
+            okfteenscamp@gmail.com
           </div>
 
           <div className='mt-10 text-sm text-[#d6d6d6] md:hidden'>{text.footer['2']}</div>
