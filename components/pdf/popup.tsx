@@ -99,12 +99,12 @@ export default function Popup() {
     console.log(errors);
   };
 
-  useEffect(() => {
-    disableBodyScroll(document.body);
-    return () => {
-      enableBodyScroll(document.body);
-    };
-  }, []);
+  // useEffect(() => {
+  //   disableBodyScroll(document.body);
+  //   return () => {
+  //     enableBodyScroll(document.body);
+  //   };
+  // }, []);
   return (
     <div className='fixed top-0 left-0 z-[50] flex h-screen w-screen items-center justify-center overflow-y-scroll bg-[rgba(0,0,0,0.2)]'>
       <motion.div
