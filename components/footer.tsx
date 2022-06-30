@@ -23,7 +23,7 @@ export default function Footer() {
           <div className='text-[#d6d6d6] md:mt-3.5 md:text-center md:text-[0.688rem]'>
             {text.footer['1']}
             <br />
-            82-2-2137-2402
+            82-2-2138-2420
             <br />
             okfteenscamp@gmail.com
           </div>
