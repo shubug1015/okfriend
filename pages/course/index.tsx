@@ -81,7 +81,7 @@ const redirectToMainPageIfVideoWatchIsDisabledByTerm = async ({profile, router}:
     await router.push('/');
   }
 
-  return { blocked: true };
+  return { blocked: errorMessage != null };
 };
 
 const Course: NextPage = () => {
