@@ -66,11 +66,11 @@ const CourseDetail: NextPage<IProps> = ({ slug }) => {
   {
     const toStringIfNotNull = (a: string | null | undefined) => a != null ? a.toString() : a;
 
-    usePreventConcurrentWatch({
-      userId: toStringIfNotNull(user?.profile?.id),
-      courseId: toStringIfNotNull(courseData?.id),
-      videoElem,
-    });
+    // usePreventConcurrentWatch({
+    //   userId: toStringIfNotNull(user?.profile?.id),
+    //   courseId: toStringIfNotNull(courseData?.id),
+    //   videoElem,
+    // });
   }
 
   return (
