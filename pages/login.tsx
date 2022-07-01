@@ -38,6 +38,43 @@ const Login: NextPage = () => {
       data: { token, profile },
     } = await axios.get('/api/user');
     mutate({ ok: true, token, profile });
+
+    {
+      console.log(profile);
+
+      if (profile == null) {
+        return;
+      }
+
+      // If the user's name is empty, ask for it.
+      let newName: string | undefined;
+      if (profile.name.includes('?')) {
+        newName = prompt('한국어 이름을 정확하게 입력해주세요(ex. 홍길동)\nEnter your Korean name correctly.(ex. 홍길동)') ?? undefined;
+      }
+
+      let newCountry: string | undefined;
+      if (profile.country.includes('?')) {
+        newCountry = prompt('국가를 정확하게 입력해주세요(ex. 대한민국)\nEnter your country name correctly.(ex. England)') ?? undefined;
+      }
+
+      if (newName != null || newCountry != null) {
+        try {
+          await axios({
+            method: 'post',
+            // url: `/users/change_user_data/`,
+            url: `https://api.okfteenscamp.kr/users/change_user_data/`,
+            data: {
+              id: profile.id,
+              name: newName ?? profile.name,
+              country: newCountry ?? profile.country,
+            },
+          });
+        } catch (error: any) {
+          console.error(error);
+          alert('유저 정보를 업데이트하는데 오류가 발생하였습니다.');
+        }
+      }
+    }
   };
   const onInvalid = (errors: FieldErrors) => {
     console.log(errors);
