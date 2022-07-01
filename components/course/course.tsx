@@ -65,9 +65,9 @@ export default function Course({
       <div className='px-5 pb-5'>
         <div className='text-xl font-bold text-white'>{name}</div>
 
-        <div className='mt-1 text-white'>
-          {tutor.name} {text.course['7']}
-        </div>
+        {/*<div className='mt-1 text-white'>*/}
+        {/*  {tutor.name} {text.course['7']}*/}
+        {/*</div>*/}
       </div>
     </div>
   );
