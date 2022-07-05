@@ -117,6 +117,22 @@ export default function Detail({
     return () => clearInterval(intervalId);
   }, [isPlaying, progress, currentProgress]);
 
+  useEffect(() => {
+    const impl = async () => {
+      const videoElem: any = videoPlayerRef.current as any;
+
+      if (videoElem == null) {
+        return;
+      }
+
+      const theProgress = currentProgress ?? progress;
+
+      await setProgress(theProgress);
+    };
+
+    impl();
+  }, [popup]);
+
   return (
     <>
       <div>
