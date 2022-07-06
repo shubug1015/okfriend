@@ -282,11 +282,11 @@ const SignUp: NextPage = () => {
                           required: text.signupError['11'],
                           minLength: {
                             message: text.signupError['12'],
-                            value: 2,
+                            value: 1,
                           },
                           maxLength: {
                             message: text.signupError['13'],
-                            value: 5,
+                            value: 100,
                           },
                         })}
                         className={cls(
@@ -308,11 +308,11 @@ const SignUp: NextPage = () => {
                           required: text.signupError['14'],
                           minLength: {
                             message: text.signupError['15'],
-                            value: 2,
+                            value: 1,
                           },
                           maxLength: {
                             message: text.signupError['16'],
-                            value: 20,
+                            value: 100,
                           },
                         })}
                         className={cls(
