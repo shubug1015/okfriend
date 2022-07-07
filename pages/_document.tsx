@@ -64,8 +64,9 @@ src=“https://www.facebook.com/tr?id=605386027285587&ev=PageView&noscript=1”
   />`,
           }}/>
           {/* Kakao Pixel Code */}
-          <script async charSet="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"/>
+          <script async type="text/javascript" charSet="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"/>
           <script
+            type="text/javascript"
             dangerouslySetInnerHTML={{
               __html: `
                   kakaoPixel('2533108682017256385').pageView();
