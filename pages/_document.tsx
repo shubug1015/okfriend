@@ -64,7 +64,7 @@ src=“https://www.facebook.com/tr?id=605386027285587&ev=PageView&noscript=1”
   />`,
           }}/>
           {/* Kakao Pixel Code */}
-          <script async type="text/javascript" charSet="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"/>
+          <script async={false} type="text/javascript" charSet="UTF-8" src="https://t1.daumcdn.net/adfit/static/kp.js"/>
           <script
             type="text/javascript"
             dangerouslySetInnerHTML={{
