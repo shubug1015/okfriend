@@ -30,7 +30,7 @@ class CustomDocument extends Document<IProps> {
           />
           {/* GA Code */}
           <script
-            async
+            async={true}
             src='https://www.googletagmanager.com/gtag/js?id=AW-10904595216'
           />
           <script
@@ -44,28 +44,31 @@ class CustomDocument extends Document<IProps> {
               `,
             }}
           />
+
           {/* Meta Pixel Code */}
           <script
+            type="text/javascript"
             dangerouslySetInnerHTML={{
-              __html: `!function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version=‘2.0’;
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,‘script’,
-      ‘https://connect.facebook.net/en_US/fbevents.js’);
-      fbq(‘init’, ‘1199477984136975’);
-      fbq(‘track’, ‘PageView’);`,
+              __html: `
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '3293195307629451');
+fbq('track', 'PageView');
+              `,
             }}/>
           <noscript dangerouslySetInnerHTML={{
-            __html: `<img height=“1” width=“1" style=“display:none”
-src=“https://www.facebook.com/tr?id=1199477984136975&ev=PageView&noscript=1”
-  />`,
+            __html: `<img height="1" width="1" style="display:none" src=“https://www.facebook.com/tr?id=3293195307629451&ev=PageView&noscript=1”/>`,
           }}/>
           {/* Kakao Pixel Code */}
-          <script async charSet="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"/>
+          <script async={false} type="text/javascript" charSet="UTF-8" src="https://t1.daumcdn.net/adfit/static/kp.js"/>
           <script
+            type="text/javascript"
             dangerouslySetInnerHTML={{
               __html: `
                   kakaoPixel('7656243295180143145').pageView();
