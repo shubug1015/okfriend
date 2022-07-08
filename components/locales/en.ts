@@ -694,8 +694,8 @@ export const en = {
     // 회원가입 첫화면
     '35': 'Sign up',
     '36': 'Please select a subscription type.',
-    '37': 'a domestic university student',
-    '38': 'a Korean-American student abroad',
+    '37': 'Domestic university student',
+    '38': 'Overseas Korean university student',
   },
 
   //회원가입 에러메시지
