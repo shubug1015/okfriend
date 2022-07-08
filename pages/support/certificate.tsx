@@ -112,6 +112,10 @@ const Certificate: NextPage = () => {
   //   router.back();
   // }
   useEffect(() => {
+    alert(text.certificateError['9']);
+    router.back();
+    return;
+
     if (data === 'there are uncompleted lectures') {
       alert(text.certificateError['2']);
       router.back();
