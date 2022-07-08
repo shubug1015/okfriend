@@ -89,9 +89,11 @@ const SignUp: NextPage = () => {
     } = await axios.get('/api/user');
 
     if(token) {
+      // @ts-ignore
       window.gtag('event', 'conversion', {'send_to': 'AW-10904595216/e2I4CK3Y6cEDEJDW288o'});
-      // window.kakaoPixel('7656243295180143145').pageView();
+      // @ts-ignore
       window.kakaoPixel('7656243295180143145').completeRegistration();
+      // @ts-ignore
       window.fbq('track', 'CompleteRegistration');
     }
 
