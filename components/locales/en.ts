@@ -60,6 +60,7 @@ export const en = {
     '17': 'Instructor',
     '18': 'Support Center',
     '19': '1:1 Inquries',
+    '20': 'Past training materials',
   },
 
   //   온라인연수 소개 - 인사말

@@ -10,15 +10,21 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useLocale } from '@libs/client/useLocale';
 
+const prevLectures = '지난 연수 자료';
+
 export default function Course() {
   const { locale, text } = useLocale();
   const [category, setCategory] = useState('필수 차시');
-  const request =
+  let request: string =
     category === '라이브 차시'
       ? '온라인 연수 - LIVE 차시'
       : category === '필수 차시'
       ? '온라인 연수 - 필수차시'
       : '온라인 연수 - 선택차시';
+  if (category === prevLectures) {
+    request = '온라인 연수 - 지난 연수 자료';
+  }
+
   const { data } = useSWR(`${locale}/onlineCourseList/${request}`, () =>
     courseApi.getCourseList(locale, request, '1')
   );
@@ -121,6 +127,18 @@ export default function Course() {
               )}
             >
               {text.main['11']}
+            </div>
+
+            <div
+              onClick={() => setCategory(prevLectures)}
+             className={cls(
+                category === prevLectures
+                  ? 'border-b-4 border-[#2fb6bc] pb-2 text-[#2fb6bc] md:border-b-2 md:pb-1'
+                  : 'text-[#9e9e9e]',
+                'cursor-pointer transition-colors'
+              )}
+            >
+              {text.main['20']}
             </div>
           </div>
 
