@@ -75,22 +75,30 @@ const Course: NextPage = () => {
                 {text.course['3']}
               </div>
 
-              {profile?.pre_training || profile?.is_superuser ? (
-                <Link href='/course/list/pre-online/required/1'>
-                  <a>
-                    <div className='invisible flex h-[3.75rem] w-44 translate-y-4 cursor-pointer items-center justify-center rounded-lg border border-white bg-[rgba(0,0,0,0.5)] text-xl font-bold text-white opacity-0 transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 md:h-14 md:w-36 md:text-lg'>
-                      {text.course['4']}
-                    </div>
-                  </a>
-                </Link>
-              ) : (
-                <div
-                  onClick={() => alert(text.course['8'])}
-                  className='invisible flex h-[3.75rem] w-44 translate-y-4 cursor-pointer items-center justify-center rounded-lg border border-white bg-[rgba(0,0,0,0.5)] text-xl font-bold text-white opacity-0 transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 md:h-14 md:w-36 md:text-lg'
-                >
-                  {text.course['4']}
-                </div>
-              )}
+              <Link href='/course/list/pre-online/required/1'>
+                <a>
+                  <div className='invisible flex h-[3.75rem] w-44 translate-y-4 cursor-pointer items-center justify-center rounded-lg border border-white bg-[rgba(0,0,0,0.5)] text-xl font-bold text-white opacity-0 transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 md:h-14 md:w-36 md:text-lg'>
+                    {text.course['4']}
+                  </div>
+                </a>
+              </Link>
+
+              {/*{profile?.pre_training || profile?.is_superuser ? (*/}
+              {/*  <Link href='/course/list/pre-online/required/1'>*/}
+              {/*    <a>*/}
+              {/*      <div className='invisible flex h-[3.75rem] w-44 translate-y-4 cursor-pointer items-center justify-center rounded-lg border border-white bg-[rgba(0,0,0,0.5)] text-xl font-bold text-white opacity-0 transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 md:h-14 md:w-36 md:text-lg'>*/}
+              {/*        {text.course['4']}*/}
+              {/*      </div>*/}
+              {/*    </a>*/}
+              {/*  </Link>*/}
+              {/*) : (*/}
+              {/*  <div*/}
+              {/*    onClick={() => alert(text.course['8'])}*/}
+              {/*    className='invisible flex h-[3.75rem] w-44 translate-y-4 cursor-pointer items-center justify-center rounded-lg border border-white bg-[rgba(0,0,0,0.5)] text-xl font-bold text-white opacity-0 transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 md:h-14 md:w-36 md:text-lg'*/}
+              {/*  >*/}
+              {/*    {text.course['4']}*/}
+              {/*  </div>*/}
+              {/*)}*/}
             </div>
             {/* 사전 온라인연수 */}
 
