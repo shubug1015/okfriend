@@ -241,6 +241,7 @@ export const en = {
     '21': 'curriculum',
     '22': 'Is this an online course?',
     '23': 'Yes, you can watch all the courses we provide on web browsers.',
+    '24': 'You watched the video to the end, but there was a part that was skipped in the middle, so it wasn\'t hardened.\nPlease watch the skipped part of the video, set the progress rate at the bottom to 100%, and proceed with the "Required Survey" on the right.',
   },
 
   //   연수실 - 상세페이지 에러메시지

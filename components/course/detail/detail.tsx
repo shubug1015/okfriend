@@ -134,6 +134,12 @@ export default function Detail({
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
                 onEnded={() => {
+                  if (progress < 95) {
+                    const alertMessage = text.courseDetail['24'];
+                    alert(alertMessage);
+                    return;
+                  }
+
                   setProgress(100);
                   category !== 'past' && !survey ? setPopup(true) : null;
                 }}
