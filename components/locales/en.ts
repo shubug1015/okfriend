@@ -88,7 +88,7 @@ export const en = {
     '20-1': '2022 OKFriends Teens Camp Online is a program designed to allow overseas Korean teens around the world to experience the society, culture, history, and traditions of their home country, Korea. \nWe have prepared a variety of programs to help participating teens reaffirm their roots and increase their pride as a Korean person.\nIt will unite you into the Korean community, broaden your horizons, and serve as a steppingstone for your future.\nI would like to express my gratitude to Kim Sung-Gon, chairman of the Overseas Koreans Foundation, and other related parties for their hard work in the growth of the next generation of overseas Koreans.\nI would specially like to express my gratitude to everyone who has worked hard in developing contents of the teens camp online.\nI am confident that all our combined efforts will make the 2022 OKFriends Teens Camp Online a global Korean festival.\nOnce again, I welcome you and hope you have a beneficial time getting to know Korea during the course period.',
     '20-2': 'Secretary General, The National Council of\nYMCAs of Korea (NCYK)\nKim Gyeong-Min',
   },
-  
+
   //   온라인연수 소개 - 개요
   summary: {
     '1': 'About the OKFriends Teens Camp On-Line',
@@ -705,8 +705,8 @@ export const en = {
     // 회원가입 첫화면
     '35': 'Sign up',
     '36': 'Please select a subscription type.',
-    '37': 'a domestic university student',
-    '38': 'a Korean-American student abroad',
+    '37': 'Domestic university student',
+    '38': 'Overseas Korean university student',
   },
 
   //회원가입 에러메시지
