@@ -90,9 +90,9 @@ const SignUp: NextPage = () => {
 
     if(token) {
       // @ts-ignore
-      window.gtag('event', 'conversion', {'send_to': 'AW-10904595216/e2I4CK3Y6cEDEJDW288o'});
+      window.gtag('event', 'conversion', {'send_to': 'AW-10924881447/L80_CLqQ-sQDEKfssdko'});
       // @ts-ignore
-      window.kakaoPixel('7656243295180143145').completeRegistration();
+      window.kakaoPixel('2533108682017256385').completeRegistration();
       // @ts-ignore
       window.fbq('track', 'CompleteRegistration');
     }
