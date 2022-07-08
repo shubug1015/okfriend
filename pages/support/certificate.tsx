@@ -101,6 +101,11 @@ const Certificate: NextPage = () => {
     console.log(errors);
   };
 
+  useEffect(() => {
+    alert(text.certificateError['9']);
+    router.back();
+    return;
+  }, [data]);
   // useEffect(() => {
   //   if (profile?.survey) {
   //     setPopup(true);

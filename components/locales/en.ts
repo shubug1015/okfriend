@@ -567,6 +567,7 @@ export const en = {
     '6': 'Year',
     '7': 'Month',
     '8': 'Date',
+    '9': 'This is not the period during which the certificate can be issued.',
   },
 
   // 로그인
